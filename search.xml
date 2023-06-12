@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Hello World</title>
+    <url>/2023/06/10/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>如何使用hexo</title>
+    <url>/2023/06/10/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hexo/</url>
+    <content><![CDATA[<p>typora该说不说的，确实是一款比较优秀的Markdown编辑工具，使用快捷键的方式可以快速编辑出布局漂亮的文档。但是存在以下几个问题：</p>
+<ol>
+<li>图片只能本地保存。</li>
+<li>文档只能本地保存。</li>
+</ol>
+<p>该说不说地，这确实是两大痛点。</p>
+<p>这个主要是来解决第一个痛点，图片只能保存在本地。</p>
+<p>具体痛点体现在：写完文章之后，如果文章内有图片的话，只能在本地阅览，或者导出pdf后阅览。但是如果想传到网上的话，直接出现照片无法显示。</p>
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>使用picgo可以解决图片保存到本地的痛点。</p>
+<p>首先，下载picgo软件，然后安装成功后出现这个界面：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306101640369.png" alt="image-20220713165016626"></p>
+<p>之前有gitee版本的，但是现在听说gitee开发了新的功能，去除外链了。不能用了。</p>
+<p>具体可以百度<code>typora+gitee+picgo</code></p>
+<p>本方案采用的typora+picgo+aliyunOSS</p>
+<p>安装好picgo之后，上阿里云官网上，注册oss，然后创建bucket。这么说可能有点抽象，先看picgo上需要的阿里云的oss信息：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306101640347.png" alt="image-20220713165302352"></p>
+<p>点击最左侧的图床设置，里面有阿里云OSS设置，然后进去之后有这个页面：</p>
+<p>设定KeyId、设定KeySecret：官网上个人用户：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306101640322.png" alt="image-20220713165450210"></p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306101640371.png" alt="image-20220713165514011"></p>
+<p>创建好了之后，将key和sucret保存好，填到里面。</p>
+<p>接下来创建bucket，在搜索栏搜索oss就可以进入到这个界面：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306101640430.png" alt="image-20220713165636864"></p>
+<p>点击bucket列表：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306101640354.png" alt="image-20220713165712007"></p>
+<p>bucket名称，随便填。</p>
+<p>地域建议选北京</p>
+<p>存储类型不用改。</p>
+<p>读写一定写成公共读写</p>
+<p>点击完成之后就可以了。</p>
+<p>最后在‘设定存储空间名’上写上创建的bucket名称，确定存储区域：写北京就行。</p>
+<p>点击确定完成picgo的设置。</p>
+<hr>
+<p>在typora上的设置，点击左上角文件，找到偏好设置：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306101640733.png" alt="image-20220713170037149"></p>
+<p>这么设置在typora上面就可以截图粘贴过来自动上传到阿里云oss上面了。</p>
+]]></content>
+  </entry>
+</search>
