@@ -149,6 +149,8 @@
                     </div>
                     <div class="card-tag-cloud">
                         
+                            <a href="/tags/%E8%BF%91%E5%86%B5/" style="font-size: 0.8rem; color: #d3d3d3">近况<sup>1</sup></a>
+                        
                     </div>
                 </div>
                 <div class="console-card history" onclick="acrylic.hideConsole()">
@@ -157,7 +159,7 @@
      
         <li class="card-archive-list-item"><a class="card-archive-list-link" onclick="pjax.loadUrl('/archives/2023-06/')" data-pjax-state=""><span
             class="card-archive-list-date">2023-06</span>
-            <div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span
+            <div class="card-archive-list-count-group"><span class="card-archive-list-count">3</span><span
                     class="card-archive-list-count-unit">篇</span></div>
             </a>
         </li>
@@ -304,6 +306,10 @@
                 <span>标签</span>
             </div>
             <div class="card-tag-cloud">
+                
+                    <a href="/tags/%E8%BF%91%E5%86%B5/" style="font-size: 1em; color: #d3d3d3">近况
+                        <sup>1</sup>
+                    </a>
                 
             </div>
         </div>
@@ -517,6 +523,11 @@
                 <time datetime="2023-06-10T15:10:02+08:00"></time>
             </span>
             
+                <span class="post-meta-date" title="更新于">
+                    <i class="post-meta-icon fa-solid fa-clock-rotate-left"></i>
+                    <time datetime="2023-06-10T15:10:02+08:00"></time>
+                </span>
+            
             
                 <span class="post-meta-position" title="作者IP归属地为中国-天津">
                     <i class="fas fa-location-dot post-meta-icon"></i>
@@ -525,6 +536,13 @@
             
             
             
+            
+                <span class="post-meta-commentcount" title="评论数">
+                    <i class="fa-solid fa-message"></i>
+                    <a href="#post-comment">
+                        <span id="twikoo-count"><i class="fas fa-spinner fa-pulse"></i></span>
+                    </a>
+                </span>
                 
         </div>
     </div>
@@ -662,6 +680,20 @@
             }
         )
         await twikoo.init(initOptions)
+        
+            var countOptions = Object.assign(
+                {"envId":null,"path":"window.location.pathname"},
+                { 
+                    urls: [window.location.pathname],
+                    includeReply: false
+                }
+            )
+            const res = await twikoo.getCommentsCount(countOptions)
+            try{
+                document.getElementById('twikoo-count').innerText = res[0].count
+            }catch (e) {
+                document.getElementById('twikoo-count').innerText = '加载错误'
+            }
              
     }
 </script>
@@ -725,6 +757,25 @@
     </div>
     <div class="aside-list">
         
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2023/06/12/%E9%83%A8%E7%BD%B2hexo-acrylic%E4%B8%BB%E9%A2%98/" title="我的近况">
+                    <img
+                        alt="我的近况"
+                        src="/img/hello.jpg">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2023/06/12/%E9%83%A8%E7%BD%B2hexo-acrylic%E4%B8%BB%E9%A2%98/">
+                            随想
+                        </a>
+                    
+                    <a class="title" href="/2023/06/12/%E9%83%A8%E7%BD%B2hexo-acrylic%E4%B8%BB%E9%A2%98/" title="我的近况">
+                        我的近况
+                    </a>
+                </div>
+            </div>
+                
         
             <div class="aside-list-item">
                 <a class="thumbnail" href="/2023/06/10/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hexo/" title="如何使用hexo">
@@ -971,4 +1022,4 @@
     
     </body>
 </html>
-<script>const posts=["2023/06/10/如何使用hexo/","2023/06/10/hello-world/"];function toRandomPost(){ window.pjax ? pjax.loadUrl('/'+posts[Math.floor(Math.random()*posts.length)]) : window.open('/'+posts[Math.floor(Math.random()*posts.length)], "_self"); };</script>
+<script>const posts=["2023/06/12/部署hexo-acrylic主题/","2023/06/10/如何使用hexo/","2023/06/10/hello-world/"];function toRandomPost(){ window.pjax ? pjax.loadUrl('/'+posts[Math.floor(Math.random()*posts.length)]) : window.open('/'+posts[Math.floor(Math.random()*posts.length)], "_self"); };</script>
