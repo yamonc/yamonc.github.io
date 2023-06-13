@@ -273,4 +273,121 @@
         <tag>近况</tag>
       </tags>
   </entry>
+  <entry>
+    <title>hexo-Acrylic主题集成twikoo评论</title>
+    <url>/2023/06/13/hexo-Acrylic%E4%B8%BB%E9%A2%98%E9%9B%86%E6%88%90twikoo%E8%AF%84%E8%AE%BA/</url>
+    <content><![CDATA[<h1 id="hexo-Acrylic主题集成twikoo评论"><a href="#hexo-Acrylic主题集成twikoo评论" class="headerlink" title="hexo-Acrylic主题集成twikoo评论"></a>hexo-Acrylic主题集成twikoo评论</h1><p>虽然hexo使用了Acrylic的主题，但是评论模块一直没有打开，官方给出的文档也没有相关的文档，所以上网上找到了一篇参考，做了一些详细的配置。</p>
+<p>主要完成的是评论模块的功能实现，增加、提醒等功能。具体可以查看twikoo<a href="https://twikoo.js.org/">文档</a></p>
+<p>twikoo文档上给出了很多部署的方式，主要分两类，一个是云函数的部署，另外一种是前端部署。</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131714157.png" alt="image-20230613171408109"></p>
+<p>这里使用的是Vercel部署。</p>
+<h2 id="Vercel部署"><a href="#Vercel部署" class="headerlink" title="Vercel部署"></a>Vercel部署</h2><p>主要的部署流程：</p>
+<ol>
+<li>申请mongodb账号</li>
+<li>创建免费的mongodb数据库，区域的话，可以选择hongkang。</li>
+<li>查看配置信息，在clusters页面上点击connect，然后选择Driver，复制数据库信息。</li>
+<li>申请Vercel账号。</li>
+<li>将twikoo一键部署到Vercel上</li>
+<li>在Vercel上，找到Setting-Environment Variable，添加MONGODB_URI，值为第3步的数据库信息。</li>
+<li>进入 Deployments , 然后在任意一项后面点击更多（三个点） , 然后点击Redeploy , 最后点击下面的Redeploy。</li>
+<li>进入 Overview，点击 Domains 下方的链接，如果环境配置正确，可以看到 “Twikoo 云函数运行正常” 的提示。</li>
+<li>Vercel Domains（包含 <code>https://</code> 前缀，例如 <code>https://xxx.vercel.app</code>）即为您的环境 id。</li>
+</ol>
+<h3 id="主要流程"><a href="#主要流程" class="headerlink" title="主要流程"></a>主要流程</h3><h4 id="mongodb上的操作"><a href="#mongodb上的操作" class="headerlink" title="mongodb上的操作"></a>mongodb上的操作</h4><p>正常流程注册就行，应该可以使用github注册的。注册OK了之后，会有引导，选择最右侧免费的cluster（土豪忽略这个），然后进行配置：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131721646.png" alt="创建页面"></p>
+<p>这里我没有选择官方推荐的，我选择的是距离咱们最近的Hong Kong。然后创建数据库即可。</p>
+<p>接下来，需要配置mongodb数据库，设置ip为0.0.0.0&#x2F;0即可：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131723940.png" alt="配置ip.png"></p>
+<p>创建数据库用户，这里的paasword后面有用到：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131723680.png" alt="配置用户.png"></p>
+<p>返回到cluster界面，点击connect：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131723711.png" alt="CONNECT1.png"></p>
+<p>这里跟参考里面的不一样，这里要选择device还是什么来着，也是application，只不过描述不一样。</p>
+<p>点进去之后，除了记录一下数据库的信息之外，还需要在hexo目录下，npm装一下mongodb的包，要不twikoo还是不能用。</p>
+<h4 id="部署到Vercel"><a href="#部署到Vercel" class="headerlink" title="部署到Vercel"></a>部署到Vercel</h4><p>申请Vercel账号，需要手机号认证，去下拉框里面找咱们国家就行，输入验证码之后就注册成功了。</p>
+<p>开始部署：</p>
+<p><a href="https://vercel.com/import/project?template=https://github.com/imaegoo/twikoo/tree/main/src/server/vercel-min">https://vercel.com/import/project?template=https://github.com/imaegoo/twikoo/tree/main/src/server/vercel-min</a></p>
+<p>点击上述连接。</p>
+<p>Repository Name这里可以随便输入，建议输入twikoo，给自己的github上创建一个twikoo的仓库。</p>
+<p>点击Create进入下一步。</p>
+<p>等Import之后，点击visit进入仓库。</p>
+<p>这时候，应该会报错，还需要配置环境变量。</p>
+<h5 id="新建环境变量"><a href="#新建环境变量" class="headerlink" title="新建环境变量"></a>新建环境变量</h5><p>进入<code>Settings - Environment Variables</code>页面。<br>新建一个NAME为<code>MONGODB_URI</code>;VALUE为你在前面记录到的<code>数据库连接字符串</code>的环境变量。</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131728847.png" alt="Setting.png"></p>
+<p>点击Deployment重新部署一下：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131730574.png" alt="image-20230613173028453"></p>
+<p>部署如果成功的话：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131731529.png" alt="image-20230613173101471"></p>
+<p>Domain下面的连接就是要配置的envId。</p>
+<p>至此的话，如何你点击Domain下面的连接可以正常访问的话，那可以跳过以下几步，直接到邮箱配置这块了，但是如果无法访问的话，需要配置一下二级域名才能完成访问的。</p>
+<p>到阿里云控制台上（你域名的服务商），找到域名：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131736438.png" alt="image-20230613173646350"></p>
+<p>点击添加域名：</p>
+<p>添加子域名：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131737855.webp" alt="img"></p>
+<p>提示TXT授权校验：</p>
+<p>将TXT授权校验的内容保存好之后，对主域名进行添加子域名解析：</p>
+<p>添加解析记录：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131738760.webp" alt="img"></p>
+<p>添加好了之后，再返回点击验证。</p>
+<p>最后将二级域名解析到Vercel中：</p>
+<p>在二级域名中添加两条记录（不用修改）：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131739108.png" alt="image-20230613173948054"></p>
+<table>
+<thead>
+<tr>
+<th align="center">主机记录</th>
+<th align="center">记录类型</th>
+<th align="center">解析请求来源(isp)</th>
+<th align="center">记录值</th>
+<th align="center">TTL</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">twikoo</td>
+<td align="center">CNAME</td>
+<td align="center">默认</td>
+<td align="center">cname.vercel-dns.com</td>
+<td align="center">10 分钟</td>
+</tr>
+<tr>
+<td align="center">@</td>
+<td align="center">A</td>
+<td align="center">默认</td>
+<td align="center">76.76.21.21</td>
+<td align="center">10 分钟</td>
+</tr>
+</tbody></table>
+<p>在Vercel项目中添加Domains域名</p>
+<p>点击Project Settings-》Domains，添加域名即可</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131742880.png" alt="image-20230613174240816"></p>
+<p>替换之前的envid：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131741532.png" alt="image-20230613174157503"></p>
+<h4 id="实现邮件通知"><a href="#实现邮件通知" class="headerlink" title="实现邮件通知"></a>实现邮件通知</h4><p>以qq邮箱为例：</p>
+<p>需要得到邮箱的pop3&#x2F;SMTP的凭证，现在已经改版了，不太好找了。可以这么操作：</p>
+<p>登录上邮箱之后，选择设置-》账户，找到POP3一栏。</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131746070.png" alt="image-20230613174604011"></p>
+<p>点击如何设置？</p>
+<p>跳转到这个页面：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131746090.png" alt="image-20230613174626026"></p>
+<p>点它就行了，然后一步一步配置就行，该发短信就发短信。</p>
+<p>得到凭证之后，开始配置邮箱提醒：</p>
+<p>SENDER_EMAIL: &lt;你的QQ邮箱地址&gt;<br>SMTP_SERVICE: &lt;你的邮件服务提供商&gt;<br>SMTP_HOST: &lt;自定义 SMTP 服务器地址&gt;<br>SMTP_PORT: &lt;自定义 SMTP 端口&gt;<br>SMTP_SECURE: &lt;自定义 SMTP 是否使用 TLS&gt;<br>SMTP_USER: &lt;邮件通知邮箱用户名&gt;(需与SENDER_EMAIL一致)<br>SMTP_PASS: &lt;邮件通知邮箱密码&gt;(授权码)</p>
+<p>一般在评论左下角会有一个小齿轮，点击进去，第一次需要注册，注册完了之后按照这个配置一下就行：</p>
+<p>点击配置管理-》邮件通知，按照以下进行配置：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131748658.png" alt="配置2.png"></p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131748532.png" alt="配置1.png"></p>
+<p>然后点击最下面的邮件通知测试，完成测试。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/weixin_58068682/article/details/122770936">部署Twikoo评论系统及其邮件推送(Vercel)</a></p>
+<p><a href="https://www.jianshu.com/p/02fb996c4638">关于Vercel被墙导致获取Twikoo评论失败的解决方案</a></p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+        <tag>hexo</tag>
+        <tag>twikoo</tag>
+      </tags>
+  </entry>
 </search>
