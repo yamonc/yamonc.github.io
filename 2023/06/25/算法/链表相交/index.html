@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>归档  | yamon，分享并热爱生活</title>
+<title>链表相交 | yamon，分享并热爱生活</title>
 <noscript>开启Javascript是必要的</noscript>
 <link rel="icon" type="image/x-icon" href="/img/avatar.webp">
 <link rel="apple-touch-icon" href="/img/avatar.webp">
@@ -35,7 +35,7 @@
 
 
 
-<script>var GLOBALCONFIG = {"root":"/","runtime":"2023-06-12 00:00:00","lazyload":{"enable":false,"error":"/img/acrylic.png"},"hightlight":{"enable":false,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":true,"comment":{"enable":true,"twikooUrl":"https://twikoo.chenym.top/"},"localsearch":{"preload":false,"path":"/search.xml"}};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":false,"is_page":false,"page":false};</script>
+<script>var GLOBALCONFIG = {"root":"/","runtime":"2023-06-12 00:00:00","lazyload":{"enable":false,"error":"/img/acrylic.png"},"hightlight":{"enable":false,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":true,"comment":{"enable":true,"twikooUrl":"https://twikoo.chenym.top/"},"localsearch":{"preload":false,"path":"/search.xml"}};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":true,"is_page":false,"page":false,"toc":true,"comment":true};</script>
     <meta name="generator" content="Hexo 6.3.0"></head>
     <body id="body">
         
@@ -418,8 +418,8 @@
     </div>
 </div>    
         
-            <div class="page" id="body-wrap">
-                <header class="not-top-img" id="page-header">
+            <div class="post" id="body-wrap">
+                <header class="post-bg" id="page-header">
     <nav id="nav" class="show">
     <div id="nav-group">
         <div id="blog_name">
@@ -458,7 +458,7 @@
         </div>
         <div id="page-name-mask">
             <div id="page-name">
-                <a id="page-name-text" onclick="acrylic.toTop()">yamon，分享并热爱生活</a>
+                <a id="page-name-text" onclick="acrylic.toTop()">链表相交</a>
             </div>
         </div>
         <div id="menus">
@@ -617,138 +617,288 @@
         </div>
     </div>
 </nav>
+    
+        <div class="coverdiv" id="coverdiv">
+    <img id="post-cover" class="nolazyload" src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306251506144.jpg" alt="cover">
+</div>
+<div id="post-info">
+    <div id="post-firstinfo">
+        <div class="meta-firstline">
+            <a class="post-meta-original" title="该文章为原创文章，注意版权协议">
+                原创
+            </a>
+            
+            <span class="post-meta-categories">
+                
+                    <a class="post-meta-categories" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+                
+            </span>
+            
+            <div class="tag_share">
+                <div class="post-meta__tag-list">
+                    
+                        <a class="post-meta__tags" href="/tags/java/">
+                            <span class="tags-punctuation">#</span>
+                            <span class="tags-name">java</span>
+                        </a>
+                    
+                        <a class="post-meta__tags" href="/tags/leetcode/">
+                            <span class="tags-punctuation">#</span>
+                            <span class="tags-name">leetcode</span>
+                        </a>
+                    
+                        <a class="post-meta__tags" href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">
+                            <span class="tags-punctuation">#</span>
+                            <span class="tags-name">双指针</span>
+                        </a>
+                    
+                        <a class="post-meta__tags" href="/tags/%E9%93%BE%E8%A1%A8/">
+                            <span class="tags-punctuation">#</span>
+                            <span class="tags-name">链表</span>
+                        </a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1 class="post-title">链表相交</h1>
+    <div id="post-meta">
+        <div class="meta-secondline">
+            <span class="post-meta-date" title="发布于">
+                <i class="post-meta-icon fa-fw fas fa-calendar"></i>
+                <time datetime="2023-06-25T15:02:50+08:00"></time>
+            </span>
+            
+                <span class="post-meta-date" title="更新于">
+                    <i class="post-meta-icon fa-solid fa-clock-rotate-left"></i>
+                    <time datetime="2023-06-25T20:28:27+08:00"></time>
+                </span>
+            
+            
+                <span class="post-meta-position" title="作者IP归属地为天津">
+                    <i class="fas fa-location-dot post-meta-icon"></i>
+                    <span>天津</span>
+                </span>
+            
+            
+                
+                    <span class="post-meta-wordcount">
+                        <i class="fas fa-file-word fa-fw post-meta-icon" title="文章字数"></i>
+                        <span class="word-count">855</span>
+                    </span>
+                
+                
+                    <span class="post-meta-time">
+                        <i class="fas fa-clock post-meta-icon" title="阅读耗时"></i>
+                        <span>3 min</span>
+                    </span>
+                
+            
+            
+            
+                <span class="post-meta-commentcount" title="评论数">
+                    <i class="fa-solid fa-message"></i>
+                    <a href="#post-comment">
+                        <span id="twikoo-count"><i class="fas fa-spinner fa-pulse"></i></span>
+                    </a>
+                </span>
+                
+        </div>
+    </div>
+</div>
+<section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg"
+    xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+    <defs>
+        <path id="gentle-wave"
+            d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path>
+    </defs>
+    <g class="parallax">
+        <use href="#gentle-wave" x="48" y="0"></use>
+        <use href="#gentle-wave" x="48" y="3"></use>
+        <use href="#gentle-wave" x="48" y="5"></use>
+        <use href="#gentle-wave" x="48" y="7"></use>
+    </g>
+</svg>
+</section>
+
         
 </header>
                 <main class="layout" id="content-inner">
-    <div id="archive">
-        <div class="article-sort-title">文章<sup>5</sup></div>
-        <div class="article-sort">
-            
+    <div id="post">
+        <article class="post-content" id="article-container">
+            <h1 id="链表相交"><a href="#链表相交" class="headerlink" title="链表相交"></a>链表相交</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你两个单链表的头节点 <code>headA</code> 和 <code>headB</code> ，请你找出并返回两个单链表相交的起始节点。如果两个链表不存在相交节点，返回 <code>null</code> 。</p>
+<p>图示两个链表在节点 <code>c1</code> 开始相交<strong>：</strong></p>
+<p><a target="_blank" rel="noopener" href="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/14/160_statement.png"><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306250944935.png" alt="img"></a></p>
+<p>题目数据 <strong>保证</strong> 整个链式结构中不存在环。</p>
+<p><strong>注意</strong>，函数返回结果后，链表必须 <strong>保持其原始结构</strong> 。</p>
+<p><strong>自定义评测：</strong></p>
+<p><strong>评测系统</strong> 的输入如下（你设计的程序 <strong>不适用</strong> 此输入）：</p>
+<ul>
+<li><code>intersectVal</code> - 相交的起始节点的值。如果不存在相交节点，这一值为 <code>0</code></li>
+<li><code>listA</code> - 第一个链表</li>
+<li><code>listB</code> - 第二个链表</li>
+<li><code>skipA</code> - 在 <code>listA</code> 中（从头节点开始）跳到交叉节点的节点数</li>
+<li><code>skipB</code> - 在 <code>listB</code> 中（从头节点开始）跳到交叉节点的节点数</li>
+</ul>
+<p>评测系统将根据这些输入创建链式数据结构，并将两个头节点 <code>headA</code> 和 <code>headB</code> 传递给你的程序。如果程序能够正确返回相交节点，那么你的解决方案将被 <strong>视作正确答案</strong> 。</p>
+<p><strong>示例 1：</strong></p>
+<p><a target="_blank" rel="noopener" href="https://assets.leetcode.com/uploads/2018/12/13/160_example_1.png"><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306250944565.png" alt="img"></a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入：intersectVal = 8, listA = [4,1,8,4,5], listB = [5,6,1,8,4,5], skipA = 2, skipB = 3</span><br><span class="line">输出：Intersected at &#x27;8&#x27;</span><br><span class="line">解释：相交节点的值为 8 （注意，如果两个链表相交则不能为 0）。</span><br><span class="line">从各自的表头开始算起，链表 A 为 [4,1,8,4,5]，链表 B 为 [5,6,1,8,4,5]。</span><br><span class="line">在 A 中，相交节点前有 2 个节点；在 B 中，相交节点前有 3 个节点。</span><br><span class="line">— 请注意相交节点的值不为 1，因为在链表 A 和链表 B 之中值为 1 的节点 (A 中第二个节点和 B 中第三个节点) 是不同的节点。换句话说，它们在内存中指向两个不同的位置，而链表 A 和链表 B 中值为 8 的节点 (A 中第三个节点，B 中第四个节点) 在内存中指向相同的位置。</span><br></pre></td></tr></table></figure>
 
-    
-        <div class="article-sort-item year">2023</div>
-    
-    <div class="article-sort-item">
-        <a class="article-sort-item-img" href="/2023/06/13/Hexo/hexo%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98/" title="hexo如何修改主题？">
-            <img src="/img/hello.jpg"
-                alt="hexo如何修改主题？">
-        </a>
-        <div class="article-sort-item-info">
-            <a class="article-sort-item-title" href="/2023/06/13/Hexo/hexo%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98/" title="hexo如何修改主题？"
-                onclick="window.event.cancelBubble=true;">
-                hexo如何修改主题？
-            </a>
-            <div class="article-sort-item-tags">
+<p><strong>示例 2：</strong></p>
+<p><a target="_blank" rel="noopener" href="https://assets.leetcode.com/uploads/2018/12/13/160_example_2.png"><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306250944586.png" alt="img"></a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：intersectVal = 2, listA = [1,9,1,2,4], listB = [3,2,4], skipA = 3, skipB = 1</span><br><span class="line">输出：Intersected at &#x27;2&#x27;</span><br><span class="line">解释：相交节点的值为 2 （注意，如果两个链表相交则不能为 0）。</span><br><span class="line">从各自的表头开始算起，链表 A 为 [1,9,1,2,4]，链表 B 为 [3,2,4]。</span><br><span class="line">在 A 中，相交节点前有 3 个节点；在 B 中，相交节点前有 1 个节点。</span><br></pre></td></tr></table></figure>
+
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>可以使用HashSet，记录一个链表的所有节点，然后和另外一个链表对比，如果有一样的话，就返回该节点。但是需要额外的空间。</p>
+<p>使用双指针：</p>
+<p>但是两个链表的长度可能不同，两个链表之间的节点无法对应，那么如果使用两个指针，p1和p2分别在两个链表上前进的话，并不能同时走到公共节点上，也就是无法获取相交节点c1.</p>
+<p>所以，可以让p1遍历完链表A之后，再遍历链表B，p2遍历完链表B之后开始遍历链表A，这样相当于两个链表连接在了一起：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306250947411.jpeg" alt="img"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">ListNode <span class="title function_">getIntersectionNode</span><span class="params">(ListNode headA, ListNode headB)</span>&#123;</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">p1</span> <span class="operator">=</span> headA, p2 = headB;</span><br><span class="line">        <span class="keyword">while</span> (p1 != p2)&#123;</span><br><span class="line">            <span class="comment">// p1 走一步，如果走到A的末尾，转到B链表</span></span><br><span class="line">            <span class="keyword">if</span> (p1 == <span class="literal">null</span>)&#123;</span><br><span class="line">                p1 = headB;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="comment">// 如果不为空的话，一直走</span></span><br><span class="line">                p1 = p1.next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (p2 == <span class="literal">null</span>)&#123;</span><br><span class="line">                p2 = headA;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                p2 = p2.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> p1;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+        </article>
+        <div class="post-tools" id="post-tools">
+            <div class="post-tools-left">
                 
-                    <a class="article-meta__tags" href="/tags/%E5%8D%9A%E5%AE%A2/" onclick="window.event.cancelBubble=true;">
-                        <span class="tags-punctuation">#</span>
-                        博客
-                    </a>
-                
-                    <a class="article-meta__tags" href="/tags/hexo/" onclick="window.event.cancelBubble=true;">
-                        <span class="tags-punctuation">#</span>
-                        hexo
-                    </a>
-                
+                <div class="share-link mobile">
+    <div class="share-qrcode">
+        <div class="share-button" title="使用手机访问这篇文章">
+            <i class="fas fa-qrcode"></i>
+        </div>
+        <div class="share-main">
+            <div class="share-main-all">
+                <div id="qrcode" title="http://yamonc.github.io/2023/06/25/%E7%AE%97%E6%B3%95/%E9%93%BE%E8%A1%A8%E7%9B%B8%E4%BA%A4/">
+                </div>
+                <div class="reward-dec">使用手机访问这篇文章</div>
             </div>
         </div>
+        <script type="text/javascript">
+            new QRCode(document.getElementById("qrcode"), "http://yamonc.github.io/2023/06/25/%E7%AE%97%E6%B3%95/%E9%93%BE%E8%A1%A8%E7%9B%B8%E4%BA%A4/");
+        </script>
     </div>
-
-    
-    <div class="article-sort-item">
-        <a class="article-sort-item-img" href="/2023/06/13/Hexo/%E4%BB%8E0%E5%88%B01%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E5%88%B0Github-Page/" title="从0到1部署博客系统到Github Page（0成本）">
-            <img src="/img/hello.jpg"
-                alt="从0到1部署博客系统到Github Page（0成本）">
-        </a>
-        <div class="article-sort-item-info">
-            <a class="article-sort-item-title" href="/2023/06/13/Hexo/%E4%BB%8E0%E5%88%B01%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E5%88%B0Github-Page/" title="从0到1部署博客系统到Github Page（0成本）"
-                onclick="window.event.cancelBubble=true;">
-                从0到1部署博客系统到Github Page（0成本）
-            </a>
-            <div class="article-sort-item-tags">
-                
-                    <a class="article-meta__tags" href="/tags/%E5%8D%9A%E5%AE%A2/" onclick="window.event.cancelBubble=true;">
-                        <span class="tags-punctuation">#</span>
-                        博客
-                    </a>
-                
-                    <a class="article-meta__tags" href="/tags/hexo/" onclick="window.event.cancelBubble=true;">
-                        <span class="tags-punctuation">#</span>
-                        hexo
-                    </a>
-                
-                    <a class="article-meta__tags" href="/tags/github/" onclick="window.event.cancelBubble=true;">
-                        <span class="tags-punctuation">#</span>
-                        github
-                    </a>
-                
+</div>
+                <div class="share-link weibo"><a class="share-button" target="_blank"
+    href="https://service.weibo.com/share/share.php?title=链表相交&amp;url=http://yamonc.github.io/2023/06/25/%E7%AE%97%E6%B3%95/%E9%93%BE%E8%A1%A8%E7%9B%B8%E4%BA%A4/&amp;pic=https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306251506144.jpg"
+    title="分享到微博" rel="noopener external nofollow noreferrer noopener">
+    <i class="fab fa-weibo" style="font-size:22px"></i>
+</a>
+</div>
+<div class="share-link copyurl">
+<div class="share-button" id="post-share-url" title="复制链接" onclick="acrylic.copyPageUrl()">
+    <i class="fas fa-link"></i>
+</div>
+</div>
+            </div>
+            <div class="post-tools-right">
+                <div class="tag_share">
+                    <div class="post-meta__tag-list">
+                        
+                            <a href="/tags/java/" class="post-meta__tags">
+                                <span class="tags-punctuation">#</span>
+                                java
+                                <span class="tagsPageCount">6</span>
+                            </a>
+                        
+                            <a href="/tags/leetcode/" class="post-meta__tags">
+                                <span class="tags-punctuation">#</span>
+                                leetcode
+                                <span class="tagsPageCount">4</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" class="post-meta__tags">
+                                <span class="tags-punctuation">#</span>
+                                双指针
+                                <span class="tagsPageCount">4</span>
+                            </a>
+                        
+                            <a href="/tags/%E9%93%BE%E8%A1%A8/" class="post-meta__tags">
+                                <span class="tags-punctuation">#</span>
+                                链表
+                                <span class="tagsPageCount">3</span>
+                            </a>
+                        
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-
-    
-    <div class="article-sort-item">
-        <a class="article-sort-item-img" href="/2023/06/12/Hexo/%E9%83%A8%E7%BD%B2hexo-acrylic%E4%B8%BB%E9%A2%98/" title="我的近况">
-            <img src="/img/hello.jpg"
-                alt="我的近况">
+        <div class="post-copyright">
+    <div class="post-copyright__author">
+        <a class="post-copyright__original" title="该文章为原创文章，注意版权协议">原创</a>
+        <a class="post-copyright-title" href="#">
+            <span>链表相交</span>
         </a>
-        <div class="article-sort-item-info">
-            <a class="article-sort-item-title" href="/2023/06/12/Hexo/%E9%83%A8%E7%BD%B2hexo-acrylic%E4%B8%BB%E9%A2%98/" title="我的近况"
-                onclick="window.event.cancelBubble=true;">
-                我的近况
-            </a>
-            <div class="article-sort-item-tags">
-                
-                    <a class="article-meta__tags" href="/tags/%E8%BF%91%E5%86%B5/" onclick="window.event.cancelBubble=true;">
-                        <span class="tags-punctuation">#</span>
-                        近况
-                    </a>
-                
-            </div>
-        </div>
     </div>
-
+    <div class="post-copyright__type">
+        <span class="post-copyright-info" id="post-copyright-url">
+            <a href="/2023/06/25/%E7%AE%97%E6%B3%95/%E9%93%BE%E8%A1%A8%E7%9B%B8%E4%BA%A4/">http://yamonc.github.io/2023/06/25/%E7%AE%97%E6%B3%95/%E9%93%BE%E8%A1%A8%E7%9B%B8%E4%BA%A4/</a>
+        </span>
+        <button class="post-copyright-copybtn" onclick="acrylic.copyPageUrl()">
+            <i class="fas fa-paste copy-btn"></i>
+        </button>
+    </div>
+    <div class="post-copyright__notice"><span class="post-copyright-info">本文是原创文章，采用 <a
+                href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a> 协议，完整转载请注明来自 <a
+                href="/">yamon，分享并热爱生活</a>
+            </span>
+        </div>
+</div>
+        <nav class="pagination-post" id="pagination">
     
-    <div class="article-sort-item">
-        <a class="article-sort-item-img" href="/2023/06/10/Hexo/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hexo/" title="如何使用hexo">
-            <img src="/img/hello.jpg"
-                alt="如何使用hexo">
-        </a>
-        <div class="article-sort-item-info">
-            <a class="article-sort-item-title" href="/2023/06/10/Hexo/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hexo/" title="如何使用hexo"
-                onclick="window.event.cancelBubble=true;">
-                如何使用hexo
-            </a>
-            <div class="article-sort-item-tags">
-                
-            </div>
-        </div>
-    </div>
-
-    
-    <div class="article-sort-item">
-        <a class="article-sort-item-img" href="/2023/06/10/hello-world/" title="Hello World">
-            <img src="/img/hello.jpg"
-                alt="Hello World">
-        </a>
-        <div class="article-sort-item-info">
-            <a class="article-sort-item-title" href="/2023/06/10/hello-world/" title="Hello World"
-                onclick="window.event.cancelBubble=true;">
-                Hello World
-            </a>
-            <div class="article-sort-item-tags">
-                
-            </div>
-        </div>
-    </div>
-
-        </div>
-        <nav id="pagination">
-    <div class="pagination">
         
-        <a class="extend prev" rel="prev" href="/archives/">Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
-    </div>
+            <div class="next-post pull-full">
+                <a href="/2023/06/20/%E7%AE%97%E6%B3%95/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8%E7%9A%84%E8%B5%B7%E7%82%B9/">
+                    <div class="pagination-info">
+                        <div class="label">下一篇</div>
+                        <div class="next_info">无标题</div>
+                    </div>
+                </a>
+            </div>
+                
+        
+    
 </nav>
+        
+            <div id="post-comment">
+    <div class="comment-head">
+        <div class="comment-headline">
+            <i class="fas fa-message fa-fw"></i>
+            <span> 评论</span>
+        </div>
+    </div>
+    <div class="comment-wrap">
+        <div id="comment"></div>
+        <script>
+    async function initComment(){
+        var initOptions = Object.assign(
+            {"envId":"https://twikoo.chenym.top/","path":"window.location.pathname"},
+            {
+                el: '#comment',
+                onCommentLoaded: function() {
+                    GLOBALCONFIG.lightbox && acrylic.lightbox('#article-container img, #twikoo .tk-content img:not(.tk-owo-emotion)') 
+                }
+            }
+        )
+        await twikoo.init(initOptions)
+        
+            var countOptions = Object.assign(
+                {"envId":"https://twikoo.chenym.top/","path":"window.location.pathname"},
+                { 
+                    urls: [window.location.pathname],
+                    includeReply: false
+                }
+            )
+            const res = await twikoo.getCommentsCount(countOptions)
+            try{
+                document.getElementById('twikoo-count').innerText = res[0].count
+            }catch (e) {
+                document.getElementById('twikoo-count').innerText = '加载错误'
+            }
+             
+    }
+</script>
+    </div>
+</div>
+            
     </div>
     <div class="aside-content" id="aside-content">
     
@@ -786,6 +936,16 @@
      
     
     <div class="sticky_layout">
+        
+            <div class="card-widget" id="card-toc">
+    <div class="item-headline">
+        <i class="fas fa-bars"></i>
+        <span>文章目录</span>
+    </div>
+    <div class="toc-content" id="toc-content">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%93%BE%E8%A1%A8%E7%9B%B8%E4%BA%A4"><span class="toc-text">链表相交</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-text">思路</span></a></li></ol></li></ol>
+    </div>
+</div>
             
         
             
@@ -891,104 +1051,9 @@
 </div>
      
         
-            
-        <div class="card-widget card-tags card-archives card-webinfo card-allinfo">
-    <div class="card-tag-cloud">
-    
-        <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 0.8rem; color: #d3d3d3">博客<sup>3</sup></a>
-    
-        <a href="/tags/hexo/" style="font-size: 0.8rem; color: #d3d3d3">hexo<sup>4</sup></a>
-    
-        <a href="/tags/java/" style="font-size: 0.8rem; color: #d3d3d3">java<sup>6</sup></a>
-    
-        <a href="/tags/jdk/" style="font-size: 0.8rem; color: #d3d3d3">jdk<sup>1</sup></a>
-    
-        <a href="/tags/exe/" style="font-size: 0.8rem; color: #d3d3d3">exe<sup>1</sup></a>
-    
-        <a href="/tags/github/" style="font-size: 0.8rem; color: #d3d3d3">github<sup>1</sup></a>
-    
-        <a href="/tags/twikoo/" style="font-size: 0.8rem; color: #d3d3d3">twikoo<sup>1</sup></a>
-    
-        <a href="/tags/leetcode/" style="font-size: 0.8rem; color: #d3d3d3">leetcode<sup>4</sup></a>
-    
-        <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" style="font-size: 0.8rem; color: #d3d3d3">双指针<sup>4</sup></a>
-    
-        <a href="/tags/%E8%BF%91%E5%86%B5/" style="font-size: 0.8rem; color: #d3d3d3">近况<sup>1</sup></a>
-    
-        <a href="/tags/vue/" style="font-size: 0.8rem; color: #d3d3d3">vue<sup>1</sup></a>
-    
-        <a href="/tags/electron/" style="font-size: 0.8rem; color: #d3d3d3">electron<sup>1</sup></a>
-    
-        <a href="/tags/%E9%93%BE%E8%A1%A8/" style="font-size: 0.8rem; color: #d3d3d3">链表<sup>3</sup></a>
-    
-        <a href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" style="font-size: 0.8rem; color: #d3d3d3">开源项目<sup>1</sup></a>
-    
-        <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 0.8rem; color: #d3d3d3">工具<sup>1</sup></a>
-    
-</div>
-    <ul class="card-archive-list">
-    
-     
-        <li class="card-archive-list-item"><a class="card-archive-list-link" onclick="pjax.loadUrl('/archives/2023/')" data-pjax-state=""><span
-            class="card-archive-list-date">2023</span>
-            <div class="card-archive-list-count-group"><span class="card-archive-list-count">15</span><span
-                    class="card-archive-list-count-unit">篇</span></div>
-            </a>
-        </li>
-        
-</ul>
-
-    <hr>
-    <div class="webinfo">
-    
-        <div class="webinfo-item">
-            <div class="webinfo-item-title">
-                <i class="item-icon fas fa-file-alt"></i>
-                <div class="item-name">文章总数 :</div>
-            </div>
-            <div class="item-count">15</div>
-        </div>
-    
-    
-        
-            <div class="webinfo-item">
-                <div class="webinfo-item-title">
-                    <i class="fa-solid fa-fire"></i>
-                    <div class="item-name">总访问数 :</div>
-                </div>
-                <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-pulse"></i></span>
-            </div>
-        
-        
-    
-    
-        <div class="webinfo-item">
-            <div class="webinfo-item-title">
-                <i class="item-icon fas fa-stopwatch"></i>
-                <div class="item-name">建站天数 :</div>
-            </div>
-            <div class="item-count" id="runtimeshow">
-            </div>
-        </div>
-    
-    
-        <div class="webinfo-item">
-            <div class="webinfo-item-title">
-                <i class="fa-solid fa-clock-rotate-left"></i>
-                <div class="item-name">最后更新 :</div>
-            </div>
-            <time class="item-count" datetime="Sun Jun 25 2023 20:28:39 GMT+0800 (中国标准时间)">
-            </time>
-        </div>
-    
-    
-</div>
-</div>
-     
-        
     </div>
 </div> 
-</main>     
+</main>
                 <footer id="footer">
                     <div id="footer_deal">
     
