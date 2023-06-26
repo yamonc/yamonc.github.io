@@ -4,14 +4,14 @@
         <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>从0到1部署博客系统到Github Page（0成本） | yamon，分享并热爱生活</title>
+<title>双指针之链表总结 | yamon，分享并热爱生活</title>
 <noscript>开启Javascript是必要的</noscript>
 <link rel="icon" type="image/x-icon" href="/img/avatar.webp">
 <link rel="apple-touch-icon" href="/img/avatar.webp">
 <meta name="apple-mobile-web-app-title" content="yamon，分享并热爱生活">
 <link rel="bookmark" href="/img/avatar.webp">
 <link rel="apple-touch-icon-precomposed" sizes="180x180" href="/img/avatar.webp">
-<meta name="description" content="近来的一些随想。">
+<meta name="description" content="a blog 一个分享技术与生活的博客">
 <meta name="theme-color" content="#1C1C1F">
 <link rel="stylesheet" href="/css/var.css">
 <link rel="stylesheet" href="/css/main.css">
@@ -452,7 +452,7 @@
         </div>
         <div id="page-name-mask">
             <div id="page-name">
-                <a id="page-name-text" onclick="acrylic.toTop()">从0到1部署博客系统到Github Page（0成本）</a>
+                <a id="page-name-text" onclick="acrylic.toTop()">双指针之链表总结</a>
             </div>
         </div>
         <div id="menus">
@@ -613,7 +613,7 @@
 </nav>
     
         <div class="coverdiv" id="coverdiv">
-    <img id="post-cover" class="nolazyload" src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261745323.jpeg" alt="cover">
+    <img id="post-cover" class="nolazyload" src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306262043405.jpeg" alt="cover">
 </div>
 <div id="post-info">
     <div id="post-firstinfo">
@@ -624,43 +624,38 @@
             
             <span class="post-meta-categories">
                 
-                    <a class="post-meta-categories" href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
+                    <a class="post-meta-categories" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
                 
             </span>
             
             <div class="tag_share">
                 <div class="post-meta__tag-list">
                     
-                        <a class="post-meta__tags" href="/tags/%E5%8D%9A%E5%AE%A2/">
+                        <a class="post-meta__tags" href="/tags/java/">
                             <span class="tags-punctuation">#</span>
-                            <span class="tags-name">博客</span>
+                            <span class="tags-name">java</span>
                         </a>
                     
-                        <a class="post-meta__tags" href="/tags/hexo/">
+                        <a class="post-meta__tags" href="/tags/leetcode/">
                             <span class="tags-punctuation">#</span>
-                            <span class="tags-name">hexo</span>
-                        </a>
-                    
-                        <a class="post-meta__tags" href="/tags/github/">
-                            <span class="tags-punctuation">#</span>
-                            <span class="tags-name">github</span>
+                            <span class="tags-name">leetcode</span>
                         </a>
                     
                 </div>
             </div>
         </div>
     </div>
-    <h1 class="post-title">从0到1部署博客系统到Github Page（0成本）</h1>
+    <h1 class="post-title">双指针之链表总结</h1>
     <div id="post-meta">
         <div class="meta-secondline">
             <span class="post-meta-date" title="发布于">
                 <i class="post-meta-icon fa-fw fas fa-calendar"></i>
-                <time datetime="2023-06-13T14:32:07+08:00"></time>
+                <time datetime="2023-06-26T20:44:19+08:00"></time>
             </span>
             
                 <span class="post-meta-date" title="更新于">
                     <i class="post-meta-icon fa-solid fa-clock-rotate-left"></i>
-                    <time datetime="2023-06-26T17:45:33+08:00"></time>
+                    <time datetime="2023-06-26T20:44:19+08:00"></time>
                 </span>
             
             
@@ -673,13 +668,13 @@
                 
                     <span class="post-meta-wordcount">
                         <i class="fas fa-file-word fa-fw post-meta-icon" title="文章字数"></i>
-                        <span class="word-count">1.8k</span>
+                        <span class="word-count">2.3k</span>
                     </span>
                 
                 
                     <span class="post-meta-time">
                         <i class="fas fa-clock post-meta-icon" title="阅读耗时"></i>
-                        <span>6 min</span>
+                        <span>9 min</span>
                     </span>
                 
             
@@ -715,98 +710,114 @@
                 <main class="layout" id="content-inner">
     <div id="post">
         <article class="post-content" id="article-container">
-            <h1 id="从0到1部署博客系统到GitHub-Page（0成本）"><a href="#从0到1部署博客系统到GitHub-Page（0成本）" class="headerlink" title="从0到1部署博客系统到GitHub Page（0成本）"></a>从0到1部署博客系统到GitHub Page（0成本）</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261745323.jpeg" alt="a view of a mountain range with a pink sky in the background"></p>
-<p>先po一下博客的地址：</p>
-<p><a href="https://yamonc.github.io/">热爱并分享生活</a></p>
-<p>主要选型：hexo+<a target="_blank" rel="noopener" href="https://next-docs.acrylic.org.cn/configuration/comment">Acrylic</a>+Github Page+<a target="_blank" rel="noopener" href="https://twikoo.js.org/quick-start.html#vercel-%E9%83%A8%E7%BD%B2">twikoo</a>（评论）+<a target="_blank" rel="noopener" href="https://vercel.com/dashboard">Vercel</a>（自动化部署twikoo）+ <a target="_blank" rel="noopener" href="https://cloud.mongodb.com/v2/64870703b548175c8b6e3255#/clusters">mongodb cloud</a></p>
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>从去年年末到今年五月底、六月初，一直在想，重新搞一个博客网站玩玩，正好也想学习一下vue的前端知识。然后就上网上找了一下模板，刚开始使用的是vue-element-admin，但是无奈该模板是后台管理系统，所以又找人给搭了一个特别简单的网站。在接下来的几个月的时间内，吭哧吭哧地干，一点点的干，从前端的博客列表、标签分栏列表、各种crud页面的编写，期间一度的怀疑自己在干什么，感觉没什么意义，但最后还是做出来了点效果，但是样式过于丑陋，始终不满。</p>
-<p>终于，在上周五晚上，反思了下最近这半年正在做的事儿，感觉什么都做了，又感觉什么都没做。在想到博客的时候，自己明明想要的是能够做到文档归档功能就行，其他的多余的什么登录、延迟删除博客、撤回删除博客有什么用呢？这不就是无用功了吗？</p>
-<p>说回来，之前就看到一些博主利用github来写一些文档，例如一些网页后面的github.io的后缀。</p>
-<p>目前常见的选型有这几种：</p>
+            <h1 id="双指针之链表总结"><a href="#双指针之链表总结" class="headerlink" title="双指针之链表总结"></a>双指针之链表总结</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306262043405.jpeg" alt="mason jar of paintbrush lot"></p>
+<p>一共七个题，且只涉及到单链表的操作。</p>
 <ol>
-<li>自己搭建的博客（成本高，需要自己买服务器，时间成本也高，但是自定义高，可玩性高）</li>
-<li><a target="_blank" rel="noopener" href="https://vuepress.vuejs.org/zh/">vuepress</a>，利用vuepress纯前端静态资源部署CMS内容。</li>
-<li>hexo，模板较多，类似vuepress（本文选用的是这个）</li>
+<li><p>合并两个有序链表  <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/merge-two-sorted-lists/">合并两个有序链表</a></p>
+</li>
+<li><p>链表的分解 <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/partition-list/">分隔链表</a></p>
+</li>
+<li><p>合并 <code>k</code> 个有序链表 <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/merge-k-sorted-lists/">合并K个升序链表</a>：</p>
+</li>
+<li><p>寻找单链表的倒数第 <code>k</code> 个节点 <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof/">剑指 Offer 22. 链表中倒数第k个节点</a></p>
+</li>
+<li><p>寻找单链表的中点 <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/middle-of-the-linked-list/">链表的中间结点</a></p>
+</li>
+<li><p>判断单链表是否包含环并找出环起点 <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/linked-list-cycle-ii/">环形链表 II</a></p>
+</li>
+<li><p>判断两个单链表是否相交并找出交点 <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/intersection-of-two-linked-lists/">相交链表</a></p>
+</li>
 </ol>
-<p>关于博客系统的选型，之前就知道有hexo，做博客期间的这半年，还想要不将hexo搬到服务器上，在服务器上部署一套就行了。后来无意中了解到，gitee和github可以提供服务器资源，提供免费站点（gitee也可以，但是需要提供身份证认证）。</p>
-<h2 id="搭建使用的组件"><a href="#搭建使用的组件" class="headerlink" title="搭建使用的组件"></a>搭建使用的组件</h2><p>首先，需要使用git，用来将代码push到github上。</p>
-<p>node.js和npm包管理工具用来安装前端必须的包；</p>
-<p>hexo，博客模板网站。</p>
-<p>这几个之间的关系是：</p>
-<p>node.js和npm为底层支撑，用来支撑项目的启动；</p>
-<p>hexo为样式渲染组件，hexo通过node.js和npm完成部署。</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://nodejs.org/en">node.js</a>,下载直接安装即可。</li>
-<li><a target="_blank" rel="noopener" href="https://git-scm.com/">git</a>，同上，安装次版本即可。</li>
-<li>npm， 包管理工具。</li>
-<li><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">hexo</a>，博客模板网站</li>
-</ol>
-<h2 id="本地部署"><a href="#本地部署" class="headerlink" title="本地部署"></a>本地部署</h2><p>开始部署工作，默认已经配置了git、npm和nodejs。</p>
-<h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/#%E5%AE%89%E8%A3%85-Hexo">参考官方文档</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<h2 id="合并两个有序链表"><a href="#合并两个有序链表" class="headerlink" title="合并两个有序链表"></a>合并两个有序链表</h2><p>将两个升序链表合并成为一个新的升序链表。新链表通过拼接给定的两个链表所有节点组成。</p>
+<p>方法签名：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ListNode <span class="title function_">mergeTwoLists</span><span class="params">(ListNode l1, ListNode l2)</span>;</span><br></pre></td></tr></table></figure>
 
-<p>或者安装全量包：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo</span><br></pre></td></tr></table></figure>
+<p>思路：</p>
+<p>善用<strong>虚拟头节点</strong>，使用dummy生成一个虚拟节点p，同时为了不破坏l1和l2的链表结构，（因为要遍历这两个链）所以，重新赋值l1给p1，l2给p2；</p>
+<p>在while循环里面，每次比较p1和p2的大小，将较小的节点给p，同时p指针不断后移。</p>
+<p>关键代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (p1 != <span class="literal">null</span> &amp;&amp; p2 != <span class="literal">null</span>) &#123;</span><br><span class="line"></span><br><span class="line">       <span class="comment">// 比较 p1 和 p2 两个指针</span></span><br><span class="line">       <span class="comment">// 将值较小的的节点接到 p 指针</span></span><br><span class="line">       <span class="keyword">if</span> (p1.val &gt; p2.val) &#123;</span><br><span class="line">           p.next = p2;</span><br><span class="line">           p2 = p2.next;</span><br><span class="line">       &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">           p.next = p1;</span><br><span class="line">           p1 = p1.next;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">// p 指针不断前进</span></span><br><span class="line">       p = p.next;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="初始化hexo文件夹"><a href="#初始化hexo文件夹" class="headerlink" title="初始化hexo文件夹"></a>初始化hexo文件夹</h3><p>安装好了之后，需要在你的pc上，找一个地儿，创建一个blog的文件夹：</p>
-<p>比如我选择的地方：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131146514.png" alt="image-20230613114643441"></p>
-<p>找好了之后，右键空白处，选择git bash here</p>
-<p>首先声明一下，这个文件夹是hexo的：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init .</span><br></pre></td></tr></table></figure>
-
-<h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><p>接着，安装下依赖：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
-
-<p>安装好了依赖之后，可以查看目录结构：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml # 网站配置信息</span><br><span class="line">├── package.json # 应用程序信息</span><br><span class="line">├── scaffolds # 模板文件夹</span><br><span class="line">├── source # 存放用户资源</span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes # 主题文件夹</span><br></pre></td></tr></table></figure>
-
-<h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><p>输入hexo指令：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 新建博客</span><br><span class="line">hexo n &quot;test&quot;</span><br><span class="line"># 生成静态网页</span><br><span class="line">hexo g</span><br><span class="line"># 打开本地服务器</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-
-<p>查看控制台是否有报错，如果有的话，查看原因。</p>
-<p>（ps：我记得，在这里好像有问题，但是百度绝对能百度出来，原因大概是少装了依赖，再装下依赖就不会报错了）</p>
-<p>这个时候，控制台应该一个localhost的连接，访问连接即可。</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131356094.png" alt="image-20230613135632039"></p>
-<p>（已经更换过主题的，所以你的有可能跟我不一样，可以从简单开始，先将最简单的部署到Github的Page站点）</p>
-<h2 id="部署到Github-Page站点"><a href="#部署到Github-Page站点" class="headerlink" title="部署到Github Page站点"></a>部署到Github Page站点</h2><p>访问<a target="_blank" rel="noopener" href="https://docs.github.com/zh/pages/getting-started-with-github-pages">Page文档</a>了解更多。</p>
-<p>首先，在Github上创建一个仓库，名字一定要和你的用户名一样：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131401328.png" alt="image-20230613140138288"></p>
-<p>可以添加一个README的markdown文件，方便pull（仓库为空的话，不能pull），或者更简单的，不需要你创建这个仓库，在hexo的目录下，使用以下命令，将hexo的目录push到github上，但是名字要改成上面这个图一样的（用户名.github.io，我这里是将hexo和github本地仓库分开的）。</p>
-<p>这时候，有可能会出现github认证问题，需要你输入github的账号密码，虽然你输入的是正确的，但是总是pull&#x2F;push不成功。</p>
-<p>解决方案：升级你的git版本。</p>
-<p>创建之后，创建一个文件夹，然后pull下来远端的代码：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131408878.png" alt="image-20230613140821833"></p>
-<p>注意，在<strong>博客的根目录</strong>下，找到hexo的主配置（定义：其他主题都为次配置）：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131411707.png" alt="image-20230613141118667"></p>
-<p>配置主配置：</p>
-<p>可配置的内容：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: yamon，分享并热爱生活 # 浏览器tab栏上显示内容</span><br><span class="line">subtitle: &#x27;&#x27; # 可以写</span><br><span class="line">description: &#x27;a blog 一个分享技术与生活的博客&#x27; # 应该是百度搜索出来的时候用的</span><br><span class="line">keywords: Rootlex, blog, 技术, 博客 # 搜索关键字</span><br><span class="line">author: yamon # 作者，footer用的应该</span><br><span class="line">language: zh-CN # 语言</span><br><span class="line">timezone: &#x27;&#x27; # 时区</span><br><span class="line"></span><br><span class="line">url: http://yamonc.github.io # 分享的时候用的url</span><br><span class="line">permalink: :year/:month/:day/:title/ # 应该是点开文章后，url上显示的格式</span><br><span class="line">permalink_defaults:</span><br></pre></td></tr></table></figure>
-
-<p>重点内容来了：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># Extensions</span><br><span class="line">## Plugins: https://hexo.io/plugins/</span><br><span class="line">## Themes: https://hexo.io/themes/ </span><br><span class="line">## 这个是主题配置，如果更换主题的话，需要在这里修改下名字，具体后续会讲</span><br><span class="line">theme: Acrylic</span><br><span class="line"></span><br><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/one-command-deployment</span><br><span class="line"># 部署在github上，type是部署方式；repo是部署的仓库，就是你要把代码push到哪个仓库上；branch：部署的分支。</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/yamonc/yamonc.github.io</span><br><span class="line">  branch: main</span><br></pre></td></tr></table></figure>
-
-<p>保存之后，再执行三或四个指令，这四个指令会贯穿到从始至终：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo clean # 清除缓存</span><br><span class="line">hexo g # 生成静态文件</span><br><span class="line">hexo s # 启动服务（自己debug用，或者本地查看一下会不会报错）</span><br><span class="line">hexo d # 开启部署</span><br></pre></td></tr></table></figure>
-
-<p>接着，点到用户名.github.io的仓库里面，找到setting：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131420206.png" alt="image-20230613142035115"></p>
-<p>找到左侧的pages选项：</p>
-<p>如果出现了这行字，表示部署成功，可以通过这个域名访问：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131421243.png" alt="image-20230613142150188"></p>
 <blockquote>
-<p>如果没有部署成功的话，可以查看一下这里的内容，是否配置成功，主要是：</p>
-<ol>
-<li>build and deployment选项的branch分支是否选择正确，是否是main分支，一般都是main分支。</li>
-<li>在本地hexo目录下，使用hexo s本地部署，查看控制台是否报错，有可能是博客的front markdown没有写好，格式不对，多加了空格什么的。</li>
-<li>或者不行的话，到仓库的Action选项卡中，重新跑一遍job试一下。</li>
-</ol>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131426822.png" alt="image-20230613142606737"></p>
-<p>另外，这里还有一个Custom domain自定义域名，如果有域名的话，可以在这里配置，具体配置的话，另起一篇再讲吧。</p>
+<p>什么时候使用虚拟头节点？</p>
+<p>需要创建一个新的链表的时候，可以使用虚拟头节点简化边界情况的处理。</p>
 </blockquote>
-<p>最后部署成功的样子：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131426206.png" alt="image-20230613142639000"></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/370635512">超详细 Hexo + Github Pages 博客搭建教程</a></p>
+<h2 id="分割链表"><a href="#分割链表" class="headerlink" title="分割链表"></a>分割链表</h2><p>题意：给你一个链表的头结点head和一个特定值x，对链表进行分割，使得所有小于x的节点都出现在大于或等于x的节点之前。</p>
+<p>你应该保留两个分区的每个节点初试相对位置。</p>
+<p>在合并两个有序链表时，让你合二为一，而这里需要分解，使得原链表一分为二。具体来说，我们可以将原链表分成两个小链表，一个链表中的元素都小于x，另外一个链表中的元素都大于等于x，最后将这两条链表连在一起，就得到了最终答案：</p>
+<p>题解：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">ListNode partition(ListNode head, int x) &#123;</span><br><span class="line">    // 存放小于 x 的链表的虚拟头结点</span><br><span class="line">    ListNode dummy1 = new ListNode(-1);</span><br><span class="line">    // 存放大于等于 x 的链表的虚拟头结点</span><br><span class="line">    ListNode dummy2 = new ListNode(-1);</span><br><span class="line">    // p1, p2 指针负责生成结果链表</span><br><span class="line">    ListNode p1 = dummy1, p2 = dummy2;</span><br><span class="line">    // p 负责遍历原链表，类似合并两个有序链表的逻辑</span><br><span class="line">    // 这里是将一个链表分解成两个链表</span><br><span class="line">    ListNode p = head;</span><br><span class="line">    while (p != null) &#123;</span><br><span class="line">        if (p.val &gt;= x) &#123;</span><br><span class="line">            p2.next = p;</span><br><span class="line">            p2 = p2.next;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            p1.next = p;</span><br><span class="line">            p1 = p1.next;</span><br><span class="line">        &#125;</span><br><span class="line">        // 断开原链表中的每个节点的 next 指针</span><br><span class="line">        ListNode temp = p.next;</span><br><span class="line">        p.next = null;</span><br><span class="line">        p = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    // 连接两个链表</span><br><span class="line">    p1.next = dummy2.next;</span><br><span class="line"></span><br><span class="line">    return dummy1.next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="合并K个有序链表"><a href="#合并K个有序链表" class="headerlink" title="合并K个有序链表"></a>合并K个有序链表</h2><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>给你一个链表数组，每个链表都已经按升序排列。</p>
+<p>请你将所有链表合并到一个升序链表中，返回合并后的链表。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">输入：lists = [[1,4,5],[1,3,4],[2,6]]</span><br><span class="line">输出：[1,1,2,3,4,4,5,6]</span><br><span class="line">解释：链表数组如下：</span><br><span class="line">[</span><br><span class="line">  1-&gt;4-&gt;5,</span><br><span class="line">  1-&gt;3-&gt;4,</span><br><span class="line">  2-&gt;6</span><br><span class="line">]</span><br><span class="line">将它们合并到一个有序链表中得到。</span><br><span class="line">1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5-&gt;6</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：lists = []</span><br><span class="line">输出：[]</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 3：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：lists = [[]]</span><br><span class="line">输出：[]</span><br></pre></td></tr></table></figure>
+
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>合并k个有序链表类似于合并两个有序链表，难点在于如何获取k个节点中最小的节点，并接到结果链上。</p>
+<p>使用<strong>优先队列</strong>，遍历每个链表，将链表中的每个节点都添加到最小堆中，就可以获取k个节点中的最小节点了。</p>
+<p>先入队列，然后出队列，最后的条件是队列是否为空！</p>
+<p>核心代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 优先级队列，最小堆</span></span><br><span class="line">   PriorityQueue&lt;ListNode&gt; pq = <span class="keyword">new</span> <span class="title class_">PriorityQueue</span>&lt;&gt;(</span><br><span class="line">       lists.length, (a, b)-&gt;(a.val - b.val));</span><br><span class="line">   <span class="comment">// 将 k 个链表的头结点加入最小堆</span></span><br><span class="line">   <span class="keyword">for</span> (ListNode head : lists) &#123;</span><br><span class="line">       <span class="keyword">if</span> (head != <span class="literal">null</span>)</span><br><span class="line">           pq.add(head);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">while</span> (!pq.isEmpty()) &#123;</span><br><span class="line">       <span class="comment">// 获取最小节点，接到结果链表中</span></span><br><span class="line">       <span class="type">ListNode</span> <span class="variable">node</span> <span class="operator">=</span> pq.poll();</span><br><span class="line">       p.next = node;</span><br><span class="line">       <span class="keyword">if</span> (node.next != <span class="literal">null</span>) &#123;</span><br><span class="line">           pq.add(node.next);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">// p 指针不断前进</span></span><br><span class="line">       p = p.next;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="单链表的倒数第K个节点"><a href="#单链表的倒数第K个节点" class="headerlink" title="单链表的倒数第K个节点"></a>单链表的倒数第K个节点</h2><h3 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h3><p>输入一个链表，输出该链表中倒数第k个节点。为了符合大多数人的习惯，本题从1开始计数，即链表的尾节点是倒数第1个节点。</p>
+<p>例如，一个链表有 <code>6</code> 个节点，从头节点开始，它们的值依次是 <code>1、2、3、4、5、6</code>。这个链表的倒数第 <code>3</code> 个节点是值为 <code>4</code> 的节点。</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 k = 2.</span><br><span class="line"></span><br><span class="line">返回链表 4-&gt;5.</span><br></pre></td></tr></table></figure>
+
+<h3 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h3><p>是否可以用栈来实现？目前存疑。</p>
+<p>给出的思路：用双指针，也叫快慢指针吧，快指针先走k步，然后快、慢指针再一起走，当快指针走到头的时候，慢指针就是倒数第k个节点。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 返回链表的倒数第 k 个节点</span></span><br><span class="line">ListNode <span class="title function_">findFromEnd</span><span class="params">(ListNode head, <span class="type">int</span> k)</span> &#123;</span><br><span class="line">    <span class="type">ListNode</span> <span class="variable">p1</span> <span class="operator">=</span> head;</span><br><span class="line">    <span class="comment">// p1 先走 k 步</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; k; i++) &#123;</span><br><span class="line">        p1 = p1.next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">ListNode</span> <span class="variable">p2</span> <span class="operator">=</span> head;</span><br><span class="line">    <span class="comment">// p1 和 p2 同时走 n - k 步</span></span><br><span class="line">    <span class="keyword">while</span> (p1 != <span class="literal">null</span>) &#123;</span><br><span class="line">        p2 = p2.next;</span><br><span class="line">        p1 = p1.next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// p2 现在指向第 n - k + 1 个节点，即倒数第 k 个节点</span></span><br><span class="line">    <span class="keyword">return</span> p2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="删除链表的倒数第N个节点"><a href="#删除链表的倒数第N个节点" class="headerlink" title="删除链表的倒数第N个节点"></a>删除链表的倒数第N个节点</h2><p>待总结</p>
+<p>和单链表的倒数第K个节点一样，只不过需要找到节点后删除。</p>
+<h2 id="单链表的中点"><a href="#单链表的中点" class="headerlink" title="单链表的中点"></a>单链表的中点</h2><h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>给你单链表的头结点 <code>head</code> ，请你找出并返回链表的中间结点。</p>
+<p>如果有两个中间结点，则返回第二个中间结点。</p>
+<p><strong>示例 1：</strong></p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306262029464.jpeg" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：head = [1,2,3,4,5]</span><br><span class="line">输出：[3,4,5]</span><br><span class="line">解释：链表只有一个中间结点，值为 3 。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306262029458.jpeg" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：head = [1,2,3,4,5,6]</span><br><span class="line">输出：[4,5,6]</span><br><span class="line">解释：该链表有两个中间结点，值分别为 3 和 4 ，返回第二个结点。</span><br></pre></td></tr></table></figure>
+
+<h3 id="题解-2"><a href="#题解-2" class="headerlink" title="题解"></a>题解</h3><p>同样，利用快慢指针的方法，快指针每次走两步，慢指针走一步，这样，让快指针走到头的时候，慢指针正好指在中点。</p>
+<p>核心代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (fast != <span class="literal">null</span> &amp;&amp; fast.next != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="comment">// 慢指针走一步，快指针走两步</span></span><br><span class="line">        slow = slow.next;</span><br><span class="line">        fast = fast.next.next;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意，需要判断fast.next是否为null，原因是，有可能是偶数的节点。</p>
+<h2 id="判断链表是否包含环"><a href="#判断链表是否包含环" class="headerlink" title="判断链表是否包含环"></a>判断链表是否包含环</h2><h3 id="题意-1"><a href="#题意-1" class="headerlink" title="题意"></a>题意</h3><p>给你一个链表的头节点 <code>head</code> ，判断链表中是否有环。</p>
+<p>如果链表中有某个节点，可以通过连续跟踪 <code>next</code> 指针再次到达，则链表中存在环。 为了表示给定链表中的环，评测系统内部使用整数 <code>pos</code> 来表示链表尾连接到链表中的位置（索引从 0 开始）。<strong>注意：<code>pos</code> 不作为参数进行传递</strong> 。仅仅是为了标识链表的实际情况。</p>
+<p><em>如果链表中存在环</em> ，则返回 <code>true</code> 。 否则，返回 <code>false</code> 。</p>
+<h2 id="题解-3"><a href="#题解-3" class="headerlink" title="题解"></a>题解</h2><p>也是利用快慢指针，每当慢指针走一步，快指针走两步，如果快指针最终遇到了空指针，则说明链表中没有环；</p>
+<p>如果快指针和慢指针相遇，证明快指针超过了慢指针一圈，说明有环。</p>
+<p>核心代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (fast != <span class="literal">null</span> &amp;&amp; fast.next != <span class="literal">null</span>) &#123;</span><br><span class="line">       <span class="comment">// 慢指针走一步，快指针走两步</span></span><br><span class="line">       slow = slow.next;</span><br><span class="line">       fast = fast.next.next;</span><br><span class="line">       <span class="comment">// 快慢指针相遇，说明含有环</span></span><br><span class="line">       <span class="keyword">if</span> (slow == fast) &#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="环形链表II"><a href="#环形链表II" class="headerlink" title="环形链表II"></a>环形链表II</h2><p>找到这个环的起点。</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306262035848.png" alt="img"></p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>当快慢指针相遇的时候，证明快慢指针相遇，让其中任意一个指向头结点，然后让快慢指针以相同的速度前行，再次相遇的节点位置就是环开始的位置。</p>
+<p>核心代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 重新指向头结点</span></span><br><span class="line">       slow = head;</span><br><span class="line"></span><br><span class="line">       <span class="comment">// 快慢指针同步前进，相交点就是环起点</span></span><br><span class="line">       <span class="keyword">while</span> (slow != fast) &#123;</span><br><span class="line">           fast = fast.next;</span><br><span class="line">           slow = slow.next;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> slow;</span><br></pre></td></tr></table></figure>
+
+<h2 id="两个链表是否相交"><a href="#两个链表是否相交" class="headerlink" title="两个链表是否相交"></a>两个链表是否相交</h2><p>给你输入两个链表的头结点 <code>headA</code> 和 <code>headB</code>，这两个链表可能存在相交。</p>
+<p>如果相交，你的算法应该返回相交的那个节点；如果没相交，则返回 null。</p>
+<p>比如题目给我们举的例子，如果输入的两个链表如下图：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306262039252.png" alt="img"></p>
+<h3 id="题解-4"><a href="#题解-4" class="headerlink" title="题解"></a>题解</h3><p>难点：如何让p1和p2两个链表同时到达相交节点</p>
+<p>所以，我们可以让 <code>p1</code> 遍历完链表 <code>A</code> 之后开始遍历链表 <code>B</code>，让 <code>p2</code> 遍历完链表 <code>B</code> 之后开始遍历链表 <code>A</code>，这样相当于「逻辑上」两条链表接在了一起。</p>
+<p>如果这样进行拼接，就可以让 <code>p1</code> 和 <code>p2</code> 同时进入公共部分，也就是同时到达相交节点 <code>c1</code></p>
+<p>核心代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (p1 != p2) &#123;</span><br><span class="line">        <span class="comment">// p1 走一步，如果走到 A 链表末尾，转到 B 链表</span></span><br><span class="line">        <span class="keyword">if</span> (p1 == <span class="literal">null</span>) p1 = headB;</span><br><span class="line">        <span class="keyword">else</span>            p1 = p1.next;</span><br><span class="line">        <span class="comment">// p2 走一步，如果走到 B 链表末尾，转到 A 链表</span></span><br><span class="line">        <span class="keyword">if</span> (p2 == <span class="literal">null</span>) p2 = headA;</span><br><span class="line">        <span class="keyword">else</span>            p2 = p2.next;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://labuladong.gitee.io/algo/di-yi-zhan-da78c/shou-ba-sh-8f30d/shuang-zhi-0f7cc/#%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84%E5%88%86%E8%A7%A3">双指针技巧秒杀七道链表题目</a></p>
 
         </article>
         <div class="post-tools" id="post-tools">
@@ -819,18 +830,18 @@
         </div>
         <div class="share-main">
             <div class="share-main-all">
-                <div id="qrcode" title="http://yamonc.github.io/2023/06/13/Hexo/%E4%BB%8E0%E5%88%B01%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E5%88%B0Github-Page/">
+                <div id="qrcode" title="http://yamonc.github.io/2023/06/26/%E7%AE%97%E6%B3%95/%E5%8F%8C%E6%8C%87%E9%92%88%E4%B9%8B%E9%93%BE%E8%A1%A8%E6%80%BB%E7%BB%93/">
                 </div>
                 <div class="reward-dec">使用手机访问这篇文章</div>
             </div>
         </div>
         <script type="text/javascript">
-            new QRCode(document.getElementById("qrcode"), "http://yamonc.github.io/2023/06/13/Hexo/%E4%BB%8E0%E5%88%B01%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E5%88%B0Github-Page/");
+            new QRCode(document.getElementById("qrcode"), "http://yamonc.github.io/2023/06/26/%E7%AE%97%E6%B3%95/%E5%8F%8C%E6%8C%87%E9%92%88%E4%B9%8B%E9%93%BE%E8%A1%A8%E6%80%BB%E7%BB%93/");
         </script>
     </div>
 </div>
                 <div class="share-link weibo"><a class="share-button" target="_blank"
-    href="https://service.weibo.com/share/share.php?title=从0到1部署博客系统到Github Page（0成本）&amp;url=http://yamonc.github.io/2023/06/13/Hexo/%E4%BB%8E0%E5%88%B01%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E5%88%B0Github-Page/&amp;pic=https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261745323.jpeg"
+    href="https://service.weibo.com/share/share.php?title=双指针之链表总结&amp;url=http://yamonc.github.io/2023/06/26/%E7%AE%97%E6%B3%95/%E5%8F%8C%E6%8C%87%E9%92%88%E4%B9%8B%E9%93%BE%E8%A1%A8%E6%80%BB%E7%BB%93/&amp;pic=https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306262043405.jpeg"
     title="分享到微博" rel="noopener external nofollow noreferrer noopener">
     <i class="fab fa-weibo" style="font-size:22px"></i>
 </a>
@@ -845,22 +856,16 @@
                 <div class="tag_share">
                     <div class="post-meta__tag-list">
                         
-                            <a href="/tags/%E5%8D%9A%E5%AE%A2/" class="post-meta__tags">
+                            <a href="/tags/java/" class="post-meta__tags">
                                 <span class="tags-punctuation">#</span>
-                                博客
-                                <span class="tagsPageCount">3</span>
+                                java
+                                <span class="tagsPageCount">8</span>
                             </a>
                         
-                            <a href="/tags/hexo/" class="post-meta__tags">
+                            <a href="/tags/leetcode/" class="post-meta__tags">
                                 <span class="tags-punctuation">#</span>
-                                hexo
-                                <span class="tagsPageCount">4</span>
-                            </a>
-                        
-                            <a href="/tags/github/" class="post-meta__tags">
-                                <span class="tags-punctuation">#</span>
-                                github
-                                <span class="tagsPageCount">1</span>
+                                leetcode
+                                <span class="tagsPageCount">6</span>
                             </a>
                         
                     </div>
@@ -871,12 +876,12 @@
     <div class="post-copyright__author">
         <a class="post-copyright__original" title="该文章为原创文章，注意版权协议">原创</a>
         <a class="post-copyright-title" href="#">
-            <span>从0到1部署博客系统到Github Page（0成本）</span>
+            <span>双指针之链表总结</span>
         </a>
     </div>
     <div class="post-copyright__type">
         <span class="post-copyright-info" id="post-copyright-url">
-            <a href="/2023/06/13/Hexo/%E4%BB%8E0%E5%88%B01%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E5%88%B0Github-Page/">http://yamonc.github.io/2023/06/13/Hexo/%E4%BB%8E0%E5%88%B01%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E5%88%B0Github-Page/</a>
+            <a href="/2023/06/26/%E7%AE%97%E6%B3%95/%E5%8F%8C%E6%8C%87%E9%92%88%E4%B9%8B%E9%93%BE%E8%A1%A8%E6%80%BB%E7%BB%93/">http://yamonc.github.io/2023/06/26/%E7%AE%97%E6%B3%95/%E5%8F%8C%E6%8C%87%E9%92%88%E4%B9%8B%E9%93%BE%E8%A1%A8%E6%80%BB%E7%BB%93/</a>
         </span>
         <button class="post-copyright-copybtn" onclick="acrylic.copyPageUrl()">
             <i class="fas fa-paste copy-btn"></i>
@@ -890,22 +895,17 @@
 </div>
         <nav class="pagination-post" id="pagination">
     
-        <div class="prev-post pull-left">
-            <a href="/2023/06/13/Hexo/hexo%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98/">
-                <div class="pagination-info">
-                    <div class="label">上一篇</div>
-                    <div class="prev_info">hexo如何修改主题？</div>
-                </div>
-            </a>
-        </div>
-        <div class="next-post pull-right">
-            <a href="/2023/06/10/hello-world/">
-                <div class="pagination-info">
-                    <div class="label">下一篇</div>
-                    <div class="next_info">无标题</div>
-                </div>
-            </a>
-        </div>
+        
+            <div class="next-post pull-full">
+                <a href="/2023/06/25/%E7%AE%97%E6%B3%95/%E9%93%BE%E8%A1%A8%E7%9B%B8%E4%BA%A4/">
+                    <div class="pagination-info">
+                        <div class="label">下一篇</div>
+                        <div class="next_info">链表相交</div>
+                    </div>
+                </a>
+            </div>
+                
+        
     
 </nav>
         
@@ -994,7 +994,7 @@
         <span>文章目录</span>
     </div>
     <div class="toc-content" id="toc-content">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8E0%E5%88%B01%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E5%88%B0GitHub-Page%EF%BC%880%E6%88%90%E6%9C%AC%EF%BC%89"><span class="toc-text">从0到1部署博客系统到GitHub Page（0成本）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-text">背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA%E4%BD%BF%E7%94%A8%E7%9A%84%E7%BB%84%E4%BB%B6"><span class="toc-text">搭建使用的组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2"><span class="toc-text">本地部署</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85hexo"><span class="toc-text">安装hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96hexo%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="toc-text">初始化hexo文件夹</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96"><span class="toc-text">安装依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81"><span class="toc-text">验证</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2%E5%88%B0Github-Page%E7%AB%99%E7%82%B9"><span class="toc-text">部署到Github Page站点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-text">参考</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%8C%E6%8C%87%E9%92%88%E4%B9%8B%E9%93%BE%E8%A1%A8%E6%80%BB%E7%BB%93"><span class="toc-text">双指针之链表总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8"><span class="toc-text">合并两个有序链表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E5%89%B2%E9%93%BE%E8%A1%A8"><span class="toc-text">分割链表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%88%E5%B9%B6K%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8"><span class="toc-text">合并K个有序链表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-text">问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3"><span class="toc-text">题解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACK%E4%B8%AA%E8%8A%82%E7%82%B9"><span class="toc-text">单链表的倒数第K个节点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A"><span class="toc-text">题目：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3-1"><span class="toc-text">题解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9"><span class="toc-text">删除链表的倒数第N个节点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84%E4%B8%AD%E7%82%B9"><span class="toc-text">单链表的中点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3-2"><span class="toc-text">题解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E9%93%BE%E8%A1%A8%E6%98%AF%E5%90%A6%E5%8C%85%E5%90%AB%E7%8E%AF"><span class="toc-text">判断链表是否包含环</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-1"><span class="toc-text">题意</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3-3"><span class="toc-text">题解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8II"><span class="toc-text">环形链表II</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-text">思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%A4%E4%B8%AA%E9%93%BE%E8%A1%A8%E6%98%AF%E5%90%A6%E7%9B%B8%E4%BA%A4"><span class="toc-text">两个链表是否相交</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3-4"><span class="toc-text">题解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-text">参考</span></a></li></ol></li></ol>
     </div>
 </div>
             

@@ -19,22 +19,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>jdk17没有JRE文件夹的解决方法</title>
-    <url>/2023/06/16/jdk17%E6%B2%A1%E6%9C%89jre%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="jdk17没有JRE文件夹的解决方法"><a href="#jdk17没有JRE文件夹的解决方法" class="headerlink" title="jdk17没有JRE文件夹的解决方法"></a>jdk17没有JRE文件夹的解决方法</h1><p>找到JDK的安装目录，然后在该目录下输入以下指令即可生成</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bin\jlink.exe --module-path jmods --add-modules java.desktop --output jre</span><br></pre></td></tr></table></figure>
-
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/u012993896/article/details/123150376">Windows系统安装JDK17没有jre文件夹解决方法</a></p>
-]]></content>
-      <categories>
-        <category>问题汇总</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>jdk</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>如何将JavaFX的java项目打包成exe格式</title>
     <url>/2023/06/16/%E5%A6%82%E4%BD%95%E5%B0%86java%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E6%88%90exe%E6%A0%BC%E5%BC%8F/</url>
     <content><![CDATA[<h1 id="如何将JavaFX的java项目打包成exe格式"><a href="#如何将JavaFX的java项目打包成exe格式" class="headerlink" title="如何将JavaFX的java项目打包成exe格式"></a>如何将JavaFX的java项目打包成exe格式</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261746693.jpeg" alt="a dark tunnel with a light at the end"></p>
@@ -84,6 +68,22 @@
       <tags>
         <tag>java</tag>
         <tag>exe</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>jdk17没有JRE文件夹的解决方法</title>
+    <url>/2023/06/16/jdk17%E6%B2%A1%E6%9C%89jre%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="jdk17没有JRE文件夹的解决方法"><a href="#jdk17没有JRE文件夹的解决方法" class="headerlink" title="jdk17没有JRE文件夹的解决方法"></a>jdk17没有JRE文件夹的解决方法</h1><p>找到JDK的安装目录，然后在该目录下输入以下指令即可生成</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bin\jlink.exe --module-path jmods --add-modules java.desktop --output jre</span><br></pre></td></tr></table></figure>
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/u012993896/article/details/123150376">Windows系统安装JDK17没有jre文件夹解决方法</a></p>
+]]></content>
+      <categories>
+        <category>问题汇总</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>jdk</tag>
       </tags>
   </entry>
   <entry>
@@ -264,6 +264,54 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo文章转换器</title>
+    <url>/2023/06/19/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/Hexo%E6%96%87%E7%AB%A0%E8%BD%AC%E6%8D%A2%E5%99%A8/</url>
+    <content><![CDATA[<h1 id="Hexo文章转换器"><a href="#Hexo文章转换器" class="headerlink" title="Hexo文章转换器"></a>Hexo文章转换器</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261747053.jpeg" alt="a close up of a cell phone with a blurry background"></p>
+<blockquote>
+<p>Hexo系列文章：</p>
+<ol>
+<li><a href="https://yamonc.github.io/2023/06/13/%E4%BB%8E0%E5%88%B01%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E5%88%B0Github-Page/">从0到1部署博客系统到GitHub Page（0成本）</a></li>
+<li><a href="https://yamonc.github.io/2023/06/13/hexo%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98/">hexo如何修改主题？</a></li>
+<li><a href="https://yamonc.github.io/2023/06/13/hexo-Acrylic%E4%B8%BB%E9%A2%98%E9%9B%86%E6%88%90twikoo%E8%AF%84%E8%AE%BA/">hexo-Acrylic主题集成twikoo评论</a></li>
+<li><a href="https://yamonc.github.io/2023/06/16/%E5%A6%82%E4%BD%95%E5%B0%86java%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E6%88%90exe%E6%A0%BC%E5%BC%8F/">如何将JavaFX的java项目打包成exe格式</a></li>
+</ol>
+</blockquote>
+<hr>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近将博客平台使用Hexo搭建在Github上，但是如果每次发布文章的话，都需要设置一下front-matter的内容：</p>
+<p><a href="https://hexo.io/zh-cn/docs/front-matter">Front-matter</a></p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191043672.png" alt="image-20230619104358612"></p>
+<p>感觉不太方便，所以想通过界面化的方式，将过程进行简化（要不，每次都手动在文章的开头写上—xxx—,太麻烦）。</p>
+<p>基于此，本文通过界面化的方式，将文章进行格式化，通过代码的方式自动在文章开头插入markdown可识别的字符串。</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191046466.png" alt="image-20230619104639429"></p>
+<p>使用该工具可以避免手动输入这些信息，而是通过界面化的方式进行配置：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191047100.png" alt="image-20230619104743062"></p>
+<h2 id="技术说明"><a href="#技术说明" class="headerlink" title="技术说明"></a>技术说明</h2><p>Java17（开发语言）、Java FX（Java界面工具，类似于java8的swing，现已不支持java8）、SceneBuilder（拖拽式界面工具）、exe4j（jar转exe工具）。</p>
+<p>踩坑无数，尤其是将java转为exe的过程中，踩了一晚上吧。</p>
+<h2 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h2><p>下载地址：</p>
+<p><a href="https://gh.api.99988866.xyz/https://github.com/yamonc/hexoHelper/releases/download/V0.0.1/hexoHelper.exe">HexoHelper下载地址</a></p>
+<p>下载好之后，无需安装过程，直接点击exe文件即可运行。</p>
+<p>运行好之后，会出现[示例]中的界面。</p>
+<h3 id="功能说明"><a href="#功能说明" class="headerlink" title="功能说明"></a>功能说明</h3><p>现在界面主要分为四个区域，从上到下以此为使用说明、选中文件区域、front-matter信息区域、功能区域。</p>
+<p>这里主要讲解功能区域：</p>
+<p>【上传文件】：点击上传文件按钮之后，选中待转换的markdown文件（没有front-matter信息的markdown文件）</p>
+<p>【转换格式】：对已上传的文件进行格式转换，在文章头添加已经输入的front-matter信息。</p>
+<p>【部署】：执行hexo clean、hexo g、hexo d一系列指令。</p>
+<p>【一键部署】：对已上传的文件进行格式转换并执行hexo clean、hexo g、hexo d指令部署到对应平台上。</p>
+<h3 id="使用流程说明"><a href="#使用流程说明" class="headerlink" title="使用流程说明"></a>使用流程说明</h3><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191058659.png" alt="image-20230619105823619"></p>
+<h2 id="遗留问题"><a href="#遗留问题" class="headerlink" title="遗留问题"></a>遗留问题</h2><p>转换文章之后，题目乱码。</p>
+<p>不够灵活，鲁棒性不好。对输入增加限制。</p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>hexo</tag>
+        <tag>开源项目</tag>
+        <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>从0到1部署博客系统到Github Page（0成本）</title>
     <url>/2023/06/13/Hexo/%E4%BB%8E0%E5%88%B01%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E5%88%B0Github-Page/</url>
     <content><![CDATA[<h1 id="从0到1部署博客系统到GitHub-Page（0成本）"><a href="#从0到1部署博客系统到GitHub-Page（0成本）" class="headerlink" title="从0到1部署博客系统到GitHub Page（0成本）"></a>从0到1部署博客系统到GitHub Page（0成本）</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261745323.jpeg" alt="a view of a mountain range with a pink sky in the background"></p>
@@ -369,32 +417,6 @@
       </tags>
   </entry>
   <entry>
-    <title>环形链表</title>
-    <url>/2023/06/19/%E7%AE%97%E6%B3%95/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/</url>
-    <content><![CDATA[<h1 id="环形链表"><a href="#环形链表" class="headerlink" title="环形链表"></a>环形链表</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261740749.jpeg" alt="a large body of water surrounded by rocks"></p>
-<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给你一个链表的头节点 head ，判断链表中是否有环。</p>
-<p>如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环。 为了表示给定链表中的环，评测系统内部使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。注意：pos 不作为参数进行传递 。仅仅是为了标识链表的实际情况。</p>
-<p>如果链表中存在环 ，则返回 true 。 否则，返回 false 。</p>
-<p>示例 1：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191021477.png" alt="img"></p>
-<p>输入：head &#x3D; [3,2,0,-4], pos &#x3D; 1<br>输出：true<br>解释：链表中有一个环，其尾部连接到第二个节点。<br>示例 2：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191021584.png" alt="img"></p>
-<p>输入：head &#x3D; [1,2], pos &#x3D; 0<br>输出：true<br>解释：链表中有一个环，其尾部连接到第一个节点。</p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>跟[链表的中间结点]类似，使用快慢指针：</p>
-<p>slow前进一步，fast前进两步，如果fast最终遇到了空指针，则说明链表中没有环；</p>
-<p>如果fast和slow最终相遇了，证明fast超过了slow一圈，说明链表有环。</p>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>leetcode</tag>
-        <tag>双指针</tag>
-        <tag>链表</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>单链表的倒数第k个节点</title>
     <url>/2023/06/16/%E7%AE%97%E6%B3%95/%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACk%E4%B8%AA%E8%8A%82%E7%82%B9/</url>
     <content><![CDATA[<h1 id="单链表的倒数第k个节点"><a href="#单链表的倒数第k个节点" class="headerlink" title="单链表的倒数第k个节点"></a>单链表的倒数第k个节点</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261740849.jpeg" alt="a bird is perched on the side of a building"></p>
@@ -416,132 +438,6 @@
       <tags>
         <tag>leetcode</tag>
         <tag>双指针</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>链表相交</title>
-    <url>/2023/06/25/%E7%AE%97%E6%B3%95/%E9%93%BE%E8%A1%A8%E7%9B%B8%E4%BA%A4/</url>
-    <content><![CDATA[<h1 id="链表相交"><a href="#链表相交" class="headerlink" title="链表相交"></a>链表相交</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你两个单链表的头节点 <code>headA</code> 和 <code>headB</code> ，请你找出并返回两个单链表相交的起始节点。如果两个链表不存在相交节点，返回 <code>null</code> 。</p>
-<p>图示两个链表在节点 <code>c1</code> 开始相交<strong>：</strong></p>
-<p><a href="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/14/160_statement.png"><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306250944935.png" alt="img"></a></p>
-<p>题目数据 <strong>保证</strong> 整个链式结构中不存在环。</p>
-<p><strong>注意</strong>，函数返回结果后，链表必须 <strong>保持其原始结构</strong> 。</p>
-<p><strong>自定义评测：</strong></p>
-<p><strong>评测系统</strong> 的输入如下（你设计的程序 <strong>不适用</strong> 此输入）：</p>
-<ul>
-<li><code>intersectVal</code> - 相交的起始节点的值。如果不存在相交节点，这一值为 <code>0</code></li>
-<li><code>listA</code> - 第一个链表</li>
-<li><code>listB</code> - 第二个链表</li>
-<li><code>skipA</code> - 在 <code>listA</code> 中（从头节点开始）跳到交叉节点的节点数</li>
-<li><code>skipB</code> - 在 <code>listB</code> 中（从头节点开始）跳到交叉节点的节点数</li>
-</ul>
-<p>评测系统将根据这些输入创建链式数据结构，并将两个头节点 <code>headA</code> 和 <code>headB</code> 传递给你的程序。如果程序能够正确返回相交节点，那么你的解决方案将被 <strong>视作正确答案</strong> 。</p>
-<p><strong>示例 1：</strong></p>
-<p><a href="https://assets.leetcode.com/uploads/2018/12/13/160_example_1.png"><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306250944565.png" alt="img"></a></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：intersectVal = 8, listA = [4,1,8,4,5], listB = [5,6,1,8,4,5], skipA = 2, skipB = 3</span><br><span class="line">输出：Intersected at &#x27;8&#x27;</span><br><span class="line">解释：相交节点的值为 8 （注意，如果两个链表相交则不能为 0）。</span><br><span class="line">从各自的表头开始算起，链表 A 为 [4,1,8,4,5]，链表 B 为 [5,6,1,8,4,5]。</span><br><span class="line">在 A 中，相交节点前有 2 个节点；在 B 中，相交节点前有 3 个节点。</span><br><span class="line">— 请注意相交节点的值不为 1，因为在链表 A 和链表 B 之中值为 1 的节点 (A 中第二个节点和 B 中第三个节点) 是不同的节点。换句话说，它们在内存中指向两个不同的位置，而链表 A 和链表 B 中值为 8 的节点 (A 中第三个节点，B 中第四个节点) 在内存中指向相同的位置。</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2：</strong></p>
-<p><a href="https://assets.leetcode.com/uploads/2018/12/13/160_example_2.png"><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306250944586.png" alt="img"></a></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：intersectVal = 2, listA = [1,9,1,2,4], listB = [3,2,4], skipA = 3, skipB = 1</span><br><span class="line">输出：Intersected at &#x27;2&#x27;</span><br><span class="line">解释：相交节点的值为 2 （注意，如果两个链表相交则不能为 0）。</span><br><span class="line">从各自的表头开始算起，链表 A 为 [1,9,1,2,4]，链表 B 为 [3,2,4]。</span><br><span class="line">在 A 中，相交节点前有 3 个节点；在 B 中，相交节点前有 1 个节点。</span><br></pre></td></tr></table></figure>
-
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>可以使用HashSet，记录一个链表的所有节点，然后和另外一个链表对比，如果有一样的话，就返回该节点。但是需要额外的空间。</p>
-<p>使用双指针：</p>
-<p>但是两个链表的长度可能不同，两个链表之间的节点无法对应，那么如果使用两个指针，p1和p2分别在两个链表上前进的话，并不能同时走到公共节点上，也就是无法获取相交节点c1.</p>
-<p>所以，可以让p1遍历完链表A之后，再遍历链表B，p2遍历完链表B之后开始遍历链表A，这样相当于两个链表连接在了一起：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306250947411.jpeg" alt="img"></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ListNode <span class="title function_">getIntersectionNode</span><span class="params">(ListNode headA, ListNode headB)</span>&#123;</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">p1</span> <span class="operator">=</span> headA, p2 = headB;</span><br><span class="line">        <span class="keyword">while</span> (p1 != p2)&#123;</span><br><span class="line">            <span class="comment">// p1 走一步，如果走到A的末尾，转到B链表</span></span><br><span class="line">            <span class="keyword">if</span> (p1 == <span class="literal">null</span>)&#123;</span><br><span class="line">                p1 = headB;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="comment">// 如果不为空的话，一直走</span></span><br><span class="line">                p1 = p1.next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (p2 == <span class="literal">null</span>)&#123;</span><br><span class="line">                p2 = headA;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                p2 = p2.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> p1;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>leetcode</tag>
-        <tag>双指针</tag>
-        <tag>链表</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>环形链表</title>
-    <url>/2023/06/19/%E7%AE%97%E6%B3%95/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8%E7%9A%84%E8%B5%B7%E7%82%B9/</url>
-    <content><![CDATA[<h1 id="环形链表的起点"><a href="#环形链表的起点" class="headerlink" title="环形链表的起点"></a>环形链表的起点</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261740864.jpeg" alt="a view of a mountain range with clouds in the sky"></p>
-<p>给定一个链表的头节点  <code>head</code> ，返回链表开始入环的第一个节点。 <em>如果链表无环，则返回 <code>null</code>。</em></p>
-<p>如果链表中有某个节点，可以通过连续跟踪 <code>next</code> 指针再次到达，则链表中存在环。 为了表示给定链表中的环，评测系统内部使用整数 <code>pos</code> 来表示链表尾连接到链表中的位置（<strong>索引从 0 开始</strong>）。如果 <code>pos</code> 是 <code>-1</code>，则在该链表中没有环。<strong>注意：<code>pos</code> 不作为参数进行传递</strong>，仅仅是为了标识链表的实际情况。</p>
-<p><strong>不允许修改</strong> 链表。</p>
-<p><strong>示例 1：</strong></p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306201021677.png" alt="img"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：head = [3,2,0,-4], pos = 1</span><br><span class="line">输出：返回索引为 1 的链表节点</span><br><span class="line">解释：链表中有一个环，其尾部连接到第二个节点。</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2：</strong></p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306201021030.png" alt="img"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：head = [1,2], pos = 0</span><br><span class="line">输出：返回索引为 0 的链表节点</span><br><span class="line">解释：链表中有一个环，其尾部连接到第一个节点。</span><br></pre></td></tr></table></figure>
-
-<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> ListNode <span class="title function_">detectCycle</span><span class="params">(ListNode head)</span> &#123;</span><br><span class="line">         <span class="type">ListNode</span> <span class="variable">fast</span> <span class="operator">=</span> head;</span><br><span class="line">       <span class="type">ListNode</span> <span class="variable">slow</span> <span class="operator">=</span> head;</span><br><span class="line">       <span class="keyword">while</span> (fast != <span class="literal">null</span> &amp;&amp; fast.next != <span class="literal">null</span>) &#123;</span><br><span class="line">           fast = fast.next.next;</span><br><span class="line">           slow = slow.next;</span><br><span class="line">           <span class="keyword">if</span> (fast == slow)&#123;</span><br><span class="line">               <span class="keyword">break</span>;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">// fast 遇到空指针说明没有环</span></span><br><span class="line">       <span class="keyword">if</span> (fast == <span class="literal">null</span> || fast.next == <span class="literal">null</span>)&#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">// 将慢指针指向head节点，重新开始单步走，当相交的时候，就是环的起点。</span></span><br><span class="line">       slow = head;</span><br><span class="line">       <span class="keyword">while</span> (slow != fast) &#123;</span><br><span class="line">           fast = fast.next;</span><br><span class="line">           slow = slow.next;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> slow;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-
-<p>我们假设快慢指针相遇时，慢指针 <code>slow</code> 走了 <code>k</code> 步，那么快指针 <code>fast</code> 一定走了 <code>2k</code> 步：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306201021286.jpeg" alt="img"></p>
-<p><code>fast</code> 一定比 <code>slow</code> 多走了 <code>k</code> 步，这多走的 <code>k</code> 步其实就是 <code>fast</code> 指针在环里转圈圈，所以 <code>k</code> 的值就是环长度的「整数倍」。</p>
-<p>假设相遇点距环的起点的距离为 <code>m</code>，那么结合上图的 <code>slow</code> 指针，环的起点距头结点 <code>head</code> 的距离为 <code>k - m</code>，也就是说如果从 <code>head</code> 前进 <code>k - m</code> 步就能到达环起点。</p>
-<p>巧的是，如果从相遇点继续前进 <code>k - m</code> 步，也恰好到达环起点。因为结合上图的 <code>fast</code> 指针，从相遇点开始走k步可以转回到相遇点，那走 <code>k - m</code> 步肯定就走到环起点了：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306201021309.jpeg" alt="img"></p>
-<p>所以，只要我们把快慢指针中的任一个重新指向 <code>head</code>，然后两个指针同速前进，<code>k - m</code> 步后一定会相遇，相遇之处就是环的起点了</p>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>leetcode</tag>
-        <tag>双指针</tag>
-        <tag>链表</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo文章转换器</title>
-    <url>/2023/06/19/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/Hexo%E6%96%87%E7%AB%A0%E8%BD%AC%E6%8D%A2%E5%99%A8/</url>
-    <content><![CDATA[<h1 id="Hexo文章转换器"><a href="#Hexo文章转换器" class="headerlink" title="Hexo文章转换器"></a>Hexo文章转换器</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261747053.jpeg" alt="a close up of a cell phone with a blurry background"></p>
-<blockquote>
-<p>Hexo系列文章：</p>
-<ol>
-<li><a href="https://yamonc.github.io/2023/06/13/%E4%BB%8E0%E5%88%B01%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E5%88%B0Github-Page/">从0到1部署博客系统到GitHub Page（0成本）</a></li>
-<li><a href="https://yamonc.github.io/2023/06/13/hexo%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98/">hexo如何修改主题？</a></li>
-<li><a href="https://yamonc.github.io/2023/06/13/hexo-Acrylic%E4%B8%BB%E9%A2%98%E9%9B%86%E6%88%90twikoo%E8%AF%84%E8%AE%BA/">hexo-Acrylic主题集成twikoo评论</a></li>
-<li><a href="https://yamonc.github.io/2023/06/16/%E5%A6%82%E4%BD%95%E5%B0%86java%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E6%88%90exe%E6%A0%BC%E5%BC%8F/">如何将JavaFX的java项目打包成exe格式</a></li>
-</ol>
-</blockquote>
-<hr>
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近将博客平台使用Hexo搭建在Github上，但是如果每次发布文章的话，都需要设置一下front-matter的内容：</p>
-<p><a href="https://hexo.io/zh-cn/docs/front-matter">Front-matter</a></p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191043672.png" alt="image-20230619104358612"></p>
-<p>感觉不太方便，所以想通过界面化的方式，将过程进行简化（要不，每次都手动在文章的开头写上—xxx—,太麻烦）。</p>
-<p>基于此，本文通过界面化的方式，将文章进行格式化，通过代码的方式自动在文章开头插入markdown可识别的字符串。</p>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191046466.png" alt="image-20230619104639429"></p>
-<p>使用该工具可以避免手动输入这些信息，而是通过界面化的方式进行配置：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191047100.png" alt="image-20230619104743062"></p>
-<h2 id="技术说明"><a href="#技术说明" class="headerlink" title="技术说明"></a>技术说明</h2><p>Java17（开发语言）、Java FX（Java界面工具，类似于java8的swing，现已不支持java8）、SceneBuilder（拖拽式界面工具）、exe4j（jar转exe工具）。</p>
-<p>踩坑无数，尤其是将java转为exe的过程中，踩了一晚上吧。</p>
-<h2 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h2><p>下载地址：</p>
-<p><a href="https://gh.api.99988866.xyz/https://github.com/yamonc/hexoHelper/releases/download/V0.0.1/hexoHelper.exe">HexoHelper下载地址</a></p>
-<p>下载好之后，无需安装过程，直接点击exe文件即可运行。</p>
-<p>运行好之后，会出现[示例]中的界面。</p>
-<h3 id="功能说明"><a href="#功能说明" class="headerlink" title="功能说明"></a>功能说明</h3><p>现在界面主要分为四个区域，从上到下以此为使用说明、选中文件区域、front-matter信息区域、功能区域。</p>
-<p>这里主要讲解功能区域：</p>
-<p>【上传文件】：点击上传文件按钮之后，选中待转换的markdown文件（没有front-matter信息的markdown文件）</p>
-<p>【转换格式】：对已上传的文件进行格式转换，在文章头添加已经输入的front-matter信息。</p>
-<p>【部署】：执行hexo clean、hexo g、hexo d一系列指令。</p>
-<p>【一键部署】：对已上传的文件进行格式转换并执行hexo clean、hexo g、hexo d指令部署到对应平台上。</p>
-<h3 id="使用流程说明"><a href="#使用流程说明" class="headerlink" title="使用流程说明"></a>使用流程说明</h3><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191058659.png" alt="image-20230619105823619"></p>
-<h2 id="遗留问题"><a href="#遗留问题" class="headerlink" title="遗留问题"></a>遗留问题</h2><p>转换文章之后，题目乱码。</p>
-<p>不够灵活，鲁棒性不好。对输入增加限制。</p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>hexo</tag>
-        <tag>开源项目</tag>
-        <tag>工具</tag>
       </tags>
   </entry>
   <entry>
@@ -587,6 +483,230 @@
       <tags>
         <tag>vue</tag>
         <tag>electron</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>环形链表</title>
+    <url>/2023/06/19/%E7%AE%97%E6%B3%95/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/</url>
+    <content><![CDATA[<h1 id="环形链表"><a href="#环形链表" class="headerlink" title="环形链表"></a>环形链表</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261740749.jpeg" alt="a large body of water surrounded by rocks"></p>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给你一个链表的头节点 head ，判断链表中是否有环。</p>
+<p>如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环。 为了表示给定链表中的环，评测系统内部使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。注意：pos 不作为参数进行传递 。仅仅是为了标识链表的实际情况。</p>
+<p>如果链表中存在环 ，则返回 true 。 否则，返回 false 。</p>
+<p>示例 1：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191021477.png" alt="img"></p>
+<p>输入：head &#x3D; [3,2,0,-4], pos &#x3D; 1<br>输出：true<br>解释：链表中有一个环，其尾部连接到第二个节点。<br>示例 2：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191021584.png" alt="img"></p>
+<p>输入：head &#x3D; [1,2], pos &#x3D; 0<br>输出：true<br>解释：链表中有一个环，其尾部连接到第一个节点。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>跟[链表的中间结点]类似，使用快慢指针：</p>
+<p>slow前进一步，fast前进两步，如果fast最终遇到了空指针，则说明链表中没有环；</p>
+<p>如果fast和slow最终相遇了，证明fast超过了slow一圈，说明链表有环。</p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>leetcode</tag>
+        <tag>双指针</tag>
+        <tag>链表</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>双指针之链表总结</title>
+    <url>/2023/06/26/%E7%AE%97%E6%B3%95/%E5%8F%8C%E6%8C%87%E9%92%88%E4%B9%8B%E9%93%BE%E8%A1%A8%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h1 id="双指针之链表总结"><a href="#双指针之链表总结" class="headerlink" title="双指针之链表总结"></a>双指针之链表总结</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306262043405.jpeg" alt="mason jar of paintbrush lot"></p>
+<p>一共七个题，且只涉及到单链表的操作。</p>
+<ol>
+<li><p>合并两个有序链表  <a href="https://leetcode.cn/problems/merge-two-sorted-lists/">合并两个有序链表</a></p>
+</li>
+<li><p>链表的分解 <a href="https://leetcode.cn/problems/partition-list/">分隔链表</a></p>
+</li>
+<li><p>合并 <code>k</code> 个有序链表 <a href="https://leetcode.cn/problems/merge-k-sorted-lists/">合并K个升序链表</a>：</p>
+</li>
+<li><p>寻找单链表的倒数第 <code>k</code> 个节点 <a href="https://leetcode.cn/problems/lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof/">剑指 Offer 22. 链表中倒数第k个节点</a></p>
+</li>
+<li><p>寻找单链表的中点 <a href="https://leetcode.cn/problems/middle-of-the-linked-list/">链表的中间结点</a></p>
+</li>
+<li><p>判断单链表是否包含环并找出环起点 <a href="https://leetcode.cn/problems/linked-list-cycle-ii/">环形链表 II</a></p>
+</li>
+<li><p>判断两个单链表是否相交并找出交点 <a href="https://leetcode.cn/problems/intersection-of-two-linked-lists/">相交链表</a></p>
+</li>
+</ol>
+<h2 id="合并两个有序链表"><a href="#合并两个有序链表" class="headerlink" title="合并两个有序链表"></a>合并两个有序链表</h2><p>将两个升序链表合并成为一个新的升序链表。新链表通过拼接给定的两个链表所有节点组成。</p>
+<p>方法签名：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ListNode <span class="title function_">mergeTwoLists</span><span class="params">(ListNode l1, ListNode l2)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>思路：</p>
+<p>善用<strong>虚拟头节点</strong>，使用dummy生成一个虚拟节点p，同时为了不破坏l1和l2的链表结构，（因为要遍历这两个链）所以，重新赋值l1给p1，l2给p2；</p>
+<p>在while循环里面，每次比较p1和p2的大小，将较小的节点给p，同时p指针不断后移。</p>
+<p>关键代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> (p1 != <span class="literal">null</span> &amp;&amp; p2 != <span class="literal">null</span>) &#123;</span><br><span class="line"></span><br><span class="line">       <span class="comment">// 比较 p1 和 p2 两个指针</span></span><br><span class="line">       <span class="comment">// 将值较小的的节点接到 p 指针</span></span><br><span class="line">       <span class="keyword">if</span> (p1.val &gt; p2.val) &#123;</span><br><span class="line">           p.next = p2;</span><br><span class="line">           p2 = p2.next;</span><br><span class="line">       &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">           p.next = p1;</span><br><span class="line">           p1 = p1.next;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">// p 指针不断前进</span></span><br><span class="line">       p = p.next;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>什么时候使用虚拟头节点？</p>
+<p>需要创建一个新的链表的时候，可以使用虚拟头节点简化边界情况的处理。</p>
+</blockquote>
+<h2 id="分割链表"><a href="#分割链表" class="headerlink" title="分割链表"></a>分割链表</h2><p>题意：给你一个链表的头结点head和一个特定值x，对链表进行分割，使得所有小于x的节点都出现在大于或等于x的节点之前。</p>
+<p>你应该保留两个分区的每个节点初试相对位置。</p>
+<p>在合并两个有序链表时，让你合二为一，而这里需要分解，使得原链表一分为二。具体来说，我们可以将原链表分成两个小链表，一个链表中的元素都小于x，另外一个链表中的元素都大于等于x，最后将这两条链表连在一起，就得到了最终答案：</p>
+<p>题解：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ListNode partition(ListNode head, int x) &#123;</span><br><span class="line">    // 存放小于 x 的链表的虚拟头结点</span><br><span class="line">    ListNode dummy1 = new ListNode(-1);</span><br><span class="line">    // 存放大于等于 x 的链表的虚拟头结点</span><br><span class="line">    ListNode dummy2 = new ListNode(-1);</span><br><span class="line">    // p1, p2 指针负责生成结果链表</span><br><span class="line">    ListNode p1 = dummy1, p2 = dummy2;</span><br><span class="line">    // p 负责遍历原链表，类似合并两个有序链表的逻辑</span><br><span class="line">    // 这里是将一个链表分解成两个链表</span><br><span class="line">    ListNode p = head;</span><br><span class="line">    while (p != null) &#123;</span><br><span class="line">        if (p.val &gt;= x) &#123;</span><br><span class="line">            p2.next = p;</span><br><span class="line">            p2 = p2.next;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            p1.next = p;</span><br><span class="line">            p1 = p1.next;</span><br><span class="line">        &#125;</span><br><span class="line">        // 断开原链表中的每个节点的 next 指针</span><br><span class="line">        ListNode temp = p.next;</span><br><span class="line">        p.next = null;</span><br><span class="line">        p = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    // 连接两个链表</span><br><span class="line">    p1.next = dummy2.next;</span><br><span class="line"></span><br><span class="line">    return dummy1.next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="合并K个有序链表"><a href="#合并K个有序链表" class="headerlink" title="合并K个有序链表"></a>合并K个有序链表</h2><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>给你一个链表数组，每个链表都已经按升序排列。</p>
+<p>请你将所有链表合并到一个升序链表中，返回合并后的链表。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：lists = [[1,4,5],[1,3,4],[2,6]]</span><br><span class="line">输出：[1,1,2,3,4,4,5,6]</span><br><span class="line">解释：链表数组如下：</span><br><span class="line">[</span><br><span class="line">  1-&gt;4-&gt;5,</span><br><span class="line">  1-&gt;3-&gt;4,</span><br><span class="line">  2-&gt;6</span><br><span class="line">]</span><br><span class="line">将它们合并到一个有序链表中得到。</span><br><span class="line">1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5-&gt;6</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：lists = []</span><br><span class="line">输出：[]</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 3：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：lists = [[]]</span><br><span class="line">输出：[]</span><br></pre></td></tr></table></figure>
+
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>合并k个有序链表类似于合并两个有序链表，难点在于如何获取k个节点中最小的节点，并接到结果链上。</p>
+<p>使用<strong>优先队列</strong>，遍历每个链表，将链表中的每个节点都添加到最小堆中，就可以获取k个节点中的最小节点了。</p>
+<p>先入队列，然后出队列，最后的条件是队列是否为空！</p>
+<p>核心代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 优先级队列，最小堆</span></span><br><span class="line">   PriorityQueue&lt;ListNode&gt; pq = <span class="keyword">new</span> <span class="title class_">PriorityQueue</span>&lt;&gt;(</span><br><span class="line">       lists.length, (a, b)-&gt;(a.val - b.val));</span><br><span class="line">   <span class="comment">// 将 k 个链表的头结点加入最小堆</span></span><br><span class="line">   <span class="keyword">for</span> (ListNode head : lists) &#123;</span><br><span class="line">       <span class="keyword">if</span> (head != <span class="literal">null</span>)</span><br><span class="line">           pq.add(head);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">while</span> (!pq.isEmpty()) &#123;</span><br><span class="line">       <span class="comment">// 获取最小节点，接到结果链表中</span></span><br><span class="line">       <span class="type">ListNode</span> <span class="variable">node</span> <span class="operator">=</span> pq.poll();</span><br><span class="line">       p.next = node;</span><br><span class="line">       <span class="keyword">if</span> (node.next != <span class="literal">null</span>) &#123;</span><br><span class="line">           pq.add(node.next);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">// p 指针不断前进</span></span><br><span class="line">       p = p.next;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="单链表的倒数第K个节点"><a href="#单链表的倒数第K个节点" class="headerlink" title="单链表的倒数第K个节点"></a>单链表的倒数第K个节点</h2><h3 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h3><p>输入一个链表，输出该链表中倒数第k个节点。为了符合大多数人的习惯，本题从1开始计数，即链表的尾节点是倒数第1个节点。</p>
+<p>例如，一个链表有 <code>6</code> 个节点，从头节点开始，它们的值依次是 <code>1、2、3、4、5、6</code>。这个链表的倒数第 <code>3</code> 个节点是值为 <code>4</code> 的节点。</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 k = 2.</span><br><span class="line"></span><br><span class="line">返回链表 4-&gt;5.</span><br></pre></td></tr></table></figure>
+
+<h3 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h3><p>是否可以用栈来实现？目前存疑。</p>
+<p>给出的思路：用双指针，也叫快慢指针吧，快指针先走k步，然后快、慢指针再一起走，当快指针走到头的时候，慢指针就是倒数第k个节点。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 返回链表的倒数第 k 个节点</span></span><br><span class="line">ListNode <span class="title function_">findFromEnd</span><span class="params">(ListNode head, <span class="type">int</span> k)</span> &#123;</span><br><span class="line">    <span class="type">ListNode</span> <span class="variable">p1</span> <span class="operator">=</span> head;</span><br><span class="line">    <span class="comment">// p1 先走 k 步</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; k; i++) &#123;</span><br><span class="line">        p1 = p1.next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">ListNode</span> <span class="variable">p2</span> <span class="operator">=</span> head;</span><br><span class="line">    <span class="comment">// p1 和 p2 同时走 n - k 步</span></span><br><span class="line">    <span class="keyword">while</span> (p1 != <span class="literal">null</span>) &#123;</span><br><span class="line">        p2 = p2.next;</span><br><span class="line">        p1 = p1.next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// p2 现在指向第 n - k + 1 个节点，即倒数第 k 个节点</span></span><br><span class="line">    <span class="keyword">return</span> p2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="删除链表的倒数第N个节点"><a href="#删除链表的倒数第N个节点" class="headerlink" title="删除链表的倒数第N个节点"></a>删除链表的倒数第N个节点</h2><p>待总结</p>
+<p>和单链表的倒数第K个节点一样，只不过需要找到节点后删除。</p>
+<h2 id="单链表的中点"><a href="#单链表的中点" class="headerlink" title="单链表的中点"></a>单链表的中点</h2><h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>给你单链表的头结点 <code>head</code> ，请你找出并返回链表的中间结点。</p>
+<p>如果有两个中间结点，则返回第二个中间结点。</p>
+<p><strong>示例 1：</strong></p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306262029464.jpeg" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：head = [1,2,3,4,5]</span><br><span class="line">输出：[3,4,5]</span><br><span class="line">解释：链表只有一个中间结点，值为 3 。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306262029458.jpeg" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：head = [1,2,3,4,5,6]</span><br><span class="line">输出：[4,5,6]</span><br><span class="line">解释：该链表有两个中间结点，值分别为 3 和 4 ，返回第二个结点。</span><br></pre></td></tr></table></figure>
+
+<h3 id="题解-2"><a href="#题解-2" class="headerlink" title="题解"></a>题解</h3><p>同样，利用快慢指针的方法，快指针每次走两步，慢指针走一步，这样，让快指针走到头的时候，慢指针正好指在中点。</p>
+<p>核心代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> (fast != <span class="literal">null</span> &amp;&amp; fast.next != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="comment">// 慢指针走一步，快指针走两步</span></span><br><span class="line">        slow = slow.next;</span><br><span class="line">        fast = fast.next.next;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意，需要判断fast.next是否为null，原因是，有可能是偶数的节点。</p>
+<h2 id="判断链表是否包含环"><a href="#判断链表是否包含环" class="headerlink" title="判断链表是否包含环"></a>判断链表是否包含环</h2><h3 id="题意-1"><a href="#题意-1" class="headerlink" title="题意"></a>题意</h3><p>给你一个链表的头节点 <code>head</code> ，判断链表中是否有环。</p>
+<p>如果链表中有某个节点，可以通过连续跟踪 <code>next</code> 指针再次到达，则链表中存在环。 为了表示给定链表中的环，评测系统内部使用整数 <code>pos</code> 来表示链表尾连接到链表中的位置（索引从 0 开始）。<strong>注意：<code>pos</code> 不作为参数进行传递</strong> 。仅仅是为了标识链表的实际情况。</p>
+<p><em>如果链表中存在环</em> ，则返回 <code>true</code> 。 否则，返回 <code>false</code> 。</p>
+<h2 id="题解-3"><a href="#题解-3" class="headerlink" title="题解"></a>题解</h2><p>也是利用快慢指针，每当慢指针走一步，快指针走两步，如果快指针最终遇到了空指针，则说明链表中没有环；</p>
+<p>如果快指针和慢指针相遇，证明快指针超过了慢指针一圈，说明有环。</p>
+<p>核心代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> (fast != <span class="literal">null</span> &amp;&amp; fast.next != <span class="literal">null</span>) &#123;</span><br><span class="line">       <span class="comment">// 慢指针走一步，快指针走两步</span></span><br><span class="line">       slow = slow.next;</span><br><span class="line">       fast = fast.next.next;</span><br><span class="line">       <span class="comment">// 快慢指针相遇，说明含有环</span></span><br><span class="line">       <span class="keyword">if</span> (slow == fast) &#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="环形链表II"><a href="#环形链表II" class="headerlink" title="环形链表II"></a>环形链表II</h2><p>找到这个环的起点。</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306262035848.png" alt="img"></p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>当快慢指针相遇的时候，证明快慢指针相遇，让其中任意一个指向头结点，然后让快慢指针以相同的速度前行，再次相遇的节点位置就是环开始的位置。</p>
+<p>核心代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 重新指向头结点</span></span><br><span class="line">       slow = head;</span><br><span class="line"></span><br><span class="line">       <span class="comment">// 快慢指针同步前进，相交点就是环起点</span></span><br><span class="line">       <span class="keyword">while</span> (slow != fast) &#123;</span><br><span class="line">           fast = fast.next;</span><br><span class="line">           slow = slow.next;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> slow;</span><br></pre></td></tr></table></figure>
+
+<h2 id="两个链表是否相交"><a href="#两个链表是否相交" class="headerlink" title="两个链表是否相交"></a>两个链表是否相交</h2><p>给你输入两个链表的头结点 <code>headA</code> 和 <code>headB</code>，这两个链表可能存在相交。</p>
+<p>如果相交，你的算法应该返回相交的那个节点；如果没相交，则返回 null。</p>
+<p>比如题目给我们举的例子，如果输入的两个链表如下图：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306262039252.png" alt="img"></p>
+<h3 id="题解-4"><a href="#题解-4" class="headerlink" title="题解"></a>题解</h3><p>难点：如何让p1和p2两个链表同时到达相交节点</p>
+<p>所以，我们可以让 <code>p1</code> 遍历完链表 <code>A</code> 之后开始遍历链表 <code>B</code>，让 <code>p2</code> 遍历完链表 <code>B</code> 之后开始遍历链表 <code>A</code>，这样相当于「逻辑上」两条链表接在了一起。</p>
+<p>如果这样进行拼接，就可以让 <code>p1</code> 和 <code>p2</code> 同时进入公共部分，也就是同时到达相交节点 <code>c1</code></p>
+<p>核心代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> (p1 != p2) &#123;</span><br><span class="line">        <span class="comment">// p1 走一步，如果走到 A 链表末尾，转到 B 链表</span></span><br><span class="line">        <span class="keyword">if</span> (p1 == <span class="literal">null</span>) p1 = headB;</span><br><span class="line">        <span class="keyword">else</span>            p1 = p1.next;</span><br><span class="line">        <span class="comment">// p2 走一步，如果走到 B 链表末尾，转到 A 链表</span></span><br><span class="line">        <span class="keyword">if</span> (p2 == <span class="literal">null</span>) p2 = headA;</span><br><span class="line">        <span class="keyword">else</span>            p2 = p2.next;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://labuladong.gitee.io/algo/di-yi-zhan-da78c/shou-ba-sh-8f30d/shuang-zhi-0f7cc/#%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84%E5%88%86%E8%A7%A3">双指针技巧秒杀七道链表题目</a></p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>环形链表</title>
+    <url>/2023/06/19/%E7%AE%97%E6%B3%95/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8%E7%9A%84%E8%B5%B7%E7%82%B9/</url>
+    <content><![CDATA[<h1 id="环形链表的起点"><a href="#环形链表的起点" class="headerlink" title="环形链表的起点"></a>环形链表的起点</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261740864.jpeg" alt="a view of a mountain range with clouds in the sky"></p>
+<p>给定一个链表的头节点  <code>head</code> ，返回链表开始入环的第一个节点。 <em>如果链表无环，则返回 <code>null</code>。</em></p>
+<p>如果链表中有某个节点，可以通过连续跟踪 <code>next</code> 指针再次到达，则链表中存在环。 为了表示给定链表中的环，评测系统内部使用整数 <code>pos</code> 来表示链表尾连接到链表中的位置（<strong>索引从 0 开始</strong>）。如果 <code>pos</code> 是 <code>-1</code>，则在该链表中没有环。<strong>注意：<code>pos</code> 不作为参数进行传递</strong>，仅仅是为了标识链表的实际情况。</p>
+<p><strong>不允许修改</strong> 链表。</p>
+<p><strong>示例 1：</strong></p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306201021677.png" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：head = [3,2,0,-4], pos = 1</span><br><span class="line">输出：返回索引为 1 的链表节点</span><br><span class="line">解释：链表中有一个环，其尾部连接到第二个节点。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306201021030.png" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：head = [1,2], pos = 0</span><br><span class="line">输出：返回索引为 0 的链表节点</span><br><span class="line">解释：链表中有一个环，其尾部连接到第一个节点。</span><br></pre></td></tr></table></figure>
+
+<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> ListNode <span class="title function_">detectCycle</span><span class="params">(ListNode head)</span> &#123;</span><br><span class="line">         <span class="type">ListNode</span> <span class="variable">fast</span> <span class="operator">=</span> head;</span><br><span class="line">       <span class="type">ListNode</span> <span class="variable">slow</span> <span class="operator">=</span> head;</span><br><span class="line">       <span class="keyword">while</span> (fast != <span class="literal">null</span> &amp;&amp; fast.next != <span class="literal">null</span>) &#123;</span><br><span class="line">           fast = fast.next.next;</span><br><span class="line">           slow = slow.next;</span><br><span class="line">           <span class="keyword">if</span> (fast == slow)&#123;</span><br><span class="line">               <span class="keyword">break</span>;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">// fast 遇到空指针说明没有环</span></span><br><span class="line">       <span class="keyword">if</span> (fast == <span class="literal">null</span> || fast.next == <span class="literal">null</span>)&#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">// 将慢指针指向head节点，重新开始单步走，当相交的时候，就是环的起点。</span></span><br><span class="line">       slow = head;</span><br><span class="line">       <span class="keyword">while</span> (slow != fast) &#123;</span><br><span class="line">           fast = fast.next;</span><br><span class="line">           slow = slow.next;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> slow;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们假设快慢指针相遇时，慢指针 <code>slow</code> 走了 <code>k</code> 步，那么快指针 <code>fast</code> 一定走了 <code>2k</code> 步：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306201021286.jpeg" alt="img"></p>
+<p><code>fast</code> 一定比 <code>slow</code> 多走了 <code>k</code> 步，这多走的 <code>k</code> 步其实就是 <code>fast</code> 指针在环里转圈圈，所以 <code>k</code> 的值就是环长度的「整数倍」。</p>
+<p>假设相遇点距环的起点的距离为 <code>m</code>，那么结合上图的 <code>slow</code> 指针，环的起点距头结点 <code>head</code> 的距离为 <code>k - m</code>，也就是说如果从 <code>head</code> 前进 <code>k - m</code> 步就能到达环起点。</p>
+<p>巧的是，如果从相遇点继续前进 <code>k - m</code> 步，也恰好到达环起点。因为结合上图的 <code>fast</code> 指针，从相遇点开始走k步可以转回到相遇点，那走 <code>k - m</code> 步肯定就走到环起点了：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306201021309.jpeg" alt="img"></p>
+<p>所以，只要我们把快慢指针中的任一个重新指向 <code>head</code>，然后两个指针同速前进，<code>k - m</code> 步后一定会相遇，相遇之处就是环的起点了</p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>leetcode</tag>
+        <tag>双指针</tag>
+        <tag>链表</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>链表相交</title>
+    <url>/2023/06/25/%E7%AE%97%E6%B3%95/%E9%93%BE%E8%A1%A8%E7%9B%B8%E4%BA%A4/</url>
+    <content><![CDATA[<h1 id="链表相交"><a href="#链表相交" class="headerlink" title="链表相交"></a>链表相交</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你两个单链表的头节点 <code>headA</code> 和 <code>headB</code> ，请你找出并返回两个单链表相交的起始节点。如果两个链表不存在相交节点，返回 <code>null</code> 。</p>
+<p>图示两个链表在节点 <code>c1</code> 开始相交<strong>：</strong></p>
+<p><a href="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/14/160_statement.png"><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306250944935.png" alt="img"></a></p>
+<p>题目数据 <strong>保证</strong> 整个链式结构中不存在环。</p>
+<p><strong>注意</strong>，函数返回结果后，链表必须 <strong>保持其原始结构</strong> 。</p>
+<p><strong>自定义评测：</strong></p>
+<p><strong>评测系统</strong> 的输入如下（你设计的程序 <strong>不适用</strong> 此输入）：</p>
+<ul>
+<li><code>intersectVal</code> - 相交的起始节点的值。如果不存在相交节点，这一值为 <code>0</code></li>
+<li><code>listA</code> - 第一个链表</li>
+<li><code>listB</code> - 第二个链表</li>
+<li><code>skipA</code> - 在 <code>listA</code> 中（从头节点开始）跳到交叉节点的节点数</li>
+<li><code>skipB</code> - 在 <code>listB</code> 中（从头节点开始）跳到交叉节点的节点数</li>
+</ul>
+<p>评测系统将根据这些输入创建链式数据结构，并将两个头节点 <code>headA</code> 和 <code>headB</code> 传递给你的程序。如果程序能够正确返回相交节点，那么你的解决方案将被 <strong>视作正确答案</strong> 。</p>
+<p><strong>示例 1：</strong></p>
+<p><a href="https://assets.leetcode.com/uploads/2018/12/13/160_example_1.png"><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306250944565.png" alt="img"></a></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：intersectVal = 8, listA = [4,1,8,4,5], listB = [5,6,1,8,4,5], skipA = 2, skipB = 3</span><br><span class="line">输出：Intersected at &#x27;8&#x27;</span><br><span class="line">解释：相交节点的值为 8 （注意，如果两个链表相交则不能为 0）。</span><br><span class="line">从各自的表头开始算起，链表 A 为 [4,1,8,4,5]，链表 B 为 [5,6,1,8,4,5]。</span><br><span class="line">在 A 中，相交节点前有 2 个节点；在 B 中，相交节点前有 3 个节点。</span><br><span class="line">— 请注意相交节点的值不为 1，因为在链表 A 和链表 B 之中值为 1 的节点 (A 中第二个节点和 B 中第三个节点) 是不同的节点。换句话说，它们在内存中指向两个不同的位置，而链表 A 和链表 B 中值为 8 的节点 (A 中第三个节点，B 中第四个节点) 在内存中指向相同的位置。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<p><a href="https://assets.leetcode.com/uploads/2018/12/13/160_example_2.png"><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306250944586.png" alt="img"></a></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：intersectVal = 2, listA = [1,9,1,2,4], listB = [3,2,4], skipA = 3, skipB = 1</span><br><span class="line">输出：Intersected at &#x27;2&#x27;</span><br><span class="line">解释：相交节点的值为 2 （注意，如果两个链表相交则不能为 0）。</span><br><span class="line">从各自的表头开始算起，链表 A 为 [1,9,1,2,4]，链表 B 为 [3,2,4]。</span><br><span class="line">在 A 中，相交节点前有 3 个节点；在 B 中，相交节点前有 1 个节点。</span><br></pre></td></tr></table></figure>
+
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>可以使用HashSet，记录一个链表的所有节点，然后和另外一个链表对比，如果有一样的话，就返回该节点。但是需要额外的空间。</p>
+<p>使用双指针：</p>
+<p>但是两个链表的长度可能不同，两个链表之间的节点无法对应，那么如果使用两个指针，p1和p2分别在两个链表上前进的话，并不能同时走到公共节点上，也就是无法获取相交节点c1.</p>
+<p>所以，可以让p1遍历完链表A之后，再遍历链表B，p2遍历完链表B之后开始遍历链表A，这样相当于两个链表连接在了一起：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306250947411.jpeg" alt="img"></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ListNode <span class="title function_">getIntersectionNode</span><span class="params">(ListNode headA, ListNode headB)</span>&#123;</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">p1</span> <span class="operator">=</span> headA, p2 = headB;</span><br><span class="line">        <span class="keyword">while</span> (p1 != p2)&#123;</span><br><span class="line">            <span class="comment">// p1 走一步，如果走到A的末尾，转到B链表</span></span><br><span class="line">            <span class="keyword">if</span> (p1 == <span class="literal">null</span>)&#123;</span><br><span class="line">                p1 = headB;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="comment">// 如果不为空的话，一直走</span></span><br><span class="line">                p1 = p1.next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (p2 == <span class="literal">null</span>)&#123;</span><br><span class="line">                p2 = headA;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                p2 = p2.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> p1;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>leetcode</tag>
+        <tag>双指针</tag>
+        <tag>链表</tag>
       </tags>
   </entry>
   <entry>
