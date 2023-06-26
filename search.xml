@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>测试文件陈亚萌</title>
+    <title>111</title>
     <url>/2023/06/26/hello-world/</url>
     <content><![CDATA[<h1 id="测试文件陈亚萌"><a href="#测试文件陈亚萌" class="headerlink" title="测试文件陈亚萌"></a>测试文件陈亚萌</h1><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
@@ -38,6 +38,57 @@
       <tags>
         <tag>java</tag>
         <tag>jdk</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何将JavaFX的java项目打包成exe格式</title>
+    <url>/2023/06/16/%E5%A6%82%E4%BD%95%E5%B0%86java%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E6%88%90exe%E6%A0%BC%E5%BC%8F/</url>
+    <content><![CDATA[<h1 id="如何将JavaFX的java项目打包成exe格式"><a href="#如何将JavaFX的java项目打包成exe格式" class="headerlink" title="如何将JavaFX的java项目打包成exe格式"></a>如何将JavaFX的java项目打包成exe格式</h1><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近在博客的时候，因为用到了hexo，所以必须按照hexo的格式上传文章，这样网站在显示的时候才会完整的显示出来：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306152048160.png" alt="image-20230615204813105"></p>
+<p>但是，每次写一篇，就得手动在文章的头部添加一些这些信息，而且添加完了之后，还要重新执行hexo三剑客才能部署到github的page上，所以就想着能不能按照，写一个客户端，用java写一个能运行在windows平台上的代码。</p>
+<p>以下都是基于代码写好了之后，详情请看这篇文章-&gt;&gt;&gt;&gt;&gt;&gt;&gt;</p>
+<h2 id="maven打包"><a href="#maven打包" class="headerlink" title="maven打包"></a>maven打包</h2><p>打包方式的话，可以参考文章末尾的第一篇文章。</p>
+<p>本文使用方法一会报错。所以使用方法二。</p>
+<p>使用的插件为maven-assembly-plugin，只需要在pom文件里面添加这段代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&lt;plugin&gt;</span><br><span class="line">               &lt;artifactId&gt;maven-assembly-plugin&lt;/artifactId&gt;</span><br><span class="line">               &lt;configuration&gt;</span><br><span class="line">                   &lt;descriptorRefs&gt;</span><br><span class="line">                       &lt;descriptorRef&gt;jar-with-dependencies&lt;/descriptorRef&gt;</span><br><span class="line">                   &lt;/descriptorRefs&gt;</span><br><span class="line">                   &lt;archive&gt;</span><br><span class="line">                       &lt;manifest&gt;</span><br><span class="line">                           &lt;mainClass&gt;com.yamon.convert/com.yamon.convert.HelloApplication&lt;/mainClass&gt;</span><br><span class="line">                       &lt;/manifest&gt;</span><br><span class="line">                   &lt;/archive&gt;</span><br><span class="line">               &lt;/configuration&gt;</span><br><span class="line">               &lt;executions&gt;</span><br><span class="line">                   &lt;execution&gt;</span><br><span class="line">                       &lt;id&gt;make-assembly&lt;/id&gt;</span><br><span class="line">                       &lt;phase&gt;<span class="keyword">package</span>&lt;/phase&gt;</span><br><span class="line">                       &lt;goals&gt;</span><br><span class="line">                           &lt;goal&gt;single&lt;/goal&gt;</span><br><span class="line">                       &lt;/goals&gt;</span><br><span class="line">                   &lt;/execution&gt;</span><br><span class="line">               &lt;/executions&gt;</span><br><span class="line">           &lt;/plugin&gt;</span><br></pre></td></tr></table></figure>
+
+<p>参考文章中有说的需要查看META-INF文件夹下的MAINIFEST.MF,需要查看里面的引用是否完整，我的内容比较少，也没有手动加。但是如果你要是有别的依赖包的话，需要手动添加一下，具体参考这篇文章：<a href="https://blog.csdn.net/qq_29428909/article/details/122103131">将idea中的JavaFX项目打包成可执行的exe应用</a></p>
+<p>重新导一下maven包，然后打开maven，点击：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161036716.png" alt="image-20230616103621652"></p>
+<p>完成打包：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161036953.png" alt="image-20230616103635913"></p>
+<h2 id="exe4j将jar包导出成exe格式"><a href="#exe4j将jar包导出成exe格式" class="headerlink" title="exe4j将jar包导出成exe格式"></a>exe4j将jar包导出成exe格式</h2><blockquote>
+<p>前记：</p>
+<p>之前也用过的别的，强烈不推荐使用jsmooth，感觉都是上古时期的工具了。按照教程一步一步操作，始终打不开。后来切换成exe4j之后，才成功完成打包动作。另外，打包方式的不同也有可能导致包的失效（毕竟不是springboot项目，怎么打都可以）</p>
+</blockquote>
+<p>先下载exe4j文件，比较快。下载好了之后，完成安装。</p>
+<ol>
+<li>欢迎页面不用看，直接点下一步：</li>
+</ol>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161040185.png" alt="image-20230616104018147"></p>
+<ol start="2">
+<li>项目类型选择jar包 in exe模式：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161041330.png" alt="image-20230616104119283"></li>
+<li>应用配置，这个应该是导出的文件名称，然后导出的目录位置：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161042024.png" alt="image-20230616104201987"></li>
+<li>配置执行文件，需要将高级选项点开，选择32&#x2F;64&#x2F;arm<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161042379.png" alt="image-20230616104240329"></li>
+<li><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161043712.png" alt="image-20230616104318653"></li>
+<li><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161043997.png" alt="image-20230616104331961"></li>
+<li>Java invocation：如果有额外的vm参数，需要调参的话，在上面填写；下面点击右侧绿色的加号，将刚才导出的包添加进来：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161044962.png" alt="image-20230616104446922">主类选择项目中的主类即可。</li>
+<li>配置JRE，尽量和当前系统环境一致：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161045352.png" alt="image-20230616104543316"></li>
+<li>坑点：这里需要在环境变量里面添加变量EXE4J_JAVA_HOME，然后地址写jre的地址。要不会报参考中的第三个错误；如果你的jdk版本没有jre的话，可以参考这篇文章：[待补充]。<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161048283.png"></li>
+<li>然后一路下一步就行了。</li>
+<li>最后试一下，看是否能启动应用：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161048396.png" alt="image-20230616104849351"></li>
+<li>如果能启动的话，表示成功，点击save as，将这个配置保存到本地。</li>
+</ol>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/qq_29428909/article/details/122103131">将idea中的JavaFX项目打包成可执行的exe应用</a></p>
+<p><a href="https://www.cnblogs.com/ococo/p/15875003.html">JDK11，JDK12 使用EXE4J 无JRE解决办法</a></p>
+<p><a href="https://blog.csdn.net/jiong9412/article/details/126481322">No JVM could be found on your system. Please define EXE4J_JAVA_HOME to point to an installed 64-bit</a></p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>exe</tag>
       </tags>
   </entry>
   <entry>
@@ -155,57 +206,6 @@
         <tag>twikoo</tag>
         <tag>博客</tag>
         <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何将JavaFX的java项目打包成exe格式</title>
-    <url>/2023/06/16/%E5%A6%82%E4%BD%95%E5%B0%86java%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E6%88%90exe%E6%A0%BC%E5%BC%8F/</url>
-    <content><![CDATA[<h1 id="如何将JavaFX的java项目打包成exe格式"><a href="#如何将JavaFX的java项目打包成exe格式" class="headerlink" title="如何将JavaFX的java项目打包成exe格式"></a>如何将JavaFX的java项目打包成exe格式</h1><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近在博客的时候，因为用到了hexo，所以必须按照hexo的格式上传文章，这样网站在显示的时候才会完整的显示出来：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306152048160.png" alt="image-20230615204813105"></p>
-<p>但是，每次写一篇，就得手动在文章的头部添加一些这些信息，而且添加完了之后，还要重新执行hexo三剑客才能部署到github的page上，所以就想着能不能按照，写一个客户端，用java写一个能运行在windows平台上的代码。</p>
-<p>以下都是基于代码写好了之后，详情请看这篇文章-&gt;&gt;&gt;&gt;&gt;&gt;&gt;</p>
-<h2 id="maven打包"><a href="#maven打包" class="headerlink" title="maven打包"></a>maven打包</h2><p>打包方式的话，可以参考文章末尾的第一篇文章。</p>
-<p>本文使用方法一会报错。所以使用方法二。</p>
-<p>使用的插件为maven-assembly-plugin，只需要在pom文件里面添加这段代码：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&lt;plugin&gt;</span><br><span class="line">               &lt;artifactId&gt;maven-assembly-plugin&lt;/artifactId&gt;</span><br><span class="line">               &lt;configuration&gt;</span><br><span class="line">                   &lt;descriptorRefs&gt;</span><br><span class="line">                       &lt;descriptorRef&gt;jar-with-dependencies&lt;/descriptorRef&gt;</span><br><span class="line">                   &lt;/descriptorRefs&gt;</span><br><span class="line">                   &lt;archive&gt;</span><br><span class="line">                       &lt;manifest&gt;</span><br><span class="line">                           &lt;mainClass&gt;com.yamon.convert/com.yamon.convert.HelloApplication&lt;/mainClass&gt;</span><br><span class="line">                       &lt;/manifest&gt;</span><br><span class="line">                   &lt;/archive&gt;</span><br><span class="line">               &lt;/configuration&gt;</span><br><span class="line">               &lt;executions&gt;</span><br><span class="line">                   &lt;execution&gt;</span><br><span class="line">                       &lt;id&gt;make-assembly&lt;/id&gt;</span><br><span class="line">                       &lt;phase&gt;<span class="keyword">package</span>&lt;/phase&gt;</span><br><span class="line">                       &lt;goals&gt;</span><br><span class="line">                           &lt;goal&gt;single&lt;/goal&gt;</span><br><span class="line">                       &lt;/goals&gt;</span><br><span class="line">                   &lt;/execution&gt;</span><br><span class="line">               &lt;/executions&gt;</span><br><span class="line">           &lt;/plugin&gt;</span><br></pre></td></tr></table></figure>
-
-<p>参考文章中有说的需要查看META-INF文件夹下的MAINIFEST.MF,需要查看里面的引用是否完整，我的内容比较少，也没有手动加。但是如果你要是有别的依赖包的话，需要手动添加一下，具体参考这篇文章：<a href="https://blog.csdn.net/qq_29428909/article/details/122103131">将idea中的JavaFX项目打包成可执行的exe应用</a></p>
-<p>重新导一下maven包，然后打开maven，点击：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161036716.png" alt="image-20230616103621652"></p>
-<p>完成打包：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161036953.png" alt="image-20230616103635913"></p>
-<h2 id="exe4j将jar包导出成exe格式"><a href="#exe4j将jar包导出成exe格式" class="headerlink" title="exe4j将jar包导出成exe格式"></a>exe4j将jar包导出成exe格式</h2><blockquote>
-<p>前记：</p>
-<p>之前也用过的别的，强烈不推荐使用jsmooth，感觉都是上古时期的工具了。按照教程一步一步操作，始终打不开。后来切换成exe4j之后，才成功完成打包动作。另外，打包方式的不同也有可能导致包的失效（毕竟不是springboot项目，怎么打都可以）</p>
-</blockquote>
-<p>先下载exe4j文件，比较快。下载好了之后，完成安装。</p>
-<ol>
-<li>欢迎页面不用看，直接点下一步：</li>
-</ol>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161040185.png" alt="image-20230616104018147"></p>
-<ol start="2">
-<li>项目类型选择jar包 in exe模式：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161041330.png" alt="image-20230616104119283"></li>
-<li>应用配置，这个应该是导出的文件名称，然后导出的目录位置：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161042024.png" alt="image-20230616104201987"></li>
-<li>配置执行文件，需要将高级选项点开，选择32&#x2F;64&#x2F;arm<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161042379.png" alt="image-20230616104240329"></li>
-<li><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161043712.png" alt="image-20230616104318653"></li>
-<li><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161043997.png" alt="image-20230616104331961"></li>
-<li>Java invocation：如果有额外的vm参数，需要调参的话，在上面填写；下面点击右侧绿色的加号，将刚才导出的包添加进来：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161044962.png" alt="image-20230616104446922">主类选择项目中的主类即可。</li>
-<li>配置JRE，尽量和当前系统环境一致：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161045352.png" alt="image-20230616104543316"></li>
-<li>坑点：这里需要在环境变量里面添加变量EXE4J_JAVA_HOME，然后地址写jre的地址。要不会报参考中的第三个错误；如果你的jdk版本没有jre的话，可以参考这篇文章：[待补充]。<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161048283.png"></li>
-<li>然后一路下一步就行了。</li>
-<li>最后试一下，看是否能启动应用：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161048396.png" alt="image-20230616104849351"></li>
-<li>如果能启动的话，表示成功，点击save as，将这个配置保存到本地。</li>
-</ol>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/qq_29428909/article/details/122103131">将idea中的JavaFX项目打包成可执行的exe应用</a></p>
-<p><a href="https://www.cnblogs.com/ococo/p/15875003.html">JDK11，JDK12 使用EXE4J 无JRE解决办法</a></p>
-<p><a href="https://blog.csdn.net/jiong9412/article/details/126481322">No JVM could be found on your system. Please define EXE4J_JAVA_HOME to point to an installed 64-bit</a></p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>exe</tag>
       </tags>
   </entry>
   <entry>
@@ -371,53 +371,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo文章转换器</title>
-    <url>/2023/06/19/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/Hexo%E6%96%87%E7%AB%A0%E8%BD%AC%E6%8D%A2%E5%99%A8/</url>
-    <content><![CDATA[<h1 id="Hexo文章转换器"><a href="#Hexo文章转换器" class="headerlink" title="Hexo文章转换器"></a>Hexo文章转换器</h1><blockquote>
-<p>Hexo系列文章：</p>
-<ol>
-<li><a href="https://yamonc.github.io/2023/06/13/%E4%BB%8E0%E5%88%B01%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E5%88%B0Github-Page/">从0到1部署博客系统到GitHub Page（0成本）</a></li>
-<li><a href="https://yamonc.github.io/2023/06/13/hexo%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98/">hexo如何修改主题？</a></li>
-<li><a href="https://yamonc.github.io/2023/06/13/hexo-Acrylic%E4%B8%BB%E9%A2%98%E9%9B%86%E6%88%90twikoo%E8%AF%84%E8%AE%BA/">hexo-Acrylic主题集成twikoo评论</a></li>
-<li><a href="https://yamonc.github.io/2023/06/16/%E5%A6%82%E4%BD%95%E5%B0%86java%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E6%88%90exe%E6%A0%BC%E5%BC%8F/">如何将JavaFX的java项目打包成exe格式</a></li>
-</ol>
-</blockquote>
-<hr>
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近将博客平台使用Hexo搭建在Github上，但是如果每次发布文章的话，都需要设置一下front-matter的内容：</p>
-<p><a href="https://hexo.io/zh-cn/docs/front-matter">Front-matter</a></p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191043672.png" alt="image-20230619104358612"></p>
-<p>感觉不太方便，所以想通过界面化的方式，将过程进行简化（要不，每次都手动在文章的开头写上—xxx—,太麻烦）。</p>
-<p>基于此，本文通过界面化的方式，将文章进行格式化，通过代码的方式自动在文章开头插入markdown可识别的字符串。</p>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191046466.png" alt="image-20230619104639429"></p>
-<p>使用该工具可以避免手动输入这些信息，而是通过界面化的方式进行配置：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191047100.png" alt="image-20230619104743062"></p>
-<h2 id="技术说明"><a href="#技术说明" class="headerlink" title="技术说明"></a>技术说明</h2><p>Java17（开发语言）、Java FX（Java界面工具，类似于java8的swing，现已不支持java8）、SceneBuilder（拖拽式界面工具）、exe4j（jar转exe工具）。</p>
-<p>踩坑无数，尤其是将java转为exe的过程中，踩了一晚上吧。</p>
-<h2 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h2><p>下载地址：</p>
-<p><a href="https://gh.api.99988866.xyz/https://github.com/yamonc/hexoHelper/releases/download/V0.0.1/hexoHelper.exe">HexoHelper下载地址</a></p>
-<p>下载好之后，无需安装过程，直接点击exe文件即可运行。</p>
-<p>运行好之后，会出现[示例]中的界面。</p>
-<h3 id="功能说明"><a href="#功能说明" class="headerlink" title="功能说明"></a>功能说明</h3><p>现在界面主要分为四个区域，从上到下以此为使用说明、选中文件区域、front-matter信息区域、功能区域。</p>
-<p>这里主要讲解功能区域：</p>
-<p>【上传文件】：点击上传文件按钮之后，选中待转换的markdown文件（没有front-matter信息的markdown文件）</p>
-<p>【转换格式】：对已上传的文件进行格式转换，在文章头添加已经输入的front-matter信息。</p>
-<p>【部署】：执行hexo clean、hexo g、hexo d一系列指令。</p>
-<p>【一键部署】：对已上传的文件进行格式转换并执行hexo clean、hexo g、hexo d指令部署到对应平台上。</p>
-<h3 id="使用流程说明"><a href="#使用流程说明" class="headerlink" title="使用流程说明"></a>使用流程说明</h3><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191058659.png" alt="image-20230619105823619"></p>
-<h2 id="遗留问题"><a href="#遗留问题" class="headerlink" title="遗留问题"></a>遗留问题</h2><p>转换文章之后，题目乱码。</p>
-<p>不够灵活，鲁棒性不好。对输入增加限制。</p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>hexo</tag>
-        <tag>开源项目</tag>
-        <tag>工具</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>我的近况</title>
     <url>/2023/06/12/Hexo/%E9%83%A8%E7%BD%B2hexo-acrylic%E4%B8%BB%E9%A2%98/</url>
     <content><![CDATA[<h3 id="我的近况-👋"><a href="#我的近况-👋" class="headerlink" title="我的近况 👋"></a>我的近况 👋</h3><p>学无止境：never too old to learn!</p>
@@ -427,7 +380,7 @@
 <li>🔔 打算学习的语言：GO。最近刚写完一个GO的微型项目——<a href="https://github.com/yamonc/miniKeys">miniKeys</a>，欢迎star。</li>
 <li>👯 </li>
 <li>🤔 Java的一些项目问题可以向我Issues。</li>
-<li>📫 Email: <a href="mailto:&#x6c;&#111;&#118;&#x65;&#99;&#x68;&#x65;&#110;&#49;&#57;&#57;&#54;&#x34;&#x32;&#56;&#64;&#113;&#113;&#x2e;&#99;&#111;&#109;">&#x6c;&#111;&#118;&#x65;&#99;&#x68;&#x65;&#110;&#49;&#57;&#57;&#54;&#x34;&#x32;&#56;&#64;&#113;&#113;&#x2e;&#99;&#111;&#109;</a>(常用)</li>
+<li>📫 Email: <a href="mailto:&#108;&#x6f;&#x76;&#x65;&#x63;&#104;&#101;&#110;&#x31;&#x39;&#57;&#54;&#52;&#50;&#56;&#64;&#x71;&#113;&#46;&#x63;&#111;&#x6d;">&#108;&#x6f;&#x76;&#x65;&#x63;&#104;&#101;&#110;&#x31;&#x39;&#57;&#54;&#52;&#50;&#56;&#64;&#x71;&#113;&#46;&#x63;&#111;&#x6d;</a>(常用)</li>
 </ul>
 <h3 id="最近的计划（2023年6月）-calendar-："><a href="#最近的计划（2023年6月）-calendar-：" class="headerlink" title="最近的计划（2023年6月）:calendar: ："></a>最近的计划（2023年6月）:calendar: ：</h3><h3 id="已经完成的项目-page-with-curl-："><a href="#已经完成的项目-page-with-curl-：" class="headerlink" title="已经完成的项目 :page_with_curl:："></a>已经完成的项目 :page_with_curl:：</h3><p>具体请移步-&gt;[project_summay](</p>
 <p>typora该说不说的，确实是一款比较优秀的Markdown编辑工具，使用快捷键的方式可以快速编辑出布局漂亮的文档。但是存在以下几个问题：</p>
@@ -509,6 +462,53 @@
 <p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306101640733.png" alt="image-20220713170037149"></p>
 <p>这么设置在typora上面就可以截图粘贴过来自动上传到阿里云oss上面了。</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>Hexo文章转换器</title>
+    <url>/2023/06/19/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/Hexo%E6%96%87%E7%AB%A0%E8%BD%AC%E6%8D%A2%E5%99%A8/</url>
+    <content><![CDATA[<h1 id="Hexo文章转换器"><a href="#Hexo文章转换器" class="headerlink" title="Hexo文章转换器"></a>Hexo文章转换器</h1><blockquote>
+<p>Hexo系列文章：</p>
+<ol>
+<li><a href="https://yamonc.github.io/2023/06/13/%E4%BB%8E0%E5%88%B01%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E5%88%B0Github-Page/">从0到1部署博客系统到GitHub Page（0成本）</a></li>
+<li><a href="https://yamonc.github.io/2023/06/13/hexo%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98/">hexo如何修改主题？</a></li>
+<li><a href="https://yamonc.github.io/2023/06/13/hexo-Acrylic%E4%B8%BB%E9%A2%98%E9%9B%86%E6%88%90twikoo%E8%AF%84%E8%AE%BA/">hexo-Acrylic主题集成twikoo评论</a></li>
+<li><a href="https://yamonc.github.io/2023/06/16/%E5%A6%82%E4%BD%95%E5%B0%86java%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E6%88%90exe%E6%A0%BC%E5%BC%8F/">如何将JavaFX的java项目打包成exe格式</a></li>
+</ol>
+</blockquote>
+<hr>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近将博客平台使用Hexo搭建在Github上，但是如果每次发布文章的话，都需要设置一下front-matter的内容：</p>
+<p><a href="https://hexo.io/zh-cn/docs/front-matter">Front-matter</a></p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191043672.png" alt="image-20230619104358612"></p>
+<p>感觉不太方便，所以想通过界面化的方式，将过程进行简化（要不，每次都手动在文章的开头写上—xxx—,太麻烦）。</p>
+<p>基于此，本文通过界面化的方式，将文章进行格式化，通过代码的方式自动在文章开头插入markdown可识别的字符串。</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191046466.png" alt="image-20230619104639429"></p>
+<p>使用该工具可以避免手动输入这些信息，而是通过界面化的方式进行配置：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191047100.png" alt="image-20230619104743062"></p>
+<h2 id="技术说明"><a href="#技术说明" class="headerlink" title="技术说明"></a>技术说明</h2><p>Java17（开发语言）、Java FX（Java界面工具，类似于java8的swing，现已不支持java8）、SceneBuilder（拖拽式界面工具）、exe4j（jar转exe工具）。</p>
+<p>踩坑无数，尤其是将java转为exe的过程中，踩了一晚上吧。</p>
+<h2 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h2><p>下载地址：</p>
+<p><a href="https://gh.api.99988866.xyz/https://github.com/yamonc/hexoHelper/releases/download/V0.0.1/hexoHelper.exe">HexoHelper下载地址</a></p>
+<p>下载好之后，无需安装过程，直接点击exe文件即可运行。</p>
+<p>运行好之后，会出现[示例]中的界面。</p>
+<h3 id="功能说明"><a href="#功能说明" class="headerlink" title="功能说明"></a>功能说明</h3><p>现在界面主要分为四个区域，从上到下以此为使用说明、选中文件区域、front-matter信息区域、功能区域。</p>
+<p>这里主要讲解功能区域：</p>
+<p>【上传文件】：点击上传文件按钮之后，选中待转换的markdown文件（没有front-matter信息的markdown文件）</p>
+<p>【转换格式】：对已上传的文件进行格式转换，在文章头添加已经输入的front-matter信息。</p>
+<p>【部署】：执行hexo clean、hexo g、hexo d一系列指令。</p>
+<p>【一键部署】：对已上传的文件进行格式转换并执行hexo clean、hexo g、hexo d指令部署到对应平台上。</p>
+<h3 id="使用流程说明"><a href="#使用流程说明" class="headerlink" title="使用流程说明"></a>使用流程说明</h3><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191058659.png" alt="image-20230619105823619"></p>
+<h2 id="遗留问题"><a href="#遗留问题" class="headerlink" title="遗留问题"></a>遗留问题</h2><p>转换文章之后，题目乱码。</p>
+<p>不够灵活，鲁棒性不好。对输入增加限制。</p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>hexo</tag>
+        <tag>开源项目</tag>
+        <tag>工具</tag>
+      </tags>
   </entry>
   <entry>
     <title>综合工具箱</title>
