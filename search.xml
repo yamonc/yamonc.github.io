@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>213213</title>
+    <title>测试文件陈亚萌</title>
     <url>/2023/06/26/hello-world/</url>
-    <content><![CDATA[<hr>
-<h2 id="title-date-2023-06-26-16-29-07tags-–categories-–recommend-falselocate-–cover-comment-–keywords"><a href="#title-date-2023-06-26-16-29-07tags-–categories-–recommend-falselocate-–cover-comment-–keywords" class="headerlink" title="title:date: 2023-06-26 16:29:07tags: –categories: –recommend: falselocate: –cover:comment: –keywords: "></a>title:<br>date: 2023-06-26 16:29:07<br>tags: –<br>categories: –<br>recommend: false<br>locate: –<br>cover:<br>comment: –<br>keywords: </h2><hr>
-<h2 id="title-213213date-2023-06-26-16-26-22tags-标签1-categories-分类1-recommend-truelocate-天津-cover-21312comment-是keywords"><a href="#title-213213date-2023-06-26-16-26-22tags-标签1-categories-分类1-recommend-truelocate-天津-cover-21312comment-是keywords" class="headerlink" title="title: 213213date: 2023-06-26 16:26:22tags: [标签1]categories: [分类1]recommend: truelocate: [天津]cover: 21312comment: 是keywords: "></a>title: 213213<br>date: 2023-06-26 16:26:22<br>tags: [标签1]<br>categories: [分类1]<br>recommend: true<br>locate: [天津]<br>cover: 21312<br>comment: 是<br>keywords: </h2><hr>
-<h2 id="title-测试文件陈亚萌date-2023-06-26-16-24-38tags-标签1-categories-分类1-recommend-truelocate-天津-cover-comment-是keywords"><a href="#title-测试文件陈亚萌date-2023-06-26-16-24-38tags-标签1-categories-分类1-recommend-truelocate-天津-cover-comment-是keywords" class="headerlink" title="title: 测试文件陈亚萌date: 2023-06-26 16:24:38tags: [标签1]categories: [分类1]recommend: truelocate: [天津]cover:comment: 是keywords: "></a>title: 测试文件陈亚萌<br>date: 2023-06-26 16:24:38<br>tags: [标签1]<br>categories: [分类1]<br>recommend: true<br>locate: [天津]<br>cover:<br>comment: 是<br>keywords: </h2><hr>
-<h2 id="title-测试文件陈亚萌date-2023-06-26-16-24-30tags-标签1-categories-分类1-recommend-truelocate-天津-cover-comment-是keywords"><a href="#title-测试文件陈亚萌date-2023-06-26-16-24-30tags-标签1-categories-分类1-recommend-truelocate-天津-cover-comment-是keywords" class="headerlink" title="title: 测试文件陈亚萌date: 2023-06-26 16:24:30tags: [标签1]categories: [分类1]recommend: truelocate: [天津]cover:comment: 是keywords: "></a>title: 测试文件陈亚萌<br>date: 2023-06-26 16:24:30<br>tags: [标签1]<br>categories: [分类1]<br>recommend: true<br>locate: [天津]<br>cover:<br>comment: 是<br>keywords: </h2><h1 id="测试文件陈亚萌"><a href="#测试文件陈亚萌" class="headerlink" title="测试文件陈亚萌"></a>测试文件陈亚萌</h1><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+    <content><![CDATA[<h1 id="测试文件陈亚萌"><a href="#测试文件陈亚萌" class="headerlink" title="测试文件陈亚萌"></a>测试文件陈亚萌</h1><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
@@ -45,228 +41,94 @@
       </tags>
   </entry>
   <entry>
-    <title>如何将JavaFX的java项目打包成exe格式</title>
-    <url>/2023/06/16/%E5%A6%82%E4%BD%95%E5%B0%86java%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E6%88%90exe%E6%A0%BC%E5%BC%8F/</url>
-    <content><![CDATA[<h1 id="如何将JavaFX的java项目打包成exe格式"><a href="#如何将JavaFX的java项目打包成exe格式" class="headerlink" title="如何将JavaFX的java项目打包成exe格式"></a>如何将JavaFX的java项目打包成exe格式</h1><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近在博客的时候，因为用到了hexo，所以必须按照hexo的格式上传文章，这样网站在显示的时候才会完整的显示出来：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306152048160.png" alt="image-20230615204813105"></p>
-<p>但是，每次写一篇，就得手动在文章的头部添加一些这些信息，而且添加完了之后，还要重新执行hexo三剑客才能部署到github的page上，所以就想着能不能按照，写一个客户端，用java写一个能运行在windows平台上的代码。</p>
-<p>以下都是基于代码写好了之后，详情请看这篇文章-&gt;&gt;&gt;&gt;&gt;&gt;&gt;</p>
-<h2 id="maven打包"><a href="#maven打包" class="headerlink" title="maven打包"></a>maven打包</h2><p>打包方式的话，可以参考文章末尾的第一篇文章。</p>
-<p>本文使用方法一会报错。所以使用方法二。</p>
-<p>使用的插件为maven-assembly-plugin，只需要在pom文件里面添加这段代码：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&lt;plugin&gt;</span><br><span class="line">               &lt;artifactId&gt;maven-assembly-plugin&lt;/artifactId&gt;</span><br><span class="line">               &lt;configuration&gt;</span><br><span class="line">                   &lt;descriptorRefs&gt;</span><br><span class="line">                       &lt;descriptorRef&gt;jar-with-dependencies&lt;/descriptorRef&gt;</span><br><span class="line">                   &lt;/descriptorRefs&gt;</span><br><span class="line">                   &lt;archive&gt;</span><br><span class="line">                       &lt;manifest&gt;</span><br><span class="line">                           &lt;mainClass&gt;com.yamon.convert/com.yamon.convert.HelloApplication&lt;/mainClass&gt;</span><br><span class="line">                       &lt;/manifest&gt;</span><br><span class="line">                   &lt;/archive&gt;</span><br><span class="line">               &lt;/configuration&gt;</span><br><span class="line">               &lt;executions&gt;</span><br><span class="line">                   &lt;execution&gt;</span><br><span class="line">                       &lt;id&gt;make-assembly&lt;/id&gt;</span><br><span class="line">                       &lt;phase&gt;<span class="keyword">package</span>&lt;/phase&gt;</span><br><span class="line">                       &lt;goals&gt;</span><br><span class="line">                           &lt;goal&gt;single&lt;/goal&gt;</span><br><span class="line">                       &lt;/goals&gt;</span><br><span class="line">                   &lt;/execution&gt;</span><br><span class="line">               &lt;/executions&gt;</span><br><span class="line">           &lt;/plugin&gt;</span><br></pre></td></tr></table></figure>
-
-<p>参考文章中有说的需要查看META-INF文件夹下的MAINIFEST.MF,需要查看里面的引用是否完整，我的内容比较少，也没有手动加。但是如果你要是有别的依赖包的话，需要手动添加一下，具体参考这篇文章：<a href="https://blog.csdn.net/qq_29428909/article/details/122103131">将idea中的JavaFX项目打包成可执行的exe应用</a></p>
-<p>重新导一下maven包，然后打开maven，点击：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161036716.png" alt="image-20230616103621652"></p>
-<p>完成打包：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161036953.png" alt="image-20230616103635913"></p>
-<h2 id="exe4j将jar包导出成exe格式"><a href="#exe4j将jar包导出成exe格式" class="headerlink" title="exe4j将jar包导出成exe格式"></a>exe4j将jar包导出成exe格式</h2><blockquote>
-<p>前记：</p>
-<p>之前也用过的别的，强烈不推荐使用jsmooth，感觉都是上古时期的工具了。按照教程一步一步操作，始终打不开。后来切换成exe4j之后，才成功完成打包动作。另外，打包方式的不同也有可能导致包的失效（毕竟不是springboot项目，怎么打都可以）</p>
+    <title>综合工具箱</title>
+    <url>/2023/06/17/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/%E7%BB%BC%E5%90%88%E5%B7%A5%E5%85%B7%E7%AE%B1/</url>
+    <content><![CDATA[<h1 id="综合工具箱"><a href="#综合工具箱" class="headerlink" title="综合工具箱"></a>综合工具箱</h1><p><a href="https://github.com/yamonc/tool_platfom/">tool_platform</a></p>
+<blockquote>
+<p>综合工具箱（名字实在是不会起，意会吧，言传就不必了）：这个项目主要是为了解决日常生活中的一点点痛点：比如密码箱，何为密码箱呢？如今大多数网站都有注册和登录功能，要么呢，有各种需要备份或者记录的信息（QQ邮箱的凭证，开发者需要记录下，或者github的AK和SK等），这种记录在网上的一些工具有可能会遭到泄露，所以将本地密码存到密码箱里就很有必要了。</p>
 </blockquote>
-<p>先下载exe4j文件，比较快。下载好了之后，完成安装。</p>
+<h2 id="🍎技术架构"><a href="#🍎技术架构" class="headerlink" title="🍎技术架构"></a>🍎技术架构</h2><p><a href="https://www.electronjs.org/zh/docs/latest/tutorial/quick-start">electron</a>+vue2</p>
+<p>框架用的是<a href="https://gitee.com/Zh-Sky/electron-vue-template">electron-vue-template</a>，感谢大佬的开源。</p>
+<p>纯前端项目，没有用到后端，<strong>更不会保留任何数据到服务器上</strong>。</p>
+<h2 id="🍉-解决的问题"><a href="#🍉-解决的问题" class="headerlink" title="🍉 解决的问题"></a>🍉 解决的问题</h2><p>目前综合工具箱里的功能只有《密码箱》的功能。</p>
+<h3 id="🍓密码箱"><a href="#🍓密码箱" class="headerlink" title="🍓密码箱"></a>🍓密码箱</h3><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306171118918.png" alt="image-20230617111859730"></p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306171119106.png" alt="image-20230617111918042"></p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306171122534.png" alt="image-20230617112248464"></p>
+<h4 id="痛点"><a href="#痛点" class="headerlink" title="痛点"></a>痛点</h4><p><strong>网络上的密码无法管理。</strong></p>
+<h4 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h4><p>点击新增密码，按照提示输入后，可在当前的用户目录下找到password.json的文件，所有的密码都存在这个paasword.json中。</p>
+<p>密码备份功能比价鸡肋，后期去掉。</p>
+<h2 id="🍠如何启动"><a href="#🍠如何启动" class="headerlink" title="🍠如何启动"></a>🍠如何启动</h2><h3 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h3><p>前提需要安装git、node.js、yarn&#x2F;npm（npm好像在这里不好使）</p>
+<h3 id="二次开发"><a href="#二次开发" class="headerlink" title="二次开发"></a>二次开发</h3><p>如果是二次开发的话：</p>
+<p><strong>pull代码</strong></p>
+<p><code>git pull https://github.com/yamonc/tool_platfom.git </code></p>
+<p><strong>安装安装包</strong></p>
+<p><code>yarn </code></p>
+<p><strong>启动项目</strong></p>
+<p><code>yarn dev</code></p>
+<h3 id="直接使用"><a href="#直接使用" class="headerlink" title="直接使用"></a>直接使用</h3><p>两种方式，第一种<a href="https://gh.api.99988866.xyz/https://github.com/yamonc/tool_platfom/releases/download/V0.0.1/electron-vue-admin.Setup.0.0.1.exe">下载发版</a>；</p>
+<p>第二种，在二次开发的基础上，自己打包：</p>
+<p><code>yarn build:win64</code></p>
+<p>打完包之后，会发现build包下有exe可执行文件：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306171139786.png" alt="image-20230617113946744"></p>
+<h2 id="🍐后期目标"><a href="#🍐后期目标" class="headerlink" title="🍐后期目标"></a>🍐后期目标</h2><p>性能优化（不得不说，electron太太太太慢了）</p>
+<p>密码修改。</p>
+<p>导入密码。</p>
+<p>支持sqllite，方便修改密码、删除密码。</p>
+<h2 id="🍌CHANGELOG"><a href="#🍌CHANGELOG" class="headerlink" title="🍌CHANGELOG"></a>🍌CHANGELOG</h2><p>V0.0.1 新增密码箱功能；</p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+        <tag>electron</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo文章转换器</title>
+    <url>/2023/06/19/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/Hexo%E6%96%87%E7%AB%A0%E8%BD%AC%E6%8D%A2%E5%99%A8/</url>
+    <content><![CDATA[<h1 id="Hexo文章转换器"><a href="#Hexo文章转换器" class="headerlink" title="Hexo文章转换器"></a>Hexo文章转换器</h1><blockquote>
+<p>Hexo系列文章：</p>
 <ol>
-<li>欢迎页面不用看，直接点下一步：</li>
+<li><a href="https://yamonc.github.io/2023/06/13/%E4%BB%8E0%E5%88%B01%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E5%88%B0Github-Page/">从0到1部署博客系统到GitHub Page（0成本）</a></li>
+<li><a href="https://yamonc.github.io/2023/06/13/hexo%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98/">hexo如何修改主题？</a></li>
+<li><a href="https://yamonc.github.io/2023/06/13/hexo-Acrylic%E4%B8%BB%E9%A2%98%E9%9B%86%E6%88%90twikoo%E8%AF%84%E8%AE%BA/">hexo-Acrylic主题集成twikoo评论</a></li>
+<li><a href="https://yamonc.github.io/2023/06/16/%E5%A6%82%E4%BD%95%E5%B0%86java%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E6%88%90exe%E6%A0%BC%E5%BC%8F/">如何将JavaFX的java项目打包成exe格式</a></li>
 </ol>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161040185.png" alt="image-20230616104018147"></p>
-<ol start="2">
-<li>项目类型选择jar包 in exe模式：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161041330.png" alt="image-20230616104119283"></li>
-<li>应用配置，这个应该是导出的文件名称，然后导出的目录位置：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161042024.png" alt="image-20230616104201987"></li>
-<li>配置执行文件，需要将高级选项点开，选择32&#x2F;64&#x2F;arm<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161042379.png" alt="image-20230616104240329"></li>
-<li><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161043712.png" alt="image-20230616104318653"></li>
-<li><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161043997.png" alt="image-20230616104331961"></li>
-<li>Java invocation：如果有额外的vm参数，需要调参的话，在上面填写；下面点击右侧绿色的加号，将刚才导出的包添加进来：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161044962.png" alt="image-20230616104446922">主类选择项目中的主类即可。</li>
-<li>配置JRE，尽量和当前系统环境一致：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161045352.png" alt="image-20230616104543316"></li>
-<li>坑点：这里需要在环境变量里面添加变量EXE4J_JAVA_HOME，然后地址写jre的地址。要不会报参考中的第三个错误；如果你的jdk版本没有jre的话，可以参考这篇文章：[待补充]。<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161048283.png"></li>
-<li>然后一路下一步就行了。</li>
-<li>最后试一下，看是否能启动应用：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161048396.png" alt="image-20230616104849351"></li>
-<li>如果能启动的话，表示成功，点击save as，将这个配置保存到本地。</li>
-</ol>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/qq_29428909/article/details/122103131">将idea中的JavaFX项目打包成可执行的exe应用</a></p>
-<p><a href="https://www.cnblogs.com/ococo/p/15875003.html">JDK11，JDK12 使用EXE4J 无JRE解决办法</a></p>
-<p><a href="https://blog.csdn.net/jiong9412/article/details/126481322">No JVM could be found on your system. Please define EXE4J_JAVA_HOME to point to an installed 64-bit</a></p>
+</blockquote>
+<hr>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近将博客平台使用Hexo搭建在Github上，但是如果每次发布文章的话，都需要设置一下front-matter的内容：</p>
+<p><a href="https://hexo.io/zh-cn/docs/front-matter">Front-matter</a></p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191043672.png" alt="image-20230619104358612"></p>
+<p>感觉不太方便，所以想通过界面化的方式，将过程进行简化（要不，每次都手动在文章的开头写上—xxx—,太麻烦）。</p>
+<p>基于此，本文通过界面化的方式，将文章进行格式化，通过代码的方式自动在文章开头插入markdown可识别的字符串。</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191046466.png" alt="image-20230619104639429"></p>
+<p>使用该工具可以避免手动输入这些信息，而是通过界面化的方式进行配置：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191047100.png" alt="image-20230619104743062"></p>
+<h2 id="技术说明"><a href="#技术说明" class="headerlink" title="技术说明"></a>技术说明</h2><p>Java17（开发语言）、Java FX（Java界面工具，类似于java8的swing，现已不支持java8）、SceneBuilder（拖拽式界面工具）、exe4j（jar转exe工具）。</p>
+<p>踩坑无数，尤其是将java转为exe的过程中，踩了一晚上吧。</p>
+<h2 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h2><p>下载地址：</p>
+<p><a href="https://gh.api.99988866.xyz/https://github.com/yamonc/hexoHelper/releases/download/V0.0.1/hexoHelper.exe">HexoHelper下载地址</a></p>
+<p>下载好之后，无需安装过程，直接点击exe文件即可运行。</p>
+<p>运行好之后，会出现[示例]中的界面。</p>
+<h3 id="功能说明"><a href="#功能说明" class="headerlink" title="功能说明"></a>功能说明</h3><p>现在界面主要分为四个区域，从上到下以此为使用说明、选中文件区域、front-matter信息区域、功能区域。</p>
+<p>这里主要讲解功能区域：</p>
+<p>【上传文件】：点击上传文件按钮之后，选中待转换的markdown文件（没有front-matter信息的markdown文件）</p>
+<p>【转换格式】：对已上传的文件进行格式转换，在文章头添加已经输入的front-matter信息。</p>
+<p>【部署】：执行hexo clean、hexo g、hexo d一系列指令。</p>
+<p>【一键部署】：对已上传的文件进行格式转换并执行hexo clean、hexo g、hexo d指令部署到对应平台上。</p>
+<h3 id="使用流程说明"><a href="#使用流程说明" class="headerlink" title="使用流程说明"></a>使用流程说明</h3><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191058659.png" alt="image-20230619105823619"></p>
+<h2 id="遗留问题"><a href="#遗留问题" class="headerlink" title="遗留问题"></a>遗留问题</h2><p>转换文章之后，题目乱码。</p>
+<p>不够灵活，鲁棒性不好。对输入增加限制。</p>
 ]]></content>
       <categories>
         <category>教程</category>
       </categories>
       <tags>
         <tag>java</tag>
-        <tag>exe</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>单链表的倒数第k个节点</title>
-    <url>/2023/06/16/%E7%AE%97%E6%B3%95/%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACk%E4%B8%AA%E8%8A%82%E7%82%B9/</url>
-    <content><![CDATA[<h1 id="单链表的倒数第k个节点"><a href="#单链表的倒数第k个节点" class="headerlink" title="单链表的倒数第k个节点"></a>单链表的倒数第k个节点</h1><h2 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h2><p>输入一个链表，输出该链表中倒数第k个节点。为了符合大多数人的习惯，本题从1开始计数，即链表的尾节点是倒数第1个节点。</p>
-<p>例如，一个链表有 6 个节点，从头节点开始，它们的值依次是 1、2、3、4、5、6。这个链表的倒数第 3 个节点是值为 4 的节点。</p>
-<p>示例：</p>
-<p>给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 k &#x3D; 2.</p>
-<p>返回链表 4-&gt;5.</p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>双指针。</p>
-<p>声明两个指针，分别是p1 和 p2；</p>
-<p>先走p1，让p1先走k步</p>
-<p>然后p1和p2同时走，直到p1为null的时候，停止，这时候，p2的就是待返回的结果。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> ListNode <span class="title function_">getKthFromEnd</span><span class="params">(ListNode head, <span class="type">int</span> k)</span> &#123;</span><br><span class="line">          <span class="comment">// 先将p1指向head</span></span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">p1</span> <span class="operator">=</span> head;</span><br><span class="line">        <span class="comment">// 先让p1走k步</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; k; i++) &#123;</span><br><span class="line">            p1 = p1.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">p2</span> <span class="operator">=</span> head;</span><br><span class="line">        <span class="comment">// 再让p1和p2同时走n-k步</span></span><br><span class="line">        <span class="keyword">while</span> (p1 != <span class="literal">null</span>)&#123;</span><br><span class="line">            p2 = p2.next;</span><br><span class="line">            p1 = p1.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// p2 现在指向第 n - k + 1 个节点，即倒数第 k 个节点</span></span><br><span class="line">        <span class="keyword">return</span> p2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>leetcode</tag>
-        <tag>双指针</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>环形链表</title>
-    <url>/2023/06/19/%E7%AE%97%E6%B3%95/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/</url>
-    <content><![CDATA[<h1 id="环形链表"><a href="#环形链表" class="headerlink" title="环形链表"></a>环形链表</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给你一个链表的头节点 head ，判断链表中是否有环。</p>
-<p>如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环。 为了表示给定链表中的环，评测系统内部使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。注意：pos 不作为参数进行传递 。仅仅是为了标识链表的实际情况。</p>
-<p>如果链表中存在环 ，则返回 true 。 否则，返回 false 。</p>
-<p>示例 1：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191021477.png" alt="img"></p>
-<p>输入：head &#x3D; [3,2,0,-4], pos &#x3D; 1<br>输出：true<br>解释：链表中有一个环，其尾部连接到第二个节点。<br>示例 2：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191021584.png" alt="img"></p>
-<p>输入：head &#x3D; [1,2], pos &#x3D; 0<br>输出：true<br>解释：链表中有一个环，其尾部连接到第一个节点。</p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>跟[链表的中间结点]类似，使用快慢指针：</p>
-<p>slow前进一步，fast前进两步，如果fast最终遇到了空指针，则说明链表中没有环；</p>
-<p>如果fast和slow最终相遇了，证明fast超过了slow一圈，说明链表有环。</p>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>leetcode</tag>
-        <tag>双指针</tag>
-        <tag>链表</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>无标题</title>
-    <url>/2023/06/20/%E7%AE%97%E6%B3%95/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8%E7%9A%84%E8%B5%B7%E7%82%B9/</url>
-    <content><![CDATA[<h1 id="环形链表的起点"><a href="#环形链表的起点" class="headerlink" title="环形链表的起点"></a>环形链表的起点</h1><p>给定一个链表的头节点  <code>head</code> ，返回链表开始入环的第一个节点。 <em>如果链表无环，则返回 <code>null</code>。</em></p>
-<p>如果链表中有某个节点，可以通过连续跟踪 <code>next</code> 指针再次到达，则链表中存在环。 为了表示给定链表中的环，评测系统内部使用整数 <code>pos</code> 来表示链表尾连接到链表中的位置（<strong>索引从 0 开始</strong>）。如果 <code>pos</code> 是 <code>-1</code>，则在该链表中没有环。<strong>注意：<code>pos</code> 不作为参数进行传递</strong>，仅仅是为了标识链表的实际情况。</p>
-<p><strong>不允许修改</strong> 链表。</p>
-<p><strong>示例 1：</strong></p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306201021677.png" alt="img"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：head = [3,2,0,-4], pos = 1</span><br><span class="line">输出：返回索引为 1 的链表节点</span><br><span class="line">解释：链表中有一个环，其尾部连接到第二个节点。</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2：</strong></p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306201021030.png" alt="img"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：head = [1,2], pos = 0</span><br><span class="line">输出：返回索引为 0 的链表节点</span><br><span class="line">解释：链表中有一个环，其尾部连接到第一个节点。</span><br></pre></td></tr></table></figure>
-
-<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> ListNode <span class="title function_">detectCycle</span><span class="params">(ListNode head)</span> &#123;</span><br><span class="line">         <span class="type">ListNode</span> <span class="variable">fast</span> <span class="operator">=</span> head;</span><br><span class="line">       <span class="type">ListNode</span> <span class="variable">slow</span> <span class="operator">=</span> head;</span><br><span class="line">       <span class="keyword">while</span> (fast != <span class="literal">null</span> &amp;&amp; fast.next != <span class="literal">null</span>) &#123;</span><br><span class="line">           fast = fast.next.next;</span><br><span class="line">           slow = slow.next;</span><br><span class="line">           <span class="keyword">if</span> (fast == slow)&#123;</span><br><span class="line">               <span class="keyword">break</span>;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">// fast 遇到空指针说明没有环</span></span><br><span class="line">       <span class="keyword">if</span> (fast == <span class="literal">null</span> || fast.next == <span class="literal">null</span>)&#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">// 将慢指针指向head节点，重新开始单步走，当相交的时候，就是环的起点。</span></span><br><span class="line">       slow = head;</span><br><span class="line">       <span class="keyword">while</span> (slow != fast) &#123;</span><br><span class="line">           fast = fast.next;</span><br><span class="line">           slow = slow.next;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> slow;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-
-<p>我们假设快慢指针相遇时，慢指针 <code>slow</code> 走了 <code>k</code> 步，那么快指针 <code>fast</code> 一定走了 <code>2k</code> 步：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306201021286.jpeg" alt="img"></p>
-<p><code>fast</code> 一定比 <code>slow</code> 多走了 <code>k</code> 步，这多走的 <code>k</code> 步其实就是 <code>fast</code> 指针在环里转圈圈，所以 <code>k</code> 的值就是环长度的「整数倍」。</p>
-<p>假设相遇点距环的起点的距离为 <code>m</code>，那么结合上图的 <code>slow</code> 指针，环的起点距头结点 <code>head</code> 的距离为 <code>k - m</code>，也就是说如果从 <code>head</code> 前进 <code>k - m</code> 步就能到达环起点。</p>
-<p>巧的是，如果从相遇点继续前进 <code>k - m</code> 步，也恰好到达环起点。因为结合上图的 <code>fast</code> 指针，从相遇点开始走k步可以转回到相遇点，那走 <code>k - m</code> 步肯定就走到环起点了：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306201021309.jpeg" alt="img"></p>
-<p>所以，只要我们把快慢指针中的任一个重新指向 <code>head</code>，然后两个指针同速前进，<code>k - m</code> 步后一定会相遇，相遇之处就是环的起点了</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>链表相交</title>
-    <url>/2023/06/25/%E7%AE%97%E6%B3%95/%E9%93%BE%E8%A1%A8%E7%9B%B8%E4%BA%A4/</url>
-    <content><![CDATA[<h1 id="链表相交"><a href="#链表相交" class="headerlink" title="链表相交"></a>链表相交</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你两个单链表的头节点 <code>headA</code> 和 <code>headB</code> ，请你找出并返回两个单链表相交的起始节点。如果两个链表不存在相交节点，返回 <code>null</code> 。</p>
-<p>图示两个链表在节点 <code>c1</code> 开始相交<strong>：</strong></p>
-<p><a href="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/14/160_statement.png"><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306250944935.png" alt="img"></a></p>
-<p>题目数据 <strong>保证</strong> 整个链式结构中不存在环。</p>
-<p><strong>注意</strong>，函数返回结果后，链表必须 <strong>保持其原始结构</strong> 。</p>
-<p><strong>自定义评测：</strong></p>
-<p><strong>评测系统</strong> 的输入如下（你设计的程序 <strong>不适用</strong> 此输入）：</p>
-<ul>
-<li><code>intersectVal</code> - 相交的起始节点的值。如果不存在相交节点，这一值为 <code>0</code></li>
-<li><code>listA</code> - 第一个链表</li>
-<li><code>listB</code> - 第二个链表</li>
-<li><code>skipA</code> - 在 <code>listA</code> 中（从头节点开始）跳到交叉节点的节点数</li>
-<li><code>skipB</code> - 在 <code>listB</code> 中（从头节点开始）跳到交叉节点的节点数</li>
-</ul>
-<p>评测系统将根据这些输入创建链式数据结构，并将两个头节点 <code>headA</code> 和 <code>headB</code> 传递给你的程序。如果程序能够正确返回相交节点，那么你的解决方案将被 <strong>视作正确答案</strong> 。</p>
-<p><strong>示例 1：</strong></p>
-<p><a href="https://assets.leetcode.com/uploads/2018/12/13/160_example_1.png"><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306250944565.png" alt="img"></a></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：intersectVal = 8, listA = [4,1,8,4,5], listB = [5,6,1,8,4,5], skipA = 2, skipB = 3</span><br><span class="line">输出：Intersected at &#x27;8&#x27;</span><br><span class="line">解释：相交节点的值为 8 （注意，如果两个链表相交则不能为 0）。</span><br><span class="line">从各自的表头开始算起，链表 A 为 [4,1,8,4,5]，链表 B 为 [5,6,1,8,4,5]。</span><br><span class="line">在 A 中，相交节点前有 2 个节点；在 B 中，相交节点前有 3 个节点。</span><br><span class="line">— 请注意相交节点的值不为 1，因为在链表 A 和链表 B 之中值为 1 的节点 (A 中第二个节点和 B 中第三个节点) 是不同的节点。换句话说，它们在内存中指向两个不同的位置，而链表 A 和链表 B 中值为 8 的节点 (A 中第三个节点，B 中第四个节点) 在内存中指向相同的位置。</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2：</strong></p>
-<p><a href="https://assets.leetcode.com/uploads/2018/12/13/160_example_2.png"><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306250944586.png" alt="img"></a></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：intersectVal = 2, listA = [1,9,1,2,4], listB = [3,2,4], skipA = 3, skipB = 1</span><br><span class="line">输出：Intersected at &#x27;2&#x27;</span><br><span class="line">解释：相交节点的值为 2 （注意，如果两个链表相交则不能为 0）。</span><br><span class="line">从各自的表头开始算起，链表 A 为 [1,9,1,2,4]，链表 B 为 [3,2,4]。</span><br><span class="line">在 A 中，相交节点前有 3 个节点；在 B 中，相交节点前有 1 个节点。</span><br></pre></td></tr></table></figure>
-
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>可以使用HashSet，记录一个链表的所有节点，然后和另外一个链表对比，如果有一样的话，就返回该节点。但是需要额外的空间。</p>
-<p>使用双指针：</p>
-<p>但是两个链表的长度可能不同，两个链表之间的节点无法对应，那么如果使用两个指针，p1和p2分别在两个链表上前进的话，并不能同时走到公共节点上，也就是无法获取相交节点c1.</p>
-<p>所以，可以让p1遍历完链表A之后，再遍历链表B，p2遍历完链表B之后开始遍历链表A，这样相当于两个链表连接在了一起：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306250947411.jpeg" alt="img"></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ListNode <span class="title function_">getIntersectionNode</span><span class="params">(ListNode headA, ListNode headB)</span>&#123;</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">p1</span> <span class="operator">=</span> headA, p2 = headB;</span><br><span class="line">        <span class="keyword">while</span> (p1 != p2)&#123;</span><br><span class="line">            <span class="comment">// p1 走一步，如果走到A的末尾，转到B链表</span></span><br><span class="line">            <span class="keyword">if</span> (p1 == <span class="literal">null</span>)&#123;</span><br><span class="line">                p1 = headB;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="comment">// 如果不为空的话，一直走</span></span><br><span class="line">                p1 = p1.next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (p2 == <span class="literal">null</span>)&#123;</span><br><span class="line">                p2 = headA;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                p2 = p2.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> p1;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>leetcode</tag>
-        <tag>双指针</tag>
-        <tag>链表</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo如何修改主题？</title>
-    <url>/2023/06/13/Hexo/hexo%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="hexo如何修改中意的主题？"><a href="#hexo如何修改中意的主题？" class="headerlink" title="hexo如何修改中意的主题？"></a>hexo如何修改中意的主题？</h1><p>推荐Acrylic主题，样式比较好看，文档也比较完善，但是也有踩坑。</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131506443.png" alt="image-20230613150638064"></p>
-<p>不过，还是感谢<a href="https://github.com/hexo-theme-Acrylic/Hexo-Theme-Acrylic-Next">@hexo-theme-Acrylic</a>的开源项目。</p>
-<p>修改主题可以参考文档修改，<a href="https://next-docs.acrylic.org.cn/">hexo acrylic</a>。</p>
-<h2 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h2><p>注意在hexo的根目录下执行指令，用来安装主题：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone -b main https://github.com/hexo-theme-Acrylic/Hexo-Theme-Acrylic-Next.git themes/Acrylic</span><br></pre></td></tr></table></figure>
-
-<h2 id="应用主题"><a href="#应用主题" class="headerlink" title="应用主题"></a>应用主题</h2><p>修改主配置文件config.yml,修改主题配置：</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins<span class="punctuation">:</span> https<span class="punctuation">:</span><span class="comment">//hexo.io/plugins/</span></span><br><span class="line">## Themes<span class="punctuation">:</span> https<span class="punctuation">:</span><span class="comment">//hexo.io/themes/</span></span><br><span class="line">theme<span class="punctuation">:</span> Acrylic</span><br></pre></td></tr></table></figure>
-
-<h2 id="使用主题配置"><a href="#使用主题配置" class="headerlink" title="使用主题配置"></a>使用主题配置</h2><p>macos&#x2F;linux:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cp</span> -rf ./themes/Acrylic/_config.yml ./_config.Acrylic.yml</span><br></pre></td></tr></table></figure>
-
-<p>windows:</p>
-<p>复制 <code>/themes/Acrylic/_config.yml</code> 此文件到 <strong>Hexo</strong> 根目录，并重命名为 <code>_config.Acrylic.yml</code></p>
-<h2 id="更新主题"><a href="#更新主题" class="headerlink" title="更新主题"></a>更新主题</h2><p>在hexo主文件夹下找到themes文件夹，进入之后找到Acrylic，并pull代码。</p>
-<p>直接hexo clean、hexo g、hexo s；看是否有问题。</p>
-<p>一般有的问题，都可以在百度上搜索，一般都是少装了npm包，npm install一下就可以了。</p>
-<p>比如这个： npm install hexo-deployer-git –save</p>
-<h2 id="Acrylic一些的必要配置"><a href="#Acrylic一些的必要配置" class="headerlink" title="Acrylic一些的必要配置"></a>Acrylic一些的必要配置</h2><p>首先按照文档，配置一下Hexo配置文件：</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: RootlexBlog</span><br><span class="line">subtitle: &#x27;&#x27;</span><br><span class="line">description: &#x27;a blog 一个分享技术与生活的博客&#x27;</span><br><span class="line">keywords: Rootlex, blog, 技术, 博客</span><br><span class="line">author: Rootlex</span><br><span class="line">language: zh-CN # 主要是这里不一样，默认的是en</span><br><span class="line">timezone: &#x27;&#x27;</span><br><span class="line"></span><br><span class="line"># URL</span><br><span class="line">## Set your site url here. For example, if you use GitHub Page, set url as &#x27;https://username.github.io/project&#x27;</span><br><span class="line">url: http://example.com # 这块也建议修改成自己github的仓库地址，比如xxx.github.io</span><br><span class="line">permalink: :year/:month/:day/:title/</span><br><span class="line">permalink_defaults:</span><br><span class="line">pretty_urls:</span><br><span class="line">  trailing_index: true # Set to false to remove trailing &#x27;index.html&#x27; from permalinks</span><br><span class="line">  trailing_html: true # Set to false to remove trailing &#x27;.html&#x27; from permalinks</span><br></pre></td></tr></table></figure>
-
-<p>上述配置，需要注意两点：</p>
-<ol>
-<li>language需要改成zh-CN；</li>
-<li>url修改成为自己的配置。</li>
-</ol>
-<h3 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">site:</span><br><span class="line">  name:                   # 左上角显示内容</span><br><span class="line">    class:  text          #i_class/text/img </span><br><span class="line">    custom: Acrylic       #自定义内容</span><br><span class="line">  siteIcon: /img/avatar.webp # 网页icon</span><br><span class="line">  icon: /img/avatar.webp     # 页脚的icon、加载动画默认的icon</span><br><span class="line">  icp:                       # ICP</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>其他的内容按照文档配置就行。</p>
-<h2 id="其他注意的点"><a href="#其他注意的点" class="headerlink" title="其他注意的点"></a>其他注意的点</h2><h3 id="一、文章顶部搜索栏：search搜索"><a href="#一、文章顶部搜索栏：search搜索" class="headerlink" title="一、文章顶部搜索栏：search搜索"></a>一、文章顶部搜索栏：search搜索</h3><p>建议使用本地搜索，本地搜索的话，需要安装hexo-generator-searchdb插件。</p>
-<p>然后在_config.yml添加以下配置：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  content: true</span><br><span class="line">  format: html</span><br></pre></td></tr></table></figure>
-
-<p>修改_config.arcylic.yml</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">local_search:           #本地搜索</span><br><span class="line">  enable: true</span><br></pre></td></tr></table></figure>
-
-<h3 id="二、-文章详情meta数据没有显示"><a href="#二、-文章详情meta数据没有显示" class="headerlink" title="二、 文章详情meta数据没有显示"></a>二、 文章详情meta数据没有显示</h3><p>参考<a href="https://github.com/hexo-theme-Acrylic/Hexo-Theme-Acrylic-Next/issues/153">《meta疑问及front-matter参数疑问》</a></p>
-<p>补充几句吧：</p>
-<p>需要安装hexo-wordcount包：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i --save hexo-wordcount</span><br></pre></td></tr></table></figure>
-
-<p>一定要在次配置，主题配置中找到wordcount，并且设置为true：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131620729.png" alt="image-20230613162023688"></p>
-<h3 id="三、twikoo评论无法显示"><a href="#三、twikoo评论无法显示" class="headerlink" title="三、twikoo评论无法显示"></a>三、twikoo评论无法显示</h3><p>需要部署twikoo服务才能实现评论，具体参考文档<a href="https://twikoo.js.org/">twikoo文档</a></p>
-<p>或查看下一篇文章。</p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
         <tag>hexo</tag>
+        <tag>开源项目</tag>
+        <tag>工具</tag>
       </tags>
   </entry>
   <entry>
@@ -381,193 +243,67 @@
         <category>教程</category>
       </categories>
       <tags>
-        <tag>博客</tag>
         <tag>hexo</tag>
         <tag>twikoo</tag>
+        <tag>博客</tag>
       </tags>
   </entry>
   <entry>
-    <title>我的近况</title>
-    <url>/2023/06/12/Hexo/%E9%83%A8%E7%BD%B2hexo-acrylic%E4%B8%BB%E9%A2%98/</url>
-    <content><![CDATA[<h3 id="我的近况-👋"><a href="#我的近况-👋" class="headerlink" title="我的近况 👋"></a>我的近况 👋</h3><p>学无止境：never too old to learn!</p>
-<ul>
-<li>🔭 </li>
-<li>🌱 当前正在学习的内容有很多，比如数据结构和算法、JVM、设计模式、Spring框架等等。</li>
-<li>🔔 打算学习的语言：GO。最近刚写完一个GO的微型项目——<a href="https://github.com/yamonc/miniKeys">miniKeys</a>，欢迎star。</li>
-<li>👯 </li>
-<li>🤔 Java的一些项目问题可以向我Issues。</li>
-<li>📫 Email: <a href="mailto:&#108;&#x6f;&#x76;&#x65;&#x63;&#x68;&#x65;&#x6e;&#49;&#x39;&#x39;&#54;&#52;&#x32;&#56;&#x40;&#x71;&#x71;&#46;&#99;&#x6f;&#x6d;">&#108;&#x6f;&#x76;&#x65;&#x63;&#x68;&#x65;&#x6e;&#49;&#x39;&#x39;&#54;&#52;&#x32;&#56;&#x40;&#x71;&#x71;&#46;&#99;&#x6f;&#x6d;</a>(常用)</li>
-</ul>
-<h3 id="最近的计划（2023年6月）-calendar-："><a href="#最近的计划（2023年6月）-calendar-：" class="headerlink" title="最近的计划（2023年6月）:calendar: ："></a>最近的计划（2023年6月）:calendar: ：</h3><h3 id="已经完成的项目-page-with-curl-："><a href="#已经完成的项目-page-with-curl-：" class="headerlink" title="已经完成的项目 :page_with_curl:："></a>已经完成的项目 :page_with_curl:：</h3><p>具体请移步-&gt;[project_summay](</p>
-<p>typora该说不说的，确实是一款比较优秀的Markdown编辑工具，使用快捷键的方式可以快速编辑出布局漂亮的文档。但是存在以下几个问题：</p>
+    <title>hexo如何修改主题？</title>
+    <url>/2023/06/13/Hexo/hexo%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="hexo如何修改中意的主题？"><a href="#hexo如何修改中意的主题？" class="headerlink" title="hexo如何修改中意的主题？"></a>hexo如何修改中意的主题？</h1><p>推荐Acrylic主题，样式比较好看，文档也比较完善，但是也有踩坑。</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131506443.png" alt="image-20230613150638064"></p>
+<p>不过，还是感谢<a href="https://github.com/hexo-theme-Acrylic/Hexo-Theme-Acrylic-Next">@hexo-theme-Acrylic</a>的开源项目。</p>
+<p>修改主题可以参考文档修改，<a href="https://next-docs.acrylic.org.cn/">hexo acrylic</a>。</p>
+<h2 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h2><p>注意在hexo的根目录下执行指令，用来安装主题：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone -b main https://github.com/hexo-theme-Acrylic/Hexo-Theme-Acrylic-Next.git themes/Acrylic</span><br></pre></td></tr></table></figure>
+
+<h2 id="应用主题"><a href="#应用主题" class="headerlink" title="应用主题"></a>应用主题</h2><p>修改主配置文件config.yml,修改主题配置：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins<span class="punctuation">:</span> https<span class="punctuation">:</span><span class="comment">//hexo.io/plugins/</span></span><br><span class="line">## Themes<span class="punctuation">:</span> https<span class="punctuation">:</span><span class="comment">//hexo.io/themes/</span></span><br><span class="line">theme<span class="punctuation">:</span> Acrylic</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用主题配置"><a href="#使用主题配置" class="headerlink" title="使用主题配置"></a>使用主题配置</h2><p>macos&#x2F;linux:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cp</span> -rf ./themes/Acrylic/_config.yml ./_config.Acrylic.yml</span><br></pre></td></tr></table></figure>
+
+<p>windows:</p>
+<p>复制 <code>/themes/Acrylic/_config.yml</code> 此文件到 <strong>Hexo</strong> 根目录，并重命名为 <code>_config.Acrylic.yml</code></p>
+<h2 id="更新主题"><a href="#更新主题" class="headerlink" title="更新主题"></a>更新主题</h2><p>在hexo主文件夹下找到themes文件夹，进入之后找到Acrylic，并pull代码。</p>
+<p>直接hexo clean、hexo g、hexo s；看是否有问题。</p>
+<p>一般有的问题，都可以在百度上搜索，一般都是少装了npm包，npm install一下就可以了。</p>
+<p>比如这个： npm install hexo-deployer-git –save</p>
+<h2 id="Acrylic一些的必要配置"><a href="#Acrylic一些的必要配置" class="headerlink" title="Acrylic一些的必要配置"></a>Acrylic一些的必要配置</h2><p>首先按照文档，配置一下Hexo配置文件：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: RootlexBlog</span><br><span class="line">subtitle: &#x27;&#x27;</span><br><span class="line">description: &#x27;a blog 一个分享技术与生活的博客&#x27;</span><br><span class="line">keywords: Rootlex, blog, 技术, 博客</span><br><span class="line">author: Rootlex</span><br><span class="line">language: zh-CN # 主要是这里不一样，默认的是en</span><br><span class="line">timezone: &#x27;&#x27;</span><br><span class="line"></span><br><span class="line"># URL</span><br><span class="line">## Set your site url here. For example, if you use GitHub Page, set url as &#x27;https://username.github.io/project&#x27;</span><br><span class="line">url: http://example.com # 这块也建议修改成自己github的仓库地址，比如xxx.github.io</span><br><span class="line">permalink: :year/:month/:day/:title/</span><br><span class="line">permalink_defaults:</span><br><span class="line">pretty_urls:</span><br><span class="line">  trailing_index: true # Set to false to remove trailing &#x27;index.html&#x27; from permalinks</span><br><span class="line">  trailing_html: true # Set to false to remove trailing &#x27;.html&#x27; from permalinks</span><br></pre></td></tr></table></figure>
+
+<p>上述配置，需要注意两点：</p>
 <ol>
-<li>图片只能本地保存。</li>
-<li>文档只能本地保存。</li>
+<li>language需要改成zh-CN；</li>
+<li>url修改成为自己的配置。</li>
 </ol>
-<p>该说不说地，这确实是两大痛点。</p>
-<p>这个主要是来解决第一个痛点，图片只能保存在本地。</p>
-<p>具体痛点体现在：写完文章之后，如果文章内有图片的话，只能在本地阅览，或者导出pdf后阅览。但是如果想传到网上的话，直接出现照片无法显示。</p>
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>使用picgo可以解决图片保存到本地的痛点。</p>
-<p>首先，下载picgo软件，然后安装成功后出现这个界面：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306121745834.png" alt="image-20220713165016626"></p>
-<p>之前有gitee版本的，但是现在听说gitee开发了新的功能，去除外链了。不能用了。</p>
-<p>具体可以百度<code>typora+gitee+picgo</code></p>
-<p>本方案采用的typora+picgo+aliyunOSS</p>
-<p>安装好picgo之后，上阿里云官网上，注册oss，然后创建bucket。这么说可能有点抽象，先看picgo上需要的阿里云的oss信息：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306121745815.png" alt="image-20220713165302352"></p>
-<p>点击最左侧的图床设置，里面有阿里云OSS设置，然后进去之后有这个页面：</p>
-<p>设定KeyId、设定KeySecret：官网上个人用户：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306121745822.png" alt="image-20220713165450210"></p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306121745807.png" alt="image-20220713165514011"></p>
-<p>创建好了之后，将key和sucret保存好，填到里面。</p>
-<p>接下来创建bucket，在搜索栏搜索oss就可以进入到这个界面：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306121745850.png" alt="image-20220713165636864"></p>
-<p>点击bucket列表：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306121745027.png" alt="image-20220713165712007"></p>
-<p>bucket名称，随便填。</p>
-<p>地域建议选北京</p>
-<p>存储类型不用改。</p>
-<p>读写一定写成公共读写</p>
-<p>点击完成之后就可以了。</p>
-<p>最后在‘设定存储空间名’上写上创</p>
-]]></content>
-      <categories>
-        <category>随想</category>
-      </categories>
-      <tags>
-        <tag>近况</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何使用hexo</title>
-    <url>/2023/06/10/Hexo/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hexo/</url>
-    <content><![CDATA[<p>typora该说不说的，确实是一款比较优秀的Markdown编辑工具，使用快捷键的方式可以快速编辑出布局漂亮的文档。但是存在以下几个问题：</p>
-<ol>
-<li>图片只能本地保存。</li>
-<li>文档只能本地保存。</li>
-</ol>
-<p>该说不说地，这确实是两大痛点。</p>
-<p>这个主要是来解决第一个痛点，图片只能保存在本地。</p>
-<p>具体痛点体现在：写完文章之后，如果文章内有图片的话，只能在本地阅览，或者导出pdf后阅览。但是如果想传到网上的话，直接出现照片无法显示。</p>
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>使用picgo可以解决图片保存到本地的痛点。</p>
-<p>首先，下载picgo软件，然后安装成功后出现这个界面：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306101640369.png" alt="image-20220713165016626"></p>
-<p>之前有gitee版本的，但是现在听说gitee开发了新的功能，去除外链了。不能用了。</p>
-<p>具体可以百度<code>typora+gitee+picgo</code></p>
-<p>本方案采用的typora+picgo+aliyunOSS</p>
-<p>安装好picgo之后，上阿里云官网上，注册oss，然后创建bucket。这么说可能有点抽象，先看picgo上需要的阿里云的oss信息：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306101640347.png" alt="image-20220713165302352"></p>
-<p>点击最左侧的图床设置，里面有阿里云OSS设置，然后进去之后有这个页面：</p>
-<p>设定KeyId、设定KeySecret：官网上个人用户：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306101640322.png" alt="image-20220713165450210"></p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306101640371.png" alt="image-20220713165514011"></p>
-<p>创建好了之后，将key和sucret保存好，填到里面。</p>
-<p>接下来创建bucket，在搜索栏搜索oss就可以进入到这个界面：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306101640430.png" alt="image-20220713165636864"></p>
-<p>点击bucket列表：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306101640354.png" alt="image-20220713165712007"></p>
-<p>bucket名称，随便填。</p>
-<p>地域建议选北京</p>
-<p>存储类型不用改。</p>
-<p>读写一定写成公共读写</p>
-<p>点击完成之后就可以了。</p>
-<p>最后在‘设定存储空间名’上写上创建的bucket名称，确定存储区域：写北京就行。</p>
-<p>点击确定完成picgo的设置。</p>
-<hr>
-<p>在typora上的设置，点击左上角文件，找到偏好设置：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306101640733.png" alt="image-20220713170037149"></p>
-<p>这么设置在typora上面就可以截图粘贴过来自动上传到阿里云oss上面了。</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Hexo文章转换器</title>
-    <url>/2023/06/19/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/Hexo%E6%96%87%E7%AB%A0%E8%BD%AC%E6%8D%A2%E5%99%A8/</url>
-    <content><![CDATA[<h1 id="Hexo文章转换器"><a href="#Hexo文章转换器" class="headerlink" title="Hexo文章转换器"></a>Hexo文章转换器</h1><blockquote>
-<p>Hexo系列文章：</p>
-<ol>
-<li><a href="https://yamonc.github.io/2023/06/13/%E4%BB%8E0%E5%88%B01%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E5%88%B0Github-Page/">从0到1部署博客系统到GitHub Page（0成本）</a></li>
-<li><a href="https://yamonc.github.io/2023/06/13/hexo%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98/">hexo如何修改主题？</a></li>
-<li><a href="https://yamonc.github.io/2023/06/13/hexo-Acrylic%E4%B8%BB%E9%A2%98%E9%9B%86%E6%88%90twikoo%E8%AF%84%E8%AE%BA/">hexo-Acrylic主题集成twikoo评论</a></li>
-<li><a href="https://yamonc.github.io/2023/06/16/%E5%A6%82%E4%BD%95%E5%B0%86java%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E6%88%90exe%E6%A0%BC%E5%BC%8F/">如何将JavaFX的java项目打包成exe格式</a></li>
-</ol>
-</blockquote>
-<hr>
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近将博客平台使用Hexo搭建在Github上，但是如果每次发布文章的话，都需要设置一下front-matter的内容：</p>
-<p><a href="https://hexo.io/zh-cn/docs/front-matter">Front-matter</a></p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191043672.png" alt="image-20230619104358612"></p>
-<p>感觉不太方便，所以想通过界面化的方式，将过程进行简化（要不，每次都手动在文章的开头写上—xxx—,太麻烦）。</p>
-<p>基于此，本文通过界面化的方式，将文章进行格式化，通过代码的方式自动在文章开头插入markdown可识别的字符串。</p>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191046466.png" alt="image-20230619104639429"></p>
-<p>使用该工具可以避免手动输入这些信息，而是通过界面化的方式进行配置：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191047100.png" alt="image-20230619104743062"></p>
-<h2 id="技术说明"><a href="#技术说明" class="headerlink" title="技术说明"></a>技术说明</h2><p>Java17（开发语言）、Java FX（Java界面工具，类似于java8的swing，现已不支持java8）、SceneBuilder（拖拽式界面工具）、exe4j（jar转exe工具）。</p>
-<p>踩坑无数，尤其是将java转为exe的过程中，踩了一晚上吧。</p>
-<h2 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h2><p>下载地址：</p>
-<p><a href="https://gh.api.99988866.xyz/https://github.com/yamonc/hexoHelper/releases/download/V0.0.1/hexoHelper.exe">HexoHelper下载地址</a></p>
-<p>下载好之后，无需安装过程，直接点击exe文件即可运行。</p>
-<p>运行好之后，会出现[示例]中的界面。</p>
-<h3 id="功能说明"><a href="#功能说明" class="headerlink" title="功能说明"></a>功能说明</h3><p>现在界面主要分为四个区域，从上到下以此为使用说明、选中文件区域、front-matter信息区域、功能区域。</p>
-<p>这里主要讲解功能区域：</p>
-<p>【上传文件】：点击上传文件按钮之后，选中待转换的markdown文件（没有front-matter信息的markdown文件）</p>
-<p>【转换格式】：对已上传的文件进行格式转换，在文章头添加已经输入的front-matter信息。</p>
-<p>【部署】：执行hexo clean、hexo g、hexo d一系列指令。</p>
-<p>【一键部署】：对已上传的文件进行格式转换并执行hexo clean、hexo g、hexo d指令部署到对应平台上。</p>
-<h3 id="使用流程说明"><a href="#使用流程说明" class="headerlink" title="使用流程说明"></a>使用流程说明</h3><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191058659.png" alt="image-20230619105823619"></p>
-<h2 id="遗留问题"><a href="#遗留问题" class="headerlink" title="遗留问题"></a>遗留问题</h2><p>转换文章之后，题目乱码。</p>
-<p>不够灵活，鲁棒性不好。对输入增加限制。</p>
+<h3 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">site:</span><br><span class="line">  name:                   # 左上角显示内容</span><br><span class="line">    class:  text          #i_class/text/img </span><br><span class="line">    custom: Acrylic       #自定义内容</span><br><span class="line">  siteIcon: /img/avatar.webp # 网页icon</span><br><span class="line">  icon: /img/avatar.webp     # 页脚的icon、加载动画默认的icon</span><br><span class="line">  icp:                       # ICP</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>其他的内容按照文档配置就行。</p>
+<h2 id="其他注意的点"><a href="#其他注意的点" class="headerlink" title="其他注意的点"></a>其他注意的点</h2><h3 id="一、文章顶部搜索栏：search搜索"><a href="#一、文章顶部搜索栏：search搜索" class="headerlink" title="一、文章顶部搜索栏：search搜索"></a>一、文章顶部搜索栏：search搜索</h3><p>建议使用本地搜索，本地搜索的话，需要安装hexo-generator-searchdb插件。</p>
+<p>然后在_config.yml添加以下配置：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  content: true</span><br><span class="line">  format: html</span><br></pre></td></tr></table></figure>
+
+<p>修改_config.arcylic.yml</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">local_search:           #本地搜索</span><br><span class="line">  enable: true</span><br></pre></td></tr></table></figure>
+
+<h3 id="二、-文章详情meta数据没有显示"><a href="#二、-文章详情meta数据没有显示" class="headerlink" title="二、 文章详情meta数据没有显示"></a>二、 文章详情meta数据没有显示</h3><p>参考<a href="https://github.com/hexo-theme-Acrylic/Hexo-Theme-Acrylic-Next/issues/153">《meta疑问及front-matter参数疑问》</a></p>
+<p>补充几句吧：</p>
+<p>需要安装hexo-wordcount包：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i --save hexo-wordcount</span><br></pre></td></tr></table></figure>
+
+<p>一定要在次配置，主题配置中找到wordcount，并且设置为true：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131620729.png" alt="image-20230613162023688"></p>
+<h3 id="三、twikoo评论无法显示"><a href="#三、twikoo评论无法显示" class="headerlink" title="三、twikoo评论无法显示"></a>三、twikoo评论无法显示</h3><p>需要部署twikoo服务才能实现评论，具体参考文档<a href="https://twikoo.js.org/">twikoo文档</a></p>
+<p>或查看下一篇文章。</p>
 ]]></content>
       <categories>
         <category>教程</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>hexo</tag>
-        <tag>开源项目</tag>
-        <tag>工具</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>综合工具箱</title>
-    <url>/2023/06/17/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/%E7%BB%BC%E5%90%88%E5%B7%A5%E5%85%B7%E7%AE%B1/</url>
-    <content><![CDATA[<h1 id="综合工具箱"><a href="#综合工具箱" class="headerlink" title="综合工具箱"></a>综合工具箱</h1><p><a href="https://github.com/yamonc/tool_platfom/">tool_platform</a></p>
-<blockquote>
-<p>综合工具箱（名字实在是不会起，意会吧，言传就不必了）：这个项目主要是为了解决日常生活中的一点点痛点：比如密码箱，何为密码箱呢？如今大多数网站都有注册和登录功能，要么呢，有各种需要备份或者记录的信息（QQ邮箱的凭证，开发者需要记录下，或者github的AK和SK等），这种记录在网上的一些工具有可能会遭到泄露，所以将本地密码存到密码箱里就很有必要了。</p>
-</blockquote>
-<h2 id="🍎技术架构"><a href="#🍎技术架构" class="headerlink" title="🍎技术架构"></a>🍎技术架构</h2><p><a href="https://www.electronjs.org/zh/docs/latest/tutorial/quick-start">electron</a>+vue2</p>
-<p>框架用的是<a href="https://gitee.com/Zh-Sky/electron-vue-template">electron-vue-template</a>，感谢大佬的开源。</p>
-<p>纯前端项目，没有用到后端，<strong>更不会保留任何数据到服务器上</strong>。</p>
-<h2 id="🍉-解决的问题"><a href="#🍉-解决的问题" class="headerlink" title="🍉 解决的问题"></a>🍉 解决的问题</h2><p>目前综合工具箱里的功能只有《密码箱》的功能。</p>
-<h3 id="🍓密码箱"><a href="#🍓密码箱" class="headerlink" title="🍓密码箱"></a>🍓密码箱</h3><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306171118918.png" alt="image-20230617111859730"></p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306171119106.png" alt="image-20230617111918042"></p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306171122534.png" alt="image-20230617112248464"></p>
-<h4 id="痛点"><a href="#痛点" class="headerlink" title="痛点"></a>痛点</h4><p><strong>网络上的密码无法管理。</strong></p>
-<h4 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h4><p>点击新增密码，按照提示输入后，可在当前的用户目录下找到password.json的文件，所有的密码都存在这个paasword.json中。</p>
-<p>密码备份功能比价鸡肋，后期去掉。</p>
-<h2 id="🍠如何启动"><a href="#🍠如何启动" class="headerlink" title="🍠如何启动"></a>🍠如何启动</h2><h3 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h3><p>前提需要安装git、node.js、yarn&#x2F;npm（npm好像在这里不好使）</p>
-<h3 id="二次开发"><a href="#二次开发" class="headerlink" title="二次开发"></a>二次开发</h3><p>如果是二次开发的话：</p>
-<p><strong>pull代码</strong></p>
-<p><code>git pull https://github.com/yamonc/tool_platfom.git </code></p>
-<p><strong>安装安装包</strong></p>
-<p><code>yarn </code></p>
-<p><strong>启动项目</strong></p>
-<p><code>yarn dev</code></p>
-<h3 id="直接使用"><a href="#直接使用" class="headerlink" title="直接使用"></a>直接使用</h3><p>两种方式，第一种<a href="https://gh.api.99988866.xyz/https://github.com/yamonc/tool_platfom/releases/download/V0.0.1/electron-vue-admin.Setup.0.0.1.exe">下载发版</a>；</p>
-<p>第二种，在二次开发的基础上，自己打包：</p>
-<p><code>yarn build:win64</code></p>
-<p>打完包之后，会发现build包下有exe可执行文件：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306171139786.png" alt="image-20230617113946744"></p>
-<h2 id="🍐后期目标"><a href="#🍐后期目标" class="headerlink" title="🍐后期目标"></a>🍐后期目标</h2><p>性能优化（不得不说，electron太太太太慢了）</p>
-<p>密码修改。</p>
-<p>导入密码。</p>
-<p>支持sqllite，方便修改密码、删除密码。</p>
-<h2 id="🍌CHANGELOG"><a href="#🍌CHANGELOG" class="headerlink" title="🍌CHANGELOG"></a>🍌CHANGELOG</h2><p>V0.0.1 新增密码箱功能；</p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>vue</tag>
-        <tag>electron</tag>
+        <tag>博客</tag>
       </tags>
   </entry>
   <entry>
@@ -669,9 +405,269 @@
         <category>教程</category>
       </categories>
       <tags>
-        <tag>博客</tag>
         <tag>hexo</tag>
+        <tag>博客</tag>
         <tag>github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何使用hexo</title>
+    <url>/2023/06/10/Hexo/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hexo/</url>
+    <content><![CDATA[<p>typora该说不说的，确实是一款比较优秀的Markdown编辑工具，使用快捷键的方式可以快速编辑出布局漂亮的文档。但是存在以下几个问题：</p>
+<ol>
+<li>图片只能本地保存。</li>
+<li>文档只能本地保存。</li>
+</ol>
+<p>该说不说地，这确实是两大痛点。</p>
+<p>这个主要是来解决第一个痛点，图片只能保存在本地。</p>
+<p>具体痛点体现在：写完文章之后，如果文章内有图片的话，只能在本地阅览，或者导出pdf后阅览。但是如果想传到网上的话，直接出现照片无法显示。</p>
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>使用picgo可以解决图片保存到本地的痛点。</p>
+<p>首先，下载picgo软件，然后安装成功后出现这个界面：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306101640369.png" alt="image-20220713165016626"></p>
+<p>之前有gitee版本的，但是现在听说gitee开发了新的功能，去除外链了。不能用了。</p>
+<p>具体可以百度<code>typora+gitee+picgo</code></p>
+<p>本方案采用的typora+picgo+aliyunOSS</p>
+<p>安装好picgo之后，上阿里云官网上，注册oss，然后创建bucket。这么说可能有点抽象，先看picgo上需要的阿里云的oss信息：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306101640347.png" alt="image-20220713165302352"></p>
+<p>点击最左侧的图床设置，里面有阿里云OSS设置，然后进去之后有这个页面：</p>
+<p>设定KeyId、设定KeySecret：官网上个人用户：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306101640322.png" alt="image-20220713165450210"></p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306101640371.png" alt="image-20220713165514011"></p>
+<p>创建好了之后，将key和sucret保存好，填到里面。</p>
+<p>接下来创建bucket，在搜索栏搜索oss就可以进入到这个界面：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306101640430.png" alt="image-20220713165636864"></p>
+<p>点击bucket列表：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306101640354.png" alt="image-20220713165712007"></p>
+<p>bucket名称，随便填。</p>
+<p>地域建议选北京</p>
+<p>存储类型不用改。</p>
+<p>读写一定写成公共读写</p>
+<p>点击完成之后就可以了。</p>
+<p>最后在‘设定存储空间名’上写上创建的bucket名称，确定存储区域：写北京就行。</p>
+<p>点击确定完成picgo的设置。</p>
+<hr>
+<p>在typora上的设置，点击左上角文件，找到偏好设置：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306101640733.png" alt="image-20220713170037149"></p>
+<p>这么设置在typora上面就可以截图粘贴过来自动上传到阿里云oss上面了。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>我的近况</title>
+    <url>/2023/06/12/Hexo/%E9%83%A8%E7%BD%B2hexo-acrylic%E4%B8%BB%E9%A2%98/</url>
+    <content><![CDATA[<h3 id="我的近况-👋"><a href="#我的近况-👋" class="headerlink" title="我的近况 👋"></a>我的近况 👋</h3><p>学无止境：never too old to learn!</p>
+<ul>
+<li>🔭 </li>
+<li>🌱 当前正在学习的内容有很多，比如数据结构和算法、JVM、设计模式、Spring框架等等。</li>
+<li>🔔 打算学习的语言：GO。最近刚写完一个GO的微型项目——<a href="https://github.com/yamonc/miniKeys">miniKeys</a>，欢迎star。</li>
+<li>👯 </li>
+<li>🤔 Java的一些项目问题可以向我Issues。</li>
+<li>📫 Email: <a href="mailto:&#108;&#x6f;&#118;&#x65;&#99;&#x68;&#101;&#x6e;&#49;&#x39;&#57;&#54;&#x34;&#x32;&#56;&#64;&#113;&#113;&#x2e;&#99;&#111;&#x6d;">&#108;&#x6f;&#118;&#x65;&#99;&#x68;&#101;&#x6e;&#49;&#x39;&#57;&#54;&#x34;&#x32;&#56;&#64;&#113;&#113;&#x2e;&#99;&#111;&#x6d;</a>(常用)</li>
+</ul>
+<h3 id="最近的计划（2023年6月）-calendar-："><a href="#最近的计划（2023年6月）-calendar-：" class="headerlink" title="最近的计划（2023年6月）:calendar: ："></a>最近的计划（2023年6月）:calendar: ：</h3><h3 id="已经完成的项目-page-with-curl-："><a href="#已经完成的项目-page-with-curl-：" class="headerlink" title="已经完成的项目 :page_with_curl:："></a>已经完成的项目 :page_with_curl:：</h3><p>具体请移步-&gt;[project_summay](</p>
+<p>typora该说不说的，确实是一款比较优秀的Markdown编辑工具，使用快捷键的方式可以快速编辑出布局漂亮的文档。但是存在以下几个问题：</p>
+<ol>
+<li>图片只能本地保存。</li>
+<li>文档只能本地保存。</li>
+</ol>
+<p>该说不说地，这确实是两大痛点。</p>
+<p>这个主要是来解决第一个痛点，图片只能保存在本地。</p>
+<p>具体痛点体现在：写完文章之后，如果文章内有图片的话，只能在本地阅览，或者导出pdf后阅览。但是如果想传到网上的话，直接出现照片无法显示。</p>
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>使用picgo可以解决图片保存到本地的痛点。</p>
+<p>首先，下载picgo软件，然后安装成功后出现这个界面：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306121745834.png" alt="image-20220713165016626"></p>
+<p>之前有gitee版本的，但是现在听说gitee开发了新的功能，去除外链了。不能用了。</p>
+<p>具体可以百度<code>typora+gitee+picgo</code></p>
+<p>本方案采用的typora+picgo+aliyunOSS</p>
+<p>安装好picgo之后，上阿里云官网上，注册oss，然后创建bucket。这么说可能有点抽象，先看picgo上需要的阿里云的oss信息：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306121745815.png" alt="image-20220713165302352"></p>
+<p>点击最左侧的图床设置，里面有阿里云OSS设置，然后进去之后有这个页面：</p>
+<p>设定KeyId、设定KeySecret：官网上个人用户：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306121745822.png" alt="image-20220713165450210"></p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306121745807.png" alt="image-20220713165514011"></p>
+<p>创建好了之后，将key和sucret保存好，填到里面。</p>
+<p>接下来创建bucket，在搜索栏搜索oss就可以进入到这个界面：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306121745850.png" alt="image-20220713165636864"></p>
+<p>点击bucket列表：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306121745027.png" alt="image-20220713165712007"></p>
+<p>bucket名称，随便填。</p>
+<p>地域建议选北京</p>
+<p>存储类型不用改。</p>
+<p>读写一定写成公共读写</p>
+<p>点击完成之后就可以了。</p>
+<p>最后在‘设定存储空间名’上写上创</p>
+]]></content>
+      <categories>
+        <category>随想</category>
+      </categories>
+      <tags>
+        <tag>近况</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>单链表的倒数第k个节点</title>
+    <url>/2023/06/16/%E7%AE%97%E6%B3%95/%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACk%E4%B8%AA%E8%8A%82%E7%82%B9/</url>
+    <content><![CDATA[<h1 id="单链表的倒数第k个节点"><a href="#单链表的倒数第k个节点" class="headerlink" title="单链表的倒数第k个节点"></a>单链表的倒数第k个节点</h1><h2 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h2><p>输入一个链表，输出该链表中倒数第k个节点。为了符合大多数人的习惯，本题从1开始计数，即链表的尾节点是倒数第1个节点。</p>
+<p>例如，一个链表有 6 个节点，从头节点开始，它们的值依次是 1、2、3、4、5、6。这个链表的倒数第 3 个节点是值为 4 的节点。</p>
+<p>示例：</p>
+<p>给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 k &#x3D; 2.</p>
+<p>返回链表 4-&gt;5.</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>双指针。</p>
+<p>声明两个指针，分别是p1 和 p2；</p>
+<p>先走p1，让p1先走k步</p>
+<p>然后p1和p2同时走，直到p1为null的时候，停止，这时候，p2的就是待返回的结果。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> ListNode <span class="title function_">getKthFromEnd</span><span class="params">(ListNode head, <span class="type">int</span> k)</span> &#123;</span><br><span class="line">          <span class="comment">// 先将p1指向head</span></span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">p1</span> <span class="operator">=</span> head;</span><br><span class="line">        <span class="comment">// 先让p1走k步</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; k; i++) &#123;</span><br><span class="line">            p1 = p1.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">p2</span> <span class="operator">=</span> head;</span><br><span class="line">        <span class="comment">// 再让p1和p2同时走n-k步</span></span><br><span class="line">        <span class="keyword">while</span> (p1 != <span class="literal">null</span>)&#123;</span><br><span class="line">            p2 = p2.next;</span><br><span class="line">            p1 = p1.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// p2 现在指向第 n - k + 1 个节点，即倒数第 k 个节点</span></span><br><span class="line">        <span class="keyword">return</span> p2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>双指针</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何将JavaFX的java项目打包成exe格式</title>
+    <url>/2023/06/16/%E5%A6%82%E4%BD%95%E5%B0%86java%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E6%88%90exe%E6%A0%BC%E5%BC%8F/</url>
+    <content><![CDATA[<h1 id="如何将JavaFX的java项目打包成exe格式"><a href="#如何将JavaFX的java项目打包成exe格式" class="headerlink" title="如何将JavaFX的java项目打包成exe格式"></a>如何将JavaFX的java项目打包成exe格式</h1><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近在博客的时候，因为用到了hexo，所以必须按照hexo的格式上传文章，这样网站在显示的时候才会完整的显示出来：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306152048160.png" alt="image-20230615204813105"></p>
+<p>但是，每次写一篇，就得手动在文章的头部添加一些这些信息，而且添加完了之后，还要重新执行hexo三剑客才能部署到github的page上，所以就想着能不能按照，写一个客户端，用java写一个能运行在windows平台上的代码。</p>
+<p>以下都是基于代码写好了之后，详情请看这篇文章-&gt;&gt;&gt;&gt;&gt;&gt;&gt;</p>
+<h2 id="maven打包"><a href="#maven打包" class="headerlink" title="maven打包"></a>maven打包</h2><p>打包方式的话，可以参考文章末尾的第一篇文章。</p>
+<p>本文使用方法一会报错。所以使用方法二。</p>
+<p>使用的插件为maven-assembly-plugin，只需要在pom文件里面添加这段代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&lt;plugin&gt;</span><br><span class="line">               &lt;artifactId&gt;maven-assembly-plugin&lt;/artifactId&gt;</span><br><span class="line">               &lt;configuration&gt;</span><br><span class="line">                   &lt;descriptorRefs&gt;</span><br><span class="line">                       &lt;descriptorRef&gt;jar-with-dependencies&lt;/descriptorRef&gt;</span><br><span class="line">                   &lt;/descriptorRefs&gt;</span><br><span class="line">                   &lt;archive&gt;</span><br><span class="line">                       &lt;manifest&gt;</span><br><span class="line">                           &lt;mainClass&gt;com.yamon.convert/com.yamon.convert.HelloApplication&lt;/mainClass&gt;</span><br><span class="line">                       &lt;/manifest&gt;</span><br><span class="line">                   &lt;/archive&gt;</span><br><span class="line">               &lt;/configuration&gt;</span><br><span class="line">               &lt;executions&gt;</span><br><span class="line">                   &lt;execution&gt;</span><br><span class="line">                       &lt;id&gt;make-assembly&lt;/id&gt;</span><br><span class="line">                       &lt;phase&gt;<span class="keyword">package</span>&lt;/phase&gt;</span><br><span class="line">                       &lt;goals&gt;</span><br><span class="line">                           &lt;goal&gt;single&lt;/goal&gt;</span><br><span class="line">                       &lt;/goals&gt;</span><br><span class="line">                   &lt;/execution&gt;</span><br><span class="line">               &lt;/executions&gt;</span><br><span class="line">           &lt;/plugin&gt;</span><br></pre></td></tr></table></figure>
+
+<p>参考文章中有说的需要查看META-INF文件夹下的MAINIFEST.MF,需要查看里面的引用是否完整，我的内容比较少，也没有手动加。但是如果你要是有别的依赖包的话，需要手动添加一下，具体参考这篇文章：<a href="https://blog.csdn.net/qq_29428909/article/details/122103131">将idea中的JavaFX项目打包成可执行的exe应用</a></p>
+<p>重新导一下maven包，然后打开maven，点击：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161036716.png" alt="image-20230616103621652"></p>
+<p>完成打包：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161036953.png" alt="image-20230616103635913"></p>
+<h2 id="exe4j将jar包导出成exe格式"><a href="#exe4j将jar包导出成exe格式" class="headerlink" title="exe4j将jar包导出成exe格式"></a>exe4j将jar包导出成exe格式</h2><blockquote>
+<p>前记：</p>
+<p>之前也用过的别的，强烈不推荐使用jsmooth，感觉都是上古时期的工具了。按照教程一步一步操作，始终打不开。后来切换成exe4j之后，才成功完成打包动作。另外，打包方式的不同也有可能导致包的失效（毕竟不是springboot项目，怎么打都可以）</p>
+</blockquote>
+<p>先下载exe4j文件，比较快。下载好了之后，完成安装。</p>
+<ol>
+<li>欢迎页面不用看，直接点下一步：</li>
+</ol>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161040185.png" alt="image-20230616104018147"></p>
+<ol start="2">
+<li>项目类型选择jar包 in exe模式：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161041330.png" alt="image-20230616104119283"></li>
+<li>应用配置，这个应该是导出的文件名称，然后导出的目录位置：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161042024.png" alt="image-20230616104201987"></li>
+<li>配置执行文件，需要将高级选项点开，选择32&#x2F;64&#x2F;arm<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161042379.png" alt="image-20230616104240329"></li>
+<li><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161043712.png" alt="image-20230616104318653"></li>
+<li><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161043997.png" alt="image-20230616104331961"></li>
+<li>Java invocation：如果有额外的vm参数，需要调参的话，在上面填写；下面点击右侧绿色的加号，将刚才导出的包添加进来：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161044962.png" alt="image-20230616104446922">主类选择项目中的主类即可。</li>
+<li>配置JRE，尽量和当前系统环境一致：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161045352.png" alt="image-20230616104543316"></li>
+<li>坑点：这里需要在环境变量里面添加变量EXE4J_JAVA_HOME，然后地址写jre的地址。要不会报参考中的第三个错误；如果你的jdk版本没有jre的话，可以参考这篇文章：[待补充]。<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161048283.png"></li>
+<li>然后一路下一步就行了。</li>
+<li>最后试一下，看是否能启动应用：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161048396.png" alt="image-20230616104849351"></li>
+<li>如果能启动的话，表示成功，点击save as，将这个配置保存到本地。</li>
+</ol>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/qq_29428909/article/details/122103131">将idea中的JavaFX项目打包成可执行的exe应用</a></p>
+<p><a href="https://www.cnblogs.com/ococo/p/15875003.html">JDK11，JDK12 使用EXE4J 无JRE解决办法</a></p>
+<p><a href="https://blog.csdn.net/jiong9412/article/details/126481322">No JVM could be found on your system. Please define EXE4J_JAVA_HOME to point to an installed 64-bit</a></p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>exe</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>环形链表</title>
+    <url>/2023/06/19/%E7%AE%97%E6%B3%95/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/</url>
+    <content><![CDATA[<h1 id="环形链表"><a href="#环形链表" class="headerlink" title="环形链表"></a>环形链表</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给你一个链表的头节点 head ，判断链表中是否有环。</p>
+<p>如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环。 为了表示给定链表中的环，评测系统内部使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。注意：pos 不作为参数进行传递 。仅仅是为了标识链表的实际情况。</p>
+<p>如果链表中存在环 ，则返回 true 。 否则，返回 false 。</p>
+<p>示例 1：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191021477.png" alt="img"></p>
+<p>输入：head &#x3D; [3,2,0,-4], pos &#x3D; 1<br>输出：true<br>解释：链表中有一个环，其尾部连接到第二个节点。<br>示例 2：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191021584.png" alt="img"></p>
+<p>输入：head &#x3D; [1,2], pos &#x3D; 0<br>输出：true<br>解释：链表中有一个环，其尾部连接到第一个节点。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>跟[链表的中间结点]类似，使用快慢指针：</p>
+<p>slow前进一步，fast前进两步，如果fast最终遇到了空指针，则说明链表中没有环；</p>
+<p>如果fast和slow最终相遇了，证明fast超过了slow一圈，说明链表有环。</p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>leetcode</tag>
+        <tag>双指针</tag>
+        <tag>链表</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>无标题</title>
+    <url>/2023/06/20/%E7%AE%97%E6%B3%95/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8%E7%9A%84%E8%B5%B7%E7%82%B9/</url>
+    <content><![CDATA[<h1 id="环形链表的起点"><a href="#环形链表的起点" class="headerlink" title="环形链表的起点"></a>环形链表的起点</h1><p>给定一个链表的头节点  <code>head</code> ，返回链表开始入环的第一个节点。 <em>如果链表无环，则返回 <code>null</code>。</em></p>
+<p>如果链表中有某个节点，可以通过连续跟踪 <code>next</code> 指针再次到达，则链表中存在环。 为了表示给定链表中的环，评测系统内部使用整数 <code>pos</code> 来表示链表尾连接到链表中的位置（<strong>索引从 0 开始</strong>）。如果 <code>pos</code> 是 <code>-1</code>，则在该链表中没有环。<strong>注意：<code>pos</code> 不作为参数进行传递</strong>，仅仅是为了标识链表的实际情况。</p>
+<p><strong>不允许修改</strong> 链表。</p>
+<p><strong>示例 1：</strong></p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306201021677.png" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：head = [3,2,0,-4], pos = 1</span><br><span class="line">输出：返回索引为 1 的链表节点</span><br><span class="line">解释：链表中有一个环，其尾部连接到第二个节点。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306201021030.png" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：head = [1,2], pos = 0</span><br><span class="line">输出：返回索引为 0 的链表节点</span><br><span class="line">解释：链表中有一个环，其尾部连接到第一个节点。</span><br></pre></td></tr></table></figure>
+
+<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> ListNode <span class="title function_">detectCycle</span><span class="params">(ListNode head)</span> &#123;</span><br><span class="line">         <span class="type">ListNode</span> <span class="variable">fast</span> <span class="operator">=</span> head;</span><br><span class="line">       <span class="type">ListNode</span> <span class="variable">slow</span> <span class="operator">=</span> head;</span><br><span class="line">       <span class="keyword">while</span> (fast != <span class="literal">null</span> &amp;&amp; fast.next != <span class="literal">null</span>) &#123;</span><br><span class="line">           fast = fast.next.next;</span><br><span class="line">           slow = slow.next;</span><br><span class="line">           <span class="keyword">if</span> (fast == slow)&#123;</span><br><span class="line">               <span class="keyword">break</span>;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">// fast 遇到空指针说明没有环</span></span><br><span class="line">       <span class="keyword">if</span> (fast == <span class="literal">null</span> || fast.next == <span class="literal">null</span>)&#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">// 将慢指针指向head节点，重新开始单步走，当相交的时候，就是环的起点。</span></span><br><span class="line">       slow = head;</span><br><span class="line">       <span class="keyword">while</span> (slow != fast) &#123;</span><br><span class="line">           fast = fast.next;</span><br><span class="line">           slow = slow.next;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> slow;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们假设快慢指针相遇时，慢指针 <code>slow</code> 走了 <code>k</code> 步，那么快指针 <code>fast</code> 一定走了 <code>2k</code> 步：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306201021286.jpeg" alt="img"></p>
+<p><code>fast</code> 一定比 <code>slow</code> 多走了 <code>k</code> 步，这多走的 <code>k</code> 步其实就是 <code>fast</code> 指针在环里转圈圈，所以 <code>k</code> 的值就是环长度的「整数倍」。</p>
+<p>假设相遇点距环的起点的距离为 <code>m</code>，那么结合上图的 <code>slow</code> 指针，环的起点距头结点 <code>head</code> 的距离为 <code>k - m</code>，也就是说如果从 <code>head</code> 前进 <code>k - m</code> 步就能到达环起点。</p>
+<p>巧的是，如果从相遇点继续前进 <code>k - m</code> 步，也恰好到达环起点。因为结合上图的 <code>fast</code> 指针，从相遇点开始走k步可以转回到相遇点，那走 <code>k - m</code> 步肯定就走到环起点了：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306201021309.jpeg" alt="img"></p>
+<p>所以，只要我们把快慢指针中的任一个重新指向 <code>head</code>，然后两个指针同速前进，<code>k - m</code> 步后一定会相遇，相遇之处就是环的起点了</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>链表相交</title>
+    <url>/2023/06/25/%E7%AE%97%E6%B3%95/%E9%93%BE%E8%A1%A8%E7%9B%B8%E4%BA%A4/</url>
+    <content><![CDATA[<h1 id="链表相交"><a href="#链表相交" class="headerlink" title="链表相交"></a>链表相交</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你两个单链表的头节点 <code>headA</code> 和 <code>headB</code> ，请你找出并返回两个单链表相交的起始节点。如果两个链表不存在相交节点，返回 <code>null</code> 。</p>
+<p>图示两个链表在节点 <code>c1</code> 开始相交<strong>：</strong></p>
+<p><a href="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/14/160_statement.png"><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306250944935.png" alt="img"></a></p>
+<p>题目数据 <strong>保证</strong> 整个链式结构中不存在环。</p>
+<p><strong>注意</strong>，函数返回结果后，链表必须 <strong>保持其原始结构</strong> 。</p>
+<p><strong>自定义评测：</strong></p>
+<p><strong>评测系统</strong> 的输入如下（你设计的程序 <strong>不适用</strong> 此输入）：</p>
+<ul>
+<li><code>intersectVal</code> - 相交的起始节点的值。如果不存在相交节点，这一值为 <code>0</code></li>
+<li><code>listA</code> - 第一个链表</li>
+<li><code>listB</code> - 第二个链表</li>
+<li><code>skipA</code> - 在 <code>listA</code> 中（从头节点开始）跳到交叉节点的节点数</li>
+<li><code>skipB</code> - 在 <code>listB</code> 中（从头节点开始）跳到交叉节点的节点数</li>
+</ul>
+<p>评测系统将根据这些输入创建链式数据结构，并将两个头节点 <code>headA</code> 和 <code>headB</code> 传递给你的程序。如果程序能够正确返回相交节点，那么你的解决方案将被 <strong>视作正确答案</strong> 。</p>
+<p><strong>示例 1：</strong></p>
+<p><a href="https://assets.leetcode.com/uploads/2018/12/13/160_example_1.png"><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306250944565.png" alt="img"></a></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：intersectVal = 8, listA = [4,1,8,4,5], listB = [5,6,1,8,4,5], skipA = 2, skipB = 3</span><br><span class="line">输出：Intersected at &#x27;8&#x27;</span><br><span class="line">解释：相交节点的值为 8 （注意，如果两个链表相交则不能为 0）。</span><br><span class="line">从各自的表头开始算起，链表 A 为 [4,1,8,4,5]，链表 B 为 [5,6,1,8,4,5]。</span><br><span class="line">在 A 中，相交节点前有 2 个节点；在 B 中，相交节点前有 3 个节点。</span><br><span class="line">— 请注意相交节点的值不为 1，因为在链表 A 和链表 B 之中值为 1 的节点 (A 中第二个节点和 B 中第三个节点) 是不同的节点。换句话说，它们在内存中指向两个不同的位置，而链表 A 和链表 B 中值为 8 的节点 (A 中第三个节点，B 中第四个节点) 在内存中指向相同的位置。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<p><a href="https://assets.leetcode.com/uploads/2018/12/13/160_example_2.png"><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306250944586.png" alt="img"></a></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：intersectVal = 2, listA = [1,9,1,2,4], listB = [3,2,4], skipA = 3, skipB = 1</span><br><span class="line">输出：Intersected at &#x27;2&#x27;</span><br><span class="line">解释：相交节点的值为 2 （注意，如果两个链表相交则不能为 0）。</span><br><span class="line">从各自的表头开始算起，链表 A 为 [1,9,1,2,4]，链表 B 为 [3,2,4]。</span><br><span class="line">在 A 中，相交节点前有 3 个节点；在 B 中，相交节点前有 1 个节点。</span><br></pre></td></tr></table></figure>
+
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>可以使用HashSet，记录一个链表的所有节点，然后和另外一个链表对比，如果有一样的话，就返回该节点。但是需要额外的空间。</p>
+<p>使用双指针：</p>
+<p>但是两个链表的长度可能不同，两个链表之间的节点无法对应，那么如果使用两个指针，p1和p2分别在两个链表上前进的话，并不能同时走到公共节点上，也就是无法获取相交节点c1.</p>
+<p>所以，可以让p1遍历完链表A之后，再遍历链表B，p2遍历完链表B之后开始遍历链表A，这样相当于两个链表连接在了一起：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306250947411.jpeg" alt="img"></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ListNode <span class="title function_">getIntersectionNode</span><span class="params">(ListNode headA, ListNode headB)</span>&#123;</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">p1</span> <span class="operator">=</span> headA, p2 = headB;</span><br><span class="line">        <span class="keyword">while</span> (p1 != p2)&#123;</span><br><span class="line">            <span class="comment">// p1 走一步，如果走到A的末尾，转到B链表</span></span><br><span class="line">            <span class="keyword">if</span> (p1 == <span class="literal">null</span>)&#123;</span><br><span class="line">                p1 = headB;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="comment">// 如果不为空的话，一直走</span></span><br><span class="line">                p1 = p1.next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (p2 == <span class="literal">null</span>)&#123;</span><br><span class="line">                p2 = headA;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                p2 = p2.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> p1;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>leetcode</tag>
+        <tag>双指针</tag>
+        <tag>链表</tag>
       </tags>
   </entry>
 </search>
