@@ -1,22 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>jdk17没有JRE文件夹的解决方法</title>
-    <url>/2023/06/16/jdk17%E6%B2%A1%E6%9C%89jre%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="jdk17没有JRE文件夹的解决方法"><a href="#jdk17没有JRE文件夹的解决方法" class="headerlink" title="jdk17没有JRE文件夹的解决方法"></a>jdk17没有JRE文件夹的解决方法</h1><p>找到JDK的安装目录，然后在该目录下输入以下指令即可生成</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bin\jlink.exe --module-path jmods --add-modules java.desktop --output jre</span><br></pre></td></tr></table></figure>
-
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/u012993896/article/details/123150376">Windows系统安装JDK17没有jre文件夹解决方法</a></p>
-]]></content>
-      <categories>
-        <category>问题汇总</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>jdk</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>无标题</title>
     <url>/2023/06/10/hello-world/</url>
     <content><![CDATA[<h1 id="测试文件陈亚萌"><a href="#测试文件陈亚萌" class="headerlink" title="测试文件陈亚萌"></a>测试文件陈亚萌</h1><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -47,6 +31,192 @@
       <tags>
         <tag>Java</tag>
         <tag>SpringBoot</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>jdk17没有JRE文件夹的解决方法</title>
+    <url>/2023/06/16/jdk17%E6%B2%A1%E6%9C%89jre%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="jdk17没有JRE文件夹的解决方法"><a href="#jdk17没有JRE文件夹的解决方法" class="headerlink" title="jdk17没有JRE文件夹的解决方法"></a>jdk17没有JRE文件夹的解决方法</h1><p>找到JDK的安装目录，然后在该目录下输入以下指令即可生成</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bin\jlink.exe --module-path jmods --add-modules java.desktop --output jre</span><br></pre></td></tr></table></figure>
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/u012993896/article/details/123150376">Windows系统安装JDK17没有jre文件夹解决方法</a></p>
+]]></content>
+      <categories>
+        <category>问题汇总</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>jdk</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何将JavaFX的java项目打包成exe格式</title>
+    <url>/2023/06/16/%E5%A6%82%E4%BD%95%E5%B0%86java%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E6%88%90exe%E6%A0%BC%E5%BC%8F/</url>
+    <content><![CDATA[<h1 id="如何将JavaFX的java项目打包成exe格式"><a href="#如何将JavaFX的java项目打包成exe格式" class="headerlink" title="如何将JavaFX的java项目打包成exe格式"></a>如何将JavaFX的java项目打包成exe格式</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261746693.jpeg" alt="a dark tunnel with a light at the end"></p>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近在博客的时候，因为用到了hexo，所以必须按照hexo的格式上传文章，这样网站在显示的时候才会完整的显示出来：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306152048160.png" alt="image-20230615204813105"></p>
+<p>但是，每次写一篇，就得手动在文章的头部添加一些这些信息，而且添加完了之后，还要重新执行hexo三剑客才能部署到github的page上，所以就想着能不能按照，写一个客户端，用java写一个能运行在windows平台上的代码。</p>
+<p>以下都是基于代码写好了之后，详情请看这篇文章-&gt;&gt;&gt;&gt;&gt;&gt;&gt;</p>
+<h2 id="maven打包"><a href="#maven打包" class="headerlink" title="maven打包"></a>maven打包</h2><p>打包方式的话，可以参考文章末尾的第一篇文章。</p>
+<p>本文使用方法一会报错。所以使用方法二。</p>
+<p>使用的插件为maven-assembly-plugin，只需要在pom文件里面添加这段代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&lt;plugin&gt;</span><br><span class="line">               &lt;artifactId&gt;maven-assembly-plugin&lt;/artifactId&gt;</span><br><span class="line">               &lt;configuration&gt;</span><br><span class="line">                   &lt;descriptorRefs&gt;</span><br><span class="line">                       &lt;descriptorRef&gt;jar-with-dependencies&lt;/descriptorRef&gt;</span><br><span class="line">                   &lt;/descriptorRefs&gt;</span><br><span class="line">                   &lt;archive&gt;</span><br><span class="line">                       &lt;manifest&gt;</span><br><span class="line">                           &lt;mainClass&gt;com.yamon.convert/com.yamon.convert.HelloApplication&lt;/mainClass&gt;</span><br><span class="line">                       &lt;/manifest&gt;</span><br><span class="line">                   &lt;/archive&gt;</span><br><span class="line">               &lt;/configuration&gt;</span><br><span class="line">               &lt;executions&gt;</span><br><span class="line">                   &lt;execution&gt;</span><br><span class="line">                       &lt;id&gt;make-assembly&lt;/id&gt;</span><br><span class="line">                       &lt;phase&gt;<span class="keyword">package</span>&lt;/phase&gt;</span><br><span class="line">                       &lt;goals&gt;</span><br><span class="line">                           &lt;goal&gt;single&lt;/goal&gt;</span><br><span class="line">                       &lt;/goals&gt;</span><br><span class="line">                   &lt;/execution&gt;</span><br><span class="line">               &lt;/executions&gt;</span><br><span class="line">           &lt;/plugin&gt;</span><br></pre></td></tr></table></figure>
+
+<p>参考文章中有说的需要查看META-INF文件夹下的MAINIFEST.MF,需要查看里面的引用是否完整，我的内容比较少，也没有手动加。但是如果你要是有别的依赖包的话，需要手动添加一下，具体参考这篇文章：<a href="https://blog.csdn.net/qq_29428909/article/details/122103131">将idea中的JavaFX项目打包成可执行的exe应用</a></p>
+<p>重新导一下maven包，然后打开maven，点击：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161036716.png" alt="image-20230616103621652"></p>
+<p>完成打包：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161036953.png" alt="image-20230616103635913"></p>
+<h2 id="exe4j将jar包导出成exe格式"><a href="#exe4j将jar包导出成exe格式" class="headerlink" title="exe4j将jar包导出成exe格式"></a>exe4j将jar包导出成exe格式</h2><blockquote>
+<p>前记：</p>
+<p>之前也用过的别的，强烈不推荐使用jsmooth，感觉都是上古时期的工具了。按照教程一步一步操作，始终打不开。后来切换成exe4j之后，才成功完成打包动作。另外，打包方式的不同也有可能导致包的失效（毕竟不是springboot项目，怎么打都可以）</p>
+</blockquote>
+<p>先下载exe4j文件，比较快。下载好了之后，完成安装。</p>
+<ol>
+<li>欢迎页面不用看，直接点下一步：</li>
+</ol>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161040185.png" alt="image-20230616104018147"></p>
+<ol start="2">
+<li>项目类型选择jar包 in exe模式：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161041330.png" alt="image-20230616104119283"></li>
+<li>应用配置，这个应该是导出的文件名称，然后导出的目录位置：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161042024.png" alt="image-20230616104201987"></li>
+<li>配置执行文件，需要将高级选项点开，选择32&#x2F;64&#x2F;arm<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161042379.png" alt="image-20230616104240329"></li>
+<li><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161043712.png" alt="image-20230616104318653"></li>
+<li><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161043997.png" alt="image-20230616104331961"></li>
+<li>Java invocation：如果有额外的vm参数，需要调参的话，在上面填写；下面点击右侧绿色的加号，将刚才导出的包添加进来：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161044962.png" alt="image-20230616104446922">主类选择项目中的主类即可。</li>
+<li>配置JRE，尽量和当前系统环境一致：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161045352.png" alt="image-20230616104543316"></li>
+<li>坑点：这里需要在环境变量里面添加变量EXE4J_JAVA_HOME，然后地址写jre的地址。要不会报参考中的第三个错误；如果你的jdk版本没有jre的话，可以参考这篇文章：[待补充]。<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161048283.png"></li>
+<li>然后一路下一步就行了。</li>
+<li>最后试一下，看是否能启动应用：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161048396.png" alt="image-20230616104849351"></li>
+<li>如果能启动的话，表示成功，点击save as，将这个配置保存到本地。</li>
+</ol>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/qq_29428909/article/details/122103131">将idea中的JavaFX项目打包成可执行的exe应用</a></p>
+<p><a href="https://www.cnblogs.com/ococo/p/15875003.html">JDK11，JDK12 使用EXE4J 无JRE解决办法</a></p>
+<p><a href="https://blog.csdn.net/jiong9412/article/details/126481322">No JVM could be found on your system. Please define EXE4J_JAVA_HOME to point to an installed 64-bit</a></p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>exe</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo-Acrylic主题集成twikoo评论</title>
+    <url>/2023/06/13/Hexo/hexo-Acrylic%E4%B8%BB%E9%A2%98%E9%9B%86%E6%88%90twikoo%E8%AF%84%E8%AE%BA/</url>
+    <content><![CDATA[<h1 id="hexo-Acrylic主题集成twikoo评论"><a href="#hexo-Acrylic主题集成twikoo评论" class="headerlink" title="hexo-Acrylic主题集成twikoo评论"></a>hexo-Acrylic主题集成twikoo评论</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261745868.jpeg" alt="a large building with a clock tower in the middle of it"></p>
+<p>虽然hexo使用了Acrylic的主题，但是评论模块一直没有打开，官方给出的文档也没有相关的文档，所以上网上找到了一篇参考，做了一些详细的配置。</p>
+<p>主要完成的是评论模块的功能实现，增加、提醒等功能。具体可以查看twikoo<a href="https://twikoo.js.org/">文档</a></p>
+<p>twikoo文档上给出了很多部署的方式，主要分两类，一个是云函数的部署，另外一种是前端部署。</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131714157.png" alt="image-20230613171408109"></p>
+<p>这里使用的是Vercel部署。</p>
+<h2 id="Vercel部署"><a href="#Vercel部署" class="headerlink" title="Vercel部署"></a>Vercel部署</h2><p>主要的部署流程：</p>
+<ol>
+<li>申请mongodb账号</li>
+<li>创建免费的mongodb数据库，区域的话，可以选择hongkang。</li>
+<li>查看配置信息，在clusters页面上点击connect，然后选择Driver，复制数据库信息。</li>
+<li>申请Vercel账号。</li>
+<li>将twikoo一键部署到Vercel上</li>
+<li>在Vercel上，找到Setting-Environment Variable，添加MONGODB_URI，值为第3步的数据库信息。</li>
+<li>进入 Deployments , 然后在任意一项后面点击更多（三个点） , 然后点击Redeploy , 最后点击下面的Redeploy。</li>
+<li>进入 Overview，点击 Domains 下方的链接，如果环境配置正确，可以看到 “Twikoo 云函数运行正常” 的提示。</li>
+<li>Vercel Domains（包含 <code>https://</code> 前缀，例如 <code>https://xxx.vercel.app</code>）即为您的环境 id。</li>
+</ol>
+<h3 id="主要流程"><a href="#主要流程" class="headerlink" title="主要流程"></a>主要流程</h3><h4 id="mongodb上的操作"><a href="#mongodb上的操作" class="headerlink" title="mongodb上的操作"></a>mongodb上的操作</h4><p>正常流程注册就行，应该可以使用github注册的。注册OK了之后，会有引导，选择最右侧免费的cluster（土豪忽略这个），然后进行配置：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131721646.png" alt="创建页面"></p>
+<p>这里我没有选择官方推荐的，我选择的是距离咱们最近的Hong Kong。然后创建数据库即可。</p>
+<p>接下来，需要配置mongodb数据库，设置ip为0.0.0.0&#x2F;0即可：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131723940.png" alt="配置ip.png"></p>
+<p>创建数据库用户，这里的paasword后面有用到：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131723680.png" alt="配置用户.png"></p>
+<p>返回到cluster界面，点击connect：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131723711.png" alt="CONNECT1.png"></p>
+<p>这里跟参考里面的不一样，这里要选择device还是什么来着，也是application，只不过描述不一样。</p>
+<p>点进去之后，除了记录一下数据库的信息之外，还需要在hexo目录下，npm装一下mongodb的包，要不twikoo还是不能用。</p>
+<h4 id="部署到Vercel"><a href="#部署到Vercel" class="headerlink" title="部署到Vercel"></a>部署到Vercel</h4><p>申请Vercel账号，需要手机号认证，去下拉框里面找咱们国家就行，输入验证码之后就注册成功了。</p>
+<p>开始部署：</p>
+<p><a href="https://vercel.com/import/project?template=https://github.com/imaegoo/twikoo/tree/main/src/server/vercel-min">https://vercel.com/import/project?template=https://github.com/imaegoo/twikoo/tree/main/src/server/vercel-min</a></p>
+<p>点击上述连接。</p>
+<p>Repository Name这里可以随便输入，建议输入twikoo，给自己的github上创建一个twikoo的仓库。</p>
+<p>点击Create进入下一步。</p>
+<p>等Import之后，点击visit进入仓库。</p>
+<p>这时候，应该会报错，还需要配置环境变量。</p>
+<h5 id="新建环境变量"><a href="#新建环境变量" class="headerlink" title="新建环境变量"></a>新建环境变量</h5><p>进入<code>Settings - Environment Variables</code>页面。<br>新建一个NAME为<code>MONGODB_URI</code>;VALUE为你在前面记录到的<code>数据库连接字符串</code>的环境变量。</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131728847.png" alt="Setting.png"></p>
+<p>点击Deployment重新部署一下：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131730574.png" alt="image-20230613173028453"></p>
+<p>部署如果成功的话：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131731529.png" alt="image-20230613173101471"></p>
+<p>Domain下面的连接就是要配置的envId。</p>
+<p>至此的话，如何你点击Domain下面的连接可以正常访问的话，那可以跳过以下几步，直接到邮箱配置这块了，但是如果无法访问的话，需要配置一下二级域名才能完成访问的。</p>
+<p>到阿里云控制台上（你域名的服务商），找到域名：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131736438.png" alt="image-20230613173646350"></p>
+<p>点击添加域名：</p>
+<p>添加子域名：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131737855.webp" alt="img"></p>
+<p>提示TXT授权校验：</p>
+<p>将TXT授权校验的内容保存好之后，对主域名进行添加子域名解析：</p>
+<p>添加解析记录：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131738760.webp" alt="img"></p>
+<p>添加好了之后，再返回点击验证。</p>
+<p>最后将二级域名解析到Vercel中：</p>
+<p>在二级域名中添加两条记录（不用修改）：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131739108.png" alt="image-20230613173948054"></p>
+<table>
+<thead>
+<tr>
+<th align="center">主机记录</th>
+<th align="center">记录类型</th>
+<th align="center">解析请求来源(isp)</th>
+<th align="center">记录值</th>
+<th align="center">TTL</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">twikoo</td>
+<td align="center">CNAME</td>
+<td align="center">默认</td>
+<td align="center">cname.vercel-dns.com</td>
+<td align="center">10 分钟</td>
+</tr>
+<tr>
+<td align="center">@</td>
+<td align="center">A</td>
+<td align="center">默认</td>
+<td align="center">76.76.21.21</td>
+<td align="center">10 分钟</td>
+</tr>
+</tbody></table>
+<p>在Vercel项目中添加Domains域名</p>
+<p>点击Project Settings-》Domains，添加域名即可</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131742880.png" alt="image-20230613174240816"></p>
+<p>替换之前的envid：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131741532.png" alt="image-20230613174157503"></p>
+<h4 id="实现邮件通知"><a href="#实现邮件通知" class="headerlink" title="实现邮件通知"></a>实现邮件通知</h4><p>以qq邮箱为例：</p>
+<p>需要得到邮箱的pop3&#x2F;SMTP的凭证，现在已经改版了，不太好找了。可以这么操作：</p>
+<p>登录上邮箱之后，选择设置-》账户，找到POP3一栏。</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131746070.png" alt="image-20230613174604011"></p>
+<p>点击如何设置？</p>
+<p>跳转到这个页面：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131746090.png" alt="image-20230613174626026"></p>
+<p>点它就行了，然后一步一步配置就行，该发短信就发短信。</p>
+<p>得到凭证之后，开始配置邮箱提醒：</p>
+<p>SENDER_EMAIL: &lt;你的QQ邮箱地址&gt;<br>SMTP_SERVICE: &lt;你的邮件服务提供商&gt;<br>SMTP_HOST: &lt;自定义 SMTP 服务器地址&gt;<br>SMTP_PORT: &lt;自定义 SMTP 端口&gt;<br>SMTP_SECURE: &lt;自定义 SMTP 是否使用 TLS&gt;<br>SMTP_USER: &lt;邮件通知邮箱用户名&gt;(需与SENDER_EMAIL一致)<br>SMTP_PASS: &lt;邮件通知邮箱密码&gt;(授权码)</p>
+<p>一般在评论左下角会有一个小齿轮，点击进去，第一次需要注册，注册完了之后按照这个配置一下就行：</p>
+<p>点击配置管理-》邮件通知，按照以下进行配置：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131748658.png" alt="配置2.png"></p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131748532.png" alt="配置1.png"></p>
+<p>然后点击最下面的邮件通知测试，完成测试。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/weixin_58068682/article/details/122770936">部署Twikoo评论系统及其邮件推送(Vercel)</a></p>
+<p><a href="https://www.jianshu.com/p/02fb996c4638">关于Vercel被墙导致获取Twikoo评论失败的解决方案</a></p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>twikoo</tag>
+        <tag>博客</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -95,6 +265,170 @@
         <tag>hexo</tag>
         <tag>开源项目</tag>
         <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>从0到1部署博客系统到Github Page（0成本）</title>
+    <url>/2023/06/13/Hexo/%E4%BB%8E0%E5%88%B01%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E5%88%B0Github-Page/</url>
+    <content><![CDATA[<h1 id="从0到1部署博客系统到GitHub-Page（0成本）"><a href="#从0到1部署博客系统到GitHub-Page（0成本）" class="headerlink" title="从0到1部署博客系统到GitHub Page（0成本）"></a>从0到1部署博客系统到GitHub Page（0成本）</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261745323.jpeg" alt="a view of a mountain range with a pink sky in the background"></p>
+<p>先po一下博客的地址：</p>
+<p><a href="https://yamonc.github.io/">热爱并分享生活</a></p>
+<p>主要选型：hexo+<a href="https://next-docs.acrylic.org.cn/configuration/comment">Acrylic</a>+Github Page+<a href="https://twikoo.js.org/quick-start.html#vercel-%E9%83%A8%E7%BD%B2">twikoo</a>（评论）+<a href="https://vercel.com/dashboard">Vercel</a>（自动化部署twikoo）+ <a href="https://cloud.mongodb.com/v2/64870703b548175c8b6e3255#/clusters">mongodb cloud</a></p>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>从去年年末到今年五月底、六月初，一直在想，重新搞一个博客网站玩玩，正好也想学习一下vue的前端知识。然后就上网上找了一下模板，刚开始使用的是vue-element-admin，但是无奈该模板是后台管理系统，所以又找人给搭了一个特别简单的网站。在接下来的几个月的时间内，吭哧吭哧地干，一点点的干，从前端的博客列表、标签分栏列表、各种crud页面的编写，期间一度的怀疑自己在干什么，感觉没什么意义，但最后还是做出来了点效果，但是样式过于丑陋，始终不满。</p>
+<p>终于，在上周五晚上，反思了下最近这半年正在做的事儿，感觉什么都做了，又感觉什么都没做。在想到博客的时候，自己明明想要的是能够做到文档归档功能就行，其他的多余的什么登录、延迟删除博客、撤回删除博客有什么用呢？这不就是无用功了吗？</p>
+<p>说回来，之前就看到一些博主利用github来写一些文档，例如一些网页后面的github.io的后缀。</p>
+<p>目前常见的选型有这几种：</p>
+<ol>
+<li>自己搭建的博客（成本高，需要自己买服务器，时间成本也高，但是自定义高，可玩性高）</li>
+<li><a href="https://vuepress.vuejs.org/zh/">vuepress</a>，利用vuepress纯前端静态资源部署CMS内容。</li>
+<li>hexo，模板较多，类似vuepress（本文选用的是这个）</li>
+</ol>
+<p>关于博客系统的选型，之前就知道有hexo，做博客期间的这半年，还想要不将hexo搬到服务器上，在服务器上部署一套就行了。后来无意中了解到，gitee和github可以提供服务器资源，提供免费站点（gitee也可以，但是需要提供身份证认证）。</p>
+<h2 id="搭建使用的组件"><a href="#搭建使用的组件" class="headerlink" title="搭建使用的组件"></a>搭建使用的组件</h2><p>首先，需要使用git，用来将代码push到github上。</p>
+<p>node.js和npm包管理工具用来安装前端必须的包；</p>
+<p>hexo，博客模板网站。</p>
+<p>这几个之间的关系是：</p>
+<p>node.js和npm为底层支撑，用来支撑项目的启动；</p>
+<p>hexo为样式渲染组件，hexo通过node.js和npm完成部署。</p>
+<ol>
+<li><a href="https://nodejs.org/en">node.js</a>,下载直接安装即可。</li>
+<li><a href="https://git-scm.com/">git</a>，同上，安装次版本即可。</li>
+<li>npm， 包管理工具。</li>
+<li><a href="https://hexo.io/zh-cn/docs/">hexo</a>，博客模板网站</li>
+</ol>
+<h2 id="本地部署"><a href="#本地部署" class="headerlink" title="本地部署"></a>本地部署</h2><p>开始部署工作，默认已经配置了git、npm和nodejs。</p>
+<h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><p><a href="https://hexo.io/zh-cn/docs/#%E5%AE%89%E8%A3%85-Hexo">参考官方文档</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<p>或者安装全量包：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo</span><br></pre></td></tr></table></figure>
+
+<h3 id="初始化hexo文件夹"><a href="#初始化hexo文件夹" class="headerlink" title="初始化hexo文件夹"></a>初始化hexo文件夹</h3><p>安装好了之后，需要在你的pc上，找一个地儿，创建一个blog的文件夹：</p>
+<p>比如我选择的地方：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131146514.png" alt="image-20230613114643441"></p>
+<p>找好了之后，右键空白处，选择git bash here</p>
+<p>首先声明一下，这个文件夹是hexo的：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init .</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><p>接着，安装下依赖：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<p>安装好了依赖之后，可以查看目录结构：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml # 网站配置信息</span><br><span class="line">├── package.json # 应用程序信息</span><br><span class="line">├── scaffolds # 模板文件夹</span><br><span class="line">├── source # 存放用户资源</span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes # 主题文件夹</span><br></pre></td></tr></table></figure>
+
+<h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><p>输入hexo指令：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line"># 新建博客</span><br><span class="line">hexo n &quot;test&quot;</span><br><span class="line"># 生成静态网页</span><br><span class="line">hexo g</span><br><span class="line"># 打开本地服务器</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<p>查看控制台是否有报错，如果有的话，查看原因。</p>
+<p>（ps：我记得，在这里好像有问题，但是百度绝对能百度出来，原因大概是少装了依赖，再装下依赖就不会报错了）</p>
+<p>这个时候，控制台应该一个localhost的连接，访问连接即可。</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131356094.png" alt="image-20230613135632039"></p>
+<p>（已经更换过主题的，所以你的有可能跟我不一样，可以从简单开始，先将最简单的部署到Github的Page站点）</p>
+<h2 id="部署到Github-Page站点"><a href="#部署到Github-Page站点" class="headerlink" title="部署到Github Page站点"></a>部署到Github Page站点</h2><p>访问<a href="https://docs.github.com/zh/pages/getting-started-with-github-pages">Page文档</a>了解更多。</p>
+<p>首先，在Github上创建一个仓库，名字一定要和你的用户名一样：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131401328.png" alt="image-20230613140138288"></p>
+<p>可以添加一个README的markdown文件，方便pull（仓库为空的话，不能pull），或者更简单的，不需要你创建这个仓库，在hexo的目录下，使用以下命令，将hexo的目录push到github上，但是名字要改成上面这个图一样的（用户名.github.io，我这里是将hexo和github本地仓库分开的）。</p>
+<p>这时候，有可能会出现github认证问题，需要你输入github的账号密码，虽然你输入的是正确的，但是总是pull&#x2F;push不成功。</p>
+<p>解决方案：升级你的git版本。</p>
+<p>创建之后，创建一个文件夹，然后pull下来远端的代码：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131408878.png" alt="image-20230613140821833"></p>
+<p>注意，在<strong>博客的根目录</strong>下，找到hexo的主配置（定义：其他主题都为次配置）：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131411707.png" alt="image-20230613141118667"></p>
+<p>配置主配置：</p>
+<p>可配置的内容：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: yamon，分享并热爱生活 # 浏览器tab栏上显示内容</span><br><span class="line">subtitle: &#x27;&#x27; # 可以写</span><br><span class="line">description: &#x27;a blog 一个分享技术与生活的博客&#x27; # 应该是百度搜索出来的时候用的</span><br><span class="line">keywords: Rootlex, blog, 技术, 博客 # 搜索关键字</span><br><span class="line">author: yamon # 作者，footer用的应该</span><br><span class="line">language: zh-CN # 语言</span><br><span class="line">timezone: &#x27;&#x27; # 时区</span><br><span class="line"></span><br><span class="line">url: http://yamonc.github.io # 分享的时候用的url</span><br><span class="line">permalink: :year/:month/:day/:title/ # 应该是点开文章后，url上显示的格式</span><br><span class="line">permalink_defaults:</span><br></pre></td></tr></table></figure>
+
+<p>重点内容来了：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"># Extensions</span><br><span class="line">## Plugins: https://hexo.io/plugins/</span><br><span class="line">## Themes: https://hexo.io/themes/ </span><br><span class="line">## 这个是主题配置，如果更换主题的话，需要在这里修改下名字，具体后续会讲</span><br><span class="line">theme: Acrylic</span><br><span class="line"></span><br><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/one-command-deployment</span><br><span class="line"># 部署在github上，type是部署方式；repo是部署的仓库，就是你要把代码push到哪个仓库上；branch：部署的分支。</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/yamonc/yamonc.github.io</span><br><span class="line">  branch: main</span><br></pre></td></tr></table></figure>
+
+<p>保存之后，再执行三或四个指令，这四个指令会贯穿到从始至终：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">hexo clean # 清除缓存</span><br><span class="line">hexo g # 生成静态文件</span><br><span class="line">hexo s # 启动服务（自己debug用，或者本地查看一下会不会报错）</span><br><span class="line">hexo d # 开启部署</span><br></pre></td></tr></table></figure>
+
+<p>接着，点到用户名.github.io的仓库里面，找到setting：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131420206.png" alt="image-20230613142035115"></p>
+<p>找到左侧的pages选项：</p>
+<p>如果出现了这行字，表示部署成功，可以通过这个域名访问：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131421243.png" alt="image-20230613142150188"></p>
+<blockquote>
+<p>如果没有部署成功的话，可以查看一下这里的内容，是否配置成功，主要是：</p>
+<ol>
+<li>build and deployment选项的branch分支是否选择正确，是否是main分支，一般都是main分支。</li>
+<li>在本地hexo目录下，使用hexo s本地部署，查看控制台是否报错，有可能是博客的front markdown没有写好，格式不对，多加了空格什么的。</li>
+<li>或者不行的话，到仓库的Action选项卡中，重新跑一遍job试一下。</li>
+</ol>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131426822.png" alt="image-20230613142606737"></p>
+<p>另外，这里还有一个Custom domain自定义域名，如果有域名的话，可以在这里配置，具体配置的话，另起一篇再讲吧。</p>
+</blockquote>
+<p>最后部署成功的样子：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131426206.png" alt="image-20230613142639000"></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://zhuanlan.zhihu.com/p/370635512">超详细 Hexo + Github Pages 博客搭建教程</a></p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+        <tag>hexo</tag>
+        <tag>github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo如何修改主题？</title>
+    <url>/2023/06/13/Hexo/hexo%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="hexo如何修改中意的主题？"><a href="#hexo如何修改中意的主题？" class="headerlink" title="hexo如何修改中意的主题？"></a>hexo如何修改中意的主题？</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261746884.jpeg" alt="an aerial view of a tree in a field"></p>
+<p>推荐Acrylic主题，样式比较好看，文档也比较完善，但是也有踩坑。</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131506443.png" alt="image-20230613150638064"></p>
+<p>不过，还是感谢<a href="https://github.com/hexo-theme-Acrylic/Hexo-Theme-Acrylic-Next">@hexo-theme-Acrylic</a>的开源项目。</p>
+<p>修改主题可以参考文档修改，<a href="https://next-docs.acrylic.org.cn/">hexo acrylic</a>。</p>
+<h2 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h2><p>注意在hexo的根目录下执行指令，用来安装主题：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone -b main https://github.com/hexo-theme-Acrylic/Hexo-Theme-Acrylic-Next.git themes/Acrylic</span><br></pre></td></tr></table></figure>
+
+<h2 id="应用主题"><a href="#应用主题" class="headerlink" title="应用主题"></a>应用主题</h2><p>修改主配置文件config.yml,修改主题配置：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins<span class="punctuation">:</span> https<span class="punctuation">:</span><span class="comment">//hexo.io/plugins/</span></span><br><span class="line">## Themes<span class="punctuation">:</span> https<span class="punctuation">:</span><span class="comment">//hexo.io/themes/</span></span><br><span class="line">theme<span class="punctuation">:</span> Acrylic</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用主题配置"><a href="#使用主题配置" class="headerlink" title="使用主题配置"></a>使用主题配置</h2><p>macos&#x2F;linux:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cp</span> -rf ./themes/Acrylic/_config.yml ./_config.Acrylic.yml</span><br></pre></td></tr></table></figure>
+
+<p>windows:</p>
+<p>复制 <code>/themes/Acrylic/_config.yml</code> 此文件到 <strong>Hexo</strong> 根目录，并重命名为 <code>_config.Acrylic.yml</code></p>
+<h2 id="更新主题"><a href="#更新主题" class="headerlink" title="更新主题"></a>更新主题</h2><p>在hexo主文件夹下找到themes文件夹，进入之后找到Acrylic，并pull代码。</p>
+<p>直接hexo clean、hexo g、hexo s；看是否有问题。</p>
+<p>一般有的问题，都可以在百度上搜索，一般都是少装了npm包，npm install一下就可以了。</p>
+<p>比如这个： npm install hexo-deployer-git –save</p>
+<h2 id="Acrylic一些的必要配置"><a href="#Acrylic一些的必要配置" class="headerlink" title="Acrylic一些的必要配置"></a>Acrylic一些的必要配置</h2><p>首先按照文档，配置一下Hexo配置文件：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: RootlexBlog</span><br><span class="line">subtitle: &#x27;&#x27;</span><br><span class="line">description: &#x27;a blog 一个分享技术与生活的博客&#x27;</span><br><span class="line">keywords: Rootlex, blog, 技术, 博客</span><br><span class="line">author: Rootlex</span><br><span class="line">language: zh-CN # 主要是这里不一样，默认的是en</span><br><span class="line">timezone: &#x27;&#x27;</span><br><span class="line"></span><br><span class="line"># URL</span><br><span class="line">## Set your site url here. For example, if you use GitHub Page, set url as &#x27;https://username.github.io/project&#x27;</span><br><span class="line">url: http://example.com # 这块也建议修改成自己github的仓库地址，比如xxx.github.io</span><br><span class="line">permalink: :year/:month/:day/:title/</span><br><span class="line">permalink_defaults:</span><br><span class="line">pretty_urls:</span><br><span class="line">  trailing_index: true # Set to false to remove trailing &#x27;index.html&#x27; from permalinks</span><br><span class="line">  trailing_html: true # Set to false to remove trailing &#x27;.html&#x27; from permalinks</span><br></pre></td></tr></table></figure>
+
+<p>上述配置，需要注意两点：</p>
+<ol>
+<li>language需要改成zh-CN；</li>
+<li>url修改成为自己的配置。</li>
+</ol>
+<h3 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">site:</span><br><span class="line">  name:                   # 左上角显示内容</span><br><span class="line">    class:  text          #i_class/text/img </span><br><span class="line">    custom: Acrylic       #自定义内容</span><br><span class="line">  siteIcon: /img/avatar.webp # 网页icon</span><br><span class="line">  icon: /img/avatar.webp     # 页脚的icon、加载动画默认的icon</span><br><span class="line">  icp:                       # ICP</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>其他的内容按照文档配置就行。</p>
+<h2 id="其他注意的点"><a href="#其他注意的点" class="headerlink" title="其他注意的点"></a>其他注意的点</h2><h3 id="一、文章顶部搜索栏：search搜索"><a href="#一、文章顶部搜索栏：search搜索" class="headerlink" title="一、文章顶部搜索栏：search搜索"></a>一、文章顶部搜索栏：search搜索</h3><p>建议使用本地搜索，本地搜索的话，需要安装hexo-generator-searchdb插件。</p>
+<p>然后在_config.yml添加以下配置：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  content: true</span><br><span class="line">  format: html</span><br></pre></td></tr></table></figure>
+
+<p>修改_config.arcylic.yml</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">local_search:           #本地搜索</span><br><span class="line">  enable: true</span><br></pre></td></tr></table></figure>
+
+<h3 id="二、-文章详情meta数据没有显示"><a href="#二、-文章详情meta数据没有显示" class="headerlink" title="二、 文章详情meta数据没有显示"></a>二、 文章详情meta数据没有显示</h3><p>参考<a href="https://github.com/hexo-theme-Acrylic/Hexo-Theme-Acrylic-Next/issues/153">《meta疑问及front-matter参数疑问》</a></p>
+<p>补充几句吧：</p>
+<p>需要安装hexo-wordcount包：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i --save hexo-wordcount</span><br></pre></td></tr></table></figure>
+
+<p>一定要在次配置，主题配置中找到wordcount，并且设置为true：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131620729.png" alt="image-20230613162023688"></p>
+<h3 id="三、twikoo评论无法显示"><a href="#三、twikoo评论无法显示" class="headerlink" title="三、twikoo评论无法显示"></a>三、twikoo评论无法显示</h3><p>需要部署twikoo服务才能实现评论，具体参考文档<a href="https://twikoo.js.org/">twikoo文档</a></p>
+<p>或查看下一篇文章。</p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -380,58 +714,6 @@
       </tags>
   </entry>
   <entry>
-    <title>如何将JavaFX的java项目打包成exe格式</title>
-    <url>/2023/06/16/%E5%A6%82%E4%BD%95%E5%B0%86java%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E6%88%90exe%E6%A0%BC%E5%BC%8F/</url>
-    <content><![CDATA[<h1 id="如何将JavaFX的java项目打包成exe格式"><a href="#如何将JavaFX的java项目打包成exe格式" class="headerlink" title="如何将JavaFX的java项目打包成exe格式"></a>如何将JavaFX的java项目打包成exe格式</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261746693.jpeg" alt="a dark tunnel with a light at the end"></p>
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近在博客的时候，因为用到了hexo，所以必须按照hexo的格式上传文章，这样网站在显示的时候才会完整的显示出来：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306152048160.png" alt="image-20230615204813105"></p>
-<p>但是，每次写一篇，就得手动在文章的头部添加一些这些信息，而且添加完了之后，还要重新执行hexo三剑客才能部署到github的page上，所以就想着能不能按照，写一个客户端，用java写一个能运行在windows平台上的代码。</p>
-<p>以下都是基于代码写好了之后，详情请看这篇文章-&gt;&gt;&gt;&gt;&gt;&gt;&gt;</p>
-<h2 id="maven打包"><a href="#maven打包" class="headerlink" title="maven打包"></a>maven打包</h2><p>打包方式的话，可以参考文章末尾的第一篇文章。</p>
-<p>本文使用方法一会报错。所以使用方法二。</p>
-<p>使用的插件为maven-assembly-plugin，只需要在pom文件里面添加这段代码：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&lt;plugin&gt;</span><br><span class="line">               &lt;artifactId&gt;maven-assembly-plugin&lt;/artifactId&gt;</span><br><span class="line">               &lt;configuration&gt;</span><br><span class="line">                   &lt;descriptorRefs&gt;</span><br><span class="line">                       &lt;descriptorRef&gt;jar-with-dependencies&lt;/descriptorRef&gt;</span><br><span class="line">                   &lt;/descriptorRefs&gt;</span><br><span class="line">                   &lt;archive&gt;</span><br><span class="line">                       &lt;manifest&gt;</span><br><span class="line">                           &lt;mainClass&gt;com.yamon.convert/com.yamon.convert.HelloApplication&lt;/mainClass&gt;</span><br><span class="line">                       &lt;/manifest&gt;</span><br><span class="line">                   &lt;/archive&gt;</span><br><span class="line">               &lt;/configuration&gt;</span><br><span class="line">               &lt;executions&gt;</span><br><span class="line">                   &lt;execution&gt;</span><br><span class="line">                       &lt;id&gt;make-assembly&lt;/id&gt;</span><br><span class="line">                       &lt;phase&gt;<span class="keyword">package</span>&lt;/phase&gt;</span><br><span class="line">                       &lt;goals&gt;</span><br><span class="line">                           &lt;goal&gt;single&lt;/goal&gt;</span><br><span class="line">                       &lt;/goals&gt;</span><br><span class="line">                   &lt;/execution&gt;</span><br><span class="line">               &lt;/executions&gt;</span><br><span class="line">           &lt;/plugin&gt;</span><br></pre></td></tr></table></figure>
-
-<p>参考文章中有说的需要查看META-INF文件夹下的MAINIFEST.MF,需要查看里面的引用是否完整，我的内容比较少，也没有手动加。但是如果你要是有别的依赖包的话，需要手动添加一下，具体参考这篇文章：<a href="https://blog.csdn.net/qq_29428909/article/details/122103131">将idea中的JavaFX项目打包成可执行的exe应用</a></p>
-<p>重新导一下maven包，然后打开maven，点击：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161036716.png" alt="image-20230616103621652"></p>
-<p>完成打包：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161036953.png" alt="image-20230616103635913"></p>
-<h2 id="exe4j将jar包导出成exe格式"><a href="#exe4j将jar包导出成exe格式" class="headerlink" title="exe4j将jar包导出成exe格式"></a>exe4j将jar包导出成exe格式</h2><blockquote>
-<p>前记：</p>
-<p>之前也用过的别的，强烈不推荐使用jsmooth，感觉都是上古时期的工具了。按照教程一步一步操作，始终打不开。后来切换成exe4j之后，才成功完成打包动作。另外，打包方式的不同也有可能导致包的失效（毕竟不是springboot项目，怎么打都可以）</p>
-</blockquote>
-<p>先下载exe4j文件，比较快。下载好了之后，完成安装。</p>
-<ol>
-<li>欢迎页面不用看，直接点下一步：</li>
-</ol>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161040185.png" alt="image-20230616104018147"></p>
-<ol start="2">
-<li>项目类型选择jar包 in exe模式：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161041330.png" alt="image-20230616104119283"></li>
-<li>应用配置，这个应该是导出的文件名称，然后导出的目录位置：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161042024.png" alt="image-20230616104201987"></li>
-<li>配置执行文件，需要将高级选项点开，选择32&#x2F;64&#x2F;arm<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161042379.png" alt="image-20230616104240329"></li>
-<li><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161043712.png" alt="image-20230616104318653"></li>
-<li><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161043997.png" alt="image-20230616104331961"></li>
-<li>Java invocation：如果有额外的vm参数，需要调参的话，在上面填写；下面点击右侧绿色的加号，将刚才导出的包添加进来：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161044962.png" alt="image-20230616104446922">主类选择项目中的主类即可。</li>
-<li>配置JRE，尽量和当前系统环境一致：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161045352.png" alt="image-20230616104543316"></li>
-<li>坑点：这里需要在环境变量里面添加变量EXE4J_JAVA_HOME，然后地址写jre的地址。要不会报参考中的第三个错误；如果你的jdk版本没有jre的话，可以参考这篇文章：[待补充]。<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161048283.png"></li>
-<li>然后一路下一步就行了。</li>
-<li>最后试一下，看是否能启动应用：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161048396.png" alt="image-20230616104849351"></li>
-<li>如果能启动的话，表示成功，点击save as，将这个配置保存到本地。</li>
-</ol>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/qq_29428909/article/details/122103131">将idea中的JavaFX项目打包成可执行的exe应用</a></p>
-<p><a href="https://www.cnblogs.com/ococo/p/15875003.html">JDK11，JDK12 使用EXE4J 无JRE解决办法</a></p>
-<p><a href="https://blog.csdn.net/jiong9412/article/details/126481322">No JVM could be found on your system. Please define EXE4J_JAVA_HOME to point to an installed 64-bit</a></p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>exe</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>环形链表</title>
     <url>/2023/06/19/%E7%AE%97%E6%B3%95/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8%E7%9A%84%E8%B5%B7%E7%82%B9/</url>
     <content><![CDATA[<h1 id="环形链表的起点"><a href="#环形链表的起点" class="headerlink" title="环形链表的起点"></a>环形链表的起点</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261740864.jpeg" alt="a view of a mountain range with clouds in the sky"></p>
@@ -467,124 +749,6 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo-Acrylic主题集成twikoo评论</title>
-    <url>/2023/06/13/Hexo/hexo-Acrylic%E4%B8%BB%E9%A2%98%E9%9B%86%E6%88%90twikoo%E8%AF%84%E8%AE%BA/</url>
-    <content><![CDATA[<h1 id="hexo-Acrylic主题集成twikoo评论"><a href="#hexo-Acrylic主题集成twikoo评论" class="headerlink" title="hexo-Acrylic主题集成twikoo评论"></a>hexo-Acrylic主题集成twikoo评论</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261745868.jpeg" alt="a large building with a clock tower in the middle of it"></p>
-<p>虽然hexo使用了Acrylic的主题，但是评论模块一直没有打开，官方给出的文档也没有相关的文档，所以上网上找到了一篇参考，做了一些详细的配置。</p>
-<p>主要完成的是评论模块的功能实现，增加、提醒等功能。具体可以查看twikoo<a href="https://twikoo.js.org/">文档</a></p>
-<p>twikoo文档上给出了很多部署的方式，主要分两类，一个是云函数的部署，另外一种是前端部署。</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131714157.png" alt="image-20230613171408109"></p>
-<p>这里使用的是Vercel部署。</p>
-<h2 id="Vercel部署"><a href="#Vercel部署" class="headerlink" title="Vercel部署"></a>Vercel部署</h2><p>主要的部署流程：</p>
-<ol>
-<li>申请mongodb账号</li>
-<li>创建免费的mongodb数据库，区域的话，可以选择hongkang。</li>
-<li>查看配置信息，在clusters页面上点击connect，然后选择Driver，复制数据库信息。</li>
-<li>申请Vercel账号。</li>
-<li>将twikoo一键部署到Vercel上</li>
-<li>在Vercel上，找到Setting-Environment Variable，添加MONGODB_URI，值为第3步的数据库信息。</li>
-<li>进入 Deployments , 然后在任意一项后面点击更多（三个点） , 然后点击Redeploy , 最后点击下面的Redeploy。</li>
-<li>进入 Overview，点击 Domains 下方的链接，如果环境配置正确，可以看到 “Twikoo 云函数运行正常” 的提示。</li>
-<li>Vercel Domains（包含 <code>https://</code> 前缀，例如 <code>https://xxx.vercel.app</code>）即为您的环境 id。</li>
-</ol>
-<h3 id="主要流程"><a href="#主要流程" class="headerlink" title="主要流程"></a>主要流程</h3><h4 id="mongodb上的操作"><a href="#mongodb上的操作" class="headerlink" title="mongodb上的操作"></a>mongodb上的操作</h4><p>正常流程注册就行，应该可以使用github注册的。注册OK了之后，会有引导，选择最右侧免费的cluster（土豪忽略这个），然后进行配置：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131721646.png" alt="创建页面"></p>
-<p>这里我没有选择官方推荐的，我选择的是距离咱们最近的Hong Kong。然后创建数据库即可。</p>
-<p>接下来，需要配置mongodb数据库，设置ip为0.0.0.0&#x2F;0即可：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131723940.png" alt="配置ip.png"></p>
-<p>创建数据库用户，这里的paasword后面有用到：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131723680.png" alt="配置用户.png"></p>
-<p>返回到cluster界面，点击connect：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131723711.png" alt="CONNECT1.png"></p>
-<p>这里跟参考里面的不一样，这里要选择device还是什么来着，也是application，只不过描述不一样。</p>
-<p>点进去之后，除了记录一下数据库的信息之外，还需要在hexo目录下，npm装一下mongodb的包，要不twikoo还是不能用。</p>
-<h4 id="部署到Vercel"><a href="#部署到Vercel" class="headerlink" title="部署到Vercel"></a>部署到Vercel</h4><p>申请Vercel账号，需要手机号认证，去下拉框里面找咱们国家就行，输入验证码之后就注册成功了。</p>
-<p>开始部署：</p>
-<p><a href="https://vercel.com/import/project?template=https://github.com/imaegoo/twikoo/tree/main/src/server/vercel-min">https://vercel.com/import/project?template=https://github.com/imaegoo/twikoo/tree/main/src/server/vercel-min</a></p>
-<p>点击上述连接。</p>
-<p>Repository Name这里可以随便输入，建议输入twikoo，给自己的github上创建一个twikoo的仓库。</p>
-<p>点击Create进入下一步。</p>
-<p>等Import之后，点击visit进入仓库。</p>
-<p>这时候，应该会报错，还需要配置环境变量。</p>
-<h5 id="新建环境变量"><a href="#新建环境变量" class="headerlink" title="新建环境变量"></a>新建环境变量</h5><p>进入<code>Settings - Environment Variables</code>页面。<br>新建一个NAME为<code>MONGODB_URI</code>;VALUE为你在前面记录到的<code>数据库连接字符串</code>的环境变量。</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131728847.png" alt="Setting.png"></p>
-<p>点击Deployment重新部署一下：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131730574.png" alt="image-20230613173028453"></p>
-<p>部署如果成功的话：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131731529.png" alt="image-20230613173101471"></p>
-<p>Domain下面的连接就是要配置的envId。</p>
-<p>至此的话，如何你点击Domain下面的连接可以正常访问的话，那可以跳过以下几步，直接到邮箱配置这块了，但是如果无法访问的话，需要配置一下二级域名才能完成访问的。</p>
-<p>到阿里云控制台上（你域名的服务商），找到域名：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131736438.png" alt="image-20230613173646350"></p>
-<p>点击添加域名：</p>
-<p>添加子域名：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131737855.webp" alt="img"></p>
-<p>提示TXT授权校验：</p>
-<p>将TXT授权校验的内容保存好之后，对主域名进行添加子域名解析：</p>
-<p>添加解析记录：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131738760.webp" alt="img"></p>
-<p>添加好了之后，再返回点击验证。</p>
-<p>最后将二级域名解析到Vercel中：</p>
-<p>在二级域名中添加两条记录（不用修改）：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131739108.png" alt="image-20230613173948054"></p>
-<table>
-<thead>
-<tr>
-<th align="center">主机记录</th>
-<th align="center">记录类型</th>
-<th align="center">解析请求来源(isp)</th>
-<th align="center">记录值</th>
-<th align="center">TTL</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">twikoo</td>
-<td align="center">CNAME</td>
-<td align="center">默认</td>
-<td align="center">cname.vercel-dns.com</td>
-<td align="center">10 分钟</td>
-</tr>
-<tr>
-<td align="center">@</td>
-<td align="center">A</td>
-<td align="center">默认</td>
-<td align="center">76.76.21.21</td>
-<td align="center">10 分钟</td>
-</tr>
-</tbody></table>
-<p>在Vercel项目中添加Domains域名</p>
-<p>点击Project Settings-》Domains，添加域名即可</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131742880.png" alt="image-20230613174240816"></p>
-<p>替换之前的envid：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131741532.png" alt="image-20230613174157503"></p>
-<h4 id="实现邮件通知"><a href="#实现邮件通知" class="headerlink" title="实现邮件通知"></a>实现邮件通知</h4><p>以qq邮箱为例：</p>
-<p>需要得到邮箱的pop3&#x2F;SMTP的凭证，现在已经改版了，不太好找了。可以这么操作：</p>
-<p>登录上邮箱之后，选择设置-》账户，找到POP3一栏。</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131746070.png" alt="image-20230613174604011"></p>
-<p>点击如何设置？</p>
-<p>跳转到这个页面：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131746090.png" alt="image-20230613174626026"></p>
-<p>点它就行了，然后一步一步配置就行，该发短信就发短信。</p>
-<p>得到凭证之后，开始配置邮箱提醒：</p>
-<p>SENDER_EMAIL: &lt;你的QQ邮箱地址&gt;<br>SMTP_SERVICE: &lt;你的邮件服务提供商&gt;<br>SMTP_HOST: &lt;自定义 SMTP 服务器地址&gt;<br>SMTP_PORT: &lt;自定义 SMTP 端口&gt;<br>SMTP_SECURE: &lt;自定义 SMTP 是否使用 TLS&gt;<br>SMTP_USER: &lt;邮件通知邮箱用户名&gt;(需与SENDER_EMAIL一致)<br>SMTP_PASS: &lt;邮件通知邮箱密码&gt;(授权码)</p>
-<p>一般在评论左下角会有一个小齿轮，点击进去，第一次需要注册，注册完了之后按照这个配置一下就行：</p>
-<p>点击配置管理-》邮件通知，按照以下进行配置：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131748658.png" alt="配置2.png"></p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131748532.png" alt="配置1.png"></p>
-<p>然后点击最下面的邮件通知测试，完成测试。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/weixin_58068682/article/details/122770936">部署Twikoo评论系统及其邮件推送(Vercel)</a></p>
-<p><a href="https://www.jianshu.com/p/02fb996c4638">关于Vercel被墙导致获取Twikoo评论失败的解决方案</a></p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>twikoo</tag>
-        <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>装满杯子需要的最短总时长</title>
     <url>/2023/06/28/%E7%AE%97%E6%B3%95/%E8%A3%85%E6%BB%A1%E6%9D%AF%E5%AD%90%E9%9C%80%E8%A6%81%E7%9A%84%E6%9C%80%E7%9F%AD%E6%80%BB%E6%97%B6%E9%95%BF/</url>
     <content><![CDATA[<h1 id="装满杯子需要的最短总时长"><a href="#装满杯子需要的最短总时长" class="headerlink" title="装满杯子需要的最短总时长"></a>装满杯子需要的最短总时长</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306281551762.jpeg" alt="a person standing at the entrance to a cave"></p>
@@ -611,6 +775,30 @@
       <tags>
         <tag>leetcode</tag>
         <tag>递归</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>链表的中间结点</title>
+    <url>/2023/06/19/%E7%AE%97%E6%B3%95/%E9%93%BE%E8%A1%A8%E7%9A%84%E4%B8%AD%E9%97%B4%E7%BB%93%E7%82%B9/</url>
+    <content><![CDATA[<h1 id="链表的中间结点"><a href="#链表的中间结点" class="headerlink" title="链表的中间结点"></a>链表的中间结点</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306260929210.jpeg" alt="img"></p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>给你单链表的头结点 <code>head</code> ，请你找出并返回链表的中间结点。</p>
+<p>如果有两个中间结点，则返回第二个中间结点。</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191007092.jpeg" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：head = [1,2,3,4,5]</span><br><span class="line">输出：[3,4,5]</span><br><span class="line">解释：链表只有一个中间结点，值为 3 。</span><br></pre></td></tr></table></figure>
+
+<p>如果中间两个结点，返回第二个。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>用快慢指针，慢指针走一步，快指针走两步。当快指针走到终点的时候，慢指针正好指在了链表的中点。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ListNode <span class="title function_">middleNode</span><span class="params">(ListNode head)</span> &#123;</span><br><span class="line">    <span class="type">ListNode</span> <span class="variable">fast</span> <span class="operator">=</span> head;</span><br><span class="line">    <span class="type">ListNode</span> <span class="variable">slow</span> <span class="operator">=</span> head;</span><br><span class="line">    <span class="keyword">while</span> (fast != <span class="literal">null</span> &amp;&amp; fast.next != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="comment">// 慢指针走一步，快指针走两步</span></span><br><span class="line">        slow = slow.next;</span><br><span class="line">        fast = fast.next.next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> slow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>leetcode</tag>
+        <tag>双指针</tag>
+        <tag>链表</tag>
       </tags>
   </entry>
   <entry>
@@ -654,194 +842,6 @@
         <tag>leetcode</tag>
         <tag>双指针</tag>
         <tag>链表</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo如何修改主题？</title>
-    <url>/2023/06/13/Hexo/hexo%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="hexo如何修改中意的主题？"><a href="#hexo如何修改中意的主题？" class="headerlink" title="hexo如何修改中意的主题？"></a>hexo如何修改中意的主题？</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261746884.jpeg" alt="an aerial view of a tree in a field"></p>
-<p>推荐Acrylic主题，样式比较好看，文档也比较完善，但是也有踩坑。</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131506443.png" alt="image-20230613150638064"></p>
-<p>不过，还是感谢<a href="https://github.com/hexo-theme-Acrylic/Hexo-Theme-Acrylic-Next">@hexo-theme-Acrylic</a>的开源项目。</p>
-<p>修改主题可以参考文档修改，<a href="https://next-docs.acrylic.org.cn/">hexo acrylic</a>。</p>
-<h2 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h2><p>注意在hexo的根目录下执行指令，用来安装主题：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone -b main https://github.com/hexo-theme-Acrylic/Hexo-Theme-Acrylic-Next.git themes/Acrylic</span><br></pre></td></tr></table></figure>
-
-<h2 id="应用主题"><a href="#应用主题" class="headerlink" title="应用主题"></a>应用主题</h2><p>修改主配置文件config.yml,修改主题配置：</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins<span class="punctuation">:</span> https<span class="punctuation">:</span><span class="comment">//hexo.io/plugins/</span></span><br><span class="line">## Themes<span class="punctuation">:</span> https<span class="punctuation">:</span><span class="comment">//hexo.io/themes/</span></span><br><span class="line">theme<span class="punctuation">:</span> Acrylic</span><br></pre></td></tr></table></figure>
-
-<h2 id="使用主题配置"><a href="#使用主题配置" class="headerlink" title="使用主题配置"></a>使用主题配置</h2><p>macos&#x2F;linux:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cp</span> -rf ./themes/Acrylic/_config.yml ./_config.Acrylic.yml</span><br></pre></td></tr></table></figure>
-
-<p>windows:</p>
-<p>复制 <code>/themes/Acrylic/_config.yml</code> 此文件到 <strong>Hexo</strong> 根目录，并重命名为 <code>_config.Acrylic.yml</code></p>
-<h2 id="更新主题"><a href="#更新主题" class="headerlink" title="更新主题"></a>更新主题</h2><p>在hexo主文件夹下找到themes文件夹，进入之后找到Acrylic，并pull代码。</p>
-<p>直接hexo clean、hexo g、hexo s；看是否有问题。</p>
-<p>一般有的问题，都可以在百度上搜索，一般都是少装了npm包，npm install一下就可以了。</p>
-<p>比如这个： npm install hexo-deployer-git –save</p>
-<h2 id="Acrylic一些的必要配置"><a href="#Acrylic一些的必要配置" class="headerlink" title="Acrylic一些的必要配置"></a>Acrylic一些的必要配置</h2><p>首先按照文档，配置一下Hexo配置文件：</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: RootlexBlog</span><br><span class="line">subtitle: &#x27;&#x27;</span><br><span class="line">description: &#x27;a blog 一个分享技术与生活的博客&#x27;</span><br><span class="line">keywords: Rootlex, blog, 技术, 博客</span><br><span class="line">author: Rootlex</span><br><span class="line">language: zh-CN # 主要是这里不一样，默认的是en</span><br><span class="line">timezone: &#x27;&#x27;</span><br><span class="line"></span><br><span class="line"># URL</span><br><span class="line">## Set your site url here. For example, if you use GitHub Page, set url as &#x27;https://username.github.io/project&#x27;</span><br><span class="line">url: http://example.com # 这块也建议修改成自己github的仓库地址，比如xxx.github.io</span><br><span class="line">permalink: :year/:month/:day/:title/</span><br><span class="line">permalink_defaults:</span><br><span class="line">pretty_urls:</span><br><span class="line">  trailing_index: true # Set to false to remove trailing &#x27;index.html&#x27; from permalinks</span><br><span class="line">  trailing_html: true # Set to false to remove trailing &#x27;.html&#x27; from permalinks</span><br></pre></td></tr></table></figure>
-
-<p>上述配置，需要注意两点：</p>
-<ol>
-<li>language需要改成zh-CN；</li>
-<li>url修改成为自己的配置。</li>
-</ol>
-<h3 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">site:</span><br><span class="line">  name:                   # 左上角显示内容</span><br><span class="line">    class:  text          #i_class/text/img </span><br><span class="line">    custom: Acrylic       #自定义内容</span><br><span class="line">  siteIcon: /img/avatar.webp # 网页icon</span><br><span class="line">  icon: /img/avatar.webp     # 页脚的icon、加载动画默认的icon</span><br><span class="line">  icp:                       # ICP</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>其他的内容按照文档配置就行。</p>
-<h2 id="其他注意的点"><a href="#其他注意的点" class="headerlink" title="其他注意的点"></a>其他注意的点</h2><h3 id="一、文章顶部搜索栏：search搜索"><a href="#一、文章顶部搜索栏：search搜索" class="headerlink" title="一、文章顶部搜索栏：search搜索"></a>一、文章顶部搜索栏：search搜索</h3><p>建议使用本地搜索，本地搜索的话，需要安装hexo-generator-searchdb插件。</p>
-<p>然后在_config.yml添加以下配置：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  content: true</span><br><span class="line">  format: html</span><br></pre></td></tr></table></figure>
-
-<p>修改_config.arcylic.yml</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">local_search:           #本地搜索</span><br><span class="line">  enable: true</span><br></pre></td></tr></table></figure>
-
-<h3 id="二、-文章详情meta数据没有显示"><a href="#二、-文章详情meta数据没有显示" class="headerlink" title="二、 文章详情meta数据没有显示"></a>二、 文章详情meta数据没有显示</h3><p>参考<a href="https://github.com/hexo-theme-Acrylic/Hexo-Theme-Acrylic-Next/issues/153">《meta疑问及front-matter参数疑问》</a></p>
-<p>补充几句吧：</p>
-<p>需要安装hexo-wordcount包：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i --save hexo-wordcount</span><br></pre></td></tr></table></figure>
-
-<p>一定要在次配置，主题配置中找到wordcount，并且设置为true：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131620729.png" alt="image-20230613162023688"></p>
-<h3 id="三、twikoo评论无法显示"><a href="#三、twikoo评论无法显示" class="headerlink" title="三、twikoo评论无法显示"></a>三、twikoo评论无法显示</h3><p>需要部署twikoo服务才能实现评论，具体参考文档<a href="https://twikoo.js.org/">twikoo文档</a></p>
-<p>或查看下一篇文章。</p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>链表的中间结点</title>
-    <url>/2023/06/19/%E7%AE%97%E6%B3%95/%E9%93%BE%E8%A1%A8%E7%9A%84%E4%B8%AD%E9%97%B4%E7%BB%93%E7%82%B9/</url>
-    <content><![CDATA[<h1 id="链表的中间结点"><a href="#链表的中间结点" class="headerlink" title="链表的中间结点"></a>链表的中间结点</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306260929210.jpeg" alt="img"></p>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>给你单链表的头结点 <code>head</code> ，请你找出并返回链表的中间结点。</p>
-<p>如果有两个中间结点，则返回第二个中间结点。</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191007092.jpeg" alt="img"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：head = [1,2,3,4,5]</span><br><span class="line">输出：[3,4,5]</span><br><span class="line">解释：链表只有一个中间结点，值为 3 。</span><br></pre></td></tr></table></figure>
-
-<p>如果中间两个结点，返回第二个。</p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>用快慢指针，慢指针走一步，快指针走两步。当快指针走到终点的时候，慢指针正好指在了链表的中点。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ListNode <span class="title function_">middleNode</span><span class="params">(ListNode head)</span> &#123;</span><br><span class="line">    <span class="type">ListNode</span> <span class="variable">fast</span> <span class="operator">=</span> head;</span><br><span class="line">    <span class="type">ListNode</span> <span class="variable">slow</span> <span class="operator">=</span> head;</span><br><span class="line">    <span class="keyword">while</span> (fast != <span class="literal">null</span> &amp;&amp; fast.next != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="comment">// 慢指针走一步，快指针走两步</span></span><br><span class="line">        slow = slow.next;</span><br><span class="line">        fast = fast.next.next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> slow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>leetcode</tag>
-        <tag>双指针</tag>
-        <tag>链表</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>从0到1部署博客系统到Github Page（0成本）</title>
-    <url>/2023/06/13/Hexo/%E4%BB%8E0%E5%88%B01%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E5%88%B0Github-Page/</url>
-    <content><![CDATA[<h1 id="从0到1部署博客系统到GitHub-Page（0成本）"><a href="#从0到1部署博客系统到GitHub-Page（0成本）" class="headerlink" title="从0到1部署博客系统到GitHub Page（0成本）"></a>从0到1部署博客系统到GitHub Page（0成本）</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261745323.jpeg" alt="a view of a mountain range with a pink sky in the background"></p>
-<p>先po一下博客的地址：</p>
-<p><a href="https://yamonc.github.io/">热爱并分享生活</a></p>
-<p>主要选型：hexo+<a href="https://next-docs.acrylic.org.cn/configuration/comment">Acrylic</a>+Github Page+<a href="https://twikoo.js.org/quick-start.html#vercel-%E9%83%A8%E7%BD%B2">twikoo</a>（评论）+<a href="https://vercel.com/dashboard">Vercel</a>（自动化部署twikoo）+ <a href="https://cloud.mongodb.com/v2/64870703b548175c8b6e3255#/clusters">mongodb cloud</a></p>
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>从去年年末到今年五月底、六月初，一直在想，重新搞一个博客网站玩玩，正好也想学习一下vue的前端知识。然后就上网上找了一下模板，刚开始使用的是vue-element-admin，但是无奈该模板是后台管理系统，所以又找人给搭了一个特别简单的网站。在接下来的几个月的时间内，吭哧吭哧地干，一点点的干，从前端的博客列表、标签分栏列表、各种crud页面的编写，期间一度的怀疑自己在干什么，感觉没什么意义，但最后还是做出来了点效果，但是样式过于丑陋，始终不满。</p>
-<p>终于，在上周五晚上，反思了下最近这半年正在做的事儿，感觉什么都做了，又感觉什么都没做。在想到博客的时候，自己明明想要的是能够做到文档归档功能就行，其他的多余的什么登录、延迟删除博客、撤回删除博客有什么用呢？这不就是无用功了吗？</p>
-<p>说回来，之前就看到一些博主利用github来写一些文档，例如一些网页后面的github.io的后缀。</p>
-<p>目前常见的选型有这几种：</p>
-<ol>
-<li>自己搭建的博客（成本高，需要自己买服务器，时间成本也高，但是自定义高，可玩性高）</li>
-<li><a href="https://vuepress.vuejs.org/zh/">vuepress</a>，利用vuepress纯前端静态资源部署CMS内容。</li>
-<li>hexo，模板较多，类似vuepress（本文选用的是这个）</li>
-</ol>
-<p>关于博客系统的选型，之前就知道有hexo，做博客期间的这半年，还想要不将hexo搬到服务器上，在服务器上部署一套就行了。后来无意中了解到，gitee和github可以提供服务器资源，提供免费站点（gitee也可以，但是需要提供身份证认证）。</p>
-<h2 id="搭建使用的组件"><a href="#搭建使用的组件" class="headerlink" title="搭建使用的组件"></a>搭建使用的组件</h2><p>首先，需要使用git，用来将代码push到github上。</p>
-<p>node.js和npm包管理工具用来安装前端必须的包；</p>
-<p>hexo，博客模板网站。</p>
-<p>这几个之间的关系是：</p>
-<p>node.js和npm为底层支撑，用来支撑项目的启动；</p>
-<p>hexo为样式渲染组件，hexo通过node.js和npm完成部署。</p>
-<ol>
-<li><a href="https://nodejs.org/en">node.js</a>,下载直接安装即可。</li>
-<li><a href="https://git-scm.com/">git</a>，同上，安装次版本即可。</li>
-<li>npm， 包管理工具。</li>
-<li><a href="https://hexo.io/zh-cn/docs/">hexo</a>，博客模板网站</li>
-</ol>
-<h2 id="本地部署"><a href="#本地部署" class="headerlink" title="本地部署"></a>本地部署</h2><p>开始部署工作，默认已经配置了git、npm和nodejs。</p>
-<h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><p><a href="https://hexo.io/zh-cn/docs/#%E5%AE%89%E8%A3%85-Hexo">参考官方文档</a></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-
-<p>或者安装全量包：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo</span><br></pre></td></tr></table></figure>
-
-<h3 id="初始化hexo文件夹"><a href="#初始化hexo文件夹" class="headerlink" title="初始化hexo文件夹"></a>初始化hexo文件夹</h3><p>安装好了之后，需要在你的pc上，找一个地儿，创建一个blog的文件夹：</p>
-<p>比如我选择的地方：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131146514.png" alt="image-20230613114643441"></p>
-<p>找好了之后，右键空白处，选择git bash here</p>
-<p>首先声明一下，这个文件夹是hexo的：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init .</span><br></pre></td></tr></table></figure>
-
-<h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><p>接着，安装下依赖：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
-
-<p>安装好了依赖之后，可以查看目录结构：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml # 网站配置信息</span><br><span class="line">├── package.json # 应用程序信息</span><br><span class="line">├── scaffolds # 模板文件夹</span><br><span class="line">├── source # 存放用户资源</span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes # 主题文件夹</span><br></pre></td></tr></table></figure>
-
-<h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><p>输入hexo指令：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line"># 新建博客</span><br><span class="line">hexo n &quot;test&quot;</span><br><span class="line"># 生成静态网页</span><br><span class="line">hexo g</span><br><span class="line"># 打开本地服务器</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-
-<p>查看控制台是否有报错，如果有的话，查看原因。</p>
-<p>（ps：我记得，在这里好像有问题，但是百度绝对能百度出来，原因大概是少装了依赖，再装下依赖就不会报错了）</p>
-<p>这个时候，控制台应该一个localhost的连接，访问连接即可。</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131356094.png" alt="image-20230613135632039"></p>
-<p>（已经更换过主题的，所以你的有可能跟我不一样，可以从简单开始，先将最简单的部署到Github的Page站点）</p>
-<h2 id="部署到Github-Page站点"><a href="#部署到Github-Page站点" class="headerlink" title="部署到Github Page站点"></a>部署到Github Page站点</h2><p>访问<a href="https://docs.github.com/zh/pages/getting-started-with-github-pages">Page文档</a>了解更多。</p>
-<p>首先，在Github上创建一个仓库，名字一定要和你的用户名一样：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131401328.png" alt="image-20230613140138288"></p>
-<p>可以添加一个README的markdown文件，方便pull（仓库为空的话，不能pull），或者更简单的，不需要你创建这个仓库，在hexo的目录下，使用以下命令，将hexo的目录push到github上，但是名字要改成上面这个图一样的（用户名.github.io，我这里是将hexo和github本地仓库分开的）。</p>
-<p>这时候，有可能会出现github认证问题，需要你输入github的账号密码，虽然你输入的是正确的，但是总是pull&#x2F;push不成功。</p>
-<p>解决方案：升级你的git版本。</p>
-<p>创建之后，创建一个文件夹，然后pull下来远端的代码：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131408878.png" alt="image-20230613140821833"></p>
-<p>注意，在<strong>博客的根目录</strong>下，找到hexo的主配置（定义：其他主题都为次配置）：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131411707.png" alt="image-20230613141118667"></p>
-<p>配置主配置：</p>
-<p>可配置的内容：</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: yamon，分享并热爱生活 # 浏览器tab栏上显示内容</span><br><span class="line">subtitle: &#x27;&#x27; # 可以写</span><br><span class="line">description: &#x27;a blog 一个分享技术与生活的博客&#x27; # 应该是百度搜索出来的时候用的</span><br><span class="line">keywords: Rootlex, blog, 技术, 博客 # 搜索关键字</span><br><span class="line">author: yamon # 作者，footer用的应该</span><br><span class="line">language: zh-CN # 语言</span><br><span class="line">timezone: &#x27;&#x27; # 时区</span><br><span class="line"></span><br><span class="line">url: http://yamonc.github.io # 分享的时候用的url</span><br><span class="line">permalink: :year/:month/:day/:title/ # 应该是点开文章后，url上显示的格式</span><br><span class="line">permalink_defaults:</span><br></pre></td></tr></table></figure>
-
-<p>重点内容来了：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"># Extensions</span><br><span class="line">## Plugins: https://hexo.io/plugins/</span><br><span class="line">## Themes: https://hexo.io/themes/ </span><br><span class="line">## 这个是主题配置，如果更换主题的话，需要在这里修改下名字，具体后续会讲</span><br><span class="line">theme: Acrylic</span><br><span class="line"></span><br><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/one-command-deployment</span><br><span class="line"># 部署在github上，type是部署方式；repo是部署的仓库，就是你要把代码push到哪个仓库上；branch：部署的分支。</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/yamonc/yamonc.github.io</span><br><span class="line">  branch: main</span><br></pre></td></tr></table></figure>
-
-<p>保存之后，再执行三或四个指令，这四个指令会贯穿到从始至终：</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">hexo clean # 清除缓存</span><br><span class="line">hexo g # 生成静态文件</span><br><span class="line">hexo s # 启动服务（自己debug用，或者本地查看一下会不会报错）</span><br><span class="line">hexo d # 开启部署</span><br></pre></td></tr></table></figure>
-
-<p>接着，点到用户名.github.io的仓库里面，找到setting：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131420206.png" alt="image-20230613142035115"></p>
-<p>找到左侧的pages选项：</p>
-<p>如果出现了这行字，表示部署成功，可以通过这个域名访问：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131421243.png" alt="image-20230613142150188"></p>
-<blockquote>
-<p>如果没有部署成功的话，可以查看一下这里的内容，是否配置成功，主要是：</p>
-<ol>
-<li>build and deployment选项的branch分支是否选择正确，是否是main分支，一般都是main分支。</li>
-<li>在本地hexo目录下，使用hexo s本地部署，查看控制台是否报错，有可能是博客的front markdown没有写好，格式不对，多加了空格什么的。</li>
-<li>或者不行的话，到仓库的Action选项卡中，重新跑一遍job试一下。</li>
-</ol>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131426822.png" alt="image-20230613142606737"></p>
-<p>另外，这里还有一个Custom domain自定义域名，如果有域名的话，可以在这里配置，具体配置的话，另起一篇再讲吧。</p>
-</blockquote>
-<p>最后部署成功的样子：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131426206.png" alt="image-20230613142639000"></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://zhuanlan.zhihu.com/p/370635512">超详细 Hexo + Github Pages 博客搭建教程</a></p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>博客</tag>
-        <tag>github</tag>
       </tags>
   </entry>
   <entry>
