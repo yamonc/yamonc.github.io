@@ -770,9 +770,10 @@
 ]]></content>
   </entry>
   <entry>
-    <title>无标题</title>
-    <url>/2023/06/27/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E%E3%80%9104.%20%E7%90%86%E8%AE%BA%E4%B8%80%EF%BC%9A%E5%BD%93%E8%B0%88%E8%AE%BA%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E6%88%91%E4%BB%AC%E5%88%B0%E5%BA%95%E5%9C%A8%E8%B0%88%E8%AE%BA%E4%BB%80%E4%B9%88%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="04-理论一：当谈论面向对象的时候，我们到底在谈论什么？"><a href="#04-理论一：当谈论面向对象的时候，我们到底在谈论什么？" class="headerlink" title="04. 理论一：当谈论面向对象的时候，我们到底在谈论什么？"></a>04. 理论一：当谈论面向对象的时候，我们到底在谈论什么？</h1><h2 id="什么是面向对象编程和面向对象编程语言"><a href="#什么是面向对象编程和面向对象编程语言" class="headerlink" title="什么是面向对象编程和面向对象编程语言"></a>什么是面向对象编程和面向对象编程语言</h2><p>面向对象编程是一种编程范式或编程风格。它以类或对象作为组织代码的基本单元，并将封装、抽象、继承、多态四个特性，作为代码设计和实现的基石 。</p>
+    <title>04. 理论一：当谈论面向对象的时候，我们到底在谈论什么？</title>
+    <url>/2023/06/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E%E3%80%9104.%20%E7%90%86%E8%AE%BA%E4%B8%80%EF%BC%9A%E5%BD%93%E8%B0%88%E8%AE%BA%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E6%88%91%E4%BB%AC%E5%88%B0%E5%BA%95%E5%9C%A8%E8%B0%88%E8%AE%BA%E4%BB%80%E4%B9%88%EF%BC%9F/</url>
+    <content><![CDATA[<h1 id="04-理论一：当谈论面向对象的时候，我们到底在谈论什么？"><a href="#04-理论一：当谈论面向对象的时候，我们到底在谈论什么？" class="headerlink" title="04. 理论一：当谈论面向对象的时候，我们到底在谈论什么？"></a>04. 理论一：当谈论面向对象的时候，我们到底在谈论什么？</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306281645110.jpeg" alt="a person on a snowboard in the snow"></p>
+<h2 id="什么是面向对象编程和面向对象编程语言"><a href="#什么是面向对象编程和面向对象编程语言" class="headerlink" title="什么是面向对象编程和面向对象编程语言"></a>什么是面向对象编程和面向对象编程语言</h2><p>面向对象编程是一种编程范式或编程风格。它以类或对象作为组织代码的基本单元，并将封装、抽象、继承、多态四个特性，作为代码设计和实现的基石 。</p>
 <p>面向对象编程语言是支持类或对象的语法机制，并有现成的语法机制，能方便地实现面向对象编程四大特性（封装、抽象、继承、多态）的编程语言。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">面向对象编程是一种编程范式或编程风格。它以类或对象作为组织代码的基本单元，并将封装、抽象、继承、多态四个特性，作为代码设计和实现的基石 。</span><br><span class="line">面向对象编程语言是支持类或对象的语法机制，并有现成的语法机制，能方便地实现面向对象编程四大特性（封装、抽象、继承、多态）的编程语言。</span><br></pre></td></tr></table></figure>
 
@@ -791,6 +792,13 @@
 <p>UML 作为一种沟通工具，即便你能完全按照 UML 规范来画类图，可对于不熟悉的人来说，看懂的成本也还是很高的。</p>
 <p>UML 在互联网公司的项目开发中，用处可能并不大。为了文档化软件设计或者方便讨论软件设计，大部分情况下，我们随手画个不那么规范的草图，能够达意，方便沟通就够了，而完全按照 UML 规范来将草图标准化，所付出的代价是不值得的。</p>
 ]]></content>
+      <categories>
+        <category>设计模式</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>面向对象</tag>
+      </tags>
   </entry>
   <entry>
     <title>无标题</title>
@@ -912,5 +920,72 @@
 <h2 id="面向过程编程及面向过程编程语言就真的无用武之地了吗？"><a href="#面向过程编程及面向过程编程语言就真的无用武之地了吗？" class="headerlink" title="面向过程编程及面向过程编程语言就真的无用武之地了吗？"></a>面向过程编程及面向过程编程语言就真的无用武之地了吗？</h2><p>前面我们有讲到，如果我们开发的是微小程序，或者是一个数据处理相关的代码，以算法为主，数据为辅，那脚本式的面向过程的编程风格就更适合一些。当然，面向过程编程的用武之地还不止这些。实际上，面向过程编程是面向对象编程的基础，面向对象编程离不开基础的面向过程编程。</p>
 <p>除此之外，面向对象和面向过程两种编程风格，也并不是非黑即白、完全对立的。在用面向对象编程语言开发的软件中，面向过程风格的代码并不少见，甚至在一些标准的开发库（比如 JDK、Apache Commons、Google Guava）中，也有很多面向过程风格的代码。</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>Hexo文章转换器II</title>
+    <url>/2023/06/28/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/Hexo%E6%96%87%E7%AB%A0%E8%BD%AC%E6%8D%A2%E5%99%A8II/</url>
+    <content><![CDATA[<h1 id="Hexo文章转换器II"><a href="#Hexo文章转换器II" class="headerlink" title="Hexo文章转换器II"></a>Hexo文章转换器II</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306281711167.jpeg" alt="a view of a beach and a body of water"></p>
+<blockquote>
+<p>Hexo系列文章：</p>
+<ol>
+<li><a href="https://yamonc.github.io/2023/06/13/%E4%BB%8E0%E5%88%B01%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E5%88%B0Github-Page/">从0到1部署博客系统到GitHub Page（0成本）</a></li>
+<li><a href="https://yamonc.github.io/2023/06/13/hexo%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98/">hexo如何修改主题？</a></li>
+<li><a href="https://yamonc.github.io/2023/06/13/hexo-Acrylic%E4%B8%BB%E9%A2%98%E9%9B%86%E6%88%90twikoo%E8%AF%84%E8%AE%BA/">hexo-Acrylic主题集成twikoo评论</a></li>
+<li><a href="https://yamonc.github.io/2023/06/16/%E5%A6%82%E4%BD%95%E5%B0%86java%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E6%88%90exe%E6%A0%BC%E5%BC%8F/">如何将JavaFX的java项目打包成exe格式</a></li>
+</ol>
+</blockquote>
+<hr>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>该工具可以帮助你在使用Hexo写博客的时候，将文章直接转换成为Hexo可识别并可展示在页面；</p>
+<p>每次在写博客的时候，都需要手动在文章的开头添加Front-Matter的信息：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306281633297.png" alt="image-20230619104358612"></p>
+<p>感觉不太方便，所以想通过界面化的方式，将过程进行简化（要不，每次都手动在文章的开头写上—xxx—,太麻烦）。</p>
+<p>基于此，本文通过界面化的方式，将文章进行格式化，通过代码的方式自动在文章开头插入markdown可识别的字符串。</p>
+<hr>
+<p>⭐⭐⭐⭐⭐V1.0.0更新日志</p>
+<p>第一版的Hexo文章转换器使用起来不太方便，所以在第一版的基础上进行了更新，主要是将标签和分类的信息保存到sqlite数据库中，不再用户每次都手动输入了。（初版的思路是，标题、 创建时间、位置等一些信息可以从后台直接获取，比如标题可以通过读取文章的第一行获取，然后将标题生成到原文中就行，不知道为什么打包成exe格式之前，标题都能从文章中提取出来，但是在exe中如果获取出来的标题永远都是乱码，各种尝试都无用，无奈，手动输入标题吧）</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306281648185.png" alt="image-20230628164814150"></p>
+<p>使用该工具可以避免手动输入这些信息，而是通过界面化的方式进行配置：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306281648109.png" alt="image-20230628164828060"></p>
+<p>但是，<strong>建议在使用之前进行两项的配置</strong>：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306281649108.png" alt="image-20230628164907063"></p>
+<p>工作目录：主要是基于这个目录，执行一系列指令：hexo clean、hexo g和hexo d等指令。</p>
+<p>上传文件目录：在Hexo转换器Tab中，需要上传文件之后才能点转换，这里的位置就是点击后重定向的位置，换句话说，就是你平常文章经常放的位置，通常是_posts。</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306281651512.png" alt="image-20230628165125467"></p>
+<p>关于Hexo转换器界面，主要就是讲解这个页面是干什么用的，解决了什么问题。</p>
+<h2 id="技术说明"><a href="#技术说明" class="headerlink" title="技术说明"></a>技术说明</h2><p>Java17（开发语言）、Java FX（Java界面工具，类似于java8的swing，现已不支持java8）、SceneBuilder（拖拽式界面工具）、exe4j（jar转exe工具）。</p>
+<p>踩坑无数，尤其是将java转为exe的过程中，踩了一晚上吧。</p>
+<h2 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h2><p>下载地址：</p>
+<p><a href="https://github.com/yamonc/hexoHelper/releases/download/V1.0.0/hexoHelperV1.0.0.zip">HexoHelper下载地址</a></p>
+<p>下载好之后，解压缩，解压缩之后，需要注意的是，db文件夹要和hexoHelper.exe是同级目录，db文件夹中是sqlite的数据库，运行的时候需要找到db的数据库才行。最终文件的位置关系：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306281656872.png" alt="image-20230628165640833"></p>
+<p>开始运行，会出现[示例]中的界面。</p>
+<h3 id="功能说明"><a href="#功能说明" class="headerlink" title="功能说明"></a>功能说明</h3><p>现在的界面主要分三个主Tab：</p>
+<h4 id="Hexo转换器"><a href="#Hexo转换器" class="headerlink" title="Hexo转换器"></a>Hexo转换器</h4><p>该界面主要分三个部分：</p>
+<p>从上到下依次是Front-Matter清单，在这里可以看到你填写的一些文章信息，这也是最终会填写到你文章里面的内容；</p>
+<p>输入区：在这里你需要输入一些文章信息，这个和Front-Matter清单联动，修改了什么会体现在清单上。</p>
+<p>最下面是功能区域：</p>
+<p>【上传文件】：点击上传文件按钮之后，选中待转换的markdown文件（没有front-matter信息的markdown文件）</p>
+<p>【转换格式】：对已上传的文件进行格式转换，在文章头添加已经输入的front-matter信息。</p>
+<p>【部署】：执行hexo clean、hexo g、hexo d一系列指令。</p>
+<p>【一键部署】：对已上传的文件进行格式转换并执行hexo clean、hexo g、hexo d指令部署到对应平台上。</p>
+<h4 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h4><p>主要设置一些提升用户体验的必要信息。</p>
+<p>工作目录：主要是基于这个目录，执行一系列指令：hexo clean、hexo g和hexo d等指令。</p>
+<p>上传文件目录：在Hexo转换器Tab中，需要上传文件之后才能点转换，这里的位置就是点击后重定向的位置，换句话说，就是你平常文章经常放的位置，通常是_posts。</p>
+<h4 id="关于Hexo转换器"><a href="#关于Hexo转换器" class="headerlink" title="关于Hexo转换器"></a>关于Hexo转换器</h4><p>主要介绍了该工具解决了什么问题，如何使用及关于作者等信息。</p>
+<h2 id="使用流程说明"><a href="#使用流程说明" class="headerlink" title="使用流程说明"></a>使用流程说明</h2><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306281633232.png" alt="image-20230619105823619"></p>
+<h2 id="待优化问题"><a href="#待优化问题" class="headerlink" title="待优化问题"></a>待优化问题</h2><ol>
+<li>用户使用优化。</li>
+<li>标签和分类的操作业务流程有问题。无法删除标签和分类。考虑在设置中体现。</li>
+<li>显示优化，如果cover或者其他字段太长的话，会影响到字体显示。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>项目</category>
+      </categories>
+      <tags>
+        <tag>开源项目</tag>
+        <tag>JavaFX</tag>
+        <tag>Java</tag>
+      </tags>
   </entry>
 </search>
