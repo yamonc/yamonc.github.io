@@ -84,6 +84,65 @@
       </tags>
   </entry>
   <entry>
+    <title>hexo如何修改主题？</title>
+    <url>/2023/06/13/Hexo/hexo%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="hexo如何修改中意的主题？"><a href="#hexo如何修改中意的主题？" class="headerlink" title="hexo如何修改中意的主题？"></a>hexo如何修改中意的主题？</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261746884.jpeg" alt="an aerial view of a tree in a field"></p>
+<p>推荐Acrylic主题，样式比较好看，文档也比较完善，但是也有踩坑。</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131506443.png" alt="image-20230613150638064"></p>
+<p>不过，还是感谢<a href="https://github.com/hexo-theme-Acrylic/Hexo-Theme-Acrylic-Next">@hexo-theme-Acrylic</a>的开源项目。</p>
+<p>修改主题可以参考文档修改，<a href="https://next-docs.acrylic.org.cn/">hexo acrylic</a>。</p>
+<h2 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h2><p>注意在hexo的根目录下执行指令，用来安装主题：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone -b main https://github.com/hexo-theme-Acrylic/Hexo-Theme-Acrylic-Next.git themes/Acrylic</span><br></pre></td></tr></table></figure>
+
+<h2 id="应用主题"><a href="#应用主题" class="headerlink" title="应用主题"></a>应用主题</h2><p>修改主配置文件config.yml,修改主题配置：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins<span class="punctuation">:</span> https<span class="punctuation">:</span><span class="comment">//hexo.io/plugins/</span></span><br><span class="line">## Themes<span class="punctuation">:</span> https<span class="punctuation">:</span><span class="comment">//hexo.io/themes/</span></span><br><span class="line">theme<span class="punctuation">:</span> Acrylic</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用主题配置"><a href="#使用主题配置" class="headerlink" title="使用主题配置"></a>使用主题配置</h2><p>macos&#x2F;linux:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cp</span> -rf ./themes/Acrylic/_config.yml ./_config.Acrylic.yml</span><br></pre></td></tr></table></figure>
+
+<p>windows:</p>
+<p>复制 <code>/themes/Acrylic/_config.yml</code> 此文件到 <strong>Hexo</strong> 根目录，并重命名为 <code>_config.Acrylic.yml</code></p>
+<h2 id="更新主题"><a href="#更新主题" class="headerlink" title="更新主题"></a>更新主题</h2><p>在hexo主文件夹下找到themes文件夹，进入之后找到Acrylic，并pull代码。</p>
+<p>直接hexo clean、hexo g、hexo s；看是否有问题。</p>
+<p>一般有的问题，都可以在百度上搜索，一般都是少装了npm包，npm install一下就可以了。</p>
+<p>比如这个： npm install hexo-deployer-git –save</p>
+<h2 id="Acrylic一些的必要配置"><a href="#Acrylic一些的必要配置" class="headerlink" title="Acrylic一些的必要配置"></a>Acrylic一些的必要配置</h2><p>首先按照文档，配置一下Hexo配置文件：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: RootlexBlog</span><br><span class="line">subtitle: &#x27;&#x27;</span><br><span class="line">description: &#x27;a blog 一个分享技术与生活的博客&#x27;</span><br><span class="line">keywords: Rootlex, blog, 技术, 博客</span><br><span class="line">author: Rootlex</span><br><span class="line">language: zh-CN # 主要是这里不一样，默认的是en</span><br><span class="line">timezone: &#x27;&#x27;</span><br><span class="line"></span><br><span class="line"># URL</span><br><span class="line">## Set your site url here. For example, if you use GitHub Page, set url as &#x27;https://username.github.io/project&#x27;</span><br><span class="line">url: http://example.com # 这块也建议修改成自己github的仓库地址，比如xxx.github.io</span><br><span class="line">permalink: :year/:month/:day/:title/</span><br><span class="line">permalink_defaults:</span><br><span class="line">pretty_urls:</span><br><span class="line">  trailing_index: true # Set to false to remove trailing &#x27;index.html&#x27; from permalinks</span><br><span class="line">  trailing_html: true # Set to false to remove trailing &#x27;.html&#x27; from permalinks</span><br></pre></td></tr></table></figure>
+
+<p>上述配置，需要注意两点：</p>
+<ol>
+<li>language需要改成zh-CN；</li>
+<li>url修改成为自己的配置。</li>
+</ol>
+<h3 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">site:</span><br><span class="line">  name:                   # 左上角显示内容</span><br><span class="line">    class:  text          #i_class/text/img </span><br><span class="line">    custom: Acrylic       #自定义内容</span><br><span class="line">  siteIcon: /img/avatar.webp # 网页icon</span><br><span class="line">  icon: /img/avatar.webp     # 页脚的icon、加载动画默认的icon</span><br><span class="line">  icp:                       # ICP</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>其他的内容按照文档配置就行。</p>
+<h2 id="其他注意的点"><a href="#其他注意的点" class="headerlink" title="其他注意的点"></a>其他注意的点</h2><h3 id="一、文章顶部搜索栏：search搜索"><a href="#一、文章顶部搜索栏：search搜索" class="headerlink" title="一、文章顶部搜索栏：search搜索"></a>一、文章顶部搜索栏：search搜索</h3><p>建议使用本地搜索，本地搜索的话，需要安装hexo-generator-searchdb插件。</p>
+<p>然后在_config.yml添加以下配置：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  content: true</span><br><span class="line">  format: html</span><br></pre></td></tr></table></figure>
+
+<p>修改_config.arcylic.yml</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">local_search:           #本地搜索</span><br><span class="line">  enable: true</span><br></pre></td></tr></table></figure>
+
+<h3 id="二、-文章详情meta数据没有显示"><a href="#二、-文章详情meta数据没有显示" class="headerlink" title="二、 文章详情meta数据没有显示"></a>二、 文章详情meta数据没有显示</h3><p>参考<a href="https://github.com/hexo-theme-Acrylic/Hexo-Theme-Acrylic-Next/issues/153">《meta疑问及front-matter参数疑问》</a></p>
+<p>补充几句吧：</p>
+<p>需要安装hexo-wordcount包：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i --save hexo-wordcount</span><br></pre></td></tr></table></figure>
+
+<p>一定要在次配置，主题配置中找到wordcount，并且设置为true：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131620729.png" alt="image-20230613162023688"></p>
+<h3 id="三、twikoo评论无法显示"><a href="#三、twikoo评论无法显示" class="headerlink" title="三、twikoo评论无法显示"></a>三、twikoo评论无法显示</h3><p>需要部署twikoo服务才能实现评论，具体参考文档<a href="https://twikoo.js.org/">twikoo文档</a></p>
+<p>或查看下一篇文章。</p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo-Acrylic主题集成twikoo评论</title>
     <url>/2023/06/13/Hexo/hexo-Acrylic%E4%B8%BB%E9%A2%98%E9%9B%86%E6%88%90twikoo%E8%AF%84%E8%AE%BA/</url>
     <content><![CDATA[<h1 id="hexo-Acrylic主题集成twikoo评论"><a href="#hexo-Acrylic主题集成twikoo评论" class="headerlink" title="hexo-Acrylic主题集成twikoo评论"></a>hexo-Acrylic主题集成twikoo评论</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261745868.jpeg" alt="a large building with a clock tower in the middle of it"></p>
@@ -196,9 +255,21 @@
         <category>教程</category>
       </categories>
       <tags>
-        <tag>twikoo</tag>
         <tag>博客</tag>
         <tag>hexo</tag>
+        <tag>twikoo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>IOC高级-配置源&amp;配置元信息</title>
+    <url>/2023/07/07/Spring/IOC%E9%AB%98%E7%BA%A7-%E9%85%8D%E7%BD%AE%E6%BA%90&amp;%E9%85%8D%E7%BD%AE%E5%85%83%E4%BF%A1%E6%81%AF/</url>
+    <content><![CDATA[<h1 id="IOC高级-配置源-amp-配置元信息"><a href="#IOC高级-配置源-amp-配置元信息" class="headerlink" title="IOC高级-配置源&amp;配置元信息"></a>IOC高级-配置源&amp;配置元信息</h1><p>对象头 每个对象都有一个对象头，对象头包括两部分，标记信息和类型指针。 标记信息包括哈希值，锁信息，GC信息。类型指针指向这个对象的class。 两个信息分别占用8个字节，所以每个对象的额外内存为16个字节。很消耗内存。 压缩指针 为了减少类型指针的内存占用，将64位指针压缩至32位，进而节约内存。之前64位寻址，寻的是字节。现在32位寻址，寻的是变量。再加上内存对齐(补齐为8的倍数)，可以每次寻变量都以一定的规则寻找，并且一定可以找得到。 内存对齐 内存对齐的另一个好处是，使得CPU缓存行可以更好的实施。保证每个变量都只出现在一条缓存行中，不会出现跨行缓存。提高程序的执行效率。 字段重排序 其实就是更好的执行内存对齐标准，会调整字段在内存中的分布，达到方便寻址和节省空间的目的。 虚共享 当两个线程分别访问一个对象中的不同volatile字段，理论上是不涉及变量共享和同步要求的。但是如果两个volatile字段处于同一个CPU缓存行中，对其中一个volatile字段的写操作，会导致整个缓存行的写回和读取操作，进而影响到了另一个volatile变量，也就是实际上的共享问题。 @Contented注解 该注解就是用来解决虚共享问题的，被该注解标识的变量，会独占一个CPU缓存行。但也因此浪费了大量的内存空间。</p>
+]]></content>
+      <categories>
+        <category>未分类</category>
+      </categories>
+      <tags>
+        <tag>杂记</tag>
       </tags>
   </entry>
   <entry>
@@ -307,71 +378,6 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo如何修改主题？</title>
-    <url>/2023/06/13/Hexo/hexo%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="hexo如何修改中意的主题？"><a href="#hexo如何修改中意的主题？" class="headerlink" title="hexo如何修改中意的主题？"></a>hexo如何修改中意的主题？</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261746884.jpeg" alt="an aerial view of a tree in a field"></p>
-<p>推荐Acrylic主题，样式比较好看，文档也比较完善，但是也有踩坑。</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131506443.png" alt="image-20230613150638064"></p>
-<p>不过，还是感谢<a href="https://github.com/hexo-theme-Acrylic/Hexo-Theme-Acrylic-Next">@hexo-theme-Acrylic</a>的开源项目。</p>
-<p>修改主题可以参考文档修改，<a href="https://next-docs.acrylic.org.cn/">hexo acrylic</a>。</p>
-<h2 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h2><p>注意在hexo的根目录下执行指令，用来安装主题：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone -b main https://github.com/hexo-theme-Acrylic/Hexo-Theme-Acrylic-Next.git themes/Acrylic</span><br></pre></td></tr></table></figure>
-
-<h2 id="应用主题"><a href="#应用主题" class="headerlink" title="应用主题"></a>应用主题</h2><p>修改主配置文件config.yml,修改主题配置：</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins<span class="punctuation">:</span> https<span class="punctuation">:</span><span class="comment">//hexo.io/plugins/</span></span><br><span class="line">## Themes<span class="punctuation">:</span> https<span class="punctuation">:</span><span class="comment">//hexo.io/themes/</span></span><br><span class="line">theme<span class="punctuation">:</span> Acrylic</span><br></pre></td></tr></table></figure>
-
-<h2 id="使用主题配置"><a href="#使用主题配置" class="headerlink" title="使用主题配置"></a>使用主题配置</h2><p>macos&#x2F;linux:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cp</span> -rf ./themes/Acrylic/_config.yml ./_config.Acrylic.yml</span><br></pre></td></tr></table></figure>
-
-<p>windows:</p>
-<p>复制 <code>/themes/Acrylic/_config.yml</code> 此文件到 <strong>Hexo</strong> 根目录，并重命名为 <code>_config.Acrylic.yml</code></p>
-<h2 id="更新主题"><a href="#更新主题" class="headerlink" title="更新主题"></a>更新主题</h2><p>在hexo主文件夹下找到themes文件夹，进入之后找到Acrylic，并pull代码。</p>
-<p>直接hexo clean、hexo g、hexo s；看是否有问题。</p>
-<p>一般有的问题，都可以在百度上搜索，一般都是少装了npm包，npm install一下就可以了。</p>
-<p>比如这个： npm install hexo-deployer-git –save</p>
-<h2 id="Acrylic一些的必要配置"><a href="#Acrylic一些的必要配置" class="headerlink" title="Acrylic一些的必要配置"></a>Acrylic一些的必要配置</h2><p>首先按照文档，配置一下Hexo配置文件：</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: RootlexBlog</span><br><span class="line">subtitle: &#x27;&#x27;</span><br><span class="line">description: &#x27;a blog 一个分享技术与生活的博客&#x27;</span><br><span class="line">keywords: Rootlex, blog, 技术, 博客</span><br><span class="line">author: Rootlex</span><br><span class="line">language: zh-CN # 主要是这里不一样，默认的是en</span><br><span class="line">timezone: &#x27;&#x27;</span><br><span class="line"></span><br><span class="line"># URL</span><br><span class="line">## Set your site url here. For example, if you use GitHub Page, set url as &#x27;https://username.github.io/project&#x27;</span><br><span class="line">url: http://example.com # 这块也建议修改成自己github的仓库地址，比如xxx.github.io</span><br><span class="line">permalink: :year/:month/:day/:title/</span><br><span class="line">permalink_defaults:</span><br><span class="line">pretty_urls:</span><br><span class="line">  trailing_index: true # Set to false to remove trailing &#x27;index.html&#x27; from permalinks</span><br><span class="line">  trailing_html: true # Set to false to remove trailing &#x27;.html&#x27; from permalinks</span><br></pre></td></tr></table></figure>
-
-<p>上述配置，需要注意两点：</p>
-<ol>
-<li>language需要改成zh-CN；</li>
-<li>url修改成为自己的配置。</li>
-</ol>
-<h3 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">site:</span><br><span class="line">  name:                   # 左上角显示内容</span><br><span class="line">    class:  text          #i_class/text/img </span><br><span class="line">    custom: Acrylic       #自定义内容</span><br><span class="line">  siteIcon: /img/avatar.webp # 网页icon</span><br><span class="line">  icon: /img/avatar.webp     # 页脚的icon、加载动画默认的icon</span><br><span class="line">  icp:                       # ICP</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>其他的内容按照文档配置就行。</p>
-<h2 id="其他注意的点"><a href="#其他注意的点" class="headerlink" title="其他注意的点"></a>其他注意的点</h2><h3 id="一、文章顶部搜索栏：search搜索"><a href="#一、文章顶部搜索栏：search搜索" class="headerlink" title="一、文章顶部搜索栏：search搜索"></a>一、文章顶部搜索栏：search搜索</h3><p>建议使用本地搜索，本地搜索的话，需要安装hexo-generator-searchdb插件。</p>
-<p>然后在_config.yml添加以下配置：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  content: true</span><br><span class="line">  format: html</span><br></pre></td></tr></table></figure>
-
-<p>修改_config.arcylic.yml</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">local_search:           #本地搜索</span><br><span class="line">  enable: true</span><br></pre></td></tr></table></figure>
-
-<h3 id="二、-文章详情meta数据没有显示"><a href="#二、-文章详情meta数据没有显示" class="headerlink" title="二、 文章详情meta数据没有显示"></a>二、 文章详情meta数据没有显示</h3><p>参考<a href="https://github.com/hexo-theme-Acrylic/Hexo-Theme-Acrylic-Next/issues/153">《meta疑问及front-matter参数疑问》</a></p>
-<p>补充几句吧：</p>
-<p>需要安装hexo-wordcount包：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i --save hexo-wordcount</span><br></pre></td></tr></table></figure>
-
-<p>一定要在次配置，主题配置中找到wordcount，并且设置为true：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306131620729.png" alt="image-20230613162023688"></p>
-<h3 id="三、twikoo评论无法显示"><a href="#三、twikoo评论无法显示" class="headerlink" title="三、twikoo评论无法显示"></a>三、twikoo评论无法显示</h3><p>需要部署twikoo服务才能实现评论，具体参考文档<a href="https://twikoo.js.org/">twikoo文档</a></p>
-<p>或查看下一篇文章。</p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>无标题</title>
-    <url>/2023/06/30/Spring/IOC%E9%AB%98%E7%BA%A7-%E9%85%8D%E7%BD%AE%E6%BA%90&amp;%E9%85%8D%E7%BD%AE%E5%85%83%E4%BF%A1%E6%81%AF/</url>
-    <content><![CDATA[<h1 id="IOC高级-配置源-amp-配置元信息"><a href="#IOC高级-配置源-amp-配置元信息" class="headerlink" title="IOC高级-配置源&amp;配置元信息"></a>IOC高级-配置源&amp;配置元信息</h1><p>对象头 每个对象都有一个对象头，对象头包括两部分，标记信息和类型指针。 标记信息包括哈希值，锁信息，GC信息。类型指针指向这个对象的class。 两个信息分别占用8个字节，所以每个对象的额外内存为16个字节。很消耗内存。 压缩指针 为了减少类型指针的内存占用，将64位指针压缩至32位，进而节约内存。之前64位寻址，寻的是字节。现在32位寻址，寻的是变量。再加上内存对齐(补齐为8的倍数)，可以每次寻变量都以一定的规则寻找，并且一定可以找得到。 内存对齐 内存对齐的另一个好处是，使得CPU缓存行可以更好的实施。保证每个变量都只出现在一条缓存行中，不会出现跨行缓存。提高程序的执行效率。 字段重排序 其实就是更好的执行内存对齐标准，会调整字段在内存中的分布，达到方便寻址和节省空间的目的。 虚共享 当两个线程分别访问一个对象中的不同volatile字段，理论上是不涉及变量共享和同步要求的。但是如果两个volatile字段处于同一个CPU缓存行中，对其中一个volatile字段的写操作，会导致整个缓存行的写回和读取操作，进而影响到了另一个volatile变量，也就是实际上的共享问题。 @Contented注解 该注解就是用来解决虚共享问题的，被该注解标识的变量，会独占一个CPU缓存行。但也因此浪费了大量的内存空间。</p>
-]]></content>
-  </entry>
-  <entry>
     <title>Hexo文章转换器</title>
     <url>/2023/06/19/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/Hexo%E6%96%87%E7%AB%A0%E8%BD%AC%E6%8D%A2%E5%99%A8/</url>
     <content><![CDATA[<h1 id="Hexo文章转换器"><a href="#Hexo文章转换器" class="headerlink" title="Hexo文章转换器"></a>Hexo文章转换器</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261747053.jpeg" alt="a close up of a cell phone with a blurry background"></p>
@@ -417,51 +423,6 @@
         <tag>hexo</tag>
         <tag>开源项目</tag>
         <tag>工具</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>综合工具箱</title>
-    <url>/2023/06/17/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/%E7%BB%BC%E5%90%88%E5%B7%A5%E5%85%B7%E7%AE%B1/</url>
-    <content><![CDATA[<h1 id="综合工具箱"><a href="#综合工具箱" class="headerlink" title="综合工具箱"></a>综合工具箱</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261746878.jpeg" alt="a view of a mountain range at sunset"></p>
-<p><a href="https://github.com/yamonc/tool_platfom/">tool_platform</a></p>
-<blockquote>
-<p>综合工具箱（名字实在是不会起，意会吧，言传就不必了）：这个项目主要是为了解决日常生活中的一点点痛点：比如密码箱，何为密码箱呢？如今大多数网站都有注册和登录功能，要么呢，有各种需要备份或者记录的信息（QQ邮箱的凭证，开发者需要记录下，或者github的AK和SK等），这种记录在网上的一些工具有可能会遭到泄露，所以将本地密码存到密码箱里就很有必要了。</p>
-</blockquote>
-<h2 id="🍎技术架构"><a href="#🍎技术架构" class="headerlink" title="🍎技术架构"></a>🍎技术架构</h2><p><a href="https://www.electronjs.org/zh/docs/latest/tutorial/quick-start">electron</a>+vue2</p>
-<p>框架用的是<a href="https://gitee.com/Zh-Sky/electron-vue-template">electron-vue-template</a>，感谢大佬的开源。</p>
-<p>纯前端项目，没有用到后端，<strong>更不会保留任何数据到服务器上</strong>。</p>
-<h2 id="🍉-解决的问题"><a href="#🍉-解决的问题" class="headerlink" title="🍉 解决的问题"></a>🍉 解决的问题</h2><p>目前综合工具箱里的功能只有《密码箱》的功能。</p>
-<h3 id="🍓密码箱"><a href="#🍓密码箱" class="headerlink" title="🍓密码箱"></a>🍓密码箱</h3><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306171118918.png" alt="image-20230617111859730"></p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306171119106.png" alt="image-20230617111918042"></p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306171122534.png" alt="image-20230617112248464"></p>
-<h4 id="痛点"><a href="#痛点" class="headerlink" title="痛点"></a>痛点</h4><p><strong>网络上的密码无法管理。</strong></p>
-<h4 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h4><p>点击新增密码，按照提示输入后，可在当前的用户目录下找到password.json的文件，所有的密码都存在这个paasword.json中。</p>
-<p>密码备份功能比价鸡肋，后期去掉。</p>
-<h2 id="🍠如何启动"><a href="#🍠如何启动" class="headerlink" title="🍠如何启动"></a>🍠如何启动</h2><h3 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h3><p>前提需要安装git、node.js、yarn&#x2F;npm（npm好像在这里不好使）</p>
-<h3 id="二次开发"><a href="#二次开发" class="headerlink" title="二次开发"></a>二次开发</h3><p>如果是二次开发的话：</p>
-<p><strong>pull代码</strong></p>
-<p><code>git pull https://github.com/yamonc/tool_platfom.git </code></p>
-<p><strong>安装安装包</strong></p>
-<p><code>yarn </code></p>
-<p><strong>启动项目</strong></p>
-<p><code>yarn dev</code></p>
-<h3 id="直接使用"><a href="#直接使用" class="headerlink" title="直接使用"></a>直接使用</h3><p>两种方式，第一种<a href="https://gh.api.99988866.xyz/https://github.com/yamonc/tool_platfom/releases/download/V0.0.1/electron-vue-admin.Setup.0.0.1.exe">下载发版</a>；</p>
-<p>第二种，在二次开发的基础上，自己打包：</p>
-<p><code>yarn build:win64</code></p>
-<p>打完包之后，会发现build包下有exe可执行文件：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306171139786.png" alt="image-20230617113946744"></p>
-<h2 id="🍐后期目标"><a href="#🍐后期目标" class="headerlink" title="🍐后期目标"></a>🍐后期目标</h2><p>性能优化（不得不说，electron太太太太慢了）</p>
-<p>密码修改。</p>
-<p>导入密码。</p>
-<p>支持sqllite，方便修改密码、删除密码。</p>
-<h2 id="🍌CHANGELOG"><a href="#🍌CHANGELOG" class="headerlink" title="🍌CHANGELOG"></a>🍌CHANGELOG</h2><p>V0.0.1 新增密码箱功能；</p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>vue</tag>
-        <tag>electron</tag>
       </tags>
   </entry>
   <entry>
@@ -532,9 +493,55 @@
       </tags>
   </entry>
   <entry>
-    <title>无标题</title>
-    <url>/2023/06/30/%E7%AE%97%E6%B3%95/%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9/</url>
-    <content><![CDATA[<h1 id="删除链表的倒数第N个节点"><a href="#删除链表的倒数第N个节点" class="headerlink" title="删除链表的倒数第N个节点"></a>删除链表的倒数第N个节点</h1><p>给你一个链表，删除链表的倒数第 <code>n</code> 个结点，并且返回链表的头结点。</p>
+    <title>综合工具箱</title>
+    <url>/2023/06/17/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/%E7%BB%BC%E5%90%88%E5%B7%A5%E5%85%B7%E7%AE%B1/</url>
+    <content><![CDATA[<h1 id="综合工具箱"><a href="#综合工具箱" class="headerlink" title="综合工具箱"></a>综合工具箱</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261746878.jpeg" alt="a view of a mountain range at sunset"></p>
+<p><a href="https://github.com/yamonc/tool_platfom/">tool_platform</a></p>
+<blockquote>
+<p>综合工具箱（名字实在是不会起，意会吧，言传就不必了）：这个项目主要是为了解决日常生活中的一点点痛点：比如密码箱，何为密码箱呢？如今大多数网站都有注册和登录功能，要么呢，有各种需要备份或者记录的信息（QQ邮箱的凭证，开发者需要记录下，或者github的AK和SK等），这种记录在网上的一些工具有可能会遭到泄露，所以将本地密码存到密码箱里就很有必要了。</p>
+</blockquote>
+<h2 id="🍎技术架构"><a href="#🍎技术架构" class="headerlink" title="🍎技术架构"></a>🍎技术架构</h2><p><a href="https://www.electronjs.org/zh/docs/latest/tutorial/quick-start">electron</a>+vue2</p>
+<p>框架用的是<a href="https://gitee.com/Zh-Sky/electron-vue-template">electron-vue-template</a>，感谢大佬的开源。</p>
+<p>纯前端项目，没有用到后端，<strong>更不会保留任何数据到服务器上</strong>。</p>
+<h2 id="🍉-解决的问题"><a href="#🍉-解决的问题" class="headerlink" title="🍉 解决的问题"></a>🍉 解决的问题</h2><p>目前综合工具箱里的功能只有《密码箱》的功能。</p>
+<h3 id="🍓密码箱"><a href="#🍓密码箱" class="headerlink" title="🍓密码箱"></a>🍓密码箱</h3><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306171118918.png" alt="image-20230617111859730"></p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306171119106.png" alt="image-20230617111918042"></p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306171122534.png" alt="image-20230617112248464"></p>
+<h4 id="痛点"><a href="#痛点" class="headerlink" title="痛点"></a>痛点</h4><p><strong>网络上的密码无法管理。</strong></p>
+<h4 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h4><p>点击新增密码，按照提示输入后，可在当前的用户目录下找到password.json的文件，所有的密码都存在这个paasword.json中。</p>
+<p>密码备份功能比价鸡肋，后期去掉。</p>
+<h2 id="🍠如何启动"><a href="#🍠如何启动" class="headerlink" title="🍠如何启动"></a>🍠如何启动</h2><h3 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h3><p>前提需要安装git、node.js、yarn&#x2F;npm（npm好像在这里不好使）</p>
+<h3 id="二次开发"><a href="#二次开发" class="headerlink" title="二次开发"></a>二次开发</h3><p>如果是二次开发的话：</p>
+<p><strong>pull代码</strong></p>
+<p><code>git pull https://github.com/yamonc/tool_platfom.git </code></p>
+<p><strong>安装安装包</strong></p>
+<p><code>yarn </code></p>
+<p><strong>启动项目</strong></p>
+<p><code>yarn dev</code></p>
+<h3 id="直接使用"><a href="#直接使用" class="headerlink" title="直接使用"></a>直接使用</h3><p>两种方式，第一种<a href="https://gh.api.99988866.xyz/https://github.com/yamonc/tool_platfom/releases/download/V0.0.1/electron-vue-admin.Setup.0.0.1.exe">下载发版</a>；</p>
+<p>第二种，在二次开发的基础上，自己打包：</p>
+<p><code>yarn build:win64</code></p>
+<p>打完包之后，会发现build包下有exe可执行文件：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306171139786.png" alt="image-20230617113946744"></p>
+<h2 id="🍐后期目标"><a href="#🍐后期目标" class="headerlink" title="🍐后期目标"></a>🍐后期目标</h2><p>性能优化（不得不说，electron太太太太慢了）</p>
+<p>密码修改。</p>
+<p>导入密码。</p>
+<p>支持sqllite，方便修改密码、删除密码。</p>
+<h2 id="🍌CHANGELOG"><a href="#🍌CHANGELOG" class="headerlink" title="🍌CHANGELOG"></a>🍌CHANGELOG</h2><p>V0.0.1 新增密码箱功能；</p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+        <tag>electron</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>删除链表的倒数第N个节点</title>
+    <url>/2023/07/07/%E7%AE%97%E6%B3%95/%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9/</url>
+    <content><![CDATA[<h1 id="删除链表的倒数第N个节点"><a href="#删除链表的倒数第N个节点" class="headerlink" title="删除链表的倒数第N个节点"></a>删除链表的倒数第N个节点</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307071106271.jpeg" alt="an aerial view of a sandy beach and ocean"></p>
+<p>给你一个链表，删除链表的倒数第 <code>n</code> 个结点，并且返回链表的头结点。</p>
 <p><strong>示例 1：</strong></p>
 <p><img src="https://assets.leetcode.com/uploads/2020/10/03/remove_ex1.jpg" alt="img"></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：head = [1,2,3,4,5], n = 2</span><br><span class="line">输出：[1,2,3,5]</span><br></pre></td></tr></table></figure>
@@ -549,29 +556,12 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> ListNode <span class="title function_">removeNthFromEnd</span><span class="params">(ListNode head, <span class="type">int</span> n)</span> &#123;</span><br><span class="line">       <span class="type">ListNode</span> <span class="variable">dummy</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ListNode</span>(-<span class="number">1</span>);</span><br><span class="line">       dummy.next = head;</span><br><span class="line">       <span class="comment">// 先利用双指针找到倒数第N个节点</span></span><br><span class="line">       <span class="type">ListNode</span> <span class="variable">p1</span> <span class="operator">=</span> dummy;</span><br><span class="line">       <span class="comment">// p1 先走n步</span></span><br><span class="line">       <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; n + <span class="number">1</span>; i++) &#123;</span><br><span class="line">           p1 = p1.next;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="type">ListNode</span> <span class="variable">p2</span> <span class="operator">=</span> dummy;</span><br><span class="line">       <span class="comment">// 再一起走</span></span><br><span class="line">       <span class="keyword">while</span> (p1 != <span class="literal">null</span>)&#123;</span><br><span class="line">           p2 = p2.next;</span><br><span class="line">           p1 = p1.next;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">// 现在p2指的节点就是倒数第N个节点</span></span><br><span class="line">       <span class="comment">// 开始删除p2节点</span></span><br><span class="line">       p2.next = p2.next.next;</span><br><span class="line">       <span class="keyword">return</span> dummy.next;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
-  </entry>
-  <entry>
-    <title>单链表的倒数第k个节点</title>
-    <url>/2023/06/16/%E7%AE%97%E6%B3%95/%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACk%E4%B8%AA%E8%8A%82%E7%82%B9/</url>
-    <content><![CDATA[<h1 id="单链表的倒数第k个节点"><a href="#单链表的倒数第k个节点" class="headerlink" title="单链表的倒数第k个节点"></a>单链表的倒数第k个节点</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261740849.jpeg" alt="a bird is perched on the side of a building"></p>
-<h2 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h2><p>输入一个链表，输出该链表中倒数第k个节点。为了符合大多数人的习惯，本题从1开始计数，即链表的尾节点是倒数第1个节点。</p>
-<p>例如，一个链表有 6 个节点，从头节点开始，它们的值依次是 1、2、3、4、5、6。这个链表的倒数第 3 个节点是值为 4 的节点。</p>
-<p>示例：</p>
-<p>给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 k &#x3D; 2.</p>
-<p>返回链表 4-&gt;5.</p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>双指针。</p>
-<p>声明两个指针，分别是p1 和 p2；</p>
-<p>先走p1，让p1先走k步</p>
-<p>然后p1和p2同时走，直到p1为null的时候，停止，这时候，p2的就是待返回的结果。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> ListNode <span class="title function_">getKthFromEnd</span><span class="params">(ListNode head, <span class="type">int</span> k)</span> &#123;</span><br><span class="line">          <span class="comment">// 先将p1指向head</span></span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">p1</span> <span class="operator">=</span> head;</span><br><span class="line">        <span class="comment">// 先让p1走k步</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; k; i++) &#123;</span><br><span class="line">            p1 = p1.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">p2</span> <span class="operator">=</span> head;</span><br><span class="line">        <span class="comment">// 再让p1和p2同时走n-k步</span></span><br><span class="line">        <span class="keyword">while</span> (p1 != <span class="literal">null</span>)&#123;</span><br><span class="line">            p2 = p2.next;</span><br><span class="line">            p1 = p1.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// p2 现在指向第 n - k + 1 个节点，即倒数第 k 个节点</span></span><br><span class="line">        <span class="keyword">return</span> p2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
       <categories>
         <category>算法</category>
       </categories>
       <tags>
+        <tag>链表</tag>
         <tag>leetcode</tag>
-        <tag>双指针</tag>
       </tags>
   </entry>
   <entry>
@@ -697,6 +687,30 @@
       </tags>
   </entry>
   <entry>
+    <title>单链表的倒数第k个节点</title>
+    <url>/2023/06/16/%E7%AE%97%E6%B3%95/%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACk%E4%B8%AA%E8%8A%82%E7%82%B9/</url>
+    <content><![CDATA[<h1 id="单链表的倒数第k个节点"><a href="#单链表的倒数第k个节点" class="headerlink" title="单链表的倒数第k个节点"></a>单链表的倒数第k个节点</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261740849.jpeg" alt="a bird is perched on the side of a building"></p>
+<h2 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h2><p>输入一个链表，输出该链表中倒数第k个节点。为了符合大多数人的习惯，本题从1开始计数，即链表的尾节点是倒数第1个节点。</p>
+<p>例如，一个链表有 6 个节点，从头节点开始，它们的值依次是 1、2、3、4、5、6。这个链表的倒数第 3 个节点是值为 4 的节点。</p>
+<p>示例：</p>
+<p>给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 k &#x3D; 2.</p>
+<p>返回链表 4-&gt;5.</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>双指针。</p>
+<p>声明两个指针，分别是p1 和 p2；</p>
+<p>先走p1，让p1先走k步</p>
+<p>然后p1和p2同时走，直到p1为null的时候，停止，这时候，p2的就是待返回的结果。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> ListNode <span class="title function_">getKthFromEnd</span><span class="params">(ListNode head, <span class="type">int</span> k)</span> &#123;</span><br><span class="line">          <span class="comment">// 先将p1指向head</span></span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">p1</span> <span class="operator">=</span> head;</span><br><span class="line">        <span class="comment">// 先让p1走k步</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; k; i++) &#123;</span><br><span class="line">            p1 = p1.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">p2</span> <span class="operator">=</span> head;</span><br><span class="line">        <span class="comment">// 再让p1和p2同时走n-k步</span></span><br><span class="line">        <span class="keyword">while</span> (p1 != <span class="literal">null</span>)&#123;</span><br><span class="line">            p2 = p2.next;</span><br><span class="line">            p1 = p1.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// p2 现在指向第 n - k + 1 个节点，即倒数第 k 个节点</span></span><br><span class="line">        <span class="keyword">return</span> p2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>双指针</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>反转链表I</title>
     <url>/2023/07/07/%E7%AE%97%E6%B3%95/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8I/</url>
     <content><![CDATA[<hr>
@@ -721,35 +735,9 @@
         <category>算法</category>
       </categories>
       <tags>
+        <tag>链表</tag>
         <tag>leetcode</tag>
         <tag>递归</tag>
-        <tag>链表</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>环形链表</title>
-    <url>/2023/06/19/%E7%AE%97%E6%B3%95/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/</url>
-    <content><![CDATA[<h1 id="环形链表"><a href="#环形链表" class="headerlink" title="环形链表"></a>环形链表</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261740749.jpeg" alt="a large body of water surrounded by rocks"></p>
-<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给你一个链表的头节点 head ，判断链表中是否有环。</p>
-<p>如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环。 为了表示给定链表中的环，评测系统内部使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。注意：pos 不作为参数进行传递 。仅仅是为了标识链表的实际情况。</p>
-<p>如果链表中存在环 ，则返回 true 。 否则，返回 false 。</p>
-<p>示例 1：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191021477.png" alt="img"></p>
-<p>输入：head &#x3D; [3,2,0,-4], pos &#x3D; 1<br>输出：true<br>解释：链表中有一个环，其尾部连接到第二个节点。<br>示例 2：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191021584.png" alt="img"></p>
-<p>输入：head &#x3D; [1,2], pos &#x3D; 0<br>输出：true<br>解释：链表中有一个环，其尾部连接到第一个节点。</p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>跟[链表的中间结点]类似，使用快慢指针：</p>
-<p>slow前进一步，fast前进两步，如果fast最终遇到了空指针，则说明链表中没有环；</p>
-<p>如果fast和slow最终相遇了，证明fast超过了slow一圈，说明链表有环。</p>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>leetcode</tag>
-        <tag>双指针</tag>
-        <tag>链表</tag>
       </tags>
   </entry>
   <entry>
@@ -782,9 +770,9 @@
       </categories>
       <tags>
         <tag>java</tag>
+        <tag>链表</tag>
         <tag>leetcode</tag>
         <tag>双指针</tag>
-        <tag>链表</tag>
       </tags>
   </entry>
   <entry>
@@ -817,6 +805,32 @@
       </tags>
   </entry>
   <entry>
+    <title>环形链表</title>
+    <url>/2023/06/19/%E7%AE%97%E6%B3%95/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/</url>
+    <content><![CDATA[<h1 id="环形链表"><a href="#环形链表" class="headerlink" title="环形链表"></a>环形链表</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261740749.jpeg" alt="a large body of water surrounded by rocks"></p>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给你一个链表的头节点 head ，判断链表中是否有环。</p>
+<p>如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环。 为了表示给定链表中的环，评测系统内部使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。注意：pos 不作为参数进行传递 。仅仅是为了标识链表的实际情况。</p>
+<p>如果链表中存在环 ，则返回 true 。 否则，返回 false 。</p>
+<p>示例 1：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191021477.png" alt="img"></p>
+<p>输入：head &#x3D; [3,2,0,-4], pos &#x3D; 1<br>输出：true<br>解释：链表中有一个环，其尾部连接到第二个节点。<br>示例 2：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191021584.png" alt="img"></p>
+<p>输入：head &#x3D; [1,2], pos &#x3D; 0<br>输出：true<br>解释：链表中有一个环，其尾部连接到第一个节点。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>跟[链表的中间结点]类似，使用快慢指针：</p>
+<p>slow前进一步，fast前进两步，如果fast最终遇到了空指针，则说明链表中没有环；</p>
+<p>如果fast和slow最终相遇了，证明fast超过了slow一圈，说明链表有环。</p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>链表</tag>
+        <tag>leetcode</tag>
+        <tag>双指针</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>链表的中间结点</title>
     <url>/2023/06/19/%E7%AE%97%E6%B3%95/%E9%93%BE%E8%A1%A8%E7%9A%84%E4%B8%AD%E9%97%B4%E7%BB%93%E7%82%B9/</url>
     <content><![CDATA[<h1 id="链表的中间结点"><a href="#链表的中间结点" class="headerlink" title="链表的中间结点"></a>链表的中间结点</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306260929210.jpeg" alt="img"></p>
@@ -835,9 +849,9 @@
       </categories>
       <tags>
         <tag>java</tag>
+        <tag>链表</tag>
         <tag>leetcode</tag>
         <tag>双指针</tag>
-        <tag>链表</tag>
       </tags>
   </entry>
   <entry>
@@ -878,9 +892,40 @@
       </categories>
       <tags>
         <tag>java</tag>
+        <tag>链表</tag>
         <tag>leetcode</tag>
         <tag>双指针</tag>
-        <tag>链表</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>04. 理论一：当谈论面向对象的时候，我们到底在谈论什么？</title>
+    <url>/2023/06/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E%E3%80%9104.%20%E7%90%86%E8%AE%BA%E4%B8%80%EF%BC%9A%E5%BD%93%E8%B0%88%E8%AE%BA%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E6%88%91%E4%BB%AC%E5%88%B0%E5%BA%95%E5%9C%A8%E8%B0%88%E8%AE%BA%E4%BB%80%E4%B9%88%EF%BC%9F/</url>
+    <content><![CDATA[<h1 id="04-理论一：当谈论面向对象的时候，我们到底在谈论什么？"><a href="#04-理论一：当谈论面向对象的时候，我们到底在谈论什么？" class="headerlink" title="04. 理论一：当谈论面向对象的时候，我们到底在谈论什么？"></a>04. 理论一：当谈论面向对象的时候，我们到底在谈论什么？</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306281645110.jpeg" alt="a person on a snowboard in the snow"></p>
+<h2 id="什么是面向对象编程和面向对象编程语言"><a href="#什么是面向对象编程和面向对象编程语言" class="headerlink" title="什么是面向对象编程和面向对象编程语言"></a>什么是面向对象编程和面向对象编程语言</h2><p>面向对象编程是一种编程范式或编程风格。它以类或对象作为组织代码的基本单元，并将封装、抽象、继承、多态四个特性，作为代码设计和实现的基石 。</p>
+<p>面向对象编程语言是支持类或对象的语法机制，并有现成的语法机制，能方便地实现面向对象编程四大特性（封装、抽象、继承、多态）的编程语言。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">面向对象编程是一种编程范式或编程风格。它以类或对象作为组织代码的基本单元，并将封装、抽象、继承、多态四个特性，作为代码设计和实现的基石 。</span><br><span class="line">面向对象编程语言是支持类或对象的语法机制，并有现成的语法机制，能方便地实现面向对象编程四大特性（封装、抽象、继承、多态）的编程语言。</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="如何判断某编程语言是否是面向对象编程语言？"><a href="#如何判断某编程语言是否是面向对象编程语言？" class="headerlink" title="如何判断某编程语言是否是面向对象编程语言？"></a>如何判断某编程语言是否是面向对象编程语言？</h2><p>只要某种编程语言支持类或对象的语法概念，并且以此作为组织代码的基本单元，那就可以被粗略地认为它就是面向对象编程语言了。至于是否有现成的语法机制，完全地支持了面向对象编程的四大特性、是否对四大特性有所取舍和优化，可以不作为判定的标准。基于此，我们才有了前面的说法，按照严格的定义，很多语言都不能算得上面向对象编程语言，但按照不严格的定义来讲，现在流行的大部分编程语言都是面向对象编程语言。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">如果按照严格的的定义，需要有现成的语法支持类、对象、四大特性才能叫作面向对象编程语言。如果放宽要求的话，只要某种编程语言支持类、对象语法机制，那基本上就可以说这种编程语言是面向对象编程语言了，不一定非得要求具有所有的四大特性。</span><br></pre></td></tr></table></figure>
+
+<h2 id="什么是面向对象分析和面向对象设计？"><a href="#什么是面向对象分析和面向对象设计？" class="headerlink" title="什么是面向对象分析和面向对象设计？"></a>什么是面向对象分析和面向对象设计？</h2><p>OOA和OOD。</p>
+<p>OOA、OOD、OOP 三个连在一起就是面向对象分析、设计、编程（实现），正好是面向对象软件开发要经历的三个阶段。</p>
+<p>是因为我们是围绕着对象或类来做需求分析和设计的。分析和设计两个阶段最终的产出是类的设计，包括程序被拆解为哪些类，每个类有哪些属性方法，类与类之间如何交互等等。它们比其他的分析和设计更加具体、更加落地、更加贴近编码，更能够顺利地过渡到面向对象编程环节。这也是面向对象分析和设计，与其他分析和设计最大的不同点。</p>
+<p>面向对象分析就是要搞清楚做什么，面向对象设计就是要搞清楚怎么做，面向对象编程就是将分析和设计的的结果翻译成代码的过程。</p>
+<h2 id="什么是UML？我们是否需要UML？"><a href="#什么是UML？我们是否需要UML？" class="headerlink" title="什么是UML？我们是否需要UML？"></a>什么是UML？我们是否需要UML？</h2><p>UML（Unified Model Language），统一建模语言。</p>
+<p>实际上，UML 是一种非常复杂的东西。它不仅仅包含我们常提到类图，还有用例图、顺序图、活动图、状态图、组件图等。</p>
+<p>类图，学习成本也是很高的。就单说类之间的关系，UML 就定义了很多种，比如泛化、实现、关联、聚合、组合、依赖等。</p>
+<p>UML 作为一种沟通工具，即便你能完全按照 UML 规范来画类图，可对于不熟悉的人来说，看懂的成本也还是很高的。</p>
+<p>UML 在互联网公司的项目开发中，用处可能并不大。为了文档化软件设计或者方便讨论软件设计，大部分情况下，我们随手画个不那么规范的草图，能够达意，方便沟通就够了，而完全按照 UML 规范来将草图标准化，所付出的代价是不值得的。</p>
+]]></content>
+      <categories>
+        <category>设计模式</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>面向对象</tag>
       </tags>
   </entry>
   <entry>
@@ -974,37 +1019,6 @@
       </tags>
   </entry>
   <entry>
-    <title>04. 理论一：当谈论面向对象的时候，我们到底在谈论什么？</title>
-    <url>/2023/06/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E%E3%80%9104.%20%E7%90%86%E8%AE%BA%E4%B8%80%EF%BC%9A%E5%BD%93%E8%B0%88%E8%AE%BA%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E6%88%91%E4%BB%AC%E5%88%B0%E5%BA%95%E5%9C%A8%E8%B0%88%E8%AE%BA%E4%BB%80%E4%B9%88%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="04-理论一：当谈论面向对象的时候，我们到底在谈论什么？"><a href="#04-理论一：当谈论面向对象的时候，我们到底在谈论什么？" class="headerlink" title="04. 理论一：当谈论面向对象的时候，我们到底在谈论什么？"></a>04. 理论一：当谈论面向对象的时候，我们到底在谈论什么？</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306281645110.jpeg" alt="a person on a snowboard in the snow"></p>
-<h2 id="什么是面向对象编程和面向对象编程语言"><a href="#什么是面向对象编程和面向对象编程语言" class="headerlink" title="什么是面向对象编程和面向对象编程语言"></a>什么是面向对象编程和面向对象编程语言</h2><p>面向对象编程是一种编程范式或编程风格。它以类或对象作为组织代码的基本单元，并将封装、抽象、继承、多态四个特性，作为代码设计和实现的基石 。</p>
-<p>面向对象编程语言是支持类或对象的语法机制，并有现成的语法机制，能方便地实现面向对象编程四大特性（封装、抽象、继承、多态）的编程语言。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">面向对象编程是一种编程范式或编程风格。它以类或对象作为组织代码的基本单元，并将封装、抽象、继承、多态四个特性，作为代码设计和实现的基石 。</span><br><span class="line">面向对象编程语言是支持类或对象的语法机制，并有现成的语法机制，能方便地实现面向对象编程四大特性（封装、抽象、继承、多态）的编程语言。</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="如何判断某编程语言是否是面向对象编程语言？"><a href="#如何判断某编程语言是否是面向对象编程语言？" class="headerlink" title="如何判断某编程语言是否是面向对象编程语言？"></a>如何判断某编程语言是否是面向对象编程语言？</h2><p>只要某种编程语言支持类或对象的语法概念，并且以此作为组织代码的基本单元，那就可以被粗略地认为它就是面向对象编程语言了。至于是否有现成的语法机制，完全地支持了面向对象编程的四大特性、是否对四大特性有所取舍和优化，可以不作为判定的标准。基于此，我们才有了前面的说法，按照严格的定义，很多语言都不能算得上面向对象编程语言，但按照不严格的定义来讲，现在流行的大部分编程语言都是面向对象编程语言。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">如果按照严格的的定义，需要有现成的语法支持类、对象、四大特性才能叫作面向对象编程语言。如果放宽要求的话，只要某种编程语言支持类、对象语法机制，那基本上就可以说这种编程语言是面向对象编程语言了，不一定非得要求具有所有的四大特性。</span><br></pre></td></tr></table></figure>
-
-<h2 id="什么是面向对象分析和面向对象设计？"><a href="#什么是面向对象分析和面向对象设计？" class="headerlink" title="什么是面向对象分析和面向对象设计？"></a>什么是面向对象分析和面向对象设计？</h2><p>OOA和OOD。</p>
-<p>OOA、OOD、OOP 三个连在一起就是面向对象分析、设计、编程（实现），正好是面向对象软件开发要经历的三个阶段。</p>
-<p>是因为我们是围绕着对象或类来做需求分析和设计的。分析和设计两个阶段最终的产出是类的设计，包括程序被拆解为哪些类，每个类有哪些属性方法，类与类之间如何交互等等。它们比其他的分析和设计更加具体、更加落地、更加贴近编码，更能够顺利地过渡到面向对象编程环节。这也是面向对象分析和设计，与其他分析和设计最大的不同点。</p>
-<p>面向对象分析就是要搞清楚做什么，面向对象设计就是要搞清楚怎么做，面向对象编程就是将分析和设计的的结果翻译成代码的过程。</p>
-<h2 id="什么是UML？我们是否需要UML？"><a href="#什么是UML？我们是否需要UML？" class="headerlink" title="什么是UML？我们是否需要UML？"></a>什么是UML？我们是否需要UML？</h2><p>UML（Unified Model Language），统一建模语言。</p>
-<p>实际上，UML 是一种非常复杂的东西。它不仅仅包含我们常提到类图，还有用例图、顺序图、活动图、状态图、组件图等。</p>
-<p>类图，学习成本也是很高的。就单说类之间的关系，UML 就定义了很多种，比如泛化、实现、关联、聚合、组合、依赖等。</p>
-<p>UML 作为一种沟通工具，即便你能完全按照 UML 规范来画类图，可对于不熟悉的人来说，看懂的成本也还是很高的。</p>
-<p>UML 在互联网公司的项目开发中，用处可能并不大。为了文档化软件设计或者方便讨论软件设计，大部分情况下，我们随手画个不那么规范的草图，能够达意，方便沟通就够了，而完全按照 UML 规范来将草图标准化，所付出的代价是不值得的。</p>
-]]></content>
-      <categories>
-        <category>设计模式</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>面向对象</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>理论四：哪些代码设计看似是面向对象，实际是面向过程的？？面向过程真的过时了吗？</title>
     <url>/2023/06/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E%E3%80%9107.%E7%90%86%E8%AE%BA%E5%9B%9B%EF%BC%9A%E5%93%AA%E4%BA%9B%E4%BB%A3%E7%A0%81%E8%AE%BE%E8%AE%A1%E7%9C%8B%E4%BC%BC%E6%98%AF%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%8C%E5%AE%9E%E9%99%85%E6%98%AF%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E7%9A%84%EF%BC%9F/</url>
     <content><![CDATA[<h1 id="07-理论四：哪些代码设计看似是面向对象，实际是面向过程的？"><a href="#07-理论四：哪些代码设计看似是面向对象，实际是面向过程的？" class="headerlink" title="07 理论四：哪些代码设计看似是面向对象，实际是面向过程的？"></a>07 理论四：哪些代码设计看似是面向对象，实际是面向过程的？</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306281723961.jpeg" alt="a group of people hiking up the side of a mountain"></p>
@@ -1057,9 +1071,10 @@
       </tags>
   </entry>
   <entry>
-    <title>无标题</title>
-    <url>/2023/06/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E%E3%80%9108.%E7%90%86%E8%AE%BA%E4%BA%94%EF%BC%9A%E6%8E%A5%E5%8F%A3vs%E6%8A%BD%E8%B1%A1%E7%B1%BB%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F%E5%A6%82%E4%BD%95%E7%94%A8%E6%99%AE%E9%80%9A%E7%9A%84%E7%B1%BB%E6%A8%A1%E6%8B%9F%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3%EF%BC%9F)/</url>
-    <content><![CDATA[<h1 id="08-理论五：接口vs抽象类的区别？如何用普通的类模拟抽象类和接口？"><a href="#08-理论五：接口vs抽象类的区别？如何用普通的类模拟抽象类和接口？" class="headerlink" title="08. 理论五：接口vs抽象类的区别？如何用普通的类模拟抽象类和接口？"></a>08. 理论五：接口vs抽象类的区别？如何用普通的类模拟抽象类和接口？</h1><p>我们可以使用接口来实现面向对象的抽象特性、多态特性和基于接口而非实现的设计原则，使用抽象类来实现面向对象的继承特性和模板设计模式等等。</p>
+    <title>理论五：接口vs抽象类的区别？如何用普通的类模拟抽象类和接口？</title>
+    <url>/2023/07/07/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E%E3%80%9108.%E7%90%86%E8%AE%BA%E4%BA%94%EF%BC%9A%E6%8E%A5%E5%8F%A3vs%E6%8A%BD%E8%B1%A1%E7%B1%BB%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F%E5%A6%82%E4%BD%95%E7%94%A8%E6%99%AE%E9%80%9A%E7%9A%84%E7%B1%BB%E6%A8%A1%E6%8B%9F%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3%EF%BC%9F)/</url>
+    <content><![CDATA[<h1 id="08-理论五：接口vs抽象类的区别？如何用普通的类模拟抽象类和接口？"><a href="#08-理论五：接口vs抽象类的区别？如何用普通的类模拟抽象类和接口？" class="headerlink" title="08. 理论五：接口vs抽象类的区别？如何用普通的类模拟抽象类和接口？"></a>08. 理论五：接口vs抽象类的区别？如何用普通的类模拟抽象类和接口？</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307071059946.jpeg" alt="an aerial view of a beach with a body of water"></p>
+<p>我们可以使用接口来实现面向对象的抽象特性、多态特性和基于接口而非实现的设计原则，使用抽象类来实现面向对象的继承特性和模板设计模式等等。</p>
 <h2 id="什么是抽象类和接口？区别在哪里？"><a href="#什么是抽象类和接口？区别在哪里？" class="headerlink" title="什么是抽象类和接口？区别在哪里？"></a>什么是抽象类和接口？区别在哪里？</h2><p>抽象类具有哪些特性:</p>
 <ul>
 <li>抽象类不允许被实例化，只能被继承。也就是说，你不能 new 一个抽象类的对象出来（Logger logger &#x3D; new Logger(…); 会报编译错误）。</li>
@@ -1094,11 +1109,21 @@
 </li>
 </ol>
 ]]></content>
+      <categories>
+        <category>设计模式</category>
+      </categories>
+      <tags>
+        <tag>面向对象</tag>
+        <tag>接口</tag>
+        <tag>抽象类</tag>
+        <tag>设计模式</tag>
+      </tags>
   </entry>
   <entry>
-    <title>无标题</title>
-    <url>/2023/06/30/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E%E3%80%9110.%20%E7%90%86%E8%AE%BA%E4%B8%83%EF%BC%9A%E4%B8%BA%E4%BD%95%E8%AF%B4%E8%A6%81%E5%A4%9A%E7%94%A8%E7%BB%84%E5%90%88%E5%B0%91%E7%94%A8%E7%BB%A7%E6%89%BF%EF%BC%9F%E5%A6%82%E4%BD%95%E5%86%B3%E5%AE%9A%E8%AF%A5%E7%94%A8%E7%BB%84%E5%90%88%E8%BF%98%E6%98%AF%E7%BB%A7%E6%89%BF%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="理论七：为何说要多用组合少用继承？如何决定该用组合还是继承？"><a href="#理论七：为何说要多用组合少用继承？如何决定该用组合还是继承？" class="headerlink" title="理论七：为何说要多用组合少用继承？如何决定该用组合还是继承？"></a>理论七：为何说要多用组合少用继承？如何决定该用组合还是继承？</h1><p>经典的设计原则，那就是：组合优于继承，多用组合少用继承。</p>
+    <title>理论七：为何说要多用组合少用继承？如何决定该用组合还是继承？</title>
+    <url>/2023/07/07/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E%E3%80%9110.%20%E7%90%86%E8%AE%BA%E4%B8%83%EF%BC%9A%E4%B8%BA%E4%BD%95%E8%AF%B4%E8%A6%81%E5%A4%9A%E7%94%A8%E7%BB%84%E5%90%88%E5%B0%91%E7%94%A8%E7%BB%A7%E6%89%BF%EF%BC%9F%E5%A6%82%E4%BD%95%E5%86%B3%E5%AE%9A%E8%AF%A5%E7%94%A8%E7%BB%84%E5%90%88%E8%BF%98%E6%98%AF%E7%BB%A7%E6%89%BF%EF%BC%9F/</url>
+    <content><![CDATA[<h1 id="理论七：为何说要多用组合少用继承？如何决定该用组合还是继承？"><a href="#理论七：为何说要多用组合少用继承？如何决定该用组合还是继承？" class="headerlink" title="理论七：为何说要多用组合少用继承？如何决定该用组合还是继承？"></a>理论七：为何说要多用组合少用继承？如何决定该用组合还是继承？</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307071103724.jpeg" alt="a large body of water surrounded by land"></p>
+<p>经典的设计原则，那就是：组合优于继承，多用组合少用继承。</p>
 <h2 id="为什么不推荐使用继承？"><a href="#为什么不推荐使用继承？" class="headerlink" title="为什么不推荐使用继承？"></a>为什么不推荐使用继承？</h2><p>继承是面向对象的四大特性之一，用来表示类之间的 is-a 关系，可以解决代码复用的问题。虽然继承有诸多作用，但继承层次过深、过复杂，也会影响到代码的可维护性。所以，对于是否应该在项目中使用继承，网上有很多争议。很多人觉得继承是一种反模式，应该尽量少用，甚至不用。为什么会有这样的争议？我们通过一个例子来解释一下。</p>
 <p>假设我们要设计一个关于鸟的类。我们将“鸟类”这样一个抽象的事物概念，定义为一个抽象类 AbstractBird。所有更细分的鸟，比如麻雀、鸽子、乌鸦等，都继承这个抽象类。大部分鸟都会飞，那我们可不可以在 AbstractBird 抽象类中，定义一个 fly() 方法呢？</p>
 <p>答案是否定的，虽然大部分鸟都会飞，但也有特例，比如鸵鸟就不会飞。当然，你可能会说，我在鸵鸟这个子类中重写（override）fly() 方法，让它抛出 UnSupportedMethodException 异常不就可以了吗？</p>
@@ -1129,11 +1154,19 @@
 <li>如何判断该用组合还是继承？尽管我们鼓励多用组合少用继承，但组合也并不是完美的，继承也并非一无是处。在实际的项目开发中，我们还是要根据具体的情况，来选择该用继承还是组合。如果类之间的继承结构稳定，层次比较浅，关系不复杂，我们就可以大胆地使用继承。反之，我们就尽量使用组合来替代继承。除此之外，还有一些设计模式、特殊的应用场景，会固定使用继承或者组合</li>
 </ol>
 ]]></content>
+      <categories>
+        <category>设计模式</category>
+      </categories>
+      <tags>
+        <tag>面向对象</tag>
+        <tag>设计模式</tag>
+      </tags>
   </entry>
   <entry>
-    <title>无标题</title>
-    <url>/2023/06/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E%E3%80%9109.%E7%90%86%E8%AE%BA%E5%85%AD%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9F%BA%E4%BA%8E%E6%8E%A5%E5%8F%A3%E8%80%8C%E9%9D%9E%E5%AE%9E%E7%8E%B0%E7%BC%96%E7%A8%8B%EF%BC%9F%E6%9C%89%E5%BF%85%E8%A6%81%E4%B8%BA%E6%AF%8F%E4%B8%AA%E7%B1%BB%E9%83%BD%E5%AE%9A%E4%B9%89%E6%8E%A5%E5%8F%A3%E5%90%97%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="09-理论六：为什么基于接口而非实现编程？有必要为每个类都定义接口吗？"><a href="#09-理论六：为什么基于接口而非实现编程？有必要为每个类都定义接口吗？" class="headerlink" title="09. 理论六：为什么基于接口而非实现编程？有必要为每个类都定义接口吗？"></a>09. 理论六：为什么基于接口而非实现编程？有必要为每个类都定义接口吗？</h1><p>一个重要的原则：</p>
+    <title>理论六：为什么基于接口而非实现编程？有必要为每个类都定义接口吗？</title>
+    <url>/2023/07/07/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E%E3%80%9109.%E7%90%86%E8%AE%BA%E5%85%AD%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9F%BA%E4%BA%8E%E6%8E%A5%E5%8F%A3%E8%80%8C%E9%9D%9E%E5%AE%9E%E7%8E%B0%E7%BC%96%E7%A8%8B%EF%BC%9F%E6%9C%89%E5%BF%85%E8%A6%81%E4%B8%BA%E6%AF%8F%E4%B8%AA%E7%B1%BB%E9%83%BD%E5%AE%9A%E4%B9%89%E6%8E%A5%E5%8F%A3%E5%90%97%EF%BC%9F/</url>
+    <content><![CDATA[<h1 id="09-理论六：为什么基于接口而非实现编程？有必要为每个类都定义接口吗？"><a href="#09-理论六：为什么基于接口而非实现编程？有必要为每个类都定义接口吗？" class="headerlink" title="09. 理论六：为什么基于接口而非实现编程？有必要为每个类都定义接口吗？"></a>09. 理论六：为什么基于接口而非实现编程？有必要为每个类都定义接口吗？</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307071102570.jpeg" alt="a drawing of a red, green, and blue string"></p>
+<p>一个重要的原则：</p>
 <p>基于接口而非实现编程</p>
 <h2 id="如何理解原则中的“接口”二字"><a href="#如何理解原则中的“接口”二字" class="headerlink" title="如何理解原则中的“接口”二字?"></a>如何理解原则中的“接口”二字?</h2><p>从本质上来看，“接口”就是一组“协议”或者“约定”，是功能提供者提供给使用者的一个“功能列表”。如果落实到具体的编码，“基于接口而非实现编程”这条原则中的“接口”，可以理解为编程语言中的接口或者抽象类。</p>
 <p>这条原则能非常有效地提高代码质量，之所以这么说，那是因为，应用这条原则，可以将接口和实现相分离，封装不稳定的实现，暴露稳定的接口。上游系统面向接口而非实现编程，不依赖不稳定的实现细节，这样当实现发生变化的时候，上游系统的代码基本上不需要做改动，以此来降低耦合性，提高扩展性。</p>
@@ -1164,5 +1197,12 @@
 <p>从这个设计初衷上来看，如果在我们的业务场景中，某个功能只有一种实现方式，未来也不可能被其他实现方式替换，那我们就没有必要为其设计接口，</p>
 <p>越是不稳定的系统，我们越是要在代码的扩展性、维护性上下功夫。相反，如果某个系统特别稳定，在开发完之后，基本上不需要做维护，那我们就没有必要为其扩展性，投入不必要的开发时间。</p>
 ]]></content>
+      <categories>
+        <category>设计模式</category>
+      </categories>
+      <tags>
+        <tag>接口</tag>
+        <tag>设计模式</tag>
+      </tags>
   </entry>
 </search>
