@@ -49,6 +49,18 @@
       </tags>
   </entry>
   <entry>
+    <title>IOC高级-配置源&amp;配置元信息</title>
+    <url>/2023/07/07/Spring/IOC%E9%AB%98%E7%BA%A7-%E9%85%8D%E7%BD%AE%E6%BA%90&amp;%E9%85%8D%E7%BD%AE%E5%85%83%E4%BF%A1%E6%81%AF/</url>
+    <content><![CDATA[<h1 id="IOC高级-配置源-amp-配置元信息"><a href="#IOC高级-配置源-amp-配置元信息" class="headerlink" title="IOC高级-配置源&amp;配置元信息"></a>IOC高级-配置源&amp;配置元信息</h1><p>对象头 每个对象都有一个对象头，对象头包括两部分，标记信息和类型指针。 标记信息包括哈希值，锁信息，GC信息。类型指针指向这个对象的class。 两个信息分别占用8个字节，所以每个对象的额外内存为16个字节。很消耗内存。 压缩指针 为了减少类型指针的内存占用，将64位指针压缩至32位，进而节约内存。之前64位寻址，寻的是字节。现在32位寻址，寻的是变量。再加上内存对齐(补齐为8的倍数)，可以每次寻变量都以一定的规则寻找，并且一定可以找得到。 内存对齐 内存对齐的另一个好处是，使得CPU缓存行可以更好的实施。保证每个变量都只出现在一条缓存行中，不会出现跨行缓存。提高程序的执行效率。 字段重排序 其实就是更好的执行内存对齐标准，会调整字段在内存中的分布，达到方便寻址和节省空间的目的。 虚共享 当两个线程分别访问一个对象中的不同volatile字段，理论上是不涉及变量共享和同步要求的。但是如果两个volatile字段处于同一个CPU缓存行中，对其中一个volatile字段的写操作，会导致整个缓存行的写回和读取操作，进而影响到了另一个volatile变量，也就是实际上的共享问题。 @Contented注解 该注解就是用来解决虚共享问题的，被该注解标识的变量，会独占一个CPU缓存行。但也因此浪费了大量的内存空间。</p>
+]]></content>
+      <categories>
+        <category>未分类</category>
+      </categories>
+      <tags>
+        <tag>杂记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>如何将JavaFX的java项目打包成exe格式</title>
     <url>/2023/06/16/%E5%A6%82%E4%BD%95%E5%B0%86java%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E6%88%90exe%E6%A0%BC%E5%BC%8F/</url>
     <content><![CDATA[<h1 id="如何将JavaFX的java项目打包成exe格式"><a href="#如何将JavaFX的java项目打包成exe格式" class="headerlink" title="如何将JavaFX的java项目打包成exe格式"></a>如何将JavaFX的java项目打包成exe格式</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261746693.jpeg" alt="a dark tunnel with a light at the end"></p>
@@ -98,6 +110,24 @@
       <tags>
         <tag>java</tag>
         <tag>exe</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>RSA和AES加密工具类算法</title>
+    <url>/2023/07/11/%E5%8A%A0%E8%A7%A3%E5%AF%86%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/RSA%E5%92%8CAES%E5%8A%A0%E5%AF%86%E5%B7%A5%E5%85%B7%E7%B1%BB%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="RSA和AES加密工具类算法"><a href="#RSA和AES加密工具类算法" class="headerlink" title="RSA和AES加密工具类算法"></a>RSA和AES加密工具类算法</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307111722580.jpeg" alt="a person walking up the side of a snow covered mountain"></p>
+<h2 id="RSA工具类"><a href="#RSA工具类" class="headerlink" title="RSA工具类"></a>RSA工具类</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sun.security.rsa.RSAPrivateCrtKeyImpl;</span><br><span class="line"><span class="keyword">import</span> sun.security.rsa.RSAPublicKeyImpl;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.crypto.Cipher;</span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.Files;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.Path;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.Paths;</span><br><span class="line"><span class="keyword">import</span> java.security.*;</span><br><span class="line"><span class="keyword">import</span> java.util.Base64;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">RSAUtil</span> &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">ALGORITHM</span> <span class="operator">=</span> <span class="string">&quot;RSA&quot;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//生成密钥对</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> KeyPair <span class="title function_">genKeyPair</span><span class="params">(<span class="type">int</span> keyLength)</span> <span class="keyword">throws</span> NoSuchAlgorithmException &#123;</span><br><span class="line">        <span class="type">KeyPairGenerator</span> <span class="variable">keyPairGenerator</span> <span class="operator">=</span> KeyPairGenerator.getInstance(ALGORITHM);</span><br><span class="line">        keyPairGenerator.initialize(keyLength);</span><br><span class="line">        <span class="keyword">return</span> keyPairGenerator.generateKeyPair();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//以base64编码保存密钥</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">saveKey</span><span class="params">(Key key, String path)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">Path</span> <span class="variable">keyPath</span> <span class="operator">=</span> Paths.get(path);</span><br><span class="line">        Files.write(keyPath, Base64.getEncoder().encode(key.getEncoded()));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//读取公钥</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> PublicKey <span class="title function_">readPublicKey</span><span class="params">(String path)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="type">Path</span> <span class="variable">keyPath</span> <span class="operator">=</span> Paths.get(path);</span><br><span class="line">        <span class="type">byte</span>[] keyBytes = Files.readAllBytes(keyPath);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">RSAPublicKeyImpl</span>(Base64.getDecoder().decode(keyBytes));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//读取密钥</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> PrivateKey <span class="title function_">readPrivateKey</span><span class="params">(String path)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="type">Path</span> <span class="variable">keyPath</span> <span class="operator">=</span> Paths.get(path);</span><br><span class="line">        <span class="type">byte</span>[] keyBytes = Files.readAllBytes(keyPath);</span><br><span class="line">        <span class="keyword">return</span> RSAPrivateCrtKeyImpl.newKey(Base64.getDecoder().decode(keyBytes));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//公钥加密</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">encrypt</span><span class="params">(String content, PublicKey publicKey)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="comment">//选择算法,创建实例</span></span><br><span class="line">        <span class="type">Cipher</span> <span class="variable">cipher</span> <span class="operator">=</span> Cipher.getInstance(ALGORITHM);</span><br><span class="line">        <span class="comment">//选择模式,结合公钥初始化</span></span><br><span class="line">        cipher.init(Cipher.ENCRYPT_MODE, publicKey);</span><br><span class="line">        <span class="comment">//加密</span></span><br><span class="line">        <span class="type">byte</span>[] result = cipher.doFinal(content.getBytes());</span><br><span class="line">        <span class="comment">//转码</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">base64Result</span> <span class="operator">=</span> Base64.getEncoder().encodeToString(result);</span><br><span class="line">        <span class="keyword">return</span> base64Result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//私钥解密</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">decrypt</span><span class="params">(String content, PrivateKey privateKey)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="comment">//创建实例</span></span><br><span class="line">        <span class="type">Cipher</span> <span class="variable">cipher</span> <span class="operator">=</span> Cipher.getInstance(ALGORITHM);</span><br><span class="line">        <span class="comment">//初始化</span></span><br><span class="line">        cipher.init(Cipher.DECRYPT_MODE, privateKey);</span><br><span class="line">        <span class="comment">//转码</span></span><br><span class="line">        <span class="type">byte</span>[] encodedBytes = Base64.getDecoder().decode(content.getBytes());</span><br><span class="line">        <span class="comment">//解密</span></span><br><span class="line">        <span class="type">byte</span>[] result = cipher.doFinal(encodedBytes);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">String</span>(result);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//确保目录存在</span></span><br><span class="line">            <span class="type">File</span> <span class="variable">f</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;/home/duoyi/encrypt/&quot;</span>);</span><br><span class="line">            f.mkdirs();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            <span class="type">KeyPair</span> <span class="variable">keyPair</span> <span class="operator">=</span> RSAUtil.genKeyPair(<span class="number">1024</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//获取公钥</span></span><br><span class="line">            <span class="type">PublicKey</span> <span class="variable">publicKey</span> <span class="operator">=</span> keyPair.getPublic();</span><br><span class="line">            System.out.println(<span class="string">&quot;公钥：&quot;</span> + <span class="keyword">new</span> <span class="title class_">String</span>(Base64.getEncoder().encode(publicKey.getEncoded())));</span><br><span class="line"></span><br><span class="line">            <span class="comment">//获取私钥</span></span><br><span class="line">            <span class="type">PrivateKey</span> <span class="variable">privateKey</span> <span class="operator">=</span> keyPair.getPrivate();</span><br><span class="line">            System.out.println(<span class="string">&quot;私钥：&quot;</span> + <span class="keyword">new</span> <span class="title class_">String</span>(Base64.getEncoder().encode(privateKey.getEncoded())));</span><br><span class="line"></span><br><span class="line">            <span class="comment">//保存密钥</span></span><br><span class="line">            RSAUtil.saveKey(publicKey, <span class="string">&quot;/home/duoyi/encrypt/rsa.pub&quot;</span>);</span><br><span class="line">            RSAUtil.saveKey(privateKey, <span class="string">&quot;/home/duoyi/encrypt/rsa.pri&quot;</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            <span class="type">String</span> <span class="variable">content</span> <span class="operator">=</span> <span class="string">&quot;this is content&quot;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            <span class="comment">//读取密钥</span></span><br><span class="line">            <span class="type">PublicKey</span> <span class="variable">pubKey</span> <span class="operator">=</span> RSAUtil.readPublicKey(<span class="string">&quot;/home/duoyi/encrypt/rsa.pub&quot;</span>);</span><br><span class="line">            <span class="type">PrivateKey</span> <span class="variable">priKey</span> <span class="operator">=</span> RSAUtil.readPrivateKey(<span class="string">&quot;/home/duoyi/encrypt/rsa.pri&quot;</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//加密</span></span><br><span class="line">            <span class="type">String</span> <span class="variable">encryptBase64</span> <span class="operator">=</span> RSAUtil.encrypt(content, pubKey);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//解密</span></span><br><span class="line">            <span class="type">String</span> <span class="variable">result</span> <span class="operator">=</span> decrypt(encryptBase64, priKey);</span><br><span class="line"></span><br><span class="line">            System.out.println(<span class="string">&quot;密文为:&quot;</span> + <span class="keyword">new</span> <span class="title class_">String</span>(Base64.getDecoder().decode(encryptBase64.getBytes())));</span><br><span class="line">            System.out.println(<span class="string">&quot;密文转码后为:&quot;</span> + encryptBase64);</span><br><span class="line">            System.out.println(<span class="string">&quot;转码后解码为:&quot;</span> + result);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="AES工具类"><a href="#AES工具类" class="headerlink" title="AES工具类"></a>AES工具类</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.Files;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.Path;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.Paths;</span><br><span class="line"><span class="keyword">import</span> java.security.Key;</span><br><span class="line"><span class="keyword">import</span> java.security.NoSuchAlgorithmException;</span><br><span class="line"><span class="keyword">import</span> java.security.SecureRandom;</span><br><span class="line"><span class="keyword">import</span> java.util.Base64;</span><br><span class="line"><span class="keyword">import</span> javax.crypto.Cipher;</span><br><span class="line"><span class="keyword">import</span> javax.crypto.KeyGenerator;</span><br><span class="line"><span class="keyword">import</span> javax.crypto.SecretKey;</span><br><span class="line"><span class="keyword">import</span> javax.crypto.spec.SecretKeySpec;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AESUtil</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">ALGORITHM</span> <span class="operator">=</span> <span class="string">&quot;AES&quot;</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">RANDOM_ALGORITHM</span> <span class="operator">=</span> <span class="string">&quot;SHA1PRNG&quot;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//选择算法,根据密码生成密钥</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> SecretKey <span class="title function_">genKey</span><span class="params">(String password)</span> <span class="keyword">throws</span> NoSuchAlgorithmException &#123;</span><br><span class="line">        <span class="type">KeyGenerator</span> <span class="variable">keyGenerator</span> <span class="operator">=</span> KeyGenerator.getInstance(ALGORITHM);</span><br><span class="line">        <span class="type">SecureRandom</span> <span class="variable">random</span> <span class="operator">=</span> SecureRandom.getInstance(RANDOM_ALGORITHM);</span><br><span class="line">        random.setSeed(password.getBytes());<span class="comment">//设置密钥</span></span><br><span class="line">        keyGenerator.init(random);</span><br><span class="line">        <span class="keyword">return</span> keyGenerator.generateKey();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//以base64编码保存密钥</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">saveKey</span><span class="params">(Key key, String path)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">Path</span> <span class="variable">keyPath</span> <span class="operator">=</span> Paths.get(path);</span><br><span class="line">        Files.write(keyPath, Base64.getEncoder().encode(key.getEncoded()));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//读取密钥</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> SecretKey <span class="title function_">readSecretKey</span><span class="params">(String path)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="type">Path</span> <span class="variable">keyPath</span> <span class="operator">=</span> Paths.get(path);</span><br><span class="line">        <span class="type">byte</span>[] keyBytes = Files.readAllBytes(keyPath);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">SecretKeySpec</span>(Base64.getDecoder().decode(keyBytes), ALGORITHM);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">encrypt</span><span class="params">(String content, SecretKey secretKey)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="comment">//指定算法创建Cipher实例</span></span><br><span class="line">        <span class="type">Cipher</span> <span class="variable">cipher</span> <span class="operator">=</span> Cipher.getInstance(ALGORITHM);<span class="comment">//算法是AES</span></span><br><span class="line">        <span class="comment">//选择模式，结合密钥初始化Cipher实例</span></span><br><span class="line">        cipher.init(Cipher.ENCRYPT_MODE, secretKey);</span><br><span class="line">        <span class="comment">//加密</span></span><br><span class="line">        <span class="type">byte</span>[] result = cipher.doFinal(content.getBytes());</span><br><span class="line">        <span class="comment">//使用Base64对密文进行转码</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">base64Result</span> <span class="operator">=</span> Base64.getEncoder().encodeToString(result);</span><br><span class="line">        <span class="keyword">return</span> base64Result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">decrpyt</span><span class="params">(String content, SecretKey secretKey)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="comment">//获取实例</span></span><br><span class="line">        <span class="type">Cipher</span> <span class="variable">cipher</span> <span class="operator">=</span> Cipher.getInstance(ALGORITHM);</span><br><span class="line">        <span class="comment">//初始化</span></span><br><span class="line">        cipher.init(Cipher.DECRYPT_MODE, secretKey);</span><br><span class="line">        <span class="comment">//转码</span></span><br><span class="line">        <span class="type">byte</span>[] encodedBytes = Base64.getDecoder().decode(content.getBytes());</span><br><span class="line">        <span class="comment">//解密</span></span><br><span class="line">        <span class="type">byte</span>[] result = cipher.doFinal(encodedBytes);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">String</span>(result);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//确保目录存在</span></span><br><span class="line">            <span class="type">File</span> <span class="variable">f</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;/home/duoyi/encrypt/&quot;</span>);</span><br><span class="line">            f.mkdirs();</span><br><span class="line"></span><br><span class="line">            <span class="type">String</span> <span class="variable">content</span> <span class="operator">=</span> <span class="string">&quot;this is content&quot;</span>;</span><br><span class="line">            <span class="type">String</span> <span class="variable">password</span> <span class="operator">=</span> <span class="string">&quot;passwd&quot;</span>;</span><br><span class="line"></span><br><span class="line">            <span class="type">SecretKey</span> <span class="variable">key</span> <span class="operator">=</span> AESUtil.genKey(password);</span><br><span class="line"></span><br><span class="line">            AESUtil.saveKey(key, <span class="string">&quot;/home/duoyi/encrypt/aes.key&quot;</span>);</span><br><span class="line"></span><br><span class="line">            <span class="type">String</span> <span class="variable">encryptBase64</span> <span class="operator">=</span> AESUtil.encrypt(content, key);</span><br><span class="line"></span><br><span class="line">            <span class="type">SecretKey</span> <span class="variable">readKey</span> <span class="operator">=</span> AESUtil.readSecretKey(<span class="string">&quot;/home/duoyi/encrypt/aes.key&quot;</span>);</span><br><span class="line">            <span class="type">String</span> <span class="variable">result</span> <span class="operator">=</span> AESUtil.decrpyt(encryptBase64, readKey);</span><br><span class="line"></span><br><span class="line">            System.out.println(<span class="string">&quot;密文为:&quot;</span> + <span class="keyword">new</span> <span class="title class_">String</span>(Base64.getDecoder().decode(encryptBase64.getBytes())));</span><br><span class="line">            System.out.println(<span class="string">&quot;密文转码后为:&quot;</span> + encryptBase64);</span><br><span class="line">            System.out.println(<span class="string">&quot;转码后解码为:&quot;</span> + result);</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>加密算法</category>
+      </categories>
+      <tags>
+        <tag>RSA</tag>
+        <tag>加密工具类</tag>
+        <tag>AES</tag>
       </tags>
   </entry>
   <entry>
@@ -216,51 +246,6 @@
       </tags>
   </entry>
   <entry>
-    <title>综合工具箱</title>
-    <url>/2023/06/17/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/%E7%BB%BC%E5%90%88%E5%B7%A5%E5%85%B7%E7%AE%B1/</url>
-    <content><![CDATA[<h1 id="综合工具箱"><a href="#综合工具箱" class="headerlink" title="综合工具箱"></a>综合工具箱</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261746878.jpeg" alt="a view of a mountain range at sunset"></p>
-<p><a href="https://github.com/yamonc/tool_platfom/">tool_platform</a></p>
-<blockquote>
-<p>综合工具箱（名字实在是不会起，意会吧，言传就不必了）：这个项目主要是为了解决日常生活中的一点点痛点：比如密码箱，何为密码箱呢？如今大多数网站都有注册和登录功能，要么呢，有各种需要备份或者记录的信息（QQ邮箱的凭证，开发者需要记录下，或者github的AK和SK等），这种记录在网上的一些工具有可能会遭到泄露，所以将本地密码存到密码箱里就很有必要了。</p>
-</blockquote>
-<h2 id="🍎技术架构"><a href="#🍎技术架构" class="headerlink" title="🍎技术架构"></a>🍎技术架构</h2><p><a href="https://www.electronjs.org/zh/docs/latest/tutorial/quick-start">electron</a>+vue2</p>
-<p>框架用的是<a href="https://gitee.com/Zh-Sky/electron-vue-template">electron-vue-template</a>，感谢大佬的开源。</p>
-<p>纯前端项目，没有用到后端，<strong>更不会保留任何数据到服务器上</strong>。</p>
-<h2 id="🍉-解决的问题"><a href="#🍉-解决的问题" class="headerlink" title="🍉 解决的问题"></a>🍉 解决的问题</h2><p>目前综合工具箱里的功能只有《密码箱》的功能。</p>
-<h3 id="🍓密码箱"><a href="#🍓密码箱" class="headerlink" title="🍓密码箱"></a>🍓密码箱</h3><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306171118918.png" alt="image-20230617111859730"></p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306171119106.png" alt="image-20230617111918042"></p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306171122534.png" alt="image-20230617112248464"></p>
-<h4 id="痛点"><a href="#痛点" class="headerlink" title="痛点"></a>痛点</h4><p><strong>网络上的密码无法管理。</strong></p>
-<h4 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h4><p>点击新增密码，按照提示输入后，可在当前的用户目录下找到password.json的文件，所有的密码都存在这个paasword.json中。</p>
-<p>密码备份功能比价鸡肋，后期去掉。</p>
-<h2 id="🍠如何启动"><a href="#🍠如何启动" class="headerlink" title="🍠如何启动"></a>🍠如何启动</h2><h3 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h3><p>前提需要安装git、node.js、yarn&#x2F;npm（npm好像在这里不好使）</p>
-<h3 id="二次开发"><a href="#二次开发" class="headerlink" title="二次开发"></a>二次开发</h3><p>如果是二次开发的话：</p>
-<p><strong>pull代码</strong></p>
-<p><code>git pull https://github.com/yamonc/tool_platfom.git </code></p>
-<p><strong>安装安装包</strong></p>
-<p><code>yarn </code></p>
-<p><strong>启动项目</strong></p>
-<p><code>yarn dev</code></p>
-<h3 id="直接使用"><a href="#直接使用" class="headerlink" title="直接使用"></a>直接使用</h3><p>两种方式，第一种<a href="https://gh.api.99988866.xyz/https://github.com/yamonc/tool_platfom/releases/download/V0.0.1/electron-vue-admin.Setup.0.0.1.exe">下载发版</a>；</p>
-<p>第二种，在二次开发的基础上，自己打包：</p>
-<p><code>yarn build:win64</code></p>
-<p>打完包之后，会发现build包下有exe可执行文件：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306171139786.png" alt="image-20230617113946744"></p>
-<h2 id="🍐后期目标"><a href="#🍐后期目标" class="headerlink" title="🍐后期目标"></a>🍐后期目标</h2><p>性能优化（不得不说，electron太太太太慢了）</p>
-<p>密码修改。</p>
-<p>导入密码。</p>
-<p>支持sqllite，方便修改密码、删除密码。</p>
-<h2 id="🍌CHANGELOG"><a href="#🍌CHANGELOG" class="headerlink" title="🍌CHANGELOG"></a>🍌CHANGELOG</h2><p>V0.0.1 新增密码箱功能；</p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>vue</tag>
-        <tag>electron</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo文章转换器II</title>
     <url>/2023/06/28/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/Hexo%E6%96%87%E7%AB%A0%E8%BD%AC%E6%8D%A2%E5%99%A8II/</url>
     <content><![CDATA[<h1 id="Hexo文章转换器II"><a href="#Hexo文章转换器II" class="headerlink" title="Hexo文章转换器II"></a>Hexo文章转换器II</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306281711167.jpeg" alt="a view of a beach and a body of water"></p>
@@ -333,18 +318,6 @@
         <tag>Java</tag>
         <tag>开源项目</tag>
         <tag>JavaFX</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>IOC高级-配置源&amp;配置元信息</title>
-    <url>/2023/07/07/Spring/IOC%E9%AB%98%E7%BA%A7-%E9%85%8D%E7%BD%AE%E6%BA%90&amp;%E9%85%8D%E7%BD%AE%E5%85%83%E4%BF%A1%E6%81%AF/</url>
-    <content><![CDATA[<h1 id="IOC高级-配置源-amp-配置元信息"><a href="#IOC高级-配置源-amp-配置元信息" class="headerlink" title="IOC高级-配置源&amp;配置元信息"></a>IOC高级-配置源&amp;配置元信息</h1><p>对象头 每个对象都有一个对象头，对象头包括两部分，标记信息和类型指针。 标记信息包括哈希值，锁信息，GC信息。类型指针指向这个对象的class。 两个信息分别占用8个字节，所以每个对象的额外内存为16个字节。很消耗内存。 压缩指针 为了减少类型指针的内存占用，将64位指针压缩至32位，进而节约内存。之前64位寻址，寻的是字节。现在32位寻址，寻的是变量。再加上内存对齐(补齐为8的倍数)，可以每次寻变量都以一定的规则寻找，并且一定可以找得到。 内存对齐 内存对齐的另一个好处是，使得CPU缓存行可以更好的实施。保证每个变量都只出现在一条缓存行中，不会出现跨行缓存。提高程序的执行效率。 字段重排序 其实就是更好的执行内存对齐标准，会调整字段在内存中的分布，达到方便寻址和节省空间的目的。 虚共享 当两个线程分别访问一个对象中的不同volatile字段，理论上是不涉及变量共享和同步要求的。但是如果两个volatile字段处于同一个CPU缓存行中，对其中一个volatile字段的写操作，会导致整个缓存行的写回和读取操作，进而影响到了另一个volatile变量，也就是实际上的共享问题。 @Contented注解 该注解就是用来解决虚共享问题的，被该注解标识的变量，会独占一个CPU缓存行。但也因此浪费了大量的内存空间。</p>
-]]></content>
-      <categories>
-        <category>未分类</category>
-      </categories>
-      <tags>
-        <tag>杂记</tag>
       </tags>
   </entry>
   <entry>
@@ -466,6 +439,82 @@
       </tags>
   </entry>
   <entry>
+    <title>综合工具箱</title>
+    <url>/2023/06/17/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/%E7%BB%BC%E5%90%88%E5%B7%A5%E5%85%B7%E7%AE%B1/</url>
+    <content><![CDATA[<h1 id="综合工具箱"><a href="#综合工具箱" class="headerlink" title="综合工具箱"></a>综合工具箱</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261746878.jpeg" alt="a view of a mountain range at sunset"></p>
+<p><a href="https://github.com/yamonc/tool_platfom/">tool_platform</a></p>
+<blockquote>
+<p>综合工具箱（名字实在是不会起，意会吧，言传就不必了）：这个项目主要是为了解决日常生活中的一点点痛点：比如密码箱，何为密码箱呢？如今大多数网站都有注册和登录功能，要么呢，有各种需要备份或者记录的信息（QQ邮箱的凭证，开发者需要记录下，或者github的AK和SK等），这种记录在网上的一些工具有可能会遭到泄露，所以将本地密码存到密码箱里就很有必要了。</p>
+</blockquote>
+<h2 id="🍎技术架构"><a href="#🍎技术架构" class="headerlink" title="🍎技术架构"></a>🍎技术架构</h2><p><a href="https://www.electronjs.org/zh/docs/latest/tutorial/quick-start">electron</a>+vue2</p>
+<p>框架用的是<a href="https://gitee.com/Zh-Sky/electron-vue-template">electron-vue-template</a>，感谢大佬的开源。</p>
+<p>纯前端项目，没有用到后端，<strong>更不会保留任何数据到服务器上</strong>。</p>
+<h2 id="🍉-解决的问题"><a href="#🍉-解决的问题" class="headerlink" title="🍉 解决的问题"></a>🍉 解决的问题</h2><p>目前综合工具箱里的功能只有《密码箱》的功能。</p>
+<h3 id="🍓密码箱"><a href="#🍓密码箱" class="headerlink" title="🍓密码箱"></a>🍓密码箱</h3><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306171118918.png" alt="image-20230617111859730"></p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306171119106.png" alt="image-20230617111918042"></p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306171122534.png" alt="image-20230617112248464"></p>
+<h4 id="痛点"><a href="#痛点" class="headerlink" title="痛点"></a>痛点</h4><p><strong>网络上的密码无法管理。</strong></p>
+<h4 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h4><p>点击新增密码，按照提示输入后，可在当前的用户目录下找到password.json的文件，所有的密码都存在这个paasword.json中。</p>
+<p>密码备份功能比价鸡肋，后期去掉。</p>
+<h2 id="🍠如何启动"><a href="#🍠如何启动" class="headerlink" title="🍠如何启动"></a>🍠如何启动</h2><h3 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h3><p>前提需要安装git、node.js、yarn&#x2F;npm（npm好像在这里不好使）</p>
+<h3 id="二次开发"><a href="#二次开发" class="headerlink" title="二次开发"></a>二次开发</h3><p>如果是二次开发的话：</p>
+<p><strong>pull代码</strong></p>
+<p><code>git pull https://github.com/yamonc/tool_platfom.git </code></p>
+<p><strong>安装安装包</strong></p>
+<p><code>yarn </code></p>
+<p><strong>启动项目</strong></p>
+<p><code>yarn dev</code></p>
+<h3 id="直接使用"><a href="#直接使用" class="headerlink" title="直接使用"></a>直接使用</h3><p>两种方式，第一种<a href="https://gh.api.99988866.xyz/https://github.com/yamonc/tool_platfom/releases/download/V0.0.1/electron-vue-admin.Setup.0.0.1.exe">下载发版</a>；</p>
+<p>第二种，在二次开发的基础上，自己打包：</p>
+<p><code>yarn build:win64</code></p>
+<p>打完包之后，会发现build包下有exe可执行文件：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306171139786.png" alt="image-20230617113946744"></p>
+<h2 id="🍐后期目标"><a href="#🍐后期目标" class="headerlink" title="🍐后期目标"></a>🍐后期目标</h2><p>性能优化（不得不说，electron太太太太慢了）</p>
+<p>密码修改。</p>
+<p>导入密码。</p>
+<p>支持sqllite，方便修改密码、删除密码。</p>
+<h2 id="🍌CHANGELOG"><a href="#🍌CHANGELOG" class="headerlink" title="🍌CHANGELOG"></a>🍌CHANGELOG</h2><p>V0.0.1 新增密码箱功能；</p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+        <tag>electron</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>04. 理论一：当谈论面向对象的时候，我们到底在谈论什么？</title>
+    <url>/2023/06/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E%E3%80%9104.%20%E7%90%86%E8%AE%BA%E4%B8%80%EF%BC%9A%E5%BD%93%E8%B0%88%E8%AE%BA%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E6%88%91%E4%BB%AC%E5%88%B0%E5%BA%95%E5%9C%A8%E8%B0%88%E8%AE%BA%E4%BB%80%E4%B9%88%EF%BC%9F/</url>
+    <content><![CDATA[<h1 id="04-理论一：当谈论面向对象的时候，我们到底在谈论什么？"><a href="#04-理论一：当谈论面向对象的时候，我们到底在谈论什么？" class="headerlink" title="04. 理论一：当谈论面向对象的时候，我们到底在谈论什么？"></a>04. 理论一：当谈论面向对象的时候，我们到底在谈论什么？</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306281645110.jpeg" alt="a person on a snowboard in the snow"></p>
+<h2 id="什么是面向对象编程和面向对象编程语言"><a href="#什么是面向对象编程和面向对象编程语言" class="headerlink" title="什么是面向对象编程和面向对象编程语言"></a>什么是面向对象编程和面向对象编程语言</h2><p>面向对象编程是一种编程范式或编程风格。它以类或对象作为组织代码的基本单元，并将封装、抽象、继承、多态四个特性，作为代码设计和实现的基石 。</p>
+<p>面向对象编程语言是支持类或对象的语法机制，并有现成的语法机制，能方便地实现面向对象编程四大特性（封装、抽象、继承、多态）的编程语言。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">面向对象编程是一种编程范式或编程风格。它以类或对象作为组织代码的基本单元，并将封装、抽象、继承、多态四个特性，作为代码设计和实现的基石 。</span><br><span class="line">面向对象编程语言是支持类或对象的语法机制，并有现成的语法机制，能方便地实现面向对象编程四大特性（封装、抽象、继承、多态）的编程语言。</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="如何判断某编程语言是否是面向对象编程语言？"><a href="#如何判断某编程语言是否是面向对象编程语言？" class="headerlink" title="如何判断某编程语言是否是面向对象编程语言？"></a>如何判断某编程语言是否是面向对象编程语言？</h2><p>只要某种编程语言支持类或对象的语法概念，并且以此作为组织代码的基本单元，那就可以被粗略地认为它就是面向对象编程语言了。至于是否有现成的语法机制，完全地支持了面向对象编程的四大特性、是否对四大特性有所取舍和优化，可以不作为判定的标准。基于此，我们才有了前面的说法，按照严格的定义，很多语言都不能算得上面向对象编程语言，但按照不严格的定义来讲，现在流行的大部分编程语言都是面向对象编程语言。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">如果按照严格的的定义，需要有现成的语法支持类、对象、四大特性才能叫作面向对象编程语言。如果放宽要求的话，只要某种编程语言支持类、对象语法机制，那基本上就可以说这种编程语言是面向对象编程语言了，不一定非得要求具有所有的四大特性。</span><br></pre></td></tr></table></figure>
+
+<h2 id="什么是面向对象分析和面向对象设计？"><a href="#什么是面向对象分析和面向对象设计？" class="headerlink" title="什么是面向对象分析和面向对象设计？"></a>什么是面向对象分析和面向对象设计？</h2><p>OOA和OOD。</p>
+<p>OOA、OOD、OOP 三个连在一起就是面向对象分析、设计、编程（实现），正好是面向对象软件开发要经历的三个阶段。</p>
+<p>是因为我们是围绕着对象或类来做需求分析和设计的。分析和设计两个阶段最终的产出是类的设计，包括程序被拆解为哪些类，每个类有哪些属性方法，类与类之间如何交互等等。它们比其他的分析和设计更加具体、更加落地、更加贴近编码，更能够顺利地过渡到面向对象编程环节。这也是面向对象分析和设计，与其他分析和设计最大的不同点。</p>
+<p>面向对象分析就是要搞清楚做什么，面向对象设计就是要搞清楚怎么做，面向对象编程就是将分析和设计的的结果翻译成代码的过程。</p>
+<h2 id="什么是UML？我们是否需要UML？"><a href="#什么是UML？我们是否需要UML？" class="headerlink" title="什么是UML？我们是否需要UML？"></a>什么是UML？我们是否需要UML？</h2><p>UML（Unified Model Language），统一建模语言。</p>
+<p>实际上，UML 是一种非常复杂的东西。它不仅仅包含我们常提到类图，还有用例图、顺序图、活动图、状态图、组件图等。</p>
+<p>类图，学习成本也是很高的。就单说类之间的关系，UML 就定义了很多种，比如泛化、实现、关联、聚合、组合、依赖等。</p>
+<p>UML 作为一种沟通工具，即便你能完全按照 UML 规范来画类图，可对于不熟悉的人来说，看懂的成本也还是很高的。</p>
+<p>UML 在互联网公司的项目开发中，用处可能并不大。为了文档化软件设计或者方便讨论软件设计，大部分情况下，我们随手画个不那么规范的草图，能够达意，方便沟通就够了，而完全按照 UML 规范来将草图标准化，所付出的代价是不值得的。</p>
+]]></content>
+      <categories>
+        <category>设计模式</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>面向对象</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo如何修改主题？</title>
     <url>/2023/06/13/Hexo/hexo%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98/</url>
     <content><![CDATA[<h1 id="hexo如何修改中意的主题？"><a href="#hexo如何修改中意的主题？" class="headerlink" title="hexo如何修改中意的主题？"></a>hexo如何修改中意的主题？</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261746884.jpeg" alt="an aerial view of a tree in a field"></p>
@@ -522,37 +571,6 @@
       <tags>
         <tag>hexo</tag>
         <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>04. 理论一：当谈论面向对象的时候，我们到底在谈论什么？</title>
-    <url>/2023/06/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E%E3%80%9104.%20%E7%90%86%E8%AE%BA%E4%B8%80%EF%BC%9A%E5%BD%93%E8%B0%88%E8%AE%BA%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E6%88%91%E4%BB%AC%E5%88%B0%E5%BA%95%E5%9C%A8%E8%B0%88%E8%AE%BA%E4%BB%80%E4%B9%88%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="04-理论一：当谈论面向对象的时候，我们到底在谈论什么？"><a href="#04-理论一：当谈论面向对象的时候，我们到底在谈论什么？" class="headerlink" title="04. 理论一：当谈论面向对象的时候，我们到底在谈论什么？"></a>04. 理论一：当谈论面向对象的时候，我们到底在谈论什么？</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306281645110.jpeg" alt="a person on a snowboard in the snow"></p>
-<h2 id="什么是面向对象编程和面向对象编程语言"><a href="#什么是面向对象编程和面向对象编程语言" class="headerlink" title="什么是面向对象编程和面向对象编程语言"></a>什么是面向对象编程和面向对象编程语言</h2><p>面向对象编程是一种编程范式或编程风格。它以类或对象作为组织代码的基本单元，并将封装、抽象、继承、多态四个特性，作为代码设计和实现的基石 。</p>
-<p>面向对象编程语言是支持类或对象的语法机制，并有现成的语法机制，能方便地实现面向对象编程四大特性（封装、抽象、继承、多态）的编程语言。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">面向对象编程是一种编程范式或编程风格。它以类或对象作为组织代码的基本单元，并将封装、抽象、继承、多态四个特性，作为代码设计和实现的基石 。</span><br><span class="line">面向对象编程语言是支持类或对象的语法机制，并有现成的语法机制，能方便地实现面向对象编程四大特性（封装、抽象、继承、多态）的编程语言。</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="如何判断某编程语言是否是面向对象编程语言？"><a href="#如何判断某编程语言是否是面向对象编程语言？" class="headerlink" title="如何判断某编程语言是否是面向对象编程语言？"></a>如何判断某编程语言是否是面向对象编程语言？</h2><p>只要某种编程语言支持类或对象的语法概念，并且以此作为组织代码的基本单元，那就可以被粗略地认为它就是面向对象编程语言了。至于是否有现成的语法机制，完全地支持了面向对象编程的四大特性、是否对四大特性有所取舍和优化，可以不作为判定的标准。基于此，我们才有了前面的说法，按照严格的定义，很多语言都不能算得上面向对象编程语言，但按照不严格的定义来讲，现在流行的大部分编程语言都是面向对象编程语言。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">如果按照严格的的定义，需要有现成的语法支持类、对象、四大特性才能叫作面向对象编程语言。如果放宽要求的话，只要某种编程语言支持类、对象语法机制，那基本上就可以说这种编程语言是面向对象编程语言了，不一定非得要求具有所有的四大特性。</span><br></pre></td></tr></table></figure>
-
-<h2 id="什么是面向对象分析和面向对象设计？"><a href="#什么是面向对象分析和面向对象设计？" class="headerlink" title="什么是面向对象分析和面向对象设计？"></a>什么是面向对象分析和面向对象设计？</h2><p>OOA和OOD。</p>
-<p>OOA、OOD、OOP 三个连在一起就是面向对象分析、设计、编程（实现），正好是面向对象软件开发要经历的三个阶段。</p>
-<p>是因为我们是围绕着对象或类来做需求分析和设计的。分析和设计两个阶段最终的产出是类的设计，包括程序被拆解为哪些类，每个类有哪些属性方法，类与类之间如何交互等等。它们比其他的分析和设计更加具体、更加落地、更加贴近编码，更能够顺利地过渡到面向对象编程环节。这也是面向对象分析和设计，与其他分析和设计最大的不同点。</p>
-<p>面向对象分析就是要搞清楚做什么，面向对象设计就是要搞清楚怎么做，面向对象编程就是将分析和设计的的结果翻译成代码的过程。</p>
-<h2 id="什么是UML？我们是否需要UML？"><a href="#什么是UML？我们是否需要UML？" class="headerlink" title="什么是UML？我们是否需要UML？"></a>什么是UML？我们是否需要UML？</h2><p>UML（Unified Model Language），统一建模语言。</p>
-<p>实际上，UML 是一种非常复杂的东西。它不仅仅包含我们常提到类图，还有用例图、顺序图、活动图、状态图、组件图等。</p>
-<p>类图，学习成本也是很高的。就单说类之间的关系，UML 就定义了很多种，比如泛化、实现、关联、聚合、组合、依赖等。</p>
-<p>UML 作为一种沟通工具，即便你能完全按照 UML 规范来画类图，可对于不熟悉的人来说，看懂的成本也还是很高的。</p>
-<p>UML 在互联网公司的项目开发中，用处可能并不大。为了文档化软件设计或者方便讨论软件设计，大部分情况下，我们随手画个不那么规范的草图，能够达意，方便沟通就够了，而完全按照 UML 规范来将草图标准化，所付出的代价是不值得的。</p>
-]]></content>
-      <categories>
-        <category>设计模式</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>面向对象</tag>
       </tags>
   </entry>
   <entry>
@@ -716,41 +734,6 @@
       </tags>
   </entry>
   <entry>
-    <title>理论三：面向对象相比面向过程有哪些优势？面向过程真的过时了吗？</title>
-    <url>/2023/06/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E%E3%80%9106.%E7%90%86%E8%AE%BA%E4%B8%89%EF%BC%9A%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9B%B8%E6%AF%94%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E6%9C%89%E5%93%AA%E4%BA%9B%E4%BC%98%E5%8A%BF%EF%BC%9F%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E7%9C%9F%E7%9A%84%E8%BF%87%E6%97%B6%E4%BA%86%E5%90%97%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="06-理论三：面向对象相比面向过程有哪些优势？面向过程真的过时了吗？"><a href="#06-理论三：面向对象相比面向过程有哪些优势？面向过程真的过时了吗？" class="headerlink" title="06 理论三：面向对象相比面向过程有哪些优势？面向过程真的过时了吗？"></a>06 理论三：面向对象相比面向过程有哪些优势？面向过程真的过时了吗？</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306281722422.jpeg" alt="a close up of a palm tree with clouds in the background"></p>
-<p>编程范式：面向过程编程和函数式编程；</p>
-<p>面向对象和面向过程的区别，<strong>总以为使用面向对象编程语言来做开发，就是在进行面向对象编程了</strong>。而实际上，他们只是在用面向对象编程语言，编写面向过程风格的代码而已，并没有发挥面向对象编程的优势。（说的就是我！！！！）</p>
-<p>这节针对的几个问题：</p>
-<ol>
-<li>什么是面向过程编程与面向过程编程语言？</li>
-<li></li>
-<li>为什么说面向对象编程语言比面向过程编程语言更高级？</li>
-<li>有哪些看似是面向对象实际是面向过程风格的代码？</li>
-<li>在面向对象编程中，为什么容易写出面向过程风格的代码？</li>
-<li>面向过程编程和面向过程编程语言就真的无用武之地了吗？</li>
-</ol>
-<h2 id="什么是面向过程编程和面向过程编程语言？"><a href="#什么是面向过程编程和面向过程编程语言？" class="headerlink" title="什么是面向过程编程和面向过程编程语言？"></a>什么是面向过程编程和面向过程编程语言？</h2><blockquote>
-<p>回顾面向对象编程和面向对象编程语言：</p>
-<p>面向对象编程是一种编程范式或编程风格。它以类或对象作为组织代码的基本单元，并将封装、抽象、继承、多态四个特性，作为代码设计和实现的基石 。</p>
-<p>面向对象编程语言是支持类或对象的语法机制，并有现成的语法机制，能方便地实现面向对象编程四大特性（封装、抽象、继承、多态）的编程语言。</p>
-</blockquote>
-<p>面向过程编程也是一种编程范式或编程风格。它以过程（可以理解为方法、函数、操作）作为组织代码的基本单元，以数据（可以理解为成员变量、属性）与方法相分离为最主要的特点。面向过程风格是一种流程化的编程风格，通过拼接一组顺序执行的方法来操作数据完成一项功能。</p>
-<p>面向过程编程语言首先是一种编程语言。它最大的特点是不支持类和对象两个语法概念，不支持丰富的面向对象编程特性（比如继承、多态、封装），仅支持面向过程编程。</p>
-<h2 id="面向对象编程相比面向过程编程有哪些优势？"><a href="#面向对象编程相比面向过程编程有哪些优势？" class="headerlink" title="面向对象编程相比面向过程编程有哪些优势？"></a>面向对象编程相比面向过程编程有哪些优势？</h2><ul>
-<li>OOP 更加能够应对大规模复杂程序的开发、</li>
-<li>OOP 风格的代码更易复用、易扩展、易维护。（原因：封装、抽象、继承、多态）</li>
-<li>OOP 语言更加人性化、更加高级、更加智能</li>
-</ul>
-]]></content>
-      <categories>
-        <category>设计模式</category>
-      </categories>
-      <tags>
-        <tag>面向对象</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>理论四：哪些代码设计看似是面向对象，实际是面向过程的？？面向过程真的过时了吗？</title>
     <url>/2023/06/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E%E3%80%9107.%E7%90%86%E8%AE%BA%E5%9B%9B%EF%BC%9A%E5%93%AA%E4%BA%9B%E4%BB%A3%E7%A0%81%E8%AE%BE%E8%AE%A1%E7%9C%8B%E4%BC%BC%E6%98%AF%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%8C%E5%AE%9E%E9%99%85%E6%98%AF%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E7%9A%84%EF%BC%9F/</url>
     <content><![CDATA[<h1 id="07-理论四：哪些代码设计看似是面向对象，实际是面向过程的？"><a href="#07-理论四：哪些代码设计看似是面向对象，实际是面向过程的？" class="headerlink" title="07 理论四：哪些代码设计看似是面向对象，实际是面向过程的？"></a>07 理论四：哪些代码设计看似是面向对象，实际是面向过程的？</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306281723961.jpeg" alt="a group of people hiking up the side of a mountain"></p>
@@ -803,46 +786,87 @@
       </tags>
   </entry>
   <entry>
-    <title>理论六：为什么基于接口而非实现编程？有必要为每个类都定义接口吗？</title>
-    <url>/2023/07/07/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E%E3%80%9109.%E7%90%86%E8%AE%BA%E5%85%AD%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9F%BA%E4%BA%8E%E6%8E%A5%E5%8F%A3%E8%80%8C%E9%9D%9E%E5%AE%9E%E7%8E%B0%E7%BC%96%E7%A8%8B%EF%BC%9F%E6%9C%89%E5%BF%85%E8%A6%81%E4%B8%BA%E6%AF%8F%E4%B8%AA%E7%B1%BB%E9%83%BD%E5%AE%9A%E4%B9%89%E6%8E%A5%E5%8F%A3%E5%90%97%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="09-理论六：为什么基于接口而非实现编程？有必要为每个类都定义接口吗？"><a href="#09-理论六：为什么基于接口而非实现编程？有必要为每个类都定义接口吗？" class="headerlink" title="09. 理论六：为什么基于接口而非实现编程？有必要为每个类都定义接口吗？"></a>09. 理论六：为什么基于接口而非实现编程？有必要为每个类都定义接口吗？</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307071102570.jpeg" alt="a drawing of a red, green, and blue string"></p>
-<p>一个重要的原则：</p>
-<p>基于接口而非实现编程</p>
-<h2 id="如何理解原则中的“接口”二字"><a href="#如何理解原则中的“接口”二字" class="headerlink" title="如何理解原则中的“接口”二字?"></a>如何理解原则中的“接口”二字?</h2><p>从本质上来看，“接口”就是一组“协议”或者“约定”，是功能提供者提供给使用者的一个“功能列表”。如果落实到具体的编码，“基于接口而非实现编程”这条原则中的“接口”，可以理解为编程语言中的接口或者抽象类。</p>
-<p>这条原则能非常有效地提高代码质量，之所以这么说，那是因为，应用这条原则，可以将接口和实现相分离，封装不稳定的实现，暴露稳定的接口。上游系统面向接口而非实现编程，不依赖不稳定的实现细节，这样当实现发生变化的时候，上游系统的代码基本上不需要做改动，以此来降低耦合性，提高扩展性。</p>
-<p>“基于接口而非实现编程”这条原则的另一个表述方式，是“基于抽象而非实现编程”</p>
-<p><strong>越抽象、越顶层、越脱离具体某一实现的设计，越能提高代码的灵活性，越能应对未来的需求变化。好的代码设计，不仅能应对当下的需求，而且在将来需求发生变化的时候，仍然能够在不破坏原有代码设计的情况下灵活应对。</strong>而抽象就是提高代码扩展性、灵活性、可维护性最有效的手段之一。</p>
-<h2 id="如何将这条原则应用到实战中？"><a href="#如何将这条原则应用到实战中？" class="headerlink" title="如何将这条原则应用到实战中？"></a>如何将这条原则应用到实战中？</h2><p>结合实例：</p>
-<p>以下为大量拷贝内容，防止之后复习看不懂：</p>
-<p>假设我们的系统中有很多涉及图片处理和存储的业务逻辑。图片经过处理之后被上传到阿里云上。为了代码复用，我们封装了图片存储相关的代码逻辑，提供了一个统一的 AliyunImageStore 类，供整个系统来使用。具体的代码实现如下所示：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AliyunImageStore</span> &#123;</span><br><span class="line">  <span class="comment">//...省略属性、构造函数等...</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">createBucketIfNotExisting</span><span class="params">(String bucketName)</span> &#123;</span><br><span class="line">    <span class="comment">// ...创建bucket代码逻辑...</span></span><br><span class="line">    <span class="comment">// ...失败会抛出异常..</span></span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> String <span class="title function_">generateAccessToken</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">// ...根据accesskey/secrectkey等生成access token</span></span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> String <span class="title function_">uploadToAliyun</span><span class="params">(Image image, String bucketName, String accessToken)</span> &#123;</span><br><span class="line">    <span class="comment">//...上传图片到阿里云...</span></span><br><span class="line">    <span class="comment">//...返回图片存储在阿里云上的地址(url）...</span></span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> Image <span class="title function_">downloadFromAliyun</span><span class="params">(String url, String accessToken)</span> &#123;</span><br><span class="line">    <span class="comment">//...从阿里云下载图片...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// AliyunImageStore类的使用举例</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ImageProcessingJob</span> &#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">BUCKET_NAME</span> <span class="operator">=</span> <span class="string">&quot;ai_images_bucket&quot;</span>;</span><br><span class="line">  <span class="comment">//...省略其他无关代码...</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">process</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">Image</span> <span class="variable">image</span> <span class="operator">=</span> ...; <span class="comment">//处理图片，并封装为Image对象</span></span><br><span class="line">    <span class="type">AliyunImageStore</span> <span class="variable">imageStore</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AliyunImageStore</span>(<span class="comment">/*省略参数*/</span>);</span><br><span class="line">    imageStore.createBucketIfNotExisting(BUCKET_NAME);</span><br><span class="line">    <span class="type">String</span> <span class="variable">accessToken</span> <span class="operator">=</span> imageStore.generateAccessToken();</span><br><span class="line">    imagestore.uploadToAliyun(image, BUCKET_NAME, accessToken);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>整个上传流程包含三个步骤：创建 bucket（你可以简单理解为存储目录）、生成 access token 访问凭证、携带 access token 上传图片到指定的 bucket 中。代码实现非常简单，类中的几个方法定义得都很干净，用起来也很清晰，乍看起来没有太大问题，完全能满足我们将图片存储在阿里云的业务需求。</p>
-<p>不过，软件开发中唯一不变的就是变化。过了一段时间后，我们自建了私有云，不再将图片存储到阿里云了，而是将图片存储到自建私有云上。为了满足这样一个需求的变化，我们该如何修改代码呢？</p>
-<p>我们需要重新设计实现一个存储图片到私有云的 PrivateImageStore 类，并用它替换掉项目中所有的 AliyunImageStore 类对象。这样的修改听起来并不复杂，只是简单替换而已，对整个代码的改动并不大。不过，我们经常说，“细节是魔鬼”。这句话在软件开发中特别适用。实际上，刚刚的设计实现方式，就隐藏了很多容易出问题的“魔鬼细节”，我们一块来看看都有哪些。</p>
-<p>新的 PrivateImageStore 类需要设计实现哪些方法，才能在尽量最小化代码修改的情况下，替换掉 AliyunImageStore 类呢？这就要求我们必须将 AliyunImageStore 类中所定义的所有 public 方法，在 PrivateImageStore 类中都逐一定义并重新实现一遍。而这样做就会存在一些问题，我总结了下面两点。</p>
-<p>首先，AliyunImageStore 类中有些函数命名暴露了实现细节，比如，uploadToAliyun() 和 downloadFromAliyun()。如果开发这个功能的同事没有接口意识、抽象思维，那这种暴露实现细节的命名方式就不足为奇了，毕竟最初我们只考虑将图片存储在阿里云上。而我们把这种包含“aliyun”字眼的方法，照抄到 PrivateImageStore 类中，显然是不合适的。如果我们在新类中重新命名 uploadToAliyun()、downloadFromAliyun() 这些方法，那就意味着，我们要修改项目中所有使用到这两个方法的代码，代码修改量可能就会很大。</p>
-<p>其次，将图片存储到阿里云的流程，跟存储到私有云的流程，可能并不是完全一致的。比如，阿里云的图片上传和下载的过程中，需要生产 access token，而私有云不需要 access token。一方面，AliyunImageStore 中定义的 generateAccessToken() 方法不能照抄到 PrivateImageStore 中；另一方面，我们在使用 AliyunImageStore 上传、下载图片的时候，代码中用到了 generateAccessToken() 方法，如果要改为私有云的上传下载流程，这些代码都需要做调整。</p>
-<p>那这两个问题该如何解决呢？解决这个问题的根本方法就是，在编写代码的时候，要遵从“基于接口而非实现编程”的原则，具体来讲，我们需要做到下面这 3 点。</p>
-<ol>
-<li>函数的命名不能暴露任何实现细节。比如，前面提到的 uploadToAliyun() 就不符合要求，应该改为去掉 aliyun 这样的字眼，改为更加抽象的命名方式，比如：upload()。</li>
-<li>封装具体的实现细节。比如，跟阿里云相关的特殊上传（或下载）流程不应该暴露给调用者。我们对上传（或下载）流程进行封装，对外提供一个包裹所有上传（或下载）细节的方法，给调用者使用。</li>
-<li>为实现类定义抽象的接口。具体的实现类都依赖统一的接口定义，遵从一致的上传功能协议。使用者依赖接口，而不是具体的实现类来编程。</li>
+    <title>理论五：接口vs抽象类的区别？如何用普通的类模拟抽象类和接口？</title>
+    <url>/2023/07/07/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E%E3%80%9108.%E7%90%86%E8%AE%BA%E4%BA%94%EF%BC%9A%E6%8E%A5%E5%8F%A3vs%E6%8A%BD%E8%B1%A1%E7%B1%BB%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F%E5%A6%82%E4%BD%95%E7%94%A8%E6%99%AE%E9%80%9A%E7%9A%84%E7%B1%BB%E6%A8%A1%E6%8B%9F%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3%EF%BC%9F)/</url>
+    <content><![CDATA[<h1 id="08-理论五：接口vs抽象类的区别？如何用普通的类模拟抽象类和接口？"><a href="#08-理论五：接口vs抽象类的区别？如何用普通的类模拟抽象类和接口？" class="headerlink" title="08. 理论五：接口vs抽象类的区别？如何用普通的类模拟抽象类和接口？"></a>08. 理论五：接口vs抽象类的区别？如何用普通的类模拟抽象类和接口？</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307071059946.jpeg" alt="an aerial view of a beach with a body of water"></p>
+<p>我们可以使用接口来实现面向对象的抽象特性、多态特性和基于接口而非实现的设计原则，使用抽象类来实现面向对象的继承特性和模板设计模式等等。</p>
+<h2 id="什么是抽象类和接口？区别在哪里？"><a href="#什么是抽象类和接口？区别在哪里？" class="headerlink" title="什么是抽象类和接口？区别在哪里？"></a>什么是抽象类和接口？区别在哪里？</h2><p>抽象类具有哪些特性:</p>
+<ul>
+<li>抽象类不允许被实例化，只能被继承。也就是说，你不能 new 一个抽象类的对象出来（Logger logger &#x3D; new Logger(…); 会报编译错误）。</li>
+<li>抽象类可以包含属性和方法。方法既可以包含代码实现（比如 Logger 中的 log() 方法），也可以不包含代码实现（比如 Logger 中的 doLog() 方法）。不包含代码实现的方法叫作抽象方法。</li>
+<li>子类继承抽象类，必须实现抽象类中的所有抽象方法。对应到例子代码中就是，所有继承 Logger 抽象类的子类，都必须重写 doLog() 方法。</li>
+</ul>
+<p>接口的三个特性：</p>
+<ul>
+<li>接口不能包含属性（也就是成员变量）。（只有类变量：public static final）</li>
+<li>接口只能声明方法，方法不能包含代码实现。</li>
+<li>类实现接口的时候，必须实现接口中声明的所有方法。</li>
+</ul>
+<p>前面我们讲了抽象类和接口的定义，以及各自的语法特性。从语法特性上对比，这两者有比较大的区别，比如抽象类中可以定义属性、方法的实现，而接口中不能定义属性，方法也不能包含代码实现等等。除了语法特性，从设计的角度，两者也有比较大的区别。</p>
+<p>抽象类实际上就是类，只不过是一种特殊的类，这种类不能被实例化为对象，只能被子类继承。我们知道，继承关系是一种 is-a 的关系，那抽象类既然属于类，也表示一种 is-a 的关系。相对于抽象类的 is-a 关系来说，接口表示一种 has-a 关系，表示具有某些功能。对于接口，有一个更加形象的叫法，那就是协议（contract）。</p>
+<h2 id="抽象类和接口能解决什么编程问题？"><a href="#抽象类和接口能解决什么编程问题？" class="headerlink" title="抽象类和接口能解决什么编程问题？"></a>抽象类和接口能解决什么编程问题？</h2><p>抽象类也是为代码复用而生的。多个子类可以继承抽象类中定义的属性和方法，避免在子类中，重复编写相同的代码。</p>
+<p>不过，既然继承本身就能达到代码复用的目的，而继承也并不要求父类一定是抽象类，那我们不使用抽象类，照样也可以实现继承和复用。从这个角度上来讲，我们貌似并不需要抽象类这种语法呀。那抽象类除了解决代码复用的问题，还有什么其他存在的意义吗？</p>
+<p>可以更方便优雅地处理业务。</p>
+<p>我们为什么需要接口？它能够解决什么编程问题？</p>
+<p>，抽象类更多的是为了代码复用，而接口就更侧重于解耦。接口是对行为的一种抽象，相当于一组协议或者契约，你可以联想类比一下 API 接口。调用者只需要关注抽象的接口，不需要了解具体的实现，具体的实现代码对调用者透明。接口实现了约定和实现相分离，可以降低代码间的耦合性，提高代码的可扩展性。</p>
+<p>实际上，接口是一个比抽象类应用更加广泛、更加重要的知识点。</p>
+<h2 id="如何决定该用抽象类还是接口？"><a href="#如何决定该用抽象类还是接口？" class="headerlink" title="如何决定该用抽象类还是接口？"></a>如何决定该用抽象类还是接口？</h2><p>实际上，判断的标准很简单。如果我们要表示一种 is-a 的关系，并且是为了解决代码复用的问题，我们就用抽象类；如果我们要表示一种 has-a 关系，并且是为了解决抽象而非代码复用的问题，那我们就可以使用接口。</p>
+<p>从类的继承层次上来看，抽象类是一种自下而上的设计思路，先有子类的代码重复，然后再抽象成上层的父类（也就是抽象类）。而接口正好相反，它是一种自上而下的设计思路。我们在编程的时候，一般都是先设计接口，再去考虑具体的实现。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
+<li><p>抽象类和接口的语法特性</p>
+<p>抽象类不允许被实例化，只能被继承。它可以包含属性和方法。方法既可以包含代码实现，也可以不包含代码实现。不包含代码实现的方法叫作抽象方法。子类继承抽象类，必须实现抽象类中的所有抽象方法。接口不能包含属性，只能声明方法，方法不能包含代码实现。类实现接口的时候，必须实现接口中声明的所有方法。</p>
+</li>
+<li><p>抽象类和接口存在的意义</p>
+<p>抽象类是对成员变量和方法的抽象，是一种 is-a 关系，是为了解决代码复用问题。接口仅仅是对方法的抽象，是一种 has-a 关系，表示具有某一组行为特性，是为了解决解耦问题，隔离接口和具体的实现，提高代码的扩展性。</p>
+</li>
+<li><p>抽象类和接口的应用场景区别</p>
+<p>什么时候该用抽象类？什么时候该用接口？实际上，判断的标准很简单。如果要表示一种 is-a 的关系，并且是为了解决代码复用问题，我们就用抽象类；如果要表示一种 has-a 关系，并且是为了解决抽象而非代码复用问题，那我们就用接口。</p>
+</li>
 </ol>
-<p>我们按照这个思路，把代码重构一下。重构后的代码如下所示：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">ImageStore</span> &#123;</span><br><span class="line">  String <span class="title function_">upload</span><span class="params">(Image image, String bucketName)</span>;</span><br><span class="line">  Image <span class="title function_">download</span><span class="params">(String url)</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AliyunImageStore</span> <span class="keyword">implements</span> <span class="title class_">ImageStore</span> &#123;</span><br><span class="line">  <span class="comment">//...省略属性、构造函数等...</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> String <span class="title function_">upload</span><span class="params">(Image image, String bucketName)</span> &#123;</span><br><span class="line">    createBucketIfNotExisting(bucketName);</span><br><span class="line">    <span class="type">String</span> <span class="variable">accessToken</span> <span class="operator">=</span> generateAccessToken();</span><br><span class="line">    <span class="comment">//...上传图片到阿里云...</span></span><br><span class="line">    <span class="comment">//...返回图片在阿里云上的地址(url)...</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> Image <span class="title function_">download</span><span class="params">(String url)</span> &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">accessToken</span> <span class="operator">=</span> generateAccessToken();</span><br><span class="line">    <span class="comment">//...从阿里云下载图片...</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">createBucketIfNotExisting</span><span class="params">(String bucketName)</span> &#123;</span><br><span class="line">    <span class="comment">// ...创建bucket...</span></span><br><span class="line">    <span class="comment">// ...失败会抛出异常..</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> String <span class="title function_">generateAccessToken</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">// ...根据accesskey/secrectkey等生成access token</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 上传下载流程改变：私有云不需要支持access token</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PrivateImageStore</span> <span class="keyword">implements</span> <span class="title class_">ImageStore</span>  &#123;</span><br><span class="line">  <span class="keyword">public</span> String <span class="title function_">upload</span><span class="params">(Image image, String bucketName)</span> &#123;</span><br><span class="line">    createBucketIfNotExisting(bucketName);</span><br><span class="line">    <span class="comment">//...上传图片到私有云...</span></span><br><span class="line">    <span class="comment">//...返回图片的url...</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> Image <span class="title function_">download</span><span class="params">(String url)</span> &#123;</span><br><span class="line">    <span class="comment">//...从私有云下载图片...</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">createBucketIfNotExisting</span><span class="params">(String bucketName)</span> &#123;</span><br><span class="line">    <span class="comment">// ...创建bucket...</span></span><br><span class="line">    <span class="comment">// ...失败会抛出异常..</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ImageStore的使用举例</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ImageProcessingJob</span> &#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">BUCKET_NAME</span> <span class="operator">=</span> <span class="string">&quot;ai_images_bucket&quot;</span>;</span><br><span class="line">  <span class="comment">//...省略其他无关代码...</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">process</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">Image</span> <span class="variable">image</span> <span class="operator">=</span> ...;<span class="comment">//处理图片，并封装为Image对象</span></span><br><span class="line">    <span class="type">ImageStore</span> <span class="variable">imageStore</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">PrivateImageStore</span>(...);</span><br><span class="line">    imagestore.upload(image, BUCKET_NAME);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>除此之外，很多人在定义接口的时候，希望通过实现类来反推接口的定义。先把实现类写好，然后看实现类中有哪些方法，照抄到接口定义中。如果按照这种思考方式，就有可能导致接口定义不够抽象，依赖具体的实现。这样的接口设计就没有意义了。不过，如果你觉得这种思考方式更加顺畅，那也没问题，只是将实现类的方法搬移到接口定义中的时候，要有选择性的搬移，不要将跟具体实现相关的方法搬移到接口中，比如 AliyunImageStore 中的 generateAccessToken() 方法。总结一下，我们在做软件开发的时候，一定要有抽象意识、封装意识、接口意识。在定义接口的时候，不要暴露任何实现细节。接口的定义只表明做什么，而不是怎么做。而且，在设计接口的时候，我们要多思考一下，这样的接口设计是否足够通用，是否能够做到在替换具体的接口实现的时候，不需要任何接口定义的改动。</p>
-<h2 id="是否需要为每个类定义接口？"><a href="#是否需要为每个类定义接口？" class="headerlink" title="是否需要为每个类定义接口？"></a>是否需要为每个类定义接口？</h2><p>这条原则的设计初衷是，将接口和实现相分离，封装不稳定的实现，暴露稳定的接口。上游系统面向接口而非实现编程，不依赖不稳定的实现细节，这样当实现发生变化的时候，上游系统的代码基本上不需要做改动，以此来降低代码间的耦合性，提高代码的扩展性。</p>
-<p>从这个设计初衷上来看，如果在我们的业务场景中，某个功能只有一种实现方式，未来也不可能被其他实现方式替换，那我们就没有必要为其设计接口，</p>
-<p>越是不稳定的系统，我们越是要在代码的扩展性、维护性上下功夫。相反，如果某个系统特别稳定，在开发完之后，基本上不需要做维护，那我们就没有必要为其扩展性，投入不必要的开发时间。</p>
 ]]></content>
       <categories>
         <category>设计模式</category>
       </categories>
       <tags>
+        <tag>面向对象</tag>
         <tag>接口</tag>
+        <tag>抽象类</tag>
         <tag>设计模式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>理论三：面向对象相比面向过程有哪些优势？面向过程真的过时了吗？</title>
+    <url>/2023/06/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E%E3%80%9106.%E7%90%86%E8%AE%BA%E4%B8%89%EF%BC%9A%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9B%B8%E6%AF%94%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E6%9C%89%E5%93%AA%E4%BA%9B%E4%BC%98%E5%8A%BF%EF%BC%9F%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E7%9C%9F%E7%9A%84%E8%BF%87%E6%97%B6%E4%BA%86%E5%90%97%EF%BC%9F/</url>
+    <content><![CDATA[<h1 id="06-理论三：面向对象相比面向过程有哪些优势？面向过程真的过时了吗？"><a href="#06-理论三：面向对象相比面向过程有哪些优势？面向过程真的过时了吗？" class="headerlink" title="06 理论三：面向对象相比面向过程有哪些优势？面向过程真的过时了吗？"></a>06 理论三：面向对象相比面向过程有哪些优势？面向过程真的过时了吗？</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306281722422.jpeg" alt="a close up of a palm tree with clouds in the background"></p>
+<p>编程范式：面向过程编程和函数式编程；</p>
+<p>面向对象和面向过程的区别，<strong>总以为使用面向对象编程语言来做开发，就是在进行面向对象编程了</strong>。而实际上，他们只是在用面向对象编程语言，编写面向过程风格的代码而已，并没有发挥面向对象编程的优势。（说的就是我！！！！）</p>
+<p>这节针对的几个问题：</p>
+<ol>
+<li>什么是面向过程编程与面向过程编程语言？</li>
+<li></li>
+<li>为什么说面向对象编程语言比面向过程编程语言更高级？</li>
+<li>有哪些看似是面向对象实际是面向过程风格的代码？</li>
+<li>在面向对象编程中，为什么容易写出面向过程风格的代码？</li>
+<li>面向过程编程和面向过程编程语言就真的无用武之地了吗？</li>
+</ol>
+<h2 id="什么是面向过程编程和面向过程编程语言？"><a href="#什么是面向过程编程和面向过程编程语言？" class="headerlink" title="什么是面向过程编程和面向过程编程语言？"></a>什么是面向过程编程和面向过程编程语言？</h2><blockquote>
+<p>回顾面向对象编程和面向对象编程语言：</p>
+<p>面向对象编程是一种编程范式或编程风格。它以类或对象作为组织代码的基本单元，并将封装、抽象、继承、多态四个特性，作为代码设计和实现的基石 。</p>
+<p>面向对象编程语言是支持类或对象的语法机制，并有现成的语法机制，能方便地实现面向对象编程四大特性（封装、抽象、继承、多态）的编程语言。</p>
+</blockquote>
+<p>面向过程编程也是一种编程范式或编程风格。它以过程（可以理解为方法、函数、操作）作为组织代码的基本单元，以数据（可以理解为成员变量、属性）与方法相分离为最主要的特点。面向过程风格是一种流程化的编程风格，通过拼接一组顺序执行的方法来操作数据完成一项功能。</p>
+<p>面向过程编程语言首先是一种编程语言。它最大的特点是不支持类和对象两个语法概念，不支持丰富的面向对象编程特性（比如继承、多态、封装），仅支持面向过程编程。</p>
+<h2 id="面向对象编程相比面向过程编程有哪些优势？"><a href="#面向对象编程相比面向过程编程有哪些优势？" class="headerlink" title="面向对象编程相比面向过程编程有哪些优势？"></a>面向对象编程相比面向过程编程有哪些优势？</h2><ul>
+<li>OOP 更加能够应对大规模复杂程序的开发、</li>
+<li>OOP 风格的代码更易复用、易扩展、易维护。（原因：封装、抽象、继承、多态）</li>
+<li>OOP 语言更加人性化、更加高级、更加智能</li>
+</ul>
+]]></content>
+      <categories>
+        <category>设计模式</category>
+      </categories>
+      <tags>
+        <tag>面向对象</tag>
       </tags>
   </entry>
   <entry>
@@ -885,6 +909,49 @@
       </categories>
       <tags>
         <tag>面向对象</tag>
+        <tag>设计模式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>理论六：为什么基于接口而非实现编程？有必要为每个类都定义接口吗？</title>
+    <url>/2023/07/07/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E%E3%80%9109.%E7%90%86%E8%AE%BA%E5%85%AD%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9F%BA%E4%BA%8E%E6%8E%A5%E5%8F%A3%E8%80%8C%E9%9D%9E%E5%AE%9E%E7%8E%B0%E7%BC%96%E7%A8%8B%EF%BC%9F%E6%9C%89%E5%BF%85%E8%A6%81%E4%B8%BA%E6%AF%8F%E4%B8%AA%E7%B1%BB%E9%83%BD%E5%AE%9A%E4%B9%89%E6%8E%A5%E5%8F%A3%E5%90%97%EF%BC%9F/</url>
+    <content><![CDATA[<h1 id="09-理论六：为什么基于接口而非实现编程？有必要为每个类都定义接口吗？"><a href="#09-理论六：为什么基于接口而非实现编程？有必要为每个类都定义接口吗？" class="headerlink" title="09. 理论六：为什么基于接口而非实现编程？有必要为每个类都定义接口吗？"></a>09. 理论六：为什么基于接口而非实现编程？有必要为每个类都定义接口吗？</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307071102570.jpeg" alt="a drawing of a red, green, and blue string"></p>
+<p>一个重要的原则：</p>
+<p>基于接口而非实现编程</p>
+<h2 id="如何理解原则中的“接口”二字"><a href="#如何理解原则中的“接口”二字" class="headerlink" title="如何理解原则中的“接口”二字?"></a>如何理解原则中的“接口”二字?</h2><p>从本质上来看，“接口”就是一组“协议”或者“约定”，是功能提供者提供给使用者的一个“功能列表”。如果落实到具体的编码，“基于接口而非实现编程”这条原则中的“接口”，可以理解为编程语言中的接口或者抽象类。</p>
+<p>这条原则能非常有效地提高代码质量，之所以这么说，那是因为，应用这条原则，可以将接口和实现相分离，封装不稳定的实现，暴露稳定的接口。上游系统面向接口而非实现编程，不依赖不稳定的实现细节，这样当实现发生变化的时候，上游系统的代码基本上不需要做改动，以此来降低耦合性，提高扩展性。</p>
+<p>“基于接口而非实现编程”这条原则的另一个表述方式，是“基于抽象而非实现编程”</p>
+<p><strong>越抽象、越顶层、越脱离具体某一实现的设计，越能提高代码的灵活性，越能应对未来的需求变化。好的代码设计，不仅能应对当下的需求，而且在将来需求发生变化的时候，仍然能够在不破坏原有代码设计的情况下灵活应对。</strong>而抽象就是提高代码扩展性、灵活性、可维护性最有效的手段之一。</p>
+<h2 id="如何将这条原则应用到实战中？"><a href="#如何将这条原则应用到实战中？" class="headerlink" title="如何将这条原则应用到实战中？"></a>如何将这条原则应用到实战中？</h2><p>结合实例：</p>
+<p>以下为大量拷贝内容，防止之后复习看不懂：</p>
+<p>假设我们的系统中有很多涉及图片处理和存储的业务逻辑。图片经过处理之后被上传到阿里云上。为了代码复用，我们封装了图片存储相关的代码逻辑，提供了一个统一的 AliyunImageStore 类，供整个系统来使用。具体的代码实现如下所示：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AliyunImageStore</span> &#123;</span><br><span class="line">  <span class="comment">//...省略属性、构造函数等...</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">createBucketIfNotExisting</span><span class="params">(String bucketName)</span> &#123;</span><br><span class="line">    <span class="comment">// ...创建bucket代码逻辑...</span></span><br><span class="line">    <span class="comment">// ...失败会抛出异常..</span></span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> String <span class="title function_">generateAccessToken</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">// ...根据accesskey/secrectkey等生成access token</span></span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> String <span class="title function_">uploadToAliyun</span><span class="params">(Image image, String bucketName, String accessToken)</span> &#123;</span><br><span class="line">    <span class="comment">//...上传图片到阿里云...</span></span><br><span class="line">    <span class="comment">//...返回图片存储在阿里云上的地址(url）...</span></span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> Image <span class="title function_">downloadFromAliyun</span><span class="params">(String url, String accessToken)</span> &#123;</span><br><span class="line">    <span class="comment">//...从阿里云下载图片...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// AliyunImageStore类的使用举例</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ImageProcessingJob</span> &#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">BUCKET_NAME</span> <span class="operator">=</span> <span class="string">&quot;ai_images_bucket&quot;</span>;</span><br><span class="line">  <span class="comment">//...省略其他无关代码...</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">process</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">Image</span> <span class="variable">image</span> <span class="operator">=</span> ...; <span class="comment">//处理图片，并封装为Image对象</span></span><br><span class="line">    <span class="type">AliyunImageStore</span> <span class="variable">imageStore</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AliyunImageStore</span>(<span class="comment">/*省略参数*/</span>);</span><br><span class="line">    imageStore.createBucketIfNotExisting(BUCKET_NAME);</span><br><span class="line">    <span class="type">String</span> <span class="variable">accessToken</span> <span class="operator">=</span> imageStore.generateAccessToken();</span><br><span class="line">    imagestore.uploadToAliyun(image, BUCKET_NAME, accessToken);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>整个上传流程包含三个步骤：创建 bucket（你可以简单理解为存储目录）、生成 access token 访问凭证、携带 access token 上传图片到指定的 bucket 中。代码实现非常简单，类中的几个方法定义得都很干净，用起来也很清晰，乍看起来没有太大问题，完全能满足我们将图片存储在阿里云的业务需求。</p>
+<p>不过，软件开发中唯一不变的就是变化。过了一段时间后，我们自建了私有云，不再将图片存储到阿里云了，而是将图片存储到自建私有云上。为了满足这样一个需求的变化，我们该如何修改代码呢？</p>
+<p>我们需要重新设计实现一个存储图片到私有云的 PrivateImageStore 类，并用它替换掉项目中所有的 AliyunImageStore 类对象。这样的修改听起来并不复杂，只是简单替换而已，对整个代码的改动并不大。不过，我们经常说，“细节是魔鬼”。这句话在软件开发中特别适用。实际上，刚刚的设计实现方式，就隐藏了很多容易出问题的“魔鬼细节”，我们一块来看看都有哪些。</p>
+<p>新的 PrivateImageStore 类需要设计实现哪些方法，才能在尽量最小化代码修改的情况下，替换掉 AliyunImageStore 类呢？这就要求我们必须将 AliyunImageStore 类中所定义的所有 public 方法，在 PrivateImageStore 类中都逐一定义并重新实现一遍。而这样做就会存在一些问题，我总结了下面两点。</p>
+<p>首先，AliyunImageStore 类中有些函数命名暴露了实现细节，比如，uploadToAliyun() 和 downloadFromAliyun()。如果开发这个功能的同事没有接口意识、抽象思维，那这种暴露实现细节的命名方式就不足为奇了，毕竟最初我们只考虑将图片存储在阿里云上。而我们把这种包含“aliyun”字眼的方法，照抄到 PrivateImageStore 类中，显然是不合适的。如果我们在新类中重新命名 uploadToAliyun()、downloadFromAliyun() 这些方法，那就意味着，我们要修改项目中所有使用到这两个方法的代码，代码修改量可能就会很大。</p>
+<p>其次，将图片存储到阿里云的流程，跟存储到私有云的流程，可能并不是完全一致的。比如，阿里云的图片上传和下载的过程中，需要生产 access token，而私有云不需要 access token。一方面，AliyunImageStore 中定义的 generateAccessToken() 方法不能照抄到 PrivateImageStore 中；另一方面，我们在使用 AliyunImageStore 上传、下载图片的时候，代码中用到了 generateAccessToken() 方法，如果要改为私有云的上传下载流程，这些代码都需要做调整。</p>
+<p>那这两个问题该如何解决呢？解决这个问题的根本方法就是，在编写代码的时候，要遵从“基于接口而非实现编程”的原则，具体来讲，我们需要做到下面这 3 点。</p>
+<ol>
+<li>函数的命名不能暴露任何实现细节。比如，前面提到的 uploadToAliyun() 就不符合要求，应该改为去掉 aliyun 这样的字眼，改为更加抽象的命名方式，比如：upload()。</li>
+<li>封装具体的实现细节。比如，跟阿里云相关的特殊上传（或下载）流程不应该暴露给调用者。我们对上传（或下载）流程进行封装，对外提供一个包裹所有上传（或下载）细节的方法，给调用者使用。</li>
+<li>为实现类定义抽象的接口。具体的实现类都依赖统一的接口定义，遵从一致的上传功能协议。使用者依赖接口，而不是具体的实现类来编程。</li>
+</ol>
+<p>我们按照这个思路，把代码重构一下。重构后的代码如下所示：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">ImageStore</span> &#123;</span><br><span class="line">  String <span class="title function_">upload</span><span class="params">(Image image, String bucketName)</span>;</span><br><span class="line">  Image <span class="title function_">download</span><span class="params">(String url)</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AliyunImageStore</span> <span class="keyword">implements</span> <span class="title class_">ImageStore</span> &#123;</span><br><span class="line">  <span class="comment">//...省略属性、构造函数等...</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> String <span class="title function_">upload</span><span class="params">(Image image, String bucketName)</span> &#123;</span><br><span class="line">    createBucketIfNotExisting(bucketName);</span><br><span class="line">    <span class="type">String</span> <span class="variable">accessToken</span> <span class="operator">=</span> generateAccessToken();</span><br><span class="line">    <span class="comment">//...上传图片到阿里云...</span></span><br><span class="line">    <span class="comment">//...返回图片在阿里云上的地址(url)...</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> Image <span class="title function_">download</span><span class="params">(String url)</span> &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">accessToken</span> <span class="operator">=</span> generateAccessToken();</span><br><span class="line">    <span class="comment">//...从阿里云下载图片...</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">createBucketIfNotExisting</span><span class="params">(String bucketName)</span> &#123;</span><br><span class="line">    <span class="comment">// ...创建bucket...</span></span><br><span class="line">    <span class="comment">// ...失败会抛出异常..</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> String <span class="title function_">generateAccessToken</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">// ...根据accesskey/secrectkey等生成access token</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 上传下载流程改变：私有云不需要支持access token</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PrivateImageStore</span> <span class="keyword">implements</span> <span class="title class_">ImageStore</span>  &#123;</span><br><span class="line">  <span class="keyword">public</span> String <span class="title function_">upload</span><span class="params">(Image image, String bucketName)</span> &#123;</span><br><span class="line">    createBucketIfNotExisting(bucketName);</span><br><span class="line">    <span class="comment">//...上传图片到私有云...</span></span><br><span class="line">    <span class="comment">//...返回图片的url...</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> Image <span class="title function_">download</span><span class="params">(String url)</span> &#123;</span><br><span class="line">    <span class="comment">//...从私有云下载图片...</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">createBucketIfNotExisting</span><span class="params">(String bucketName)</span> &#123;</span><br><span class="line">    <span class="comment">// ...创建bucket...</span></span><br><span class="line">    <span class="comment">// ...失败会抛出异常..</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ImageStore的使用举例</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ImageProcessingJob</span> &#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">BUCKET_NAME</span> <span class="operator">=</span> <span class="string">&quot;ai_images_bucket&quot;</span>;</span><br><span class="line">  <span class="comment">//...省略其他无关代码...</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">process</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">Image</span> <span class="variable">image</span> <span class="operator">=</span> ...;<span class="comment">//处理图片，并封装为Image对象</span></span><br><span class="line">    <span class="type">ImageStore</span> <span class="variable">imageStore</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">PrivateImageStore</span>(...);</span><br><span class="line">    imagestore.upload(image, BUCKET_NAME);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>除此之外，很多人在定义接口的时候，希望通过实现类来反推接口的定义。先把实现类写好，然后看实现类中有哪些方法，照抄到接口定义中。如果按照这种思考方式，就有可能导致接口定义不够抽象，依赖具体的实现。这样的接口设计就没有意义了。不过，如果你觉得这种思考方式更加顺畅，那也没问题，只是将实现类的方法搬移到接口定义中的时候，要有选择性的搬移，不要将跟具体实现相关的方法搬移到接口中，比如 AliyunImageStore 中的 generateAccessToken() 方法。总结一下，我们在做软件开发的时候，一定要有抽象意识、封装意识、接口意识。在定义接口的时候，不要暴露任何实现细节。接口的定义只表明做什么，而不是怎么做。而且，在设计接口的时候，我们要多思考一下，这样的接口设计是否足够通用，是否能够做到在替换具体的接口实现的时候，不需要任何接口定义的改动。</p>
+<h2 id="是否需要为每个类定义接口？"><a href="#是否需要为每个类定义接口？" class="headerlink" title="是否需要为每个类定义接口？"></a>是否需要为每个类定义接口？</h2><p>这条原则的设计初衷是，将接口和实现相分离，封装不稳定的实现，暴露稳定的接口。上游系统面向接口而非实现编程，不依赖不稳定的实现细节，这样当实现发生变化的时候，上游系统的代码基本上不需要做改动，以此来降低代码间的耦合性，提高代码的扩展性。</p>
+<p>从这个设计初衷上来看，如果在我们的业务场景中，某个功能只有一种实现方式，未来也不可能被其他实现方式替换，那我们就没有必要为其设计接口，</p>
+<p>越是不稳定的系统，我们越是要在代码的扩展性、维护性上下功夫。相反，如果某个系统特别稳定，在开发完之后，基本上不需要做维护，那我们就没有必要为其扩展性，投入不必要的开发时间。</p>
+]]></content>
+      <categories>
+        <category>设计模式</category>
+      </categories>
+      <tags>
+        <tag>接口</tag>
         <tag>设计模式</tag>
       </tags>
   </entry>
@@ -935,242 +1002,6 @@
         <category>算法</category>
       </categories>
       <tags>
-        <tag>leetcode</tag>
-        <tag>双指针</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>环形链表</title>
-    <url>/2023/06/19/%E7%AE%97%E6%B3%95/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/</url>
-    <content><![CDATA[<h1 id="环形链表"><a href="#环形链表" class="headerlink" title="环形链表"></a>环形链表</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261740749.jpeg" alt="a large body of water surrounded by rocks"></p>
-<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给你一个链表的头节点 head ，判断链表中是否有环。</p>
-<p>如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环。 为了表示给定链表中的环，评测系统内部使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。注意：pos 不作为参数进行传递 。仅仅是为了标识链表的实际情况。</p>
-<p>如果链表中存在环 ，则返回 true 。 否则，返回 false 。</p>
-<p>示例 1：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191021477.png" alt="img"></p>
-<p>输入：head &#x3D; [3,2,0,-4], pos &#x3D; 1<br>输出：true<br>解释：链表中有一个环，其尾部连接到第二个节点。<br>示例 2：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191021584.png" alt="img"></p>
-<p>输入：head &#x3D; [1,2], pos &#x3D; 0<br>输出：true<br>解释：链表中有一个环，其尾部连接到第一个节点。</p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>跟[链表的中间结点]类似，使用快慢指针：</p>
-<p>slow前进一步，fast前进两步，如果fast最终遇到了空指针，则说明链表中没有环；</p>
-<p>如果fast和slow最终相遇了，证明fast超过了slow一圈，说明链表有环。</p>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>链表</tag>
-        <tag>leetcode</tag>
-        <tag>双指针</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>反转链表I</title>
-    <url>/2023/07/07/%E7%AE%97%E6%B3%95/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8I/</url>
-    <content><![CDATA[<hr>
-<h2 id="title-反转链表Idate-2023-07-07-10-48-21tags-递归-链表-leetcode-categories-算法-recommend-truelocate-天津-cover-https-markdown-image-bed-oss-cn-beijing-aliyuncs-com-202307071047886-jpegcomment-是keywords"><a href="#title-反转链表Idate-2023-07-07-10-48-21tags-递归-链表-leetcode-categories-算法-recommend-truelocate-天津-cover-https-markdown-image-bed-oss-cn-beijing-aliyuncs-com-202307071047886-jpegcomment-是keywords" class="headerlink" title="title: 反转链表Idate: 2023-07-07 10:48:21tags: [递归, 链表, leetcode]categories: [算法]recommend: truelocate: [天津]cover: https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307071047886.jpegcomment: 是keywords: "></a>title: 反转链表I<br>date: 2023-07-07 10:48:21<br>tags: [递归, 链表, leetcode]<br>categories: [算法]<br>recommend: true<br>locate: [天津]<br>cover: <a href="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307071047886.jpeg">https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307071047886.jpeg</a><br>comment: 是<br>keywords: </h2><h1 id="反转链表I"><a href="#反转链表I" class="headerlink" title="反转链表I"></a>反转链表I</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307071047886.jpeg" alt="a view of a mountain range at sunset"></p>
-<p>给定单链表的头节点 head ，请反转链表，并返回反转后的链表的头节点。</p>
-<p> <img src="https://assets.leetcode.com/uploads/2021/02/19/rev1ex1.jpg" alt="img"></p>
-<p>示例 1：</p>
-<p>输入：head &#x3D; [1,2,3,4,5]<br>输出：[5,4,3,2,1]<br>示例 2：</p>
-<p>输入：head &#x3D; [1,2]<br>输出：[2,1]<br>示例 3：</p>
-<p>输入：head &#x3D; []<br>输出：[]</p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307071037561.png" alt="img"></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> ListNode <span class="title function_">reverseList</span><span class="params">(ListNode head)</span> &#123;</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">cur</span> <span class="operator">=</span> head, pre = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">while</span>(cur != <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="type">ListNode</span> <span class="variable">tmp</span> <span class="operator">=</span> cur.next; <span class="comment">// 暂存后继节点 cur.next</span></span><br><span class="line">            cur.next = pre;          <span class="comment">// 修改 next 引用指向</span></span><br><span class="line">            pre = cur;               <span class="comment">// pre 暂存 cur</span></span><br><span class="line">            cur = tmp;               <span class="comment">// cur 访问下一节点</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pre;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><p>不太懂递归：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ListNode <span class="title function_">reverse</span><span class="params">(ListNode head)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (head == <span class="literal">null</span> || head.next == <span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> head;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">last</span> <span class="operator">=</span> reverse(head.next);</span><br><span class="line">        head.next.next = head;</span><br><span class="line">        head.next = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">return</span> last;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p>第二种回溯方法：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> ListNode <span class="title function_">reverseList</span><span class="params">(ListNode head)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> recur(head, <span class="literal">null</span>);    <span class="comment">// 调用递归并返回</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">private</span> ListNode <span class="title function_">recur</span><span class="params">(ListNode cur, ListNode pre)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (cur == <span class="literal">null</span>) <span class="keyword">return</span> pre; <span class="comment">// 终止条件</span></span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">res</span> <span class="operator">=</span> recur(cur.next, cur);  <span class="comment">// 递归后继节点</span></span><br><span class="line">        cur.next = pre;              <span class="comment">// 修改节点引用指向</span></span><br><span class="line">        <span class="keyword">return</span> res;                  <span class="comment">// 返回反转链表的头节点</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>链表</tag>
-        <tag>leetcode</tag>
-        <tag>递归</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>装满杯子需要的最短总时长</title>
-    <url>/2023/06/28/%E7%AE%97%E6%B3%95/%E8%A3%85%E6%BB%A1%E6%9D%AF%E5%AD%90%E9%9C%80%E8%A6%81%E7%9A%84%E6%9C%80%E7%9F%AD%E6%80%BB%E6%97%B6%E9%95%BF/</url>
-    <content><![CDATA[<h1 id="装满杯子需要的最短总时长"><a href="#装满杯子需要的最短总时长" class="headerlink" title="装满杯子需要的最短总时长"></a>装满杯子需要的最短总时长</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306281551762.jpeg" alt="a person standing at the entrance to a cave"></p>
-<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>现有一台饮水机，可以制备冷水、温水和热水。每秒钟，可以装满 <code>2</code> 杯 <strong>不同</strong> 类型的水或者 <code>1</code> 杯任意类型的水。</p>
-<p>给你一个下标从 <strong>0</strong> 开始、长度为 <code>3</code> 的整数数组 <code>amount</code> ，其中 <code>amount[0]</code>、<code>amount[1]</code> 和 <code>amount[2]</code> 分别表示需要装满冷水、温水和热水的杯子数量。返回装满所有杯子所需的 <strong>最少</strong> 秒数。</p>
-<p><strong>示例 1：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：amount = [1,4,2]</span><br><span class="line">输出：4</span><br><span class="line">解释：下面给出一种方案：</span><br><span class="line">第 1 秒：装满一杯冷水和一杯温水。</span><br><span class="line">第 2 秒：装满一杯温水和一杯热水。</span><br><span class="line">第 3 秒：装满一杯温水和一杯热水。</span><br><span class="line">第 4 秒：装满一杯温水。</span><br><span class="line">可以证明最少需要 4 秒才能装满所有杯子。</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：amount = [5,4,4]</span><br><span class="line">输出：7</span><br><span class="line">解释：下面给出一种方案：</span><br><span class="line">第 1 秒：装满一杯冷水和一杯热水。</span><br><span class="line">第 2 秒：装满一杯冷水和一杯温水。</span><br><span class="line">第 3 秒：装满一杯冷水和一杯温水。</span><br><span class="line">第 4 秒：装满一杯温水和一杯热水。</span><br><span class="line">第 5 秒：装满一杯冷水和一杯热水。</span><br><span class="line">第 6 秒：装满一杯冷水和一杯温水。</span><br><span class="line">第 7 秒：装满一杯热水。</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 3：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：amount = [5,0,0]</span><br><span class="line">输出：5</span><br><span class="line">解释：每秒装满一杯冷水。</span><br></pre></td></tr></table></figure>
-
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>排序+递归；</p>
-<p>考虑到水种类只有3，且每种水数据范围只有100，可以使用递归；</p>
-<p>为了尽可能的凑成多的对数，我们可以每次取剩余数量最多且不为 <code>0</code> 的两类水进行成组（因此每次处理前需要先对当前 <code>amount</code> 进行排序），直到没有水剩余，或只有一类水的剩余数据量不为 <code>0</code>（剩下的水只能独自生成）。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">fillCups</span><span class="params">(<span class="type">int</span>[] amount)</span> &#123;</span><br><span class="line">      Arrays.sort(amount);</span><br><span class="line">      <span class="keyword">if</span> (amount[<span class="number">1</span>] == <span class="number">0</span>)&#123;</span><br><span class="line">          <span class="keyword">return</span> amount[<span class="number">2</span>];</span><br><span class="line">      &#125;</span><br><span class="line">      amount[<span class="number">1</span>] --;</span><br><span class="line">      amount[<span class="number">2</span>] --;</span><br><span class="line">      <span class="keyword">return</span> <span class="number">1</span> + fillCups(amount);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>leetcode</tag>
-        <tag>递归</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>环形链表</title>
-    <url>/2023/06/19/%E7%AE%97%E6%B3%95/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8%E7%9A%84%E8%B5%B7%E7%82%B9/</url>
-    <content><![CDATA[<h1 id="环形链表的起点"><a href="#环形链表的起点" class="headerlink" title="环形链表的起点"></a>环形链表的起点</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261740864.jpeg" alt="a view of a mountain range with clouds in the sky"></p>
-<p>给定一个链表的头节点  <code>head</code> ，返回链表开始入环的第一个节点。 <em>如果链表无环，则返回 <code>null</code>。</em></p>
-<p>如果链表中有某个节点，可以通过连续跟踪 <code>next</code> 指针再次到达，则链表中存在环。 为了表示给定链表中的环，评测系统内部使用整数 <code>pos</code> 来表示链表尾连接到链表中的位置（<strong>索引从 0 开始</strong>）。如果 <code>pos</code> 是 <code>-1</code>，则在该链表中没有环。<strong>注意：<code>pos</code> 不作为参数进行传递</strong>，仅仅是为了标识链表的实际情况。</p>
-<p><strong>不允许修改</strong> 链表。</p>
-<p><strong>示例 1：</strong></p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306201021677.png" alt="img"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：head = [3,2,0,-4], pos = 1</span><br><span class="line">输出：返回索引为 1 的链表节点</span><br><span class="line">解释：链表中有一个环，其尾部连接到第二个节点。</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2：</strong></p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306201021030.png" alt="img"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：head = [1,2], pos = 0</span><br><span class="line">输出：返回索引为 0 的链表节点</span><br><span class="line">解释：链表中有一个环，其尾部连接到第一个节点。</span><br></pre></td></tr></table></figure>
-
-<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> ListNode <span class="title function_">detectCycle</span><span class="params">(ListNode head)</span> &#123;</span><br><span class="line">         <span class="type">ListNode</span> <span class="variable">fast</span> <span class="operator">=</span> head;</span><br><span class="line">       <span class="type">ListNode</span> <span class="variable">slow</span> <span class="operator">=</span> head;</span><br><span class="line">       <span class="keyword">while</span> (fast != <span class="literal">null</span> &amp;&amp; fast.next != <span class="literal">null</span>) &#123;</span><br><span class="line">           fast = fast.next.next;</span><br><span class="line">           slow = slow.next;</span><br><span class="line">           <span class="keyword">if</span> (fast == slow)&#123;</span><br><span class="line">               <span class="keyword">break</span>;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">// fast 遇到空指针说明没有环</span></span><br><span class="line">       <span class="keyword">if</span> (fast == <span class="literal">null</span> || fast.next == <span class="literal">null</span>)&#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">// 将慢指针指向head节点，重新开始单步走，当相交的时候，就是环的起点。</span></span><br><span class="line">       slow = head;</span><br><span class="line">       <span class="keyword">while</span> (slow != fast) &#123;</span><br><span class="line">           fast = fast.next;</span><br><span class="line">           slow = slow.next;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> slow;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-
-<p>我们假设快慢指针相遇时，慢指针 <code>slow</code> 走了 <code>k</code> 步，那么快指针 <code>fast</code> 一定走了 <code>2k</code> 步：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306201021286.jpeg" alt="img"></p>
-<p><code>fast</code> 一定比 <code>slow</code> 多走了 <code>k</code> 步，这多走的 <code>k</code> 步其实就是 <code>fast</code> 指针在环里转圈圈，所以 <code>k</code> 的值就是环长度的「整数倍」。</p>
-<p>假设相遇点距环的起点的距离为 <code>m</code>，那么结合上图的 <code>slow</code> 指针，环的起点距头结点 <code>head</code> 的距离为 <code>k - m</code>，也就是说如果从 <code>head</code> 前进 <code>k - m</code> 步就能到达环起点。</p>
-<p>巧的是，如果从相遇点继续前进 <code>k - m</code> 步，也恰好到达环起点。因为结合上图的 <code>fast</code> 指针，从相遇点开始走k步可以转回到相遇点，那走 <code>k - m</code> 步肯定就走到环起点了：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306201021309.jpeg" alt="img"></p>
-<p>所以，只要我们把快慢指针中的任一个重新指向 <code>head</code>，然后两个指针同速前进，<code>k - m</code> 步后一定会相遇，相遇之处就是环的起点了</p>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>链表</tag>
-        <tag>leetcode</tag>
-        <tag>双指针</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>链表的中间结点</title>
-    <url>/2023/06/19/%E7%AE%97%E6%B3%95/%E9%93%BE%E8%A1%A8%E7%9A%84%E4%B8%AD%E9%97%B4%E7%BB%93%E7%82%B9/</url>
-    <content><![CDATA[<h1 id="链表的中间结点"><a href="#链表的中间结点" class="headerlink" title="链表的中间结点"></a>链表的中间结点</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306260929210.jpeg" alt="img"></p>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>给你单链表的头结点 <code>head</code> ，请你找出并返回链表的中间结点。</p>
-<p>如果有两个中间结点，则返回第二个中间结点。</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191007092.jpeg" alt="img"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：head = [1,2,3,4,5]</span><br><span class="line">输出：[3,4,5]</span><br><span class="line">解释：链表只有一个中间结点，值为 3 。</span><br></pre></td></tr></table></figure>
-
-<p>如果中间两个结点，返回第二个。</p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>用快慢指针，慢指针走一步，快指针走两步。当快指针走到终点的时候，慢指针正好指在了链表的中点。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ListNode <span class="title function_">middleNode</span><span class="params">(ListNode head)</span> &#123;</span><br><span class="line">    <span class="type">ListNode</span> <span class="variable">fast</span> <span class="operator">=</span> head;</span><br><span class="line">    <span class="type">ListNode</span> <span class="variable">slow</span> <span class="operator">=</span> head;</span><br><span class="line">    <span class="keyword">while</span> (fast != <span class="literal">null</span> &amp;&amp; fast.next != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="comment">// 慢指针走一步，快指针走两步</span></span><br><span class="line">        slow = slow.next;</span><br><span class="line">        fast = fast.next.next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> slow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>链表</tag>
-        <tag>leetcode</tag>
-        <tag>双指针</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>理论五：接口vs抽象类的区别？如何用普通的类模拟抽象类和接口？</title>
-    <url>/2023/07/07/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E%E3%80%9108.%E7%90%86%E8%AE%BA%E4%BA%94%EF%BC%9A%E6%8E%A5%E5%8F%A3vs%E6%8A%BD%E8%B1%A1%E7%B1%BB%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F%E5%A6%82%E4%BD%95%E7%94%A8%E6%99%AE%E9%80%9A%E7%9A%84%E7%B1%BB%E6%A8%A1%E6%8B%9F%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3%EF%BC%9F)/</url>
-    <content><![CDATA[<h1 id="08-理论五：接口vs抽象类的区别？如何用普通的类模拟抽象类和接口？"><a href="#08-理论五：接口vs抽象类的区别？如何用普通的类模拟抽象类和接口？" class="headerlink" title="08. 理论五：接口vs抽象类的区别？如何用普通的类模拟抽象类和接口？"></a>08. 理论五：接口vs抽象类的区别？如何用普通的类模拟抽象类和接口？</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307071059946.jpeg" alt="an aerial view of a beach with a body of water"></p>
-<p>我们可以使用接口来实现面向对象的抽象特性、多态特性和基于接口而非实现的设计原则，使用抽象类来实现面向对象的继承特性和模板设计模式等等。</p>
-<h2 id="什么是抽象类和接口？区别在哪里？"><a href="#什么是抽象类和接口？区别在哪里？" class="headerlink" title="什么是抽象类和接口？区别在哪里？"></a>什么是抽象类和接口？区别在哪里？</h2><p>抽象类具有哪些特性:</p>
-<ul>
-<li>抽象类不允许被实例化，只能被继承。也就是说，你不能 new 一个抽象类的对象出来（Logger logger &#x3D; new Logger(…); 会报编译错误）。</li>
-<li>抽象类可以包含属性和方法。方法既可以包含代码实现（比如 Logger 中的 log() 方法），也可以不包含代码实现（比如 Logger 中的 doLog() 方法）。不包含代码实现的方法叫作抽象方法。</li>
-<li>子类继承抽象类，必须实现抽象类中的所有抽象方法。对应到例子代码中就是，所有继承 Logger 抽象类的子类，都必须重写 doLog() 方法。</li>
-</ul>
-<p>接口的三个特性：</p>
-<ul>
-<li>接口不能包含属性（也就是成员变量）。（只有类变量：public static final）</li>
-<li>接口只能声明方法，方法不能包含代码实现。</li>
-<li>类实现接口的时候，必须实现接口中声明的所有方法。</li>
-</ul>
-<p>前面我们讲了抽象类和接口的定义，以及各自的语法特性。从语法特性上对比，这两者有比较大的区别，比如抽象类中可以定义属性、方法的实现，而接口中不能定义属性，方法也不能包含代码实现等等。除了语法特性，从设计的角度，两者也有比较大的区别。</p>
-<p>抽象类实际上就是类，只不过是一种特殊的类，这种类不能被实例化为对象，只能被子类继承。我们知道，继承关系是一种 is-a 的关系，那抽象类既然属于类，也表示一种 is-a 的关系。相对于抽象类的 is-a 关系来说，接口表示一种 has-a 关系，表示具有某些功能。对于接口，有一个更加形象的叫法，那就是协议（contract）。</p>
-<h2 id="抽象类和接口能解决什么编程问题？"><a href="#抽象类和接口能解决什么编程问题？" class="headerlink" title="抽象类和接口能解决什么编程问题？"></a>抽象类和接口能解决什么编程问题？</h2><p>抽象类也是为代码复用而生的。多个子类可以继承抽象类中定义的属性和方法，避免在子类中，重复编写相同的代码。</p>
-<p>不过，既然继承本身就能达到代码复用的目的，而继承也并不要求父类一定是抽象类，那我们不使用抽象类，照样也可以实现继承和复用。从这个角度上来讲，我们貌似并不需要抽象类这种语法呀。那抽象类除了解决代码复用的问题，还有什么其他存在的意义吗？</p>
-<p>可以更方便优雅地处理业务。</p>
-<p>我们为什么需要接口？它能够解决什么编程问题？</p>
-<p>，抽象类更多的是为了代码复用，而接口就更侧重于解耦。接口是对行为的一种抽象，相当于一组协议或者契约，你可以联想类比一下 API 接口。调用者只需要关注抽象的接口，不需要了解具体的实现，具体的实现代码对调用者透明。接口实现了约定和实现相分离，可以降低代码间的耦合性，提高代码的可扩展性。</p>
-<p>实际上，接口是一个比抽象类应用更加广泛、更加重要的知识点。</p>
-<h2 id="如何决定该用抽象类还是接口？"><a href="#如何决定该用抽象类还是接口？" class="headerlink" title="如何决定该用抽象类还是接口？"></a>如何决定该用抽象类还是接口？</h2><p>实际上，判断的标准很简单。如果我们要表示一种 is-a 的关系，并且是为了解决代码复用的问题，我们就用抽象类；如果我们要表示一种 has-a 关系，并且是为了解决抽象而非代码复用的问题，那我们就可以使用接口。</p>
-<p>从类的继承层次上来看，抽象类是一种自下而上的设计思路，先有子类的代码重复，然后再抽象成上层的父类（也就是抽象类）。而接口正好相反，它是一种自上而下的设计思路。我们在编程的时候，一般都是先设计接口，再去考虑具体的实现。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
-<li><p>抽象类和接口的语法特性</p>
-<p>抽象类不允许被实例化，只能被继承。它可以包含属性和方法。方法既可以包含代码实现，也可以不包含代码实现。不包含代码实现的方法叫作抽象方法。子类继承抽象类，必须实现抽象类中的所有抽象方法。接口不能包含属性，只能声明方法，方法不能包含代码实现。类实现接口的时候，必须实现接口中声明的所有方法。</p>
-</li>
-<li><p>抽象类和接口存在的意义</p>
-<p>抽象类是对成员变量和方法的抽象，是一种 is-a 关系，是为了解决代码复用问题。接口仅仅是对方法的抽象，是一种 has-a 关系，表示具有某一组行为特性，是为了解决解耦问题，隔离接口和具体的实现，提高代码的扩展性。</p>
-</li>
-<li><p>抽象类和接口的应用场景区别</p>
-<p>什么时候该用抽象类？什么时候该用接口？实际上，判断的标准很简单。如果要表示一种 is-a 的关系，并且是为了解决代码复用问题，我们就用抽象类；如果要表示一种 has-a 关系，并且是为了解决抽象而非代码复用问题，那我们就用接口。</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>设计模式</category>
-      </categories>
-      <tags>
-        <tag>面向对象</tag>
-        <tag>接口</tag>
-        <tag>设计模式</tag>
-        <tag>抽象类</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>链表相交</title>
-    <url>/2023/06/25/%E7%AE%97%E6%B3%95/%E9%93%BE%E8%A1%A8%E7%9B%B8%E4%BA%A4/</url>
-    <content><![CDATA[<h1 id="链表相交"><a href="#链表相交" class="headerlink" title="链表相交"></a>链表相交</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你两个单链表的头节点 <code>headA</code> 和 <code>headB</code> ，请你找出并返回两个单链表相交的起始节点。如果两个链表不存在相交节点，返回 <code>null</code> 。</p>
-<p>图示两个链表在节点 <code>c1</code> 开始相交<strong>：</strong></p>
-<p><a href="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/14/160_statement.png"><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306250944935.png" alt="img"></a></p>
-<p>题目数据 <strong>保证</strong> 整个链式结构中不存在环。</p>
-<p><strong>注意</strong>，函数返回结果后，链表必须 <strong>保持其原始结构</strong> 。</p>
-<p><strong>自定义评测：</strong></p>
-<p><strong>评测系统</strong> 的输入如下（你设计的程序 <strong>不适用</strong> 此输入）：</p>
-<ul>
-<li><code>intersectVal</code> - 相交的起始节点的值。如果不存在相交节点，这一值为 <code>0</code></li>
-<li><code>listA</code> - 第一个链表</li>
-<li><code>listB</code> - 第二个链表</li>
-<li><code>skipA</code> - 在 <code>listA</code> 中（从头节点开始）跳到交叉节点的节点数</li>
-<li><code>skipB</code> - 在 <code>listB</code> 中（从头节点开始）跳到交叉节点的节点数</li>
-</ul>
-<p>评测系统将根据这些输入创建链式数据结构，并将两个头节点 <code>headA</code> 和 <code>headB</code> 传递给你的程序。如果程序能够正确返回相交节点，那么你的解决方案将被 <strong>视作正确答案</strong> 。</p>
-<p><strong>示例 1：</strong></p>
-<p><a href="https://assets.leetcode.com/uploads/2018/12/13/160_example_1.png"><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306250944565.png" alt="img"></a></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：intersectVal = 8, listA = [4,1,8,4,5], listB = [5,6,1,8,4,5], skipA = 2, skipB = 3</span><br><span class="line">输出：Intersected at &#x27;8&#x27;</span><br><span class="line">解释：相交节点的值为 8 （注意，如果两个链表相交则不能为 0）。</span><br><span class="line">从各自的表头开始算起，链表 A 为 [4,1,8,4,5]，链表 B 为 [5,6,1,8,4,5]。</span><br><span class="line">在 A 中，相交节点前有 2 个节点；在 B 中，相交节点前有 3 个节点。</span><br><span class="line">— 请注意相交节点的值不为 1，因为在链表 A 和链表 B 之中值为 1 的节点 (A 中第二个节点和 B 中第三个节点) 是不同的节点。换句话说，它们在内存中指向两个不同的位置，而链表 A 和链表 B 中值为 8 的节点 (A 中第三个节点，B 中第四个节点) 在内存中指向相同的位置。</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2：</strong></p>
-<p><a href="https://assets.leetcode.com/uploads/2018/12/13/160_example_2.png"><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306250944586.png" alt="img"></a></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：intersectVal = 2, listA = [1,9,1,2,4], listB = [3,2,4], skipA = 3, skipB = 1</span><br><span class="line">输出：Intersected at &#x27;2&#x27;</span><br><span class="line">解释：相交节点的值为 2 （注意，如果两个链表相交则不能为 0）。</span><br><span class="line">从各自的表头开始算起，链表 A 为 [1,9,1,2,4]，链表 B 为 [3,2,4]。</span><br><span class="line">在 A 中，相交节点前有 3 个节点；在 B 中，相交节点前有 1 个节点。</span><br></pre></td></tr></table></figure>
-
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>可以使用HashSet，记录一个链表的所有节点，然后和另外一个链表对比，如果有一样的话，就返回该节点。但是需要额外的空间。</p>
-<p>使用双指针：</p>
-<p>但是两个链表的长度可能不同，两个链表之间的节点无法对应，那么如果使用两个指针，p1和p2分别在两个链表上前进的话，并不能同时走到公共节点上，也就是无法获取相交节点c1.</p>
-<p>所以，可以让p1遍历完链表A之后，再遍历链表B，p2遍历完链表B之后开始遍历链表A，这样相当于两个链表连接在了一起：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306250947411.jpeg" alt="img"></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ListNode <span class="title function_">getIntersectionNode</span><span class="params">(ListNode headA, ListNode headB)</span>&#123;</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">p1</span> <span class="operator">=</span> headA, p2 = headB;</span><br><span class="line">        <span class="keyword">while</span> (p1 != p2)&#123;</span><br><span class="line">            <span class="comment">// p1 走一步，如果走到A的末尾，转到B链表</span></span><br><span class="line">            <span class="keyword">if</span> (p1 == <span class="literal">null</span>)&#123;</span><br><span class="line">                p1 = headB;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="comment">// 如果不为空的话，一直走</span></span><br><span class="line">                p1 = p1.next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (p2 == <span class="literal">null</span>)&#123;</span><br><span class="line">                p2 = headA;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                p2 = p2.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> p1;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>链表</tag>
         <tag>leetcode</tag>
         <tag>双指针</tag>
       </tags>
@@ -1295,6 +1126,193 @@
       <tags>
         <tag>java</tag>
         <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>反转链表I</title>
+    <url>/2023/07/07/%E7%AE%97%E6%B3%95/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8I/</url>
+    <content><![CDATA[<hr>
+<h2 id="title-反转链表Idate-2023-07-07-10-48-21tags-递归-链表-leetcode-categories-算法-recommend-truelocate-天津-cover-https-markdown-image-bed-oss-cn-beijing-aliyuncs-com-202307071047886-jpegcomment-是keywords"><a href="#title-反转链表Idate-2023-07-07-10-48-21tags-递归-链表-leetcode-categories-算法-recommend-truelocate-天津-cover-https-markdown-image-bed-oss-cn-beijing-aliyuncs-com-202307071047886-jpegcomment-是keywords" class="headerlink" title="title: 反转链表Idate: 2023-07-07 10:48:21tags: [递归, 链表, leetcode]categories: [算法]recommend: truelocate: [天津]cover: https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307071047886.jpegcomment: 是keywords: "></a>title: 反转链表I<br>date: 2023-07-07 10:48:21<br>tags: [递归, 链表, leetcode]<br>categories: [算法]<br>recommend: true<br>locate: [天津]<br>cover: <a href="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307071047886.jpeg">https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307071047886.jpeg</a><br>comment: 是<br>keywords: </h2><h1 id="反转链表I"><a href="#反转链表I" class="headerlink" title="反转链表I"></a>反转链表I</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307071047886.jpeg" alt="a view of a mountain range at sunset"></p>
+<p>给定单链表的头节点 head ，请反转链表，并返回反转后的链表的头节点。</p>
+<p> <img src="https://assets.leetcode.com/uploads/2021/02/19/rev1ex1.jpg" alt="img"></p>
+<p>示例 1：</p>
+<p>输入：head &#x3D; [1,2,3,4,5]<br>输出：[5,4,3,2,1]<br>示例 2：</p>
+<p>输入：head &#x3D; [1,2]<br>输出：[2,1]<br>示例 3：</p>
+<p>输入：head &#x3D; []<br>输出：[]</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307071037561.png" alt="img"></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> ListNode <span class="title function_">reverseList</span><span class="params">(ListNode head)</span> &#123;</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">cur</span> <span class="operator">=</span> head, pre = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">while</span>(cur != <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="type">ListNode</span> <span class="variable">tmp</span> <span class="operator">=</span> cur.next; <span class="comment">// 暂存后继节点 cur.next</span></span><br><span class="line">            cur.next = pre;          <span class="comment">// 修改 next 引用指向</span></span><br><span class="line">            pre = cur;               <span class="comment">// pre 暂存 cur</span></span><br><span class="line">            cur = tmp;               <span class="comment">// cur 访问下一节点</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pre;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><p>不太懂递归：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ListNode <span class="title function_">reverse</span><span class="params">(ListNode head)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (head == <span class="literal">null</span> || head.next == <span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> head;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">last</span> <span class="operator">=</span> reverse(head.next);</span><br><span class="line">        head.next.next = head;</span><br><span class="line">        head.next = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">return</span> last;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>第二种回溯方法：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> ListNode <span class="title function_">reverseList</span><span class="params">(ListNode head)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> recur(head, <span class="literal">null</span>);    <span class="comment">// 调用递归并返回</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">private</span> ListNode <span class="title function_">recur</span><span class="params">(ListNode cur, ListNode pre)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (cur == <span class="literal">null</span>) <span class="keyword">return</span> pre; <span class="comment">// 终止条件</span></span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">res</span> <span class="operator">=</span> recur(cur.next, cur);  <span class="comment">// 递归后继节点</span></span><br><span class="line">        cur.next = pre;              <span class="comment">// 修改节点引用指向</span></span><br><span class="line">        <span class="keyword">return</span> res;                  <span class="comment">// 返回反转链表的头节点</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>链表</tag>
+        <tag>leetcode</tag>
+        <tag>递归</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>环形链表</title>
+    <url>/2023/06/19/%E7%AE%97%E6%B3%95/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8%E7%9A%84%E8%B5%B7%E7%82%B9/</url>
+    <content><![CDATA[<h1 id="环形链表的起点"><a href="#环形链表的起点" class="headerlink" title="环形链表的起点"></a>环形链表的起点</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261740864.jpeg" alt="a view of a mountain range with clouds in the sky"></p>
+<p>给定一个链表的头节点  <code>head</code> ，返回链表开始入环的第一个节点。 <em>如果链表无环，则返回 <code>null</code>。</em></p>
+<p>如果链表中有某个节点，可以通过连续跟踪 <code>next</code> 指针再次到达，则链表中存在环。 为了表示给定链表中的环，评测系统内部使用整数 <code>pos</code> 来表示链表尾连接到链表中的位置（<strong>索引从 0 开始</strong>）。如果 <code>pos</code> 是 <code>-1</code>，则在该链表中没有环。<strong>注意：<code>pos</code> 不作为参数进行传递</strong>，仅仅是为了标识链表的实际情况。</p>
+<p><strong>不允许修改</strong> 链表。</p>
+<p><strong>示例 1：</strong></p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306201021677.png" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：head = [3,2,0,-4], pos = 1</span><br><span class="line">输出：返回索引为 1 的链表节点</span><br><span class="line">解释：链表中有一个环，其尾部连接到第二个节点。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306201021030.png" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：head = [1,2], pos = 0</span><br><span class="line">输出：返回索引为 0 的链表节点</span><br><span class="line">解释：链表中有一个环，其尾部连接到第一个节点。</span><br></pre></td></tr></table></figure>
+
+<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> ListNode <span class="title function_">detectCycle</span><span class="params">(ListNode head)</span> &#123;</span><br><span class="line">         <span class="type">ListNode</span> <span class="variable">fast</span> <span class="operator">=</span> head;</span><br><span class="line">       <span class="type">ListNode</span> <span class="variable">slow</span> <span class="operator">=</span> head;</span><br><span class="line">       <span class="keyword">while</span> (fast != <span class="literal">null</span> &amp;&amp; fast.next != <span class="literal">null</span>) &#123;</span><br><span class="line">           fast = fast.next.next;</span><br><span class="line">           slow = slow.next;</span><br><span class="line">           <span class="keyword">if</span> (fast == slow)&#123;</span><br><span class="line">               <span class="keyword">break</span>;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">// fast 遇到空指针说明没有环</span></span><br><span class="line">       <span class="keyword">if</span> (fast == <span class="literal">null</span> || fast.next == <span class="literal">null</span>)&#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">// 将慢指针指向head节点，重新开始单步走，当相交的时候，就是环的起点。</span></span><br><span class="line">       slow = head;</span><br><span class="line">       <span class="keyword">while</span> (slow != fast) &#123;</span><br><span class="line">           fast = fast.next;</span><br><span class="line">           slow = slow.next;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> slow;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们假设快慢指针相遇时，慢指针 <code>slow</code> 走了 <code>k</code> 步，那么快指针 <code>fast</code> 一定走了 <code>2k</code> 步：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306201021286.jpeg" alt="img"></p>
+<p><code>fast</code> 一定比 <code>slow</code> 多走了 <code>k</code> 步，这多走的 <code>k</code> 步其实就是 <code>fast</code> 指针在环里转圈圈，所以 <code>k</code> 的值就是环长度的「整数倍」。</p>
+<p>假设相遇点距环的起点的距离为 <code>m</code>，那么结合上图的 <code>slow</code> 指针，环的起点距头结点 <code>head</code> 的距离为 <code>k - m</code>，也就是说如果从 <code>head</code> 前进 <code>k - m</code> 步就能到达环起点。</p>
+<p>巧的是，如果从相遇点继续前进 <code>k - m</code> 步，也恰好到达环起点。因为结合上图的 <code>fast</code> 指针，从相遇点开始走k步可以转回到相遇点，那走 <code>k - m</code> 步肯定就走到环起点了：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306201021309.jpeg" alt="img"></p>
+<p>所以，只要我们把快慢指针中的任一个重新指向 <code>head</code>，然后两个指针同速前进，<code>k - m</code> 步后一定会相遇，相遇之处就是环的起点了</p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>链表</tag>
+        <tag>leetcode</tag>
+        <tag>双指针</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>环形链表</title>
+    <url>/2023/06/19/%E7%AE%97%E6%B3%95/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/</url>
+    <content><![CDATA[<h1 id="环形链表"><a href="#环形链表" class="headerlink" title="环形链表"></a>环形链表</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261740749.jpeg" alt="a large body of water surrounded by rocks"></p>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给你一个链表的头节点 head ，判断链表中是否有环。</p>
+<p>如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环。 为了表示给定链表中的环，评测系统内部使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。注意：pos 不作为参数进行传递 。仅仅是为了标识链表的实际情况。</p>
+<p>如果链表中存在环 ，则返回 true 。 否则，返回 false 。</p>
+<p>示例 1：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191021477.png" alt="img"></p>
+<p>输入：head &#x3D; [3,2,0,-4], pos &#x3D; 1<br>输出：true<br>解释：链表中有一个环，其尾部连接到第二个节点。<br>示例 2：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191021584.png" alt="img"></p>
+<p>输入：head &#x3D; [1,2], pos &#x3D; 0<br>输出：true<br>解释：链表中有一个环，其尾部连接到第一个节点。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>跟[链表的中间结点]类似，使用快慢指针：</p>
+<p>slow前进一步，fast前进两步，如果fast最终遇到了空指针，则说明链表中没有环；</p>
+<p>如果fast和slow最终相遇了，证明fast超过了slow一圈，说明链表有环。</p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>链表</tag>
+        <tag>leetcode</tag>
+        <tag>双指针</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>装满杯子需要的最短总时长</title>
+    <url>/2023/06/28/%E7%AE%97%E6%B3%95/%E8%A3%85%E6%BB%A1%E6%9D%AF%E5%AD%90%E9%9C%80%E8%A6%81%E7%9A%84%E6%9C%80%E7%9F%AD%E6%80%BB%E6%97%B6%E9%95%BF/</url>
+    <content><![CDATA[<h1 id="装满杯子需要的最短总时长"><a href="#装满杯子需要的最短总时长" class="headerlink" title="装满杯子需要的最短总时长"></a>装满杯子需要的最短总时长</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306281551762.jpeg" alt="a person standing at the entrance to a cave"></p>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>现有一台饮水机，可以制备冷水、温水和热水。每秒钟，可以装满 <code>2</code> 杯 <strong>不同</strong> 类型的水或者 <code>1</code> 杯任意类型的水。</p>
+<p>给你一个下标从 <strong>0</strong> 开始、长度为 <code>3</code> 的整数数组 <code>amount</code> ，其中 <code>amount[0]</code>、<code>amount[1]</code> 和 <code>amount[2]</code> 分别表示需要装满冷水、温水和热水的杯子数量。返回装满所有杯子所需的 <strong>最少</strong> 秒数。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：amount = [1,4,2]</span><br><span class="line">输出：4</span><br><span class="line">解释：下面给出一种方案：</span><br><span class="line">第 1 秒：装满一杯冷水和一杯温水。</span><br><span class="line">第 2 秒：装满一杯温水和一杯热水。</span><br><span class="line">第 3 秒：装满一杯温水和一杯热水。</span><br><span class="line">第 4 秒：装满一杯温水。</span><br><span class="line">可以证明最少需要 4 秒才能装满所有杯子。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：amount = [5,4,4]</span><br><span class="line">输出：7</span><br><span class="line">解释：下面给出一种方案：</span><br><span class="line">第 1 秒：装满一杯冷水和一杯热水。</span><br><span class="line">第 2 秒：装满一杯冷水和一杯温水。</span><br><span class="line">第 3 秒：装满一杯冷水和一杯温水。</span><br><span class="line">第 4 秒：装满一杯温水和一杯热水。</span><br><span class="line">第 5 秒：装满一杯冷水和一杯热水。</span><br><span class="line">第 6 秒：装满一杯冷水和一杯温水。</span><br><span class="line">第 7 秒：装满一杯热水。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 3：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：amount = [5,0,0]</span><br><span class="line">输出：5</span><br><span class="line">解释：每秒装满一杯冷水。</span><br></pre></td></tr></table></figure>
+
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>排序+递归；</p>
+<p>考虑到水种类只有3，且每种水数据范围只有100，可以使用递归；</p>
+<p>为了尽可能的凑成多的对数，我们可以每次取剩余数量最多且不为 <code>0</code> 的两类水进行成组（因此每次处理前需要先对当前 <code>amount</code> 进行排序），直到没有水剩余，或只有一类水的剩余数据量不为 <code>0</code>（剩下的水只能独自生成）。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">fillCups</span><span class="params">(<span class="type">int</span>[] amount)</span> &#123;</span><br><span class="line">      Arrays.sort(amount);</span><br><span class="line">      <span class="keyword">if</span> (amount[<span class="number">1</span>] == <span class="number">0</span>)&#123;</span><br><span class="line">          <span class="keyword">return</span> amount[<span class="number">2</span>];</span><br><span class="line">      &#125;</span><br><span class="line">      amount[<span class="number">1</span>] --;</span><br><span class="line">      amount[<span class="number">2</span>] --;</span><br><span class="line">      <span class="keyword">return</span> <span class="number">1</span> + fillCups(amount);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>递归</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>链表的中间结点</title>
+    <url>/2023/06/19/%E7%AE%97%E6%B3%95/%E9%93%BE%E8%A1%A8%E7%9A%84%E4%B8%AD%E9%97%B4%E7%BB%93%E7%82%B9/</url>
+    <content><![CDATA[<h1 id="链表的中间结点"><a href="#链表的中间结点" class="headerlink" title="链表的中间结点"></a>链表的中间结点</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306260929210.jpeg" alt="img"></p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>给你单链表的头结点 <code>head</code> ，请你找出并返回链表的中间结点。</p>
+<p>如果有两个中间结点，则返回第二个中间结点。</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191007092.jpeg" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：head = [1,2,3,4,5]</span><br><span class="line">输出：[3,4,5]</span><br><span class="line">解释：链表只有一个中间结点，值为 3 。</span><br></pre></td></tr></table></figure>
+
+<p>如果中间两个结点，返回第二个。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>用快慢指针，慢指针走一步，快指针走两步。当快指针走到终点的时候，慢指针正好指在了链表的中点。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ListNode <span class="title function_">middleNode</span><span class="params">(ListNode head)</span> &#123;</span><br><span class="line">    <span class="type">ListNode</span> <span class="variable">fast</span> <span class="operator">=</span> head;</span><br><span class="line">    <span class="type">ListNode</span> <span class="variable">slow</span> <span class="operator">=</span> head;</span><br><span class="line">    <span class="keyword">while</span> (fast != <span class="literal">null</span> &amp;&amp; fast.next != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="comment">// 慢指针走一步，快指针走两步</span></span><br><span class="line">        slow = slow.next;</span><br><span class="line">        fast = fast.next.next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> slow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>链表</tag>
+        <tag>leetcode</tag>
+        <tag>双指针</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>链表相交</title>
+    <url>/2023/06/25/%E7%AE%97%E6%B3%95/%E9%93%BE%E8%A1%A8%E7%9B%B8%E4%BA%A4/</url>
+    <content><![CDATA[<h1 id="链表相交"><a href="#链表相交" class="headerlink" title="链表相交"></a>链表相交</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你两个单链表的头节点 <code>headA</code> 和 <code>headB</code> ，请你找出并返回两个单链表相交的起始节点。如果两个链表不存在相交节点，返回 <code>null</code> 。</p>
+<p>图示两个链表在节点 <code>c1</code> 开始相交<strong>：</strong></p>
+<p><a href="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/14/160_statement.png"><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306250944935.png" alt="img"></a></p>
+<p>题目数据 <strong>保证</strong> 整个链式结构中不存在环。</p>
+<p><strong>注意</strong>，函数返回结果后，链表必须 <strong>保持其原始结构</strong> 。</p>
+<p><strong>自定义评测：</strong></p>
+<p><strong>评测系统</strong> 的输入如下（你设计的程序 <strong>不适用</strong> 此输入）：</p>
+<ul>
+<li><code>intersectVal</code> - 相交的起始节点的值。如果不存在相交节点，这一值为 <code>0</code></li>
+<li><code>listA</code> - 第一个链表</li>
+<li><code>listB</code> - 第二个链表</li>
+<li><code>skipA</code> - 在 <code>listA</code> 中（从头节点开始）跳到交叉节点的节点数</li>
+<li><code>skipB</code> - 在 <code>listB</code> 中（从头节点开始）跳到交叉节点的节点数</li>
+</ul>
+<p>评测系统将根据这些输入创建链式数据结构，并将两个头节点 <code>headA</code> 和 <code>headB</code> 传递给你的程序。如果程序能够正确返回相交节点，那么你的解决方案将被 <strong>视作正确答案</strong> 。</p>
+<p><strong>示例 1：</strong></p>
+<p><a href="https://assets.leetcode.com/uploads/2018/12/13/160_example_1.png"><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306250944565.png" alt="img"></a></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：intersectVal = 8, listA = [4,1,8,4,5], listB = [5,6,1,8,4,5], skipA = 2, skipB = 3</span><br><span class="line">输出：Intersected at &#x27;8&#x27;</span><br><span class="line">解释：相交节点的值为 8 （注意，如果两个链表相交则不能为 0）。</span><br><span class="line">从各自的表头开始算起，链表 A 为 [4,1,8,4,5]，链表 B 为 [5,6,1,8,4,5]。</span><br><span class="line">在 A 中，相交节点前有 2 个节点；在 B 中，相交节点前有 3 个节点。</span><br><span class="line">— 请注意相交节点的值不为 1，因为在链表 A 和链表 B 之中值为 1 的节点 (A 中第二个节点和 B 中第三个节点) 是不同的节点。换句话说，它们在内存中指向两个不同的位置，而链表 A 和链表 B 中值为 8 的节点 (A 中第三个节点，B 中第四个节点) 在内存中指向相同的位置。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<p><a href="https://assets.leetcode.com/uploads/2018/12/13/160_example_2.png"><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306250944586.png" alt="img"></a></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：intersectVal = 2, listA = [1,9,1,2,4], listB = [3,2,4], skipA = 3, skipB = 1</span><br><span class="line">输出：Intersected at &#x27;2&#x27;</span><br><span class="line">解释：相交节点的值为 2 （注意，如果两个链表相交则不能为 0）。</span><br><span class="line">从各自的表头开始算起，链表 A 为 [1,9,1,2,4]，链表 B 为 [3,2,4]。</span><br><span class="line">在 A 中，相交节点前有 3 个节点；在 B 中，相交节点前有 1 个节点。</span><br></pre></td></tr></table></figure>
+
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>可以使用HashSet，记录一个链表的所有节点，然后和另外一个链表对比，如果有一样的话，就返回该节点。但是需要额外的空间。</p>
+<p>使用双指针：</p>
+<p>但是两个链表的长度可能不同，两个链表之间的节点无法对应，那么如果使用两个指针，p1和p2分别在两个链表上前进的话，并不能同时走到公共节点上，也就是无法获取相交节点c1.</p>
+<p>所以，可以让p1遍历完链表A之后，再遍历链表B，p2遍历完链表B之后开始遍历链表A，这样相当于两个链表连接在了一起：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306250947411.jpeg" alt="img"></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ListNode <span class="title function_">getIntersectionNode</span><span class="params">(ListNode headA, ListNode headB)</span>&#123;</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">p1</span> <span class="operator">=</span> headA, p2 = headB;</span><br><span class="line">        <span class="keyword">while</span> (p1 != p2)&#123;</span><br><span class="line">            <span class="comment">// p1 走一步，如果走到A的末尾，转到B链表</span></span><br><span class="line">            <span class="keyword">if</span> (p1 == <span class="literal">null</span>)&#123;</span><br><span class="line">                p1 = headB;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="comment">// 如果不为空的话，一直走</span></span><br><span class="line">                p1 = p1.next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (p2 == <span class="literal">null</span>)&#123;</span><br><span class="line">                p2 = headA;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                p2 = p2.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> p1;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>链表</tag>
+        <tag>leetcode</tag>
+        <tag>双指针</tag>
       </tags>
   </entry>
 </search>

@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>分类 项目 | yamon，分享并热爱生活</title>
+<title>RSA和AES加密工具类算法 | yamon，分享并热爱生活</title>
 <noscript>开启Javascript是必要的</noscript>
 <link rel="icon" type="image/x-icon" href="/img/avatar.webp">
 <link rel="apple-touch-icon" href="/img/avatar.webp">
@@ -35,7 +35,7 @@
 
 
 
-<script>var GLOBALCONFIG = {"root":"/","runtime":"2023-06-12 00:00:00","lazyload":{"enable":false,"error":"/img/acrylic.png"},"hightlight":{"enable":false,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":true,"comment":{"enable":true,"twikooUrl":"https://twikoo.chenym.top/"},"localsearch":{"preload":false,"path":"/search.xml"}};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":false,"is_page":false,"page":false};</script>
+<script>var GLOBALCONFIG = {"root":"/","runtime":"2023-06-12 00:00:00","lazyload":{"enable":false,"error":"/img/acrylic.png"},"hightlight":{"enable":false,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":true,"comment":{"enable":true,"twikooUrl":"https://twikoo.chenym.top/"},"localsearch":{"preload":false,"path":"/search.xml"}};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":true,"is_page":false,"page":false,"toc":true,"comment":true};</script>
     <meta name="generator" content="Hexo 6.3.0"></head>
     <body id="body">
         
@@ -509,8 +509,8 @@
     </div>
 </div>    
         
-            <div class="page" id="body-wrap">
-                <header class="not-top-img" id="page-header">
+            <div class="post" id="body-wrap">
+                <header class="post-bg" id="page-header">
     <nav id="nav" class="show">
     <div id="nav-group">
         <div id="blog_name">
@@ -549,7 +549,7 @@
         </div>
         <div id="page-name-mask">
             <div id="page-name">
-                <a id="page-name-text" onclick="acrylic.toTop()">yamon，分享并热爱生活</a>
+                <a id="page-name-text" onclick="acrylic.toTop()">RSA和AES加密工具类算法</a>
             </div>
         </div>
         <div id="menus">
@@ -708,110 +708,253 @@
         </div>
     </div>
 </nav>
-        
-</header>
-                <main class="layout" id="content-inner">
-    <div id="category">
-        <div class="category-in-bar">
-            <div class="category-in-bar-tips">分类</div>
-            <div id="category-bar">
-                <div class="category-bar-items" id="category-bar-items">
-                    <div class="category-bar-items" id="category-bar-items">
-    <div class="category-bar-item " id="category-bar-home">
-        <a href="/">首页</a>
-    </div>
     
-        <div class="category-bar-item ">
-            <a href="/categories/%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/">问题汇总</a>
-        </div>
-    
-        <div class="category-bar-item ">
-            <a href="/categories/1/">1</a>
-        </div>
-    
-        <div class="category-bar-item ">
-            <a href="/categories/%E5%BC%80%E5%8F%91%E9%97%AE%E9%A2%98/">开发问题</a>
-        </div>
-    
-        <div class="category-bar-item ">
-            <a href="/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/">未分类</a>
-        </div>
-    
-        <div class="category-bar-item ">
-            <a href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
-        </div>
-    
-        <div class="category-bar-item ">
-            <a href="/categories/%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/">加密算法</a>
-        </div>
-    
-        <div class="category-bar-item select">
-            <a href="/categories/%E9%A1%B9%E7%9B%AE/">项目</a>
-        </div>
-    
-        <div class="category-bar-item ">
-            <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
-        </div>
-    
-        <div class="category-bar-item ">
-            <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
-        </div>
-    
-        <div class="category-bar-item ">
-            <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
-        </div>
-    
+        <div class="coverdiv" id="coverdiv">
+    <img id="post-cover" class="nolazyload" src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307111722580.jpeg" alt="cover">
 </div>
-<a class="category-bar-more" href="/categories/">更多</a>
-
+<div id="post-info">
+    <div id="post-firstinfo">
+        <div class="meta-firstline">
+            <a class="post-meta-original" title="该文章为原创文章，注意版权协议">
+                原创
+            </a>
+            
+            <span class="post-meta-categories">
+                
+                    <a class="post-meta-categories" href="/categories/%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/">加密算法</a>
+                
+            </span>
+            
+            <div class="tag_share">
+                <div class="post-meta__tag-list">
+                    
+                        <a class="post-meta__tags" href="/tags/RSA/">
+                            <span class="tags-punctuation">#</span>
+                            <span class="tags-name">RSA</span>
+                        </a>
+                    
+                        <a class="post-meta__tags" href="/tags/%E5%8A%A0%E5%AF%86%E5%B7%A5%E5%85%B7%E7%B1%BB/">
+                            <span class="tags-punctuation">#</span>
+                            <span class="tags-name">加密工具类</span>
+                        </a>
+                    
+                        <a class="post-meta__tags" href="/tags/AES/">
+                            <span class="tags-punctuation">#</span>
+                            <span class="tags-name">AES</span>
+                        </a>
+                    
                 </div>
             </div>
         </div>
-        <div class="article-sort-title">项目</div>
-        <div class="article-sort">
+    </div>
+    <h1 class="post-title">RSA和AES加密工具类算法</h1>
+    <div id="post-meta">
+        <div class="meta-secondline">
+            <span class="post-meta-date" title="发布于">
+                <i class="post-meta-icon fa-fw fas fa-calendar"></i>
+                <time datetime="2023-07-11T17:23:37+08:00"></time>
+            </span>
             
+                <span class="post-meta-date" title="更新于">
+                    <i class="post-meta-icon fa-solid fa-clock-rotate-left"></i>
+                    <time datetime="2023-07-11T17:23:37+08:00"></time>
+                </span>
+            
+            
+                <span class="post-meta-position" title="作者IP归属地为天津">
+                    <i class="fas fa-location-dot post-meta-icon"></i>
+                    <span>天津</span>
+                </span>
+            
+            
+                
+                    <span class="post-meta-wordcount">
+                        <i class="fas fa-file-word fa-fw post-meta-icon" title="文章字数"></i>
+                        <span class="word-count">940</span>
+                    </span>
+                
+                
+                    <span class="post-meta-time">
+                        <i class="fas fa-clock post-meta-icon" title="阅读耗时"></i>
+                        <span>5 min</span>
+                    </span>
+                
+            
+            
+            
+                <span class="post-meta-commentcount" title="评论数">
+                    <i class="fa-solid fa-message"></i>
+                    <a href="#post-comment">
+                        <span id="twikoo-count"><i class="fas fa-spinner fa-pulse"></i></span>
+                    </a>
+                </span>
+                
+        </div>
+    </div>
+</div>
+<section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg"
+    xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+    <defs>
+        <path id="gentle-wave"
+            d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path>
+    </defs>
+    <g class="parallax">
+        <use href="#gentle-wave" x="48" y="0"></use>
+        <use href="#gentle-wave" x="48" y="3"></use>
+        <use href="#gentle-wave" x="48" y="5"></use>
+        <use href="#gentle-wave" x="48" y="7"></use>
+    </g>
+</svg>
+</section>
 
-    
-        <div class="article-sort-item year">2023</div>
-    
-    <div class="article-sort-item">
-        <a class="article-sort-item-img" href="/2023/06/28/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/Hexo%E6%96%87%E7%AB%A0%E8%BD%AC%E6%8D%A2%E5%99%A8II/" title="Hexo文章转换器II">
-            <img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306281711167.jpeg"
-                alt="Hexo文章转换器II">
-        </a>
-        <div class="article-sort-item-info">
-            <a class="article-sort-item-title" href="/2023/06/28/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/Hexo%E6%96%87%E7%AB%A0%E8%BD%AC%E6%8D%A2%E5%99%A8II/" title="Hexo文章转换器II"
-                onclick="window.event.cancelBubble=true;">
-                Hexo文章转换器II
-            </a>
-            <div class="article-sort-item-tags">
+        
+</header>
+                <main class="layout" id="content-inner">
+    <div id="post">
+        <article class="post-content" id="article-container">
+            <h1 id="RSA和AES加密工具类算法"><a href="#RSA和AES加密工具类算法" class="headerlink" title="RSA和AES加密工具类算法"></a>RSA和AES加密工具类算法</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307111722580.jpeg" alt="a person walking up the side of a snow covered mountain"></p>
+<h2 id="RSA工具类"><a href="#RSA工具类" class="headerlink" title="RSA工具类"></a>RSA工具类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sun.security.rsa.RSAPrivateCrtKeyImpl;</span><br><span class="line"><span class="keyword">import</span> sun.security.rsa.RSAPublicKeyImpl;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.crypto.Cipher;</span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.Files;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.Path;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.Paths;</span><br><span class="line"><span class="keyword">import</span> java.security.*;</span><br><span class="line"><span class="keyword">import</span> java.util.Base64;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">RSAUtil</span> &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">ALGORITHM</span> <span class="operator">=</span> <span class="string">&quot;RSA&quot;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//生成密钥对</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> KeyPair <span class="title function_">genKeyPair</span><span class="params">(<span class="type">int</span> keyLength)</span> <span class="keyword">throws</span> NoSuchAlgorithmException &#123;</span><br><span class="line">        <span class="type">KeyPairGenerator</span> <span class="variable">keyPairGenerator</span> <span class="operator">=</span> KeyPairGenerator.getInstance(ALGORITHM);</span><br><span class="line">        keyPairGenerator.initialize(keyLength);</span><br><span class="line">        <span class="keyword">return</span> keyPairGenerator.generateKeyPair();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//以base64编码保存密钥</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">saveKey</span><span class="params">(Key key, String path)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">Path</span> <span class="variable">keyPath</span> <span class="operator">=</span> Paths.get(path);</span><br><span class="line">        Files.write(keyPath, Base64.getEncoder().encode(key.getEncoded()));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//读取公钥</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> PublicKey <span class="title function_">readPublicKey</span><span class="params">(String path)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="type">Path</span> <span class="variable">keyPath</span> <span class="operator">=</span> Paths.get(path);</span><br><span class="line">        <span class="type">byte</span>[] keyBytes = Files.readAllBytes(keyPath);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">RSAPublicKeyImpl</span>(Base64.getDecoder().decode(keyBytes));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//读取密钥</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> PrivateKey <span class="title function_">readPrivateKey</span><span class="params">(String path)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="type">Path</span> <span class="variable">keyPath</span> <span class="operator">=</span> Paths.get(path);</span><br><span class="line">        <span class="type">byte</span>[] keyBytes = Files.readAllBytes(keyPath);</span><br><span class="line">        <span class="keyword">return</span> RSAPrivateCrtKeyImpl.newKey(Base64.getDecoder().decode(keyBytes));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//公钥加密</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">encrypt</span><span class="params">(String content, PublicKey publicKey)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="comment">//选择算法,创建实例</span></span><br><span class="line">        <span class="type">Cipher</span> <span class="variable">cipher</span> <span class="operator">=</span> Cipher.getInstance(ALGORITHM);</span><br><span class="line">        <span class="comment">//选择模式,结合公钥初始化</span></span><br><span class="line">        cipher.init(Cipher.ENCRYPT_MODE, publicKey);</span><br><span class="line">        <span class="comment">//加密</span></span><br><span class="line">        <span class="type">byte</span>[] result = cipher.doFinal(content.getBytes());</span><br><span class="line">        <span class="comment">//转码</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">base64Result</span> <span class="operator">=</span> Base64.getEncoder().encodeToString(result);</span><br><span class="line">        <span class="keyword">return</span> base64Result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//私钥解密</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">decrypt</span><span class="params">(String content, PrivateKey privateKey)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="comment">//创建实例</span></span><br><span class="line">        <span class="type">Cipher</span> <span class="variable">cipher</span> <span class="operator">=</span> Cipher.getInstance(ALGORITHM);</span><br><span class="line">        <span class="comment">//初始化</span></span><br><span class="line">        cipher.init(Cipher.DECRYPT_MODE, privateKey);</span><br><span class="line">        <span class="comment">//转码</span></span><br><span class="line">        <span class="type">byte</span>[] encodedBytes = Base64.getDecoder().decode(content.getBytes());</span><br><span class="line">        <span class="comment">//解密</span></span><br><span class="line">        <span class="type">byte</span>[] result = cipher.doFinal(encodedBytes);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">String</span>(result);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//确保目录存在</span></span><br><span class="line">            <span class="type">File</span> <span class="variable">f</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;/home/duoyi/encrypt/&quot;</span>);</span><br><span class="line">            f.mkdirs();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            <span class="type">KeyPair</span> <span class="variable">keyPair</span> <span class="operator">=</span> RSAUtil.genKeyPair(<span class="number">1024</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//获取公钥</span></span><br><span class="line">            <span class="type">PublicKey</span> <span class="variable">publicKey</span> <span class="operator">=</span> keyPair.getPublic();</span><br><span class="line">            System.out.println(<span class="string">&quot;公钥：&quot;</span> + <span class="keyword">new</span> <span class="title class_">String</span>(Base64.getEncoder().encode(publicKey.getEncoded())));</span><br><span class="line"></span><br><span class="line">            <span class="comment">//获取私钥</span></span><br><span class="line">            <span class="type">PrivateKey</span> <span class="variable">privateKey</span> <span class="operator">=</span> keyPair.getPrivate();</span><br><span class="line">            System.out.println(<span class="string">&quot;私钥：&quot;</span> + <span class="keyword">new</span> <span class="title class_">String</span>(Base64.getEncoder().encode(privateKey.getEncoded())));</span><br><span class="line"></span><br><span class="line">            <span class="comment">//保存密钥</span></span><br><span class="line">            RSAUtil.saveKey(publicKey, <span class="string">&quot;/home/duoyi/encrypt/rsa.pub&quot;</span>);</span><br><span class="line">            RSAUtil.saveKey(privateKey, <span class="string">&quot;/home/duoyi/encrypt/rsa.pri&quot;</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            <span class="type">String</span> <span class="variable">content</span> <span class="operator">=</span> <span class="string">&quot;this is content&quot;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            <span class="comment">//读取密钥</span></span><br><span class="line">            <span class="type">PublicKey</span> <span class="variable">pubKey</span> <span class="operator">=</span> RSAUtil.readPublicKey(<span class="string">&quot;/home/duoyi/encrypt/rsa.pub&quot;</span>);</span><br><span class="line">            <span class="type">PrivateKey</span> <span class="variable">priKey</span> <span class="operator">=</span> RSAUtil.readPrivateKey(<span class="string">&quot;/home/duoyi/encrypt/rsa.pri&quot;</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//加密</span></span><br><span class="line">            <span class="type">String</span> <span class="variable">encryptBase64</span> <span class="operator">=</span> RSAUtil.encrypt(content, pubKey);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//解密</span></span><br><span class="line">            <span class="type">String</span> <span class="variable">result</span> <span class="operator">=</span> decrypt(encryptBase64, priKey);</span><br><span class="line"></span><br><span class="line">            System.out.println(<span class="string">&quot;密文为:&quot;</span> + <span class="keyword">new</span> <span class="title class_">String</span>(Base64.getDecoder().decode(encryptBase64.getBytes())));</span><br><span class="line">            System.out.println(<span class="string">&quot;密文转码后为:&quot;</span> + encryptBase64);</span><br><span class="line">            System.out.println(<span class="string">&quot;转码后解码为:&quot;</span> + result);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="AES工具类"><a href="#AES工具类" class="headerlink" title="AES工具类"></a>AES工具类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.Files;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.Path;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.Paths;</span><br><span class="line"><span class="keyword">import</span> java.security.Key;</span><br><span class="line"><span class="keyword">import</span> java.security.NoSuchAlgorithmException;</span><br><span class="line"><span class="keyword">import</span> java.security.SecureRandom;</span><br><span class="line"><span class="keyword">import</span> java.util.Base64;</span><br><span class="line"><span class="keyword">import</span> javax.crypto.Cipher;</span><br><span class="line"><span class="keyword">import</span> javax.crypto.KeyGenerator;</span><br><span class="line"><span class="keyword">import</span> javax.crypto.SecretKey;</span><br><span class="line"><span class="keyword">import</span> javax.crypto.spec.SecretKeySpec;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AESUtil</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">ALGORITHM</span> <span class="operator">=</span> <span class="string">&quot;AES&quot;</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">RANDOM_ALGORITHM</span> <span class="operator">=</span> <span class="string">&quot;SHA1PRNG&quot;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//选择算法,根据密码生成密钥</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> SecretKey <span class="title function_">genKey</span><span class="params">(String password)</span> <span class="keyword">throws</span> NoSuchAlgorithmException &#123;</span><br><span class="line">        <span class="type">KeyGenerator</span> <span class="variable">keyGenerator</span> <span class="operator">=</span> KeyGenerator.getInstance(ALGORITHM);</span><br><span class="line">        <span class="type">SecureRandom</span> <span class="variable">random</span> <span class="operator">=</span> SecureRandom.getInstance(RANDOM_ALGORITHM);</span><br><span class="line">        random.setSeed(password.getBytes());<span class="comment">//设置密钥</span></span><br><span class="line">        keyGenerator.init(random);</span><br><span class="line">        <span class="keyword">return</span> keyGenerator.generateKey();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//以base64编码保存密钥</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">saveKey</span><span class="params">(Key key, String path)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">Path</span> <span class="variable">keyPath</span> <span class="operator">=</span> Paths.get(path);</span><br><span class="line">        Files.write(keyPath, Base64.getEncoder().encode(key.getEncoded()));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//读取密钥</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> SecretKey <span class="title function_">readSecretKey</span><span class="params">(String path)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="type">Path</span> <span class="variable">keyPath</span> <span class="operator">=</span> Paths.get(path);</span><br><span class="line">        <span class="type">byte</span>[] keyBytes = Files.readAllBytes(keyPath);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">SecretKeySpec</span>(Base64.getDecoder().decode(keyBytes), ALGORITHM);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">encrypt</span><span class="params">(String content, SecretKey secretKey)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="comment">//指定算法创建Cipher实例</span></span><br><span class="line">        <span class="type">Cipher</span> <span class="variable">cipher</span> <span class="operator">=</span> Cipher.getInstance(ALGORITHM);<span class="comment">//算法是AES</span></span><br><span class="line">        <span class="comment">//选择模式，结合密钥初始化Cipher实例</span></span><br><span class="line">        cipher.init(Cipher.ENCRYPT_MODE, secretKey);</span><br><span class="line">        <span class="comment">//加密</span></span><br><span class="line">        <span class="type">byte</span>[] result = cipher.doFinal(content.getBytes());</span><br><span class="line">        <span class="comment">//使用Base64对密文进行转码</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">base64Result</span> <span class="operator">=</span> Base64.getEncoder().encodeToString(result);</span><br><span class="line">        <span class="keyword">return</span> base64Result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">decrpyt</span><span class="params">(String content, SecretKey secretKey)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="comment">//获取实例</span></span><br><span class="line">        <span class="type">Cipher</span> <span class="variable">cipher</span> <span class="operator">=</span> Cipher.getInstance(ALGORITHM);</span><br><span class="line">        <span class="comment">//初始化</span></span><br><span class="line">        cipher.init(Cipher.DECRYPT_MODE, secretKey);</span><br><span class="line">        <span class="comment">//转码</span></span><br><span class="line">        <span class="type">byte</span>[] encodedBytes = Base64.getDecoder().decode(content.getBytes());</span><br><span class="line">        <span class="comment">//解密</span></span><br><span class="line">        <span class="type">byte</span>[] result = cipher.doFinal(encodedBytes);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">String</span>(result);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//确保目录存在</span></span><br><span class="line">            <span class="type">File</span> <span class="variable">f</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;/home/duoyi/encrypt/&quot;</span>);</span><br><span class="line">            f.mkdirs();</span><br><span class="line"></span><br><span class="line">            <span class="type">String</span> <span class="variable">content</span> <span class="operator">=</span> <span class="string">&quot;this is content&quot;</span>;</span><br><span class="line">            <span class="type">String</span> <span class="variable">password</span> <span class="operator">=</span> <span class="string">&quot;passwd&quot;</span>;</span><br><span class="line"></span><br><span class="line">            <span class="type">SecretKey</span> <span class="variable">key</span> <span class="operator">=</span> AESUtil.genKey(password);</span><br><span class="line"></span><br><span class="line">            AESUtil.saveKey(key, <span class="string">&quot;/home/duoyi/encrypt/aes.key&quot;</span>);</span><br><span class="line"></span><br><span class="line">            <span class="type">String</span> <span class="variable">encryptBase64</span> <span class="operator">=</span> AESUtil.encrypt(content, key);</span><br><span class="line"></span><br><span class="line">            <span class="type">SecretKey</span> <span class="variable">readKey</span> <span class="operator">=</span> AESUtil.readSecretKey(<span class="string">&quot;/home/duoyi/encrypt/aes.key&quot;</span>);</span><br><span class="line">            <span class="type">String</span> <span class="variable">result</span> <span class="operator">=</span> AESUtil.decrpyt(encryptBase64, readKey);</span><br><span class="line"></span><br><span class="line">            System.out.println(<span class="string">&quot;密文为:&quot;</span> + <span class="keyword">new</span> <span class="title class_">String</span>(Base64.getDecoder().decode(encryptBase64.getBytes())));</span><br><span class="line">            System.out.println(<span class="string">&quot;密文转码后为:&quot;</span> + encryptBase64);</span><br><span class="line">            System.out.println(<span class="string">&quot;转码后解码为:&quot;</span> + result);</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+        </article>
+        <div class="post-tools" id="post-tools">
+            <div class="post-tools-left">
                 
-                    <a class="article-meta__tags" href="/tags/Java/" onclick="window.event.cancelBubble=true;">
-                        <span class="tags-punctuation">#</span>
-                        Java
-                    </a>
-                
-                    <a class="article-meta__tags" href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" onclick="window.event.cancelBubble=true;">
-                        <span class="tags-punctuation">#</span>
-                        开源项目
-                    </a>
-                
-                    <a class="article-meta__tags" href="/tags/JavaFX/" onclick="window.event.cancelBubble=true;">
-                        <span class="tags-punctuation">#</span>
-                        JavaFX
-                    </a>
-                
+                <div class="share-link mobile">
+    <div class="share-qrcode">
+        <div class="share-button" title="使用手机访问这篇文章">
+            <i class="fas fa-qrcode"></i>
+        </div>
+        <div class="share-main">
+            <div class="share-main-all">
+                <div id="qrcode" title="http://yamonc.github.io/2023/07/11/%E5%8A%A0%E8%A7%A3%E5%AF%86%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/RSA%E5%92%8CAES%E5%8A%A0%E5%AF%86%E5%B7%A5%E5%85%B7%E7%B1%BB%E7%AE%97%E6%B3%95/">
+                </div>
+                <div class="reward-dec">使用手机访问这篇文章</div>
             </div>
         </div>
+        <script type="text/javascript">
+            new QRCode(document.getElementById("qrcode"), "http://yamonc.github.io/2023/07/11/%E5%8A%A0%E8%A7%A3%E5%AF%86%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/RSA%E5%92%8CAES%E5%8A%A0%E5%AF%86%E5%B7%A5%E5%85%B7%E7%B1%BB%E7%AE%97%E6%B3%95/");
+        </script>
     </div>
-
+</div>
+                <div class="share-link weibo"><a class="share-button" target="_blank"
+    href="https://service.weibo.com/share/share.php?title=RSA和AES加密工具类算法&amp;url=http://yamonc.github.io/2023/07/11/%E5%8A%A0%E8%A7%A3%E5%AF%86%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/RSA%E5%92%8CAES%E5%8A%A0%E5%AF%86%E5%B7%A5%E5%85%B7%E7%B1%BB%E7%AE%97%E6%B3%95/&amp;pic=https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307111722580.jpeg"
+    title="分享到微博" rel="noopener external nofollow noreferrer noopener">
+    <i class="fab fa-weibo" style="font-size:22px"></i>
+</a>
+</div>
+<div class="share-link copyurl">
+<div class="share-button" id="post-share-url" title="复制链接" onclick="acrylic.copyPageUrl()">
+    <i class="fas fa-link"></i>
+</div>
+</div>
+            </div>
+            <div class="post-tools-right">
+                <div class="tag_share">
+                    <div class="post-meta__tag-list">
+                        
+                            <a href="/tags/RSA/" class="post-meta__tags">
+                                <span class="tags-punctuation">#</span>
+                                RSA
+                                <span class="tagsPageCount">2</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%8A%A0%E5%AF%86%E5%B7%A5%E5%85%B7%E7%B1%BB/" class="post-meta__tags">
+                                <span class="tags-punctuation">#</span>
+                                加密工具类
+                                <span class="tagsPageCount">1</span>
+                            </a>
+                        
+                            <a href="/tags/AES/" class="post-meta__tags">
+                                <span class="tags-punctuation">#</span>
+                                AES
+                                <span class="tagsPageCount">1</span>
+                            </a>
+                        
+                    </div>
+                </div>
+            </div>
         </div>
-        <nav id="pagination">
-    <div class="pagination">
-        
-        <span class="page-number current">1</span>
+        <div class="post-copyright">
+    <div class="post-copyright__author">
+        <a class="post-copyright__original" title="该文章为原创文章，注意版权协议">原创</a>
+        <a class="post-copyright-title" href="#">
+            <span>RSA和AES加密工具类算法</span>
+        </a>
     </div>
-</nav>    
+    <div class="post-copyright__type">
+        <span class="post-copyright-info" id="post-copyright-url">
+            <a href="/2023/07/11/%E5%8A%A0%E8%A7%A3%E5%AF%86%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/RSA%E5%92%8CAES%E5%8A%A0%E5%AF%86%E5%B7%A5%E5%85%B7%E7%B1%BB%E7%AE%97%E6%B3%95/">http://yamonc.github.io/2023/07/11/%E5%8A%A0%E8%A7%A3%E5%AF%86%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/RSA%E5%92%8CAES%E5%8A%A0%E5%AF%86%E5%B7%A5%E5%85%B7%E7%B1%BB%E7%AE%97%E6%B3%95/</a>
+        </span>
+        <button class="post-copyright-copybtn" onclick="acrylic.copyPageUrl()">
+            <i class="fas fa-paste copy-btn"></i>
+        </button>
+    </div>
+    <div class="post-copyright__notice"><span class="post-copyright-info">本文是原创文章，采用 <a
+                href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a> 协议，完整转载请注明来自 <a
+                href="/">yamon，分享并热爱生活</a>
+            </span>
+        </div>
+</div>
+        <nav class="pagination-post" id="pagination">
+    
+        
+            <div class="next-post pull-full">
+                <a href="/2023/07/11/%E5%8A%A0%E8%A7%A3%E5%AF%86%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/">
+                    <div class="pagination-info">
+                        <div class="label">下一篇</div>
+                        <div class="next_info">非对称加密算法</div>
+                    </div>
+                </a>
+            </div>
+                
+        
+    
+</nav>
+        
+            <div id="post-comment">
+    <div class="comment-head">
+        <div class="comment-headline">
+            <i class="fas fa-message fa-fw"></i>
+            <span> 评论</span>
+        </div>
+    </div>
+    <div class="comment-wrap">
+        <div id="comment"></div>
+        <script>
+    async function initComment(){
+        var initOptions = Object.assign(
+            {"envId":"https://twikoo.chenym.top/","path":"window.location.pathname"},
+            {
+                el: '#comment',
+                onCommentLoaded: function() {
+                    GLOBALCONFIG.lightbox && acrylic.lightbox('#article-container img, #twikoo .tk-content img:not(.tk-owo-emotion)') 
+                }
+            }
+        )
+        await twikoo.init(initOptions)
+        
+            var countOptions = Object.assign(
+                {"envId":"https://twikoo.chenym.top/","path":"window.location.pathname"},
+                { 
+                    urls: [window.location.pathname],
+                    includeReply: false
+                }
+            )
+            const res = await twikoo.getCommentsCount(countOptions)
+            try{
+                document.getElementById('twikoo-count').innerText = res[0].count
+            }catch (e) {
+                document.getElementById('twikoo-count').innerText = '加载错误'
+            }
+             
+    }
+</script>
+    </div>
+</div>
+            
     </div>
     <div class="aside-content" id="aside-content">
     
@@ -849,6 +992,16 @@
      
     
     <div class="sticky_layout">
+        
+            <div class="card-widget" id="card-toc">
+    <div class="item-headline">
+        <i class="fas fa-bars"></i>
+        <span>文章目录</span>
+    </div>
+    <div class="toc-content" id="toc-content">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#RSA%E5%92%8CAES%E5%8A%A0%E5%AF%86%E5%B7%A5%E5%85%B7%E7%B1%BB%E7%AE%97%E6%B3%95"><span class="toc-text">RSA和AES加密工具类算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#RSA%E5%B7%A5%E5%85%B7%E7%B1%BB"><span class="toc-text">RSA工具类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AES%E5%B7%A5%E5%85%B7%E7%B1%BB"><span class="toc-text">AES工具类</span></a></li></ol></li></ol>
+    </div>
+</div>
             
         
             
@@ -958,132 +1111,9 @@
 </div>
      
         
-            
-        <div class="card-widget card-tags card-archives card-webinfo card-allinfo">
-    <div class="card-tag-cloud">
-    
-        <a href="/tags/java/" style="font-size: 0.8rem; color: #d3d3d3">java<sup>8</sup></a>
-    
-        <a href="/tags/jdk/" style="font-size: 0.8rem; color: #d3d3d3">jdk<sup>1</sup></a>
-    
-        <a href="/tags/1/" style="font-size: 0.8rem; color: #d3d3d3">1<sup>1</sup></a>
-    
-        <a href="/tags/Java/" style="font-size: 0.8rem; color: #d3d3d3">Java<sup>3</sup></a>
-    
-        <a href="/tags/SpringBoot/" style="font-size: 0.8rem; color: #d3d3d3">SpringBoot<sup>1</sup></a>
-    
-        <a href="/tags/%E6%9D%82%E8%AE%B0/" style="font-size: 0.8rem; color: #d3d3d3">杂记<sup>1</sup></a>
-    
-        <a href="/tags/exe/" style="font-size: 0.8rem; color: #d3d3d3">exe<sup>1</sup></a>
-    
-        <a href="/tags/RSA/" style="font-size: 0.8rem; color: #d3d3d3">RSA<sup>2</sup></a>
-    
-        <a href="/tags/%E5%8A%A0%E5%AF%86%E5%B7%A5%E5%85%B7%E7%B1%BB/" style="font-size: 0.8rem; color: #d3d3d3">加密工具类<sup>1</sup></a>
-    
-        <a href="/tags/AES/" style="font-size: 0.8rem; color: #d3d3d3">AES<sup>1</sup></a>
-    
-        <a href="/tags/DSA/" style="font-size: 0.8rem; color: #d3d3d3">DSA<sup>1</sup></a>
-    
-        <a href="/tags/%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86/" style="font-size: 0.8rem; color: #d3d3d3">非对称加密<sup>1</sup></a>
-    
-        <a href="/tags/hexo/" style="font-size: 0.8rem; color: #d3d3d3">hexo<sup>4</sup></a>
-    
-        <a href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" style="font-size: 0.8rem; color: #d3d3d3">开源项目<sup>2</sup></a>
-    
-        <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 0.8rem; color: #d3d3d3">工具<sup>1</sup></a>
-    
-        <a href="/tags/JavaFX/" style="font-size: 0.8rem; color: #d3d3d3">JavaFX<sup>1</sup></a>
-    
-        <a href="/tags/twikoo/" style="font-size: 0.8rem; color: #d3d3d3">twikoo<sup>1</sup></a>
-    
-        <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 0.8rem; color: #d3d3d3">博客<sup>3</sup></a>
-    
-        <a href="/tags/vue/" style="font-size: 0.8rem; color: #d3d3d3">vue<sup>1</sup></a>
-    
-        <a href="/tags/electron/" style="font-size: 0.8rem; color: #d3d3d3">electron<sup>1</sup></a>
-    
-        <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" style="font-size: 0.8rem; color: #d3d3d3">面向对象<sup>6</sup></a>
-    
-        <a href="/tags/github/" style="font-size: 0.8rem; color: #d3d3d3">github<sup>1</sup></a>
-    
-        <a href="/tags/%E6%8E%A5%E5%8F%A3/" style="font-size: 0.8rem; color: #d3d3d3">接口<sup>2</sup></a>
-    
-        <a href="/tags/%E6%8A%BD%E8%B1%A1%E7%B1%BB/" style="font-size: 0.8rem; color: #d3d3d3">抽象类<sup>1</sup></a>
-    
-        <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 0.8rem; color: #d3d3d3">设计模式<sup>3</sup></a>
-    
-        <a href="/tags/%E9%93%BE%E8%A1%A8/" style="font-size: 0.8rem; color: #d3d3d3">链表<sup>6</sup></a>
-    
-        <a href="/tags/leetcode/" style="font-size: 0.8rem; color: #d3d3d3">leetcode<sup>9</sup></a>
-    
-        <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" style="font-size: 0.8rem; color: #d3d3d3">双指针<sup>5</sup></a>
-    
-        <a href="/tags/%E9%80%92%E5%BD%92/" style="font-size: 0.8rem; color: #d3d3d3">递归<sup>2</sup></a>
-    
-</div>
-    <ul class="card-archive-list">
-    
-     
-        <li class="card-archive-list-item"><a class="card-archive-list-link" onclick="pjax.loadUrl('/archives/2023/')" data-pjax-state=""><span
-            class="card-archive-list-date">2023</span>
-            <div class="card-archive-list-count-group"><span class="card-archive-list-count">29</span><span
-                    class="card-archive-list-count-unit">篇</span></div>
-            </a>
-        </li>
-        
-</ul>
-
-    <hr>
-    <div class="webinfo">
-    
-        <div class="webinfo-item">
-            <div class="webinfo-item-title">
-                <i class="item-icon fas fa-file-alt"></i>
-                <div class="item-name">文章总数 :</div>
-            </div>
-            <div class="item-count">29</div>
-        </div>
-    
-    
-        
-            <div class="webinfo-item">
-                <div class="webinfo-item-title">
-                    <i class="fa-solid fa-fire"></i>
-                    <div class="item-name">总访问数 :</div>
-                </div>
-                <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-pulse"></i></span>
-            </div>
-        
-        
-    
-    
-        <div class="webinfo-item">
-            <div class="webinfo-item-title">
-                <i class="item-icon fas fa-stopwatch"></i>
-                <div class="item-name">建站天数 :</div>
-            </div>
-            <div class="item-count" id="runtimeshow">
-            </div>
-        </div>
-    
-    
-        <div class="webinfo-item">
-            <div class="webinfo-item-title">
-                <i class="fa-solid fa-clock-rotate-left"></i>
-                <div class="item-name">最后更新 :</div>
-            </div>
-            <time class="item-count" datetime="Tue Jul 11 2023 17:23:53 GMT+0800 (中国标准时间)">
-            </time>
-        </div>
-    
-    
-</div>
-</div>
-     
-        
     </div>
 </div> 
-</main> 
+</main>
                 <footer id="footer">
                     <div id="footer_deal">
     
