@@ -49,58 +49,6 @@
       </tags>
   </entry>
   <entry>
-    <title>如何将JavaFX的java项目打包成exe格式</title>
-    <url>/2023/06/16/%E5%A6%82%E4%BD%95%E5%B0%86java%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E6%88%90exe%E6%A0%BC%E5%BC%8F/</url>
-    <content><![CDATA[<h1 id="如何将JavaFX的java项目打包成exe格式"><a href="#如何将JavaFX的java项目打包成exe格式" class="headerlink" title="如何将JavaFX的java项目打包成exe格式"></a>如何将JavaFX的java项目打包成exe格式</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261746693.jpeg" alt="a dark tunnel with a light at the end"></p>
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近在博客的时候，因为用到了hexo，所以必须按照hexo的格式上传文章，这样网站在显示的时候才会完整的显示出来：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306152048160.png" alt="image-20230615204813105"></p>
-<p>但是，每次写一篇，就得手动在文章的头部添加一些这些信息，而且添加完了之后，还要重新执行hexo三剑客才能部署到github的page上，所以就想着能不能按照，写一个客户端，用java写一个能运行在windows平台上的代码。</p>
-<p>以下都是基于代码写好了之后，详情请看这篇文章-&gt;&gt;&gt;&gt;&gt;&gt;&gt;</p>
-<h2 id="maven打包"><a href="#maven打包" class="headerlink" title="maven打包"></a>maven打包</h2><p>打包方式的话，可以参考文章末尾的第一篇文章。</p>
-<p>本文使用方法一会报错。所以使用方法二。</p>
-<p>使用的插件为maven-assembly-plugin，只需要在pom文件里面添加这段代码：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&lt;plugin&gt;</span><br><span class="line">               &lt;artifactId&gt;maven-assembly-plugin&lt;/artifactId&gt;</span><br><span class="line">               &lt;configuration&gt;</span><br><span class="line">                   &lt;descriptorRefs&gt;</span><br><span class="line">                       &lt;descriptorRef&gt;jar-with-dependencies&lt;/descriptorRef&gt;</span><br><span class="line">                   &lt;/descriptorRefs&gt;</span><br><span class="line">                   &lt;archive&gt;</span><br><span class="line">                       &lt;manifest&gt;</span><br><span class="line">                           &lt;mainClass&gt;com.yamon.convert/com.yamon.convert.HelloApplication&lt;/mainClass&gt;</span><br><span class="line">                       &lt;/manifest&gt;</span><br><span class="line">                   &lt;/archive&gt;</span><br><span class="line">               &lt;/configuration&gt;</span><br><span class="line">               &lt;executions&gt;</span><br><span class="line">                   &lt;execution&gt;</span><br><span class="line">                       &lt;id&gt;make-assembly&lt;/id&gt;</span><br><span class="line">                       &lt;phase&gt;<span class="keyword">package</span>&lt;/phase&gt;</span><br><span class="line">                       &lt;goals&gt;</span><br><span class="line">                           &lt;goal&gt;single&lt;/goal&gt;</span><br><span class="line">                       &lt;/goals&gt;</span><br><span class="line">                   &lt;/execution&gt;</span><br><span class="line">               &lt;/executions&gt;</span><br><span class="line">           &lt;/plugin&gt;</span><br></pre></td></tr></table></figure>
-
-<p>参考文章中有说的需要查看META-INF文件夹下的MAINIFEST.MF,需要查看里面的引用是否完整，我的内容比较少，也没有手动加。但是如果你要是有别的依赖包的话，需要手动添加一下，具体参考这篇文章：<a href="https://blog.csdn.net/qq_29428909/article/details/122103131">将idea中的JavaFX项目打包成可执行的exe应用</a></p>
-<p>重新导一下maven包，然后打开maven，点击：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161036716.png" alt="image-20230616103621652"></p>
-<p>完成打包：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161036953.png" alt="image-20230616103635913"></p>
-<h2 id="exe4j将jar包导出成exe格式"><a href="#exe4j将jar包导出成exe格式" class="headerlink" title="exe4j将jar包导出成exe格式"></a>exe4j将jar包导出成exe格式</h2><blockquote>
-<p>前记：</p>
-<p>之前也用过的别的，强烈不推荐使用jsmooth，感觉都是上古时期的工具了。按照教程一步一步操作，始终打不开。后来切换成exe4j之后，才成功完成打包动作。另外，打包方式的不同也有可能导致包的失效（毕竟不是springboot项目，怎么打都可以）</p>
-</blockquote>
-<p>先下载exe4j文件，比较快。下载好了之后，完成安装。</p>
-<ol>
-<li>欢迎页面不用看，直接点下一步：</li>
-</ol>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161040185.png" alt="image-20230616104018147"></p>
-<ol start="2">
-<li>项目类型选择jar包 in exe模式：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161041330.png" alt="image-20230616104119283"></li>
-<li>应用配置，这个应该是导出的文件名称，然后导出的目录位置：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161042024.png" alt="image-20230616104201987"></li>
-<li>配置执行文件，需要将高级选项点开，选择32&#x2F;64&#x2F;arm<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161042379.png" alt="image-20230616104240329"></li>
-<li><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161043712.png" alt="image-20230616104318653"></li>
-<li><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161043997.png" alt="image-20230616104331961"></li>
-<li>Java invocation：如果有额外的vm参数，需要调参的话，在上面填写；下面点击右侧绿色的加号，将刚才导出的包添加进来：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161044962.png" alt="image-20230616104446922">主类选择项目中的主类即可。</li>
-<li>配置JRE，尽量和当前系统环境一致：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161045352.png" alt="image-20230616104543316"></li>
-<li>坑点：这里需要在环境变量里面添加变量EXE4J_JAVA_HOME，然后地址写jre的地址。要不会报参考中的第三个错误；如果你的jdk版本没有jre的话，可以参考这篇文章：[待补充]。<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161048283.png"></li>
-<li>然后一路下一步就行了。</li>
-<li>最后试一下，看是否能启动应用：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161048396.png" alt="image-20230616104849351"></li>
-<li>如果能启动的话，表示成功，点击save as，将这个配置保存到本地。</li>
-</ol>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/qq_29428909/article/details/122103131">将idea中的JavaFX项目打包成可执行的exe应用</a></p>
-<p><a href="https://www.cnblogs.com/ococo/p/15875003.html">JDK11，JDK12 使用EXE4J 无JRE解决办法</a></p>
-<p><a href="https://blog.csdn.net/jiong9412/article/details/126481322">No JVM could be found on your system. Please define EXE4J_JAVA_HOME to point to an installed 64-bit</a></p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>exe</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hexo-Acrylic主题集成twikoo评论</title>
     <url>/2023/06/13/Hexo/hexo-Acrylic%E4%B8%BB%E9%A2%98%E9%9B%86%E6%88%90twikoo%E8%AF%84%E8%AE%BA/</url>
     <content><![CDATA[<h1 id="hexo-Acrylic主题集成twikoo评论"><a href="#hexo-Acrylic主题集成twikoo评论" class="headerlink" title="hexo-Acrylic主题集成twikoo评论"></a>hexo-Acrylic主题集成twikoo评论</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261745868.jpeg" alt="a large building with a clock tower in the middle of it"></p>
@@ -216,6 +164,58 @@
         <tag>twikoo</tag>
         <tag>博客</tag>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何将JavaFX的java项目打包成exe格式</title>
+    <url>/2023/06/16/%E5%A6%82%E4%BD%95%E5%B0%86java%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E6%88%90exe%E6%A0%BC%E5%BC%8F/</url>
+    <content><![CDATA[<h1 id="如何将JavaFX的java项目打包成exe格式"><a href="#如何将JavaFX的java项目打包成exe格式" class="headerlink" title="如何将JavaFX的java项目打包成exe格式"></a>如何将JavaFX的java项目打包成exe格式</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261746693.jpeg" alt="a dark tunnel with a light at the end"></p>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近在博客的时候，因为用到了hexo，所以必须按照hexo的格式上传文章，这样网站在显示的时候才会完整的显示出来：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306152048160.png" alt="image-20230615204813105"></p>
+<p>但是，每次写一篇，就得手动在文章的头部添加一些这些信息，而且添加完了之后，还要重新执行hexo三剑客才能部署到github的page上，所以就想着能不能按照，写一个客户端，用java写一个能运行在windows平台上的代码。</p>
+<p>以下都是基于代码写好了之后，详情请看这篇文章-&gt;&gt;&gt;&gt;&gt;&gt;&gt;</p>
+<h2 id="maven打包"><a href="#maven打包" class="headerlink" title="maven打包"></a>maven打包</h2><p>打包方式的话，可以参考文章末尾的第一篇文章。</p>
+<p>本文使用方法一会报错。所以使用方法二。</p>
+<p>使用的插件为maven-assembly-plugin，只需要在pom文件里面添加这段代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&lt;plugin&gt;</span><br><span class="line">               &lt;artifactId&gt;maven-assembly-plugin&lt;/artifactId&gt;</span><br><span class="line">               &lt;configuration&gt;</span><br><span class="line">                   &lt;descriptorRefs&gt;</span><br><span class="line">                       &lt;descriptorRef&gt;jar-with-dependencies&lt;/descriptorRef&gt;</span><br><span class="line">                   &lt;/descriptorRefs&gt;</span><br><span class="line">                   &lt;archive&gt;</span><br><span class="line">                       &lt;manifest&gt;</span><br><span class="line">                           &lt;mainClass&gt;com.yamon.convert/com.yamon.convert.HelloApplication&lt;/mainClass&gt;</span><br><span class="line">                       &lt;/manifest&gt;</span><br><span class="line">                   &lt;/archive&gt;</span><br><span class="line">               &lt;/configuration&gt;</span><br><span class="line">               &lt;executions&gt;</span><br><span class="line">                   &lt;execution&gt;</span><br><span class="line">                       &lt;id&gt;make-assembly&lt;/id&gt;</span><br><span class="line">                       &lt;phase&gt;<span class="keyword">package</span>&lt;/phase&gt;</span><br><span class="line">                       &lt;goals&gt;</span><br><span class="line">                           &lt;goal&gt;single&lt;/goal&gt;</span><br><span class="line">                       &lt;/goals&gt;</span><br><span class="line">                   &lt;/execution&gt;</span><br><span class="line">               &lt;/executions&gt;</span><br><span class="line">           &lt;/plugin&gt;</span><br></pre></td></tr></table></figure>
+
+<p>参考文章中有说的需要查看META-INF文件夹下的MAINIFEST.MF,需要查看里面的引用是否完整，我的内容比较少，也没有手动加。但是如果你要是有别的依赖包的话，需要手动添加一下，具体参考这篇文章：<a href="https://blog.csdn.net/qq_29428909/article/details/122103131">将idea中的JavaFX项目打包成可执行的exe应用</a></p>
+<p>重新导一下maven包，然后打开maven，点击：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161036716.png" alt="image-20230616103621652"></p>
+<p>完成打包：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161036953.png" alt="image-20230616103635913"></p>
+<h2 id="exe4j将jar包导出成exe格式"><a href="#exe4j将jar包导出成exe格式" class="headerlink" title="exe4j将jar包导出成exe格式"></a>exe4j将jar包导出成exe格式</h2><blockquote>
+<p>前记：</p>
+<p>之前也用过的别的，强烈不推荐使用jsmooth，感觉都是上古时期的工具了。按照教程一步一步操作，始终打不开。后来切换成exe4j之后，才成功完成打包动作。另外，打包方式的不同也有可能导致包的失效（毕竟不是springboot项目，怎么打都可以）</p>
+</blockquote>
+<p>先下载exe4j文件，比较快。下载好了之后，完成安装。</p>
+<ol>
+<li>欢迎页面不用看，直接点下一步：</li>
+</ol>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161040185.png" alt="image-20230616104018147"></p>
+<ol start="2">
+<li>项目类型选择jar包 in exe模式：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161041330.png" alt="image-20230616104119283"></li>
+<li>应用配置，这个应该是导出的文件名称，然后导出的目录位置：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161042024.png" alt="image-20230616104201987"></li>
+<li>配置执行文件，需要将高级选项点开，选择32&#x2F;64&#x2F;arm<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161042379.png" alt="image-20230616104240329"></li>
+<li><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161043712.png" alt="image-20230616104318653"></li>
+<li><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161043997.png" alt="image-20230616104331961"></li>
+<li>Java invocation：如果有额外的vm参数，需要调参的话，在上面填写；下面点击右侧绿色的加号，将刚才导出的包添加进来：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161044962.png" alt="image-20230616104446922">主类选择项目中的主类即可。</li>
+<li>配置JRE，尽量和当前系统环境一致：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161045352.png" alt="image-20230616104543316"></li>
+<li>坑点：这里需要在环境变量里面添加变量EXE4J_JAVA_HOME，然后地址写jre的地址。要不会报参考中的第三个错误；如果你的jdk版本没有jre的话，可以参考这篇文章：[待补充]。<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161048283.png"></li>
+<li>然后一路下一步就行了。</li>
+<li>最后试一下，看是否能启动应用：<img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306161048396.png" alt="image-20230616104849351"></li>
+<li>如果能启动的话，表示成功，点击save as，将这个配置保存到本地。</li>
+</ol>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/qq_29428909/article/details/122103131">将idea中的JavaFX项目打包成可执行的exe应用</a></p>
+<p><a href="https://www.cnblogs.com/ococo/p/15875003.html">JDK11，JDK12 使用EXE4J 无JRE解决办法</a></p>
+<p><a href="https://blog.csdn.net/jiong9412/article/details/126481322">No JVM could be found on your system. Please define EXE4J_JAVA_HOME to point to an installed 64-bit</a></p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>exe</tag>
       </tags>
   </entry>
   <entry>
@@ -380,6 +380,87 @@
         <tag>博客</tag>
         <tag>hexo</tag>
         <tag>github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>IOC高级-配置源&amp;配置元信息</title>
+    <url>/2023/07/07/Spring/IOC%E9%AB%98%E7%BA%A7-%E9%85%8D%E7%BD%AE%E6%BA%90&amp;%E9%85%8D%E7%BD%AE%E5%85%83%E4%BF%A1%E6%81%AF/</url>
+    <content><![CDATA[<h1 id="IOC高级-配置源-amp-配置元信息"><a href="#IOC高级-配置源-amp-配置元信息" class="headerlink" title="IOC高级-配置源&amp;配置元信息"></a>IOC高级-配置源&amp;配置元信息</h1><p>对象头 每个对象都有一个对象头，对象头包括两部分，标记信息和类型指针。 标记信息包括哈希值，锁信息，GC信息。类型指针指向这个对象的class。 两个信息分别占用8个字节，所以每个对象的额外内存为16个字节。很消耗内存。 压缩指针 为了减少类型指针的内存占用，将64位指针压缩至32位，进而节约内存。之前64位寻址，寻的是字节。现在32位寻址，寻的是变量。再加上内存对齐(补齐为8的倍数)，可以每次寻变量都以一定的规则寻找，并且一定可以找得到。 内存对齐 内存对齐的另一个好处是，使得CPU缓存行可以更好的实施。保证每个变量都只出现在一条缓存行中，不会出现跨行缓存。提高程序的执行效率。 字段重排序 其实就是更好的执行内存对齐标准，会调整字段在内存中的分布，达到方便寻址和节省空间的目的。 虚共享 当两个线程分别访问一个对象中的不同volatile字段，理论上是不涉及变量共享和同步要求的。但是如果两个volatile字段处于同一个CPU缓存行中，对其中一个volatile字段的写操作，会导致整个缓存行的写回和读取操作，进而影响到了另一个volatile变量，也就是实际上的共享问题。 @Contented注解 该注解就是用来解决虚共享问题的，被该注解标识的变量，会独占一个CPU缓存行。但也因此浪费了大量的内存空间。</p>
+]]></content>
+      <categories>
+        <category>未分类</category>
+      </categories>
+      <tags>
+        <tag>杂记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>IOC高级-Bean与BeanDefinition</title>
+    <url>/2023/07/13/Spring/IOC%E9%AB%98%E7%BA%A7-BeanDefinition/</url>
+    <content><![CDATA[<h1 id="IOC高级-Bean与BeanDefinition"><a href="#IOC高级-Bean与BeanDefinition" class="headerlink" title="IOC高级-Bean与BeanDefinition"></a>IOC高级-Bean与BeanDefinition</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307131125914.jpeg" alt="a man standing in the middle of a desert"></p>
+<h2 id="BeanDefinition概述"><a href="#BeanDefinition概述" class="headerlink" title="BeanDefinition概述"></a>BeanDefinition概述</h2><p><code>BeanDefinition</code> 也是一种<strong>配置元信息</strong>，它描述了 <strong>Bean 的定义信息</strong>。</p>
+<blockquote>
+<p>bean 的定义信息可以包含许多配置信息，包括构造函数参数，属性值和特定于容器的信息，例如初始化方法，静态工厂方法名称等。子 bean 定义可以从父 bean 定义继承配置数据。子 bean 的定义信息可以覆盖某些值，或者可以根据需要添加其他值。使用父 bean 和子 bean 的定义可以节省很多输入</p>
+</blockquote>
+<p>bean 的定义信息也是有<strong>层次性</strong>的（联想 <code>BeanFactory</code> 的层次性），bean 的定义信息可以继承自某个已经有的定义信息，并覆盖父信息的一些配置值。</p>
+<h2 id="BeanDefinition接口的方法定义"><a href="#BeanDefinition接口的方法定义" class="headerlink" title="BeanDefinition接口的方法定义"></a>BeanDefinition接口的方法定义</h2><p><code>BeanDefinition</code> 整体包含以下几个部分：</p>
+<ul>
+<li>Bean 的类信息 - 全限定类名 ( beanClassName )</li>
+<li>Bean 的属性 - 作用域 ( scope ) 、是否默认 Bean ( primary ) 、描述信息 ( description ) 等</li>
+<li>Bean 的行为特征 - 是否延迟加载 ( lazy ) 、是否自动注入 ( autowireCandidate ) 、初始化 &#x2F; 销毁方法 ( initMethod &#x2F; destroyMethod ) 等</li>
+<li>Bean 与其他 Bean 的关系 - 父 Bean 名 ( parentName ) 、依赖的 Bean ( dependsOn ) 等</li>
+<li>Bean 的配置属性 - 构造器参数 ( constructorArgumentValues ) 、属性变量值 ( propertyValues ) 等</li>
+</ul>
+<p>由此可见，<code>BeanDefinition</code> 几乎把 bean 的所有信息都能收集并封装起来，可以说是很全面了。</p>
+<h2 id="star-star-star-star-star-面试题：概述BeanDefinition"><a href="#star-star-star-star-star-面试题：概述BeanDefinition" class="headerlink" title=":star::star::star::star::star:面试题：概述BeanDefinition"></a>:star::star::star::star::star:面试题：概述BeanDefinition</h2><p><strong><code>BeanDefinition</code> 描述了 SpringFramework 中 bean 的元信息，它包含 bean 的类信息、属性、行为、依赖关系、配置信息等。<code>BeanDefinition</code> 具有层次性，并且可以在 IOC 容器初始化阶段被 <code>BeanDefinitionRegistryPostProcessor</code> 构造和注册，被 <code>BeanFactoryPostProcessor</code> 拦截修改等。</strong></p>
+<h2 id="BeanDefinition的结构"><a href="#BeanDefinition的结构" class="headerlink" title="BeanDefinition的结构"></a>BeanDefinition的结构</h2><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307131009380.webp" alt="img"></p>
+<h3 id="AttributeAccessor"><a href="#AttributeAccessor" class="headerlink" title="AttributeAccessor"></a>AttributeAccessor</h3><p><strong>属性的访问器</strong>：定义用于将元数据附加到任意对象，或从任意对象访问元数据的通用协定的接口。</p>
+<p>总结出第一个 <code>BeanDefinition</code> 的特征：**<code>BeanDefinition</code> 继承了 <code>AttributeAccessor</code> 接口，具有配置 bean 属性的功能。**</p>
+<h3 id="BeanMetadataElement"><a href="#BeanMetadataElement" class="headerlink" title="BeanMetadataElement"></a>BeanMetadataElement</h3><p><strong>存放了 bean 的元信息</strong>， 只有一个方法，是获取 bean 的资源来源</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">BeanMetadataElement</span> &#123;</span><br><span class="line">    <span class="keyword">default</span> Object <span class="title function_">getSource</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>资源来源，说白了，就是 bean 的文件 &#x2F; url 路径。咱们前面写的所有示例，都是在本地磁盘上的 .class 文件加载进来的，所以对应的也就应该是 <code>FileSystemResource</code></p>
+<h3 id="AbstractBeanDefinition"><a href="#AbstractBeanDefinition" class="headerlink" title="AbstractBeanDefinition"></a>AbstractBeanDefinition</h3><p>到了 <code>BeanDefinition</code> 的第一个实现类了，作为 <code>BeanDefinition</code> 的抽象实现，它里面已经定义好了一些属性和功能（大部分都有了），大体包含以下内容：（只挑选部分重要属性）：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// bean的全限定类名</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">volatile</span> Object beanClass;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 默认的作用域为单实例</span></span><br><span class="line"><span class="keyword">private</span> <span class="type">String</span> <span class="variable">scope</span> <span class="operator">=</span> SCOPE_DEFAULT;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 默认bean都不是抽象的</span></span><br><span class="line"><span class="keyword">private</span> <span class="type">boolean</span> <span class="variable">abstractFlag</span> <span class="operator">=</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 是否延迟初始化</span></span><br><span class="line"><span class="keyword">private</span> Boolean lazyInit;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 自动注入模式(默认不自动注入)</span></span><br><span class="line"><span class="keyword">private</span> <span class="type">int</span> <span class="variable">autowireMode</span> <span class="operator">=</span> AUTOWIRE_NO;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 是否参与IOC容器的自动注入(设置为false则它不会注入到其他bean，但其他bean可以注入到它本身)</span></span><br><span class="line"><span class="comment">// 可以这样理解：设置为false后，你们不要来找我，但我可以去找你们</span></span><br><span class="line"><span class="keyword">private</span> <span class="type">boolean</span> <span class="variable">autowireCandidate</span> <span class="operator">=</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 同类型的首选bean</span></span><br><span class="line"><span class="keyword">private</span> <span class="type">boolean</span> <span class="variable">primary</span> <span class="operator">=</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// bean的构造器参数和参数值列表</span></span><br><span class="line"><span class="keyword">private</span> ConstructorArgumentValues constructorArgumentValues;</span><br><span class="line"></span><br><span class="line"><span class="comment">// bean的属性和属性值集合</span></span><br><span class="line"><span class="keyword">private</span> MutablePropertyValues propertyValues;</span><br><span class="line"></span><br><span class="line"><span class="comment">// bean的初始化方法</span></span><br><span class="line"><span class="keyword">private</span> String initMethodName;</span><br><span class="line"></span><br><span class="line"><span class="comment">// bean的销毁方法</span></span><br><span class="line"><span class="keyword">private</span> String destroyMethodName;</span><br><span class="line"></span><br><span class="line"><span class="comment">// bean的资源来源</span></span><br><span class="line"><span class="keyword">private</span> Resource resource;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="GenericBeanDefinition"><a href="#GenericBeanDefinition" class="headerlink" title="GenericBeanDefinition"></a>GenericBeanDefinition</h3><p>又看到 <code>Generic</code> 了，它代表着通用、一般的，所以这种 <code>BeanDefinition</code> 也具有一般性。<code>GenericBeanDefinition</code> 的源码实现非常简单，仅仅是比 <code>AbstractBeanDefinition</code> 多了一个 <code>parentName</code> 属性而已。</p>
+<p>由这个设计，可以得出以下几个结论：</p>
+<ul>
+<li><code>AbstractBeanDefinition</code> 已经完全可以构成 <code>BeanDefinition</code> 的实现了</li>
+<li><code>GenericBeanDefinition</code> 就是 <code>AbstractBeanDefinition</code> 的非抽象扩展而已</li>
+<li><code>GenericBeanDefinition</code> 具有层次性（可从父 <code>BeanDefinition</code> 处继承一些属性信息）</li>
+</ul>
+<h3 id="RootBeanDefinition与ChildBeanDefinition"><a href="#RootBeanDefinition与ChildBeanDefinition" class="headerlink" title="RootBeanDefinition与ChildBeanDefinition"></a>RootBeanDefinition与ChildBeanDefinition</h3><p><strong>root</strong> 和 <strong>child</strong> ，很明显这是父子关系的意思了呀。对于 <code>ChildBeanDefinition</code> ，它的设计实现与 <code>GenericBeanDefinition</code> 如出一辙，都是集成一个 <code>parentName</code> 来作为父 <code>BeanDefinition</code> 的 “指向引用” 。不过有一点要注意， <code>ChildBeanDefinition</code> 没有默认的无参构造器，必须要传入 <code>parentName</code> 才可以，但 <code>GenericBeanDefinition</code> 则有两种不同的构造器。</p>
+<h3 id="AnnotatedBeanDefinition"><a href="#AnnotatedBeanDefinition" class="headerlink" title="AnnotatedBeanDefinition"></a>AnnotatedBeanDefinition</h3><p>它可以把 Bean 上的注解信息提供出来</p>
+<h2 id="基于-Component的BeanDefinition"><a href="#基于-Component的BeanDefinition" class="headerlink" title="基于@Component的BeanDefinition"></a>基于@Component的BeanDefinition</h2><p>给 <code>Person</code> 上打一个 <code>@Component</code> 注解，然后使用 <code>AnnotationConfigApplicationContext</code> 来驱动扫描 <code>Person</code> 类</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BeanDefinitionQuickstartComponentApplication</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="type">AnnotationConfigApplicationContext</span> <span class="variable">ctx</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AnnotationConfigApplicationContext</span>(</span><br><span class="line">                <span class="string">&quot;com.linkedbear.spring.definition.a_quickstart.bean&quot;</span>);</span><br><span class="line">        <span class="type">BeanDefinition</span> <span class="variable">personBeanDefinition</span> <span class="operator">=</span> ctx.getBeanDefinition(<span class="string">&quot;person&quot;</span>);</span><br><span class="line">        System.out.println(personBeanDefinition);</span><br><span class="line">        System.out.println(personBeanDefinition.getClass().getName());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>基于 xml 解析出来的 bean ，定义来源是 xml 配置文件；基于 <code>@Component</code> 注解解析出来的 bean ，定义来源是类的 .class 文件中。</strong></p>
+<h2 id="基于-Bean的BeanDefinition"><a href="#基于-Bean的BeanDefinition" class="headerlink" title="基于@Bean的BeanDefinition"></a>基于@Bean的BeanDefinition</h2><p>编写一个配置类 <code>BeanDefinitionQuickstartConfiguration</code> ，使用 <code>@Bean</code> 注册一个 Person ：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">java复制代码<span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BeanDefinitionQuickstartConfiguration</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> Person <span class="title function_">person</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Person</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>之后，使用这个配置类驱动 IOC 容器，并直接获取 <code>BeanDefinition</code> ：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">java复制代码<span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BeanDefinitionQuickstartBeanApplication</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="type">AnnotationConfigApplicationContext</span> <span class="variable">ctx</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AnnotationConfigApplicationContext</span>(</span><br><span class="line">                BeanDefinitionQuickstartConfiguration.class);</span><br><span class="line">        <span class="type">BeanDefinition</span> <span class="variable">personBeanDefinition</span> <span class="operator">=</span> ctx.getBeanDefinition(<span class="string">&quot;person&quot;</span>);</span><br><span class="line">        System.out.println(personBeanDefinition);</span><br><span class="line">        System.out.println(personBeanDefinition.getClass().getName());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>具体区别可以发现有这么几个：</p>
+<ul>
+<li>Bean 的类型是 Root bean （ <code>ConfigurationClassBeanDefinition</code> 继承自 <code>RootBeanDefinition</code> ）</li>
+<li>Bean 的 className 不见了</li>
+<li>自动注入模式为 <code>AUTOWIRE_CONSTRUCTOR</code> （构造器自动注入）</li>
+<li>有 factoryBean 了：person 由 <code>beanDefinitionQuickstartConfiguration</code> 的 <code>person</code> 方法创建</li>
+</ul>
+<h2 id="star-star-star-【原理】BeanDefinition是如何生成的（简易理解）"><a href="#star-star-star-【原理】BeanDefinition是如何生成的（简易理解）" class="headerlink" title=":star::star::star:【原理】BeanDefinition是如何生成的（简易理解）"></a>:star::star::star:【原理】BeanDefinition是如何生成的（简易理解）</h2><ol>
+<li>通过 xml 加载的 <code>BeanDefinition</code> ，它的读取工具是 <code>XmlBeanDefinitionReader</code> ，它会解析 xml 配置文件，最终来到 <code>DefaultBeanDefinitionDocumentReader</code> 的 <code>doRegisterBeanDefinitions</code> 方法，根据 xml 配置文件中的 bean 定义构造 <code>BeanDefinition</code> ，最底层创建 <code>BeanDefinition</code> 的位置在 <code>org.springframework.beans.factory.support.BeanDefinitionReaderUtils#createBeanDefinition</code> 。</li>
+<li>通过模式注解 + 组件扫描的方式构造的 <code>BeanDefinition</code> ，它的扫描工具是 <code>ClassPathBeanDefinitionScanner</code> ，它会扫描指定包路径下包含特定模式注解的类，核心工作方法是 <code>doScan</code> 方法，它会调用到父类 <code>ClassPathScanningCandidateComponentProvider</code> 的 <code>findCandidateComponents</code> 方法，创建 <code>ScannedGenericBeanDefinition</code> 并返回。</li>
+<li>通过配置类 + <code>@Bean</code> 注解的方式构造的 <code>BeanDefinition</code> 最复杂，它涉及到配置类的解析。配置类的解析要追踪到 <code>ConfigurationClassPostProcessor</code> 的 <code>processConfigBeanDefinitions</code> 方法，它会处理配置类，并交给 <code>ConfigurationClassParser</code> 来解析配置类，取出所有标注了 <code>@Bean</code> 的方法。随后，这些方法又被 <code>ConfigurationClassBeanDefinitionReader</code> 解析，最终在底层创建 <code>ConfigurationClassBeanDefinition</code> 并返回。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Spring</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Spring</tag>
       </tags>
   </entry>
   <entry>
@@ -622,42 +703,144 @@
       </tags>
   </entry>
   <entry>
-    <title>IOC高级-配置源&amp;配置元信息</title>
-    <url>/2023/07/07/Spring/IOC%E9%AB%98%E7%BA%A7-%E9%85%8D%E7%BD%AE%E6%BA%90&amp;%E9%85%8D%E7%BD%AE%E5%85%83%E4%BF%A1%E6%81%AF/</url>
-    <content><![CDATA[<h1 id="IOC高级-配置源-amp-配置元信息"><a href="#IOC高级-配置源-amp-配置元信息" class="headerlink" title="IOC高级-配置源&amp;配置元信息"></a>IOC高级-配置源&amp;配置元信息</h1><p>对象头 每个对象都有一个对象头，对象头包括两部分，标记信息和类型指针。 标记信息包括哈希值，锁信息，GC信息。类型指针指向这个对象的class。 两个信息分别占用8个字节，所以每个对象的额外内存为16个字节。很消耗内存。 压缩指针 为了减少类型指针的内存占用，将64位指针压缩至32位，进而节约内存。之前64位寻址，寻的是字节。现在32位寻址，寻的是变量。再加上内存对齐(补齐为8的倍数)，可以每次寻变量都以一定的规则寻找，并且一定可以找得到。 内存对齐 内存对齐的另一个好处是，使得CPU缓存行可以更好的实施。保证每个变量都只出现在一条缓存行中，不会出现跨行缓存。提高程序的执行效率。 字段重排序 其实就是更好的执行内存对齐标准，会调整字段在内存中的分布，达到方便寻址和节省空间的目的。 虚共享 当两个线程分别访问一个对象中的不同volatile字段，理论上是不涉及变量共享和同步要求的。但是如果两个volatile字段处于同一个CPU缓存行中，对其中一个volatile字段的写操作，会导致整个缓存行的写回和读取操作，进而影响到了另一个volatile变量，也就是实际上的共享问题。 @Contented注解 该注解就是用来解决虚共享问题的，被该注解标识的变量，会独占一个CPU缓存行。但也因此浪费了大量的内存空间。</p>
+    <title>RSA和AES加密工具类算法</title>
+    <url>/2023/07/11/%E5%8A%A0%E8%A7%A3%E5%AF%86%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/RSA%E5%92%8CAES%E5%8A%A0%E5%AF%86%E5%B7%A5%E5%85%B7%E7%B1%BB%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="RSA和AES加密工具类算法"><a href="#RSA和AES加密工具类算法" class="headerlink" title="RSA和AES加密工具类算法"></a>RSA和AES加密工具类算法</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307111722580.jpeg" alt="a person walking up the side of a snow covered mountain"></p>
+<h2 id="RSA工具类"><a href="#RSA工具类" class="headerlink" title="RSA工具类"></a>RSA工具类</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sun.security.rsa.RSAPrivateCrtKeyImpl;</span><br><span class="line"><span class="keyword">import</span> sun.security.rsa.RSAPublicKeyImpl;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.crypto.Cipher;</span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.Files;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.Path;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.Paths;</span><br><span class="line"><span class="keyword">import</span> java.security.*;</span><br><span class="line"><span class="keyword">import</span> java.util.Base64;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">RSAUtil</span> &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">ALGORITHM</span> <span class="operator">=</span> <span class="string">&quot;RSA&quot;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//生成密钥对</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> KeyPair <span class="title function_">genKeyPair</span><span class="params">(<span class="type">int</span> keyLength)</span> <span class="keyword">throws</span> NoSuchAlgorithmException &#123;</span><br><span class="line">        <span class="type">KeyPairGenerator</span> <span class="variable">keyPairGenerator</span> <span class="operator">=</span> KeyPairGenerator.getInstance(ALGORITHM);</span><br><span class="line">        keyPairGenerator.initialize(keyLength);</span><br><span class="line">        <span class="keyword">return</span> keyPairGenerator.generateKeyPair();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//以base64编码保存密钥</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">saveKey</span><span class="params">(Key key, String path)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">Path</span> <span class="variable">keyPath</span> <span class="operator">=</span> Paths.get(path);</span><br><span class="line">        Files.write(keyPath, Base64.getEncoder().encode(key.getEncoded()));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//读取公钥</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> PublicKey <span class="title function_">readPublicKey</span><span class="params">(String path)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="type">Path</span> <span class="variable">keyPath</span> <span class="operator">=</span> Paths.get(path);</span><br><span class="line">        <span class="type">byte</span>[] keyBytes = Files.readAllBytes(keyPath);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">RSAPublicKeyImpl</span>(Base64.getDecoder().decode(keyBytes));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//读取密钥</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> PrivateKey <span class="title function_">readPrivateKey</span><span class="params">(String path)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="type">Path</span> <span class="variable">keyPath</span> <span class="operator">=</span> Paths.get(path);</span><br><span class="line">        <span class="type">byte</span>[] keyBytes = Files.readAllBytes(keyPath);</span><br><span class="line">        <span class="keyword">return</span> RSAPrivateCrtKeyImpl.newKey(Base64.getDecoder().decode(keyBytes));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//公钥加密</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">encrypt</span><span class="params">(String content, PublicKey publicKey)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="comment">//选择算法,创建实例</span></span><br><span class="line">        <span class="type">Cipher</span> <span class="variable">cipher</span> <span class="operator">=</span> Cipher.getInstance(ALGORITHM);</span><br><span class="line">        <span class="comment">//选择模式,结合公钥初始化</span></span><br><span class="line">        cipher.init(Cipher.ENCRYPT_MODE, publicKey);</span><br><span class="line">        <span class="comment">//加密</span></span><br><span class="line">        <span class="type">byte</span>[] result = cipher.doFinal(content.getBytes());</span><br><span class="line">        <span class="comment">//转码</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">base64Result</span> <span class="operator">=</span> Base64.getEncoder().encodeToString(result);</span><br><span class="line">        <span class="keyword">return</span> base64Result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//私钥解密</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">decrypt</span><span class="params">(String content, PrivateKey privateKey)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="comment">//创建实例</span></span><br><span class="line">        <span class="type">Cipher</span> <span class="variable">cipher</span> <span class="operator">=</span> Cipher.getInstance(ALGORITHM);</span><br><span class="line">        <span class="comment">//初始化</span></span><br><span class="line">        cipher.init(Cipher.DECRYPT_MODE, privateKey);</span><br><span class="line">        <span class="comment">//转码</span></span><br><span class="line">        <span class="type">byte</span>[] encodedBytes = Base64.getDecoder().decode(content.getBytes());</span><br><span class="line">        <span class="comment">//解密</span></span><br><span class="line">        <span class="type">byte</span>[] result = cipher.doFinal(encodedBytes);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">String</span>(result);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//确保目录存在</span></span><br><span class="line">            <span class="type">File</span> <span class="variable">f</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;/home/duoyi/encrypt/&quot;</span>);</span><br><span class="line">            f.mkdirs();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            <span class="type">KeyPair</span> <span class="variable">keyPair</span> <span class="operator">=</span> RSAUtil.genKeyPair(<span class="number">1024</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//获取公钥</span></span><br><span class="line">            <span class="type">PublicKey</span> <span class="variable">publicKey</span> <span class="operator">=</span> keyPair.getPublic();</span><br><span class="line">            System.out.println(<span class="string">&quot;公钥：&quot;</span> + <span class="keyword">new</span> <span class="title class_">String</span>(Base64.getEncoder().encode(publicKey.getEncoded())));</span><br><span class="line"></span><br><span class="line">            <span class="comment">//获取私钥</span></span><br><span class="line">            <span class="type">PrivateKey</span> <span class="variable">privateKey</span> <span class="operator">=</span> keyPair.getPrivate();</span><br><span class="line">            System.out.println(<span class="string">&quot;私钥：&quot;</span> + <span class="keyword">new</span> <span class="title class_">String</span>(Base64.getEncoder().encode(privateKey.getEncoded())));</span><br><span class="line"></span><br><span class="line">            <span class="comment">//保存密钥</span></span><br><span class="line">            RSAUtil.saveKey(publicKey, <span class="string">&quot;/home/duoyi/encrypt/rsa.pub&quot;</span>);</span><br><span class="line">            RSAUtil.saveKey(privateKey, <span class="string">&quot;/home/duoyi/encrypt/rsa.pri&quot;</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            <span class="type">String</span> <span class="variable">content</span> <span class="operator">=</span> <span class="string">&quot;this is content&quot;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            <span class="comment">//读取密钥</span></span><br><span class="line">            <span class="type">PublicKey</span> <span class="variable">pubKey</span> <span class="operator">=</span> RSAUtil.readPublicKey(<span class="string">&quot;/home/duoyi/encrypt/rsa.pub&quot;</span>);</span><br><span class="line">            <span class="type">PrivateKey</span> <span class="variable">priKey</span> <span class="operator">=</span> RSAUtil.readPrivateKey(<span class="string">&quot;/home/duoyi/encrypt/rsa.pri&quot;</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//加密</span></span><br><span class="line">            <span class="type">String</span> <span class="variable">encryptBase64</span> <span class="operator">=</span> RSAUtil.encrypt(content, pubKey);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//解密</span></span><br><span class="line">            <span class="type">String</span> <span class="variable">result</span> <span class="operator">=</span> decrypt(encryptBase64, priKey);</span><br><span class="line"></span><br><span class="line">            System.out.println(<span class="string">&quot;密文为:&quot;</span> + <span class="keyword">new</span> <span class="title class_">String</span>(Base64.getDecoder().decode(encryptBase64.getBytes())));</span><br><span class="line">            System.out.println(<span class="string">&quot;密文转码后为:&quot;</span> + encryptBase64);</span><br><span class="line">            System.out.println(<span class="string">&quot;转码后解码为:&quot;</span> + result);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="AES工具类"><a href="#AES工具类" class="headerlink" title="AES工具类"></a>AES工具类</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.Files;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.Path;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.Paths;</span><br><span class="line"><span class="keyword">import</span> java.security.Key;</span><br><span class="line"><span class="keyword">import</span> java.security.NoSuchAlgorithmException;</span><br><span class="line"><span class="keyword">import</span> java.security.SecureRandom;</span><br><span class="line"><span class="keyword">import</span> java.util.Base64;</span><br><span class="line"><span class="keyword">import</span> javax.crypto.Cipher;</span><br><span class="line"><span class="keyword">import</span> javax.crypto.KeyGenerator;</span><br><span class="line"><span class="keyword">import</span> javax.crypto.SecretKey;</span><br><span class="line"><span class="keyword">import</span> javax.crypto.spec.SecretKeySpec;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AESUtil</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">ALGORITHM</span> <span class="operator">=</span> <span class="string">&quot;AES&quot;</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">RANDOM_ALGORITHM</span> <span class="operator">=</span> <span class="string">&quot;SHA1PRNG&quot;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//选择算法,根据密码生成密钥</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> SecretKey <span class="title function_">genKey</span><span class="params">(String password)</span> <span class="keyword">throws</span> NoSuchAlgorithmException &#123;</span><br><span class="line">        <span class="type">KeyGenerator</span> <span class="variable">keyGenerator</span> <span class="operator">=</span> KeyGenerator.getInstance(ALGORITHM);</span><br><span class="line">        <span class="type">SecureRandom</span> <span class="variable">random</span> <span class="operator">=</span> SecureRandom.getInstance(RANDOM_ALGORITHM);</span><br><span class="line">        random.setSeed(password.getBytes());<span class="comment">//设置密钥</span></span><br><span class="line">        keyGenerator.init(random);</span><br><span class="line">        <span class="keyword">return</span> keyGenerator.generateKey();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//以base64编码保存密钥</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">saveKey</span><span class="params">(Key key, String path)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">Path</span> <span class="variable">keyPath</span> <span class="operator">=</span> Paths.get(path);</span><br><span class="line">        Files.write(keyPath, Base64.getEncoder().encode(key.getEncoded()));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//读取密钥</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> SecretKey <span class="title function_">readSecretKey</span><span class="params">(String path)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="type">Path</span> <span class="variable">keyPath</span> <span class="operator">=</span> Paths.get(path);</span><br><span class="line">        <span class="type">byte</span>[] keyBytes = Files.readAllBytes(keyPath);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">SecretKeySpec</span>(Base64.getDecoder().decode(keyBytes), ALGORITHM);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">encrypt</span><span class="params">(String content, SecretKey secretKey)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="comment">//指定算法创建Cipher实例</span></span><br><span class="line">        <span class="type">Cipher</span> <span class="variable">cipher</span> <span class="operator">=</span> Cipher.getInstance(ALGORITHM);<span class="comment">//算法是AES</span></span><br><span class="line">        <span class="comment">//选择模式，结合密钥初始化Cipher实例</span></span><br><span class="line">        cipher.init(Cipher.ENCRYPT_MODE, secretKey);</span><br><span class="line">        <span class="comment">//加密</span></span><br><span class="line">        <span class="type">byte</span>[] result = cipher.doFinal(content.getBytes());</span><br><span class="line">        <span class="comment">//使用Base64对密文进行转码</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">base64Result</span> <span class="operator">=</span> Base64.getEncoder().encodeToString(result);</span><br><span class="line">        <span class="keyword">return</span> base64Result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">decrpyt</span><span class="params">(String content, SecretKey secretKey)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="comment">//获取实例</span></span><br><span class="line">        <span class="type">Cipher</span> <span class="variable">cipher</span> <span class="operator">=</span> Cipher.getInstance(ALGORITHM);</span><br><span class="line">        <span class="comment">//初始化</span></span><br><span class="line">        cipher.init(Cipher.DECRYPT_MODE, secretKey);</span><br><span class="line">        <span class="comment">//转码</span></span><br><span class="line">        <span class="type">byte</span>[] encodedBytes = Base64.getDecoder().decode(content.getBytes());</span><br><span class="line">        <span class="comment">//解密</span></span><br><span class="line">        <span class="type">byte</span>[] result = cipher.doFinal(encodedBytes);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">String</span>(result);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//确保目录存在</span></span><br><span class="line">            <span class="type">File</span> <span class="variable">f</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;/home/duoyi/encrypt/&quot;</span>);</span><br><span class="line">            f.mkdirs();</span><br><span class="line"></span><br><span class="line">            <span class="type">String</span> <span class="variable">content</span> <span class="operator">=</span> <span class="string">&quot;this is content&quot;</span>;</span><br><span class="line">            <span class="type">String</span> <span class="variable">password</span> <span class="operator">=</span> <span class="string">&quot;passwd&quot;</span>;</span><br><span class="line"></span><br><span class="line">            <span class="type">SecretKey</span> <span class="variable">key</span> <span class="operator">=</span> AESUtil.genKey(password);</span><br><span class="line"></span><br><span class="line">            AESUtil.saveKey(key, <span class="string">&quot;/home/duoyi/encrypt/aes.key&quot;</span>);</span><br><span class="line"></span><br><span class="line">            <span class="type">String</span> <span class="variable">encryptBase64</span> <span class="operator">=</span> AESUtil.encrypt(content, key);</span><br><span class="line"></span><br><span class="line">            <span class="type">SecretKey</span> <span class="variable">readKey</span> <span class="operator">=</span> AESUtil.readSecretKey(<span class="string">&quot;/home/duoyi/encrypt/aes.key&quot;</span>);</span><br><span class="line">            <span class="type">String</span> <span class="variable">result</span> <span class="operator">=</span> AESUtil.decrpyt(encryptBase64, readKey);</span><br><span class="line"></span><br><span class="line">            System.out.println(<span class="string">&quot;密文为:&quot;</span> + <span class="keyword">new</span> <span class="title class_">String</span>(Base64.getDecoder().decode(encryptBase64.getBytes())));</span><br><span class="line">            System.out.println(<span class="string">&quot;密文转码后为:&quot;</span> + encryptBase64);</span><br><span class="line">            System.out.println(<span class="string">&quot;转码后解码为:&quot;</span> + result);</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
-        <category>未分类</category>
+        <category>加密算法</category>
       </categories>
       <tags>
-        <tag>杂记</tag>
+        <tag>加密工具类</tag>
+        <tag>RSA</tag>
+        <tag>AES</tag>
       </tags>
   </entry>
   <entry>
-    <title>删除链表的倒数第N个节点</title>
-    <url>/2023/07/07/%E7%AE%97%E6%B3%95/%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9/</url>
-    <content><![CDATA[<h1 id="删除链表的倒数第N个节点"><a href="#删除链表的倒数第N个节点" class="headerlink" title="删除链表的倒数第N个节点"></a>删除链表的倒数第N个节点</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307071106271.jpeg" alt="an aerial view of a sandy beach and ocean"></p>
-<p>给你一个链表，删除链表的倒数第 <code>n</code> 个结点，并且返回链表的头结点。</p>
-<p><strong>示例 1：</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2020/10/03/remove_ex1.jpg" alt="img"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：head = [1,2,3,4,5], n = 2</span><br><span class="line">输出：[1,2,3,5]</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：head = [1], n = 1</span><br><span class="line">输出：[]</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 3：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：head = [1,2], n = 1</span><br><span class="line">输出：[1]</span><br></pre></td></tr></table></figure>
-
-<p>与链表的倒数第K个节点类似，只不过在得到倒数第K个节点之后，将该节点删除。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> ListNode <span class="title function_">removeNthFromEnd</span><span class="params">(ListNode head, <span class="type">int</span> n)</span> &#123;</span><br><span class="line">       <span class="type">ListNode</span> <span class="variable">dummy</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ListNode</span>(-<span class="number">1</span>);</span><br><span class="line">       dummy.next = head;</span><br><span class="line">       <span class="comment">// 先利用双指针找到倒数第N个节点</span></span><br><span class="line">       <span class="type">ListNode</span> <span class="variable">p1</span> <span class="operator">=</span> dummy;</span><br><span class="line">       <span class="comment">// p1 先走n步</span></span><br><span class="line">       <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; n + <span class="number">1</span>; i++) &#123;</span><br><span class="line">           p1 = p1.next;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="type">ListNode</span> <span class="variable">p2</span> <span class="operator">=</span> dummy;</span><br><span class="line">       <span class="comment">// 再一起走</span></span><br><span class="line">       <span class="keyword">while</span> (p1 != <span class="literal">null</span>)&#123;</span><br><span class="line">           p2 = p2.next;</span><br><span class="line">           p1 = p1.next;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">// 现在p2指的节点就是倒数第N个节点</span></span><br><span class="line">       <span class="comment">// 开始删除p2节点</span></span><br><span class="line">       p2.next = p2.next.next;</span><br><span class="line">       <span class="keyword">return</span> dummy.next;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-
+    <title>Hexo文章转换器</title>
+    <url>/2023/06/19/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/Hexo%E6%96%87%E7%AB%A0%E8%BD%AC%E6%8D%A2%E5%99%A8/</url>
+    <content><![CDATA[<h1 id="Hexo文章转换器"><a href="#Hexo文章转换器" class="headerlink" title="Hexo文章转换器"></a>Hexo文章转换器</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261747053.jpeg" alt="a close up of a cell phone with a blurry background"></p>
+<blockquote>
+<p>Hexo系列文章：</p>
+<ol>
+<li><a href="https://yamonc.github.io/2023/06/13/%E4%BB%8E0%E5%88%B01%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E5%88%B0Github-Page/">从0到1部署博客系统到GitHub Page（0成本）</a></li>
+<li><a href="https://yamonc.github.io/2023/06/13/hexo%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98/">hexo如何修改主题？</a></li>
+<li><a href="https://yamonc.github.io/2023/06/13/hexo-Acrylic%E4%B8%BB%E9%A2%98%E9%9B%86%E6%88%90twikoo%E8%AF%84%E8%AE%BA/">hexo-Acrylic主题集成twikoo评论</a></li>
+<li><a href="https://yamonc.github.io/2023/06/16/%E5%A6%82%E4%BD%95%E5%B0%86java%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E6%88%90exe%E6%A0%BC%E5%BC%8F/">如何将JavaFX的java项目打包成exe格式</a></li>
+</ol>
+</blockquote>
+<hr>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近将博客平台使用Hexo搭建在Github上，但是如果每次发布文章的话，都需要设置一下front-matter的内容：</p>
+<p><a href="https://hexo.io/zh-cn/docs/front-matter">Front-matter</a></p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191043672.png" alt="image-20230619104358612"></p>
+<p>感觉不太方便，所以想通过界面化的方式，将过程进行简化（要不，每次都手动在文章的开头写上—xxx—,太麻烦）。</p>
+<p>基于此，本文通过界面化的方式，将文章进行格式化，通过代码的方式自动在文章开头插入markdown可识别的字符串。</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191046466.png" alt="image-20230619104639429"></p>
+<p>使用该工具可以避免手动输入这些信息，而是通过界面化的方式进行配置：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191047100.png" alt="image-20230619104743062"></p>
+<h2 id="技术说明"><a href="#技术说明" class="headerlink" title="技术说明"></a>技术说明</h2><p>Java17（开发语言）、Java FX（Java界面工具，类似于java8的swing，现已不支持java8）、SceneBuilder（拖拽式界面工具）、exe4j（jar转exe工具）。</p>
+<p>踩坑无数，尤其是将java转为exe的过程中，踩了一晚上吧。</p>
+<h2 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h2><p>下载地址：</p>
+<p><a href="https://gh.api.99988866.xyz/https://github.com/yamonc/hexoHelper/releases/download/V0.0.1/hexoHelper.exe">HexoHelper下载地址</a></p>
+<p>下载好之后，无需安装过程，直接点击exe文件即可运行。</p>
+<p>运行好之后，会出现[示例]中的界面。</p>
+<h3 id="功能说明"><a href="#功能说明" class="headerlink" title="功能说明"></a>功能说明</h3><p>现在界面主要分为四个区域，从上到下以此为使用说明、选中文件区域、front-matter信息区域、功能区域。</p>
+<p>这里主要讲解功能区域：</p>
+<p>【上传文件】：点击上传文件按钮之后，选中待转换的markdown文件（没有front-matter信息的markdown文件）</p>
+<p>【转换格式】：对已上传的文件进行格式转换，在文章头添加已经输入的front-matter信息。</p>
+<p>【部署】：执行hexo clean、hexo g、hexo d一系列指令。</p>
+<p>【一键部署】：对已上传的文件进行格式转换并执行hexo clean、hexo g、hexo d指令部署到对应平台上。</p>
+<h3 id="使用流程说明"><a href="#使用流程说明" class="headerlink" title="使用流程说明"></a>使用流程说明</h3><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191058659.png" alt="image-20230619105823619"></p>
+<h2 id="遗留问题"><a href="#遗留问题" class="headerlink" title="遗留问题"></a>遗留问题</h2><p>转换文章之后，题目乱码。</p>
+<p>不够灵活，鲁棒性不好。对输入增加限制。</p>
 ]]></content>
       <categories>
-        <category>算法</category>
+        <category>教程</category>
       </categories>
       <tags>
-        <tag>链表</tag>
-        <tag>leetcode</tag>
+        <tag>java</tag>
+        <tag>hexo</tag>
+        <tag>开源项目</tag>
+        <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo文章转换器II</title>
+    <url>/2023/06/28/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/Hexo%E6%96%87%E7%AB%A0%E8%BD%AC%E6%8D%A2%E5%99%A8II/</url>
+    <content><![CDATA[<h1 id="Hexo文章转换器II"><a href="#Hexo文章转换器II" class="headerlink" title="Hexo文章转换器II"></a>Hexo文章转换器II</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306281711167.jpeg" alt="a view of a beach and a body of water"></p>
+<blockquote>
+<p>Hexo系列文章：</p>
+<ol>
+<li><a href="https://yamonc.github.io/2023/06/13/%E4%BB%8E0%E5%88%B01%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E5%88%B0Github-Page/">从0到1部署博客系统到GitHub Page（0成本）</a></li>
+<li><a href="https://yamonc.github.io/2023/06/13/hexo%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98/">hexo如何修改主题？</a></li>
+<li><a href="https://yamonc.github.io/2023/06/13/hexo-Acrylic%E4%B8%BB%E9%A2%98%E9%9B%86%E6%88%90twikoo%E8%AF%84%E8%AE%BA/">hexo-Acrylic主题集成twikoo评论</a></li>
+<li><a href="https://yamonc.github.io/2023/06/16/%E5%A6%82%E4%BD%95%E5%B0%86java%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E6%88%90exe%E6%A0%BC%E5%BC%8F/">如何将JavaFX的java项目打包成exe格式</a></li>
+</ol>
+</blockquote>
+<hr>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>该工具可以帮助你在使用Hexo写博客的时候，将文章直接转换成为Hexo可识别并可展示在页面；</p>
+<p>每次在写博客的时候，都需要手动在文章的开头添加Front-Matter的信息：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306281633297.png" alt="image-20230619104358612"></p>
+<p>感觉不太方便，所以想通过界面化的方式，将过程进行简化（要不，每次都手动在文章的开头写上—xxx—,太麻烦）。</p>
+<p>基于此，本文通过界面化的方式，将文章进行格式化，通过代码的方式自动在文章开头插入markdown可识别的字符串。</p>
+<hr>
+<p>⭐⭐⭐⭐V1.0.0更新日志</p>
+<p>第一版的Hexo文章转换器使用起来不太方便，所以在第一版的基础上进行了更新，主要是将标签和分类的信息保存到sqlite数据库中，不再用户每次都手动输入了。（初版的思路是，标题、 创建时间、位置等一些信息可以从后台直接获取，比如标题可以通过读取文章的第一行获取，然后将标题生成到原文中就行，不知道为什么打包成exe格式之前，标题都能从文章中提取出来，但是在exe中如果获取出来的标题永远都是乱码，各种尝试都无用，无奈，手动输入标题吧）</p>
+<p>⭐⭐⭐⭐⭐V1.1.0更新日志</p>
+<p>V1.1.0版本在界面上进行了一系列的改动，优化了用户体验，主要体现在：</p>
+<ol>
+<li>显示内容正常无遮挡。上一版本由于页面布局的问题，cover一般都会很长，导致遮挡后面部分label。</li>
+<li>新增一键重置功能，考虑到有可能一次性转换多个文章，如果不重置的话，无法重新上传文件并转换，只能关掉应用程序重新打开，才能进行转换新的文章。</li>
+<li>新增标签管理和分栏管理Tab页。在最顶端新增两个Tab页，分别用来对标签和分栏的新增和删除功能。</li>
+<li>优化了大部分的代码，包括但不限于接口实现jdbc操作数据库功能，提高易用性和扩展性、新增表结构、合适的地方处理异常等等。</li>
+</ol>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306281648185.png" alt="image-20230628164814150"></p>
+<p>使用该工具可以避免手动输入这些信息，而是通过界面化的方式进行配置：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306281648109.png" alt="image-20230628164828060"></p>
+<p>但是，<strong>建议在使用之前进行两项的配置</strong>：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306281649108.png" alt="image-20230628164907063"></p>
+<p>工作目录：主要是基于这个目录，执行一系列指令：hexo clean、hexo g和hexo d等指令。</p>
+<p>上传文件目录：在Hexo转换器Tab中，需要上传文件之后才能点转换，这里的位置就是点击后重定向的位置，换句话说，就是你平常文章经常放的位置，通常是_posts。</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306281651512.png" alt="image-20230628165125467"></p>
+<p>关于Hexo转换器界面，主要就是讲解这个页面是干什么用的，解决了什么问题。</p>
+<h2 id="技术说明"><a href="#技术说明" class="headerlink" title="技术说明"></a>技术说明</h2><p>Java17（开发语言）、Java FX（Java界面工具，类似于java8的swing，现已不支持java8）、SceneBuilder（拖拽式界面工具）、exe4j（jar转exe工具）。</p>
+<p>踩坑无数，尤其是将java转为exe的过程中，踩了一晚上吧。</p>
+<h2 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h2><p>下载地址：</p>
+<p><a href="https://github.com/yamonc/hexoHelper/releases/download/V1.0.0/hexoHelperV1.0.0.zip">HexoHelper下载地址</a></p>
+<p>下载好之后，解压缩，解压缩之后，需要注意的是，db文件夹要和hexoHelper.exe是同级目录，db文件夹中是sqlite的数据库，运行的时候需要找到db的数据库才行。最终文件的位置关系：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306281656872.png" alt="image-20230628165640833"></p>
+<p>开始运行，会出现[示例]中的界面。</p>
+<h3 id="功能说明"><a href="#功能说明" class="headerlink" title="功能说明"></a>功能说明</h3><p>现在的界面主要分三个主Tab：</p>
+<h4 id="Hexo转换器"><a href="#Hexo转换器" class="headerlink" title="Hexo转换器"></a>Hexo转换器</h4><p>该界面主要分三个部分：</p>
+<p>从上到下依次是Front-Matter清单，在这里可以看到你填写的一些文章信息，这也是最终会填写到你文章里面的内容；</p>
+<p>输入区：在这里你需要输入一些文章信息，这个和Front-Matter清单联动，修改了什么会体现在清单上。</p>
+<p>最下面是功能区域：</p>
+<p>【上传文件】：点击上传文件按钮之后，选中待转换的markdown文件（没有front-matter信息的markdown文件）</p>
+<p>【转换格式】：对已上传的文件进行格式转换，在文章头添加已经输入的front-matter信息。</p>
+<p>【部署】：执行hexo clean、hexo g、hexo d一系列指令。</p>
+<p>【一键部署】：对已上传的文件进行格式转换并执行hexo clean、hexo g、hexo d指令部署到对应平台上。</p>
+<h4 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h4><p>主要设置一些提升用户体验的必要信息。</p>
+<p>工作目录：主要是基于这个目录，执行一系列指令：hexo clean、hexo g和hexo d等指令。</p>
+<p>上传文件目录：在Hexo转换器Tab中，需要上传文件之后才能点转换，这里的位置就是点击后重定向的位置，换句话说，就是你平常文章经常放的位置，通常是_posts。</p>
+<h4 id="关于Hexo转换器"><a href="#关于Hexo转换器" class="headerlink" title="关于Hexo转换器"></a>关于Hexo转换器</h4><p>主要介绍了该工具解决了什么问题，如何使用及关于作者等信息。</p>
+<h2 id="使用流程说明"><a href="#使用流程说明" class="headerlink" title="使用流程说明"></a>使用流程说明</h2><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306281633232.png" alt="image-20230619105823619"></p>
+<h2 id="待优化问题"><a href="#待优化问题" class="headerlink" title="待优化问题"></a>待优化问题</h2><ol>
+<li>用户使用优化。</li>
+<li>标签和分类的操作业务流程有问题。无法删除标签和分类。考虑在设置中体现。</li>
+<li>显示优化，如果cover或者其他字段太长的话，会影响到字体显示。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>项目</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>开源项目</tag>
+        <tag>JavaFX</tag>
       </tags>
   </entry>
   <entry>
@@ -728,6 +911,78 @@
       </tags>
   </entry>
   <entry>
+    <title>综合工具箱</title>
+    <url>/2023/06/17/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/%E7%BB%BC%E5%90%88%E5%B7%A5%E5%85%B7%E7%AE%B1/</url>
+    <content><![CDATA[<h1 id="综合工具箱"><a href="#综合工具箱" class="headerlink" title="综合工具箱"></a>综合工具箱</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261746878.jpeg" alt="a view of a mountain range at sunset"></p>
+<p><a href="https://github.com/yamonc/tool_platfom/">tool_platform</a></p>
+<blockquote>
+<p>综合工具箱（名字实在是不会起，意会吧，言传就不必了）：这个项目主要是为了解决日常生活中的一点点痛点：比如密码箱，何为密码箱呢？如今大多数网站都有注册和登录功能，要么呢，有各种需要备份或者记录的信息（QQ邮箱的凭证，开发者需要记录下，或者github的AK和SK等），这种记录在网上的一些工具有可能会遭到泄露，所以将本地密码存到密码箱里就很有必要了。</p>
+</blockquote>
+<h2 id="🍎技术架构"><a href="#🍎技术架构" class="headerlink" title="🍎技术架构"></a>🍎技术架构</h2><p><a href="https://www.electronjs.org/zh/docs/latest/tutorial/quick-start">electron</a>+vue2</p>
+<p>框架用的是<a href="https://gitee.com/Zh-Sky/electron-vue-template">electron-vue-template</a>，感谢大佬的开源。</p>
+<p>纯前端项目，没有用到后端，<strong>更不会保留任何数据到服务器上</strong>。</p>
+<h2 id="🍉-解决的问题"><a href="#🍉-解决的问题" class="headerlink" title="🍉 解决的问题"></a>🍉 解决的问题</h2><p>目前综合工具箱里的功能只有《密码箱》的功能。</p>
+<h3 id="🍓密码箱"><a href="#🍓密码箱" class="headerlink" title="🍓密码箱"></a>🍓密码箱</h3><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306171118918.png" alt="image-20230617111859730"></p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306171119106.png" alt="image-20230617111918042"></p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306171122534.png" alt="image-20230617112248464"></p>
+<h4 id="痛点"><a href="#痛点" class="headerlink" title="痛点"></a>痛点</h4><p><strong>网络上的密码无法管理。</strong></p>
+<h4 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h4><p>点击新增密码，按照提示输入后，可在当前的用户目录下找到password.json的文件，所有的密码都存在这个paasword.json中。</p>
+<p>密码备份功能比价鸡肋，后期去掉。</p>
+<h2 id="🍠如何启动"><a href="#🍠如何启动" class="headerlink" title="🍠如何启动"></a>🍠如何启动</h2><h3 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h3><p>前提需要安装git、node.js、yarn&#x2F;npm（npm好像在这里不好使）</p>
+<h3 id="二次开发"><a href="#二次开发" class="headerlink" title="二次开发"></a>二次开发</h3><p>如果是二次开发的话：</p>
+<p><strong>pull代码</strong></p>
+<p><code>git pull https://github.com/yamonc/tool_platfom.git </code></p>
+<p><strong>安装安装包</strong></p>
+<p><code>yarn </code></p>
+<p><strong>启动项目</strong></p>
+<p><code>yarn dev</code></p>
+<h3 id="直接使用"><a href="#直接使用" class="headerlink" title="直接使用"></a>直接使用</h3><p>两种方式，第一种<a href="https://gh.api.99988866.xyz/https://github.com/yamonc/tool_platfom/releases/download/V0.0.1/electron-vue-admin.Setup.0.0.1.exe">下载发版</a>；</p>
+<p>第二种，在二次开发的基础上，自己打包：</p>
+<p><code>yarn build:win64</code></p>
+<p>打完包之后，会发现build包下有exe可执行文件：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306171139786.png" alt="image-20230617113946744"></p>
+<h2 id="🍐后期目标"><a href="#🍐后期目标" class="headerlink" title="🍐后期目标"></a>🍐后期目标</h2><p>性能优化（不得不说，electron太太太太慢了）</p>
+<p>密码修改。</p>
+<p>导入密码。</p>
+<p>支持sqllite，方便修改密码、删除密码。</p>
+<h2 id="🍌CHANGELOG"><a href="#🍌CHANGELOG" class="headerlink" title="🍌CHANGELOG"></a>🍌CHANGELOG</h2><p>V0.0.1 新增密码箱功能；</p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+        <tag>electron</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>删除链表的倒数第N个节点</title>
+    <url>/2023/07/07/%E7%AE%97%E6%B3%95/%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9/</url>
+    <content><![CDATA[<h1 id="删除链表的倒数第N个节点"><a href="#删除链表的倒数第N个节点" class="headerlink" title="删除链表的倒数第N个节点"></a>删除链表的倒数第N个节点</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307071106271.jpeg" alt="an aerial view of a sandy beach and ocean"></p>
+<p>给你一个链表，删除链表的倒数第 <code>n</code> 个结点，并且返回链表的头结点。</p>
+<p><strong>示例 1：</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2020/10/03/remove_ex1.jpg" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：head = [1,2,3,4,5], n = 2</span><br><span class="line">输出：[1,2,3,5]</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：head = [1], n = 1</span><br><span class="line">输出：[]</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 3：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：head = [1,2], n = 1</span><br><span class="line">输出：[1]</span><br></pre></td></tr></table></figure>
+
+<p>与链表的倒数第K个节点类似，只不过在得到倒数第K个节点之后，将该节点删除。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> ListNode <span class="title function_">removeNthFromEnd</span><span class="params">(ListNode head, <span class="type">int</span> n)</span> &#123;</span><br><span class="line">       <span class="type">ListNode</span> <span class="variable">dummy</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ListNode</span>(-<span class="number">1</span>);</span><br><span class="line">       dummy.next = head;</span><br><span class="line">       <span class="comment">// 先利用双指针找到倒数第N个节点</span></span><br><span class="line">       <span class="type">ListNode</span> <span class="variable">p1</span> <span class="operator">=</span> dummy;</span><br><span class="line">       <span class="comment">// p1 先走n步</span></span><br><span class="line">       <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; n + <span class="number">1</span>; i++) &#123;</span><br><span class="line">           p1 = p1.next;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="type">ListNode</span> <span class="variable">p2</span> <span class="operator">=</span> dummy;</span><br><span class="line">       <span class="comment">// 再一起走</span></span><br><span class="line">       <span class="keyword">while</span> (p1 != <span class="literal">null</span>)&#123;</span><br><span class="line">           p2 = p2.next;</span><br><span class="line">           p1 = p1.next;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">// 现在p2指的节点就是倒数第N个节点</span></span><br><span class="line">       <span class="comment">// 开始删除p2节点</span></span><br><span class="line">       p2.next = p2.next.next;</span><br><span class="line">       <span class="keyword">return</span> dummy.next;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>链表</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>单链表的倒数第k个节点</title>
     <url>/2023/06/16/%E7%AE%97%E6%B3%95/%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACk%E4%B8%AA%E8%8A%82%E7%82%B9/</url>
     <content><![CDATA[<h1 id="单链表的倒数第k个节点"><a href="#单链表的倒数第k个节点" class="headerlink" title="单链表的倒数第k个节点"></a>单链表的倒数第k个节点</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261740849.jpeg" alt="a bird is perched on the side of a building"></p>
@@ -749,24 +1004,6 @@
       <tags>
         <tag>leetcode</tag>
         <tag>双指针</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>RSA和AES加密工具类算法</title>
-    <url>/2023/07/11/%E5%8A%A0%E8%A7%A3%E5%AF%86%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/RSA%E5%92%8CAES%E5%8A%A0%E5%AF%86%E5%B7%A5%E5%85%B7%E7%B1%BB%E7%AE%97%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="RSA和AES加密工具类算法"><a href="#RSA和AES加密工具类算法" class="headerlink" title="RSA和AES加密工具类算法"></a>RSA和AES加密工具类算法</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307111722580.jpeg" alt="a person walking up the side of a snow covered mountain"></p>
-<h2 id="RSA工具类"><a href="#RSA工具类" class="headerlink" title="RSA工具类"></a>RSA工具类</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sun.security.rsa.RSAPrivateCrtKeyImpl;</span><br><span class="line"><span class="keyword">import</span> sun.security.rsa.RSAPublicKeyImpl;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.crypto.Cipher;</span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.Files;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.Path;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.Paths;</span><br><span class="line"><span class="keyword">import</span> java.security.*;</span><br><span class="line"><span class="keyword">import</span> java.util.Base64;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">RSAUtil</span> &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">ALGORITHM</span> <span class="operator">=</span> <span class="string">&quot;RSA&quot;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//生成密钥对</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> KeyPair <span class="title function_">genKeyPair</span><span class="params">(<span class="type">int</span> keyLength)</span> <span class="keyword">throws</span> NoSuchAlgorithmException &#123;</span><br><span class="line">        <span class="type">KeyPairGenerator</span> <span class="variable">keyPairGenerator</span> <span class="operator">=</span> KeyPairGenerator.getInstance(ALGORITHM);</span><br><span class="line">        keyPairGenerator.initialize(keyLength);</span><br><span class="line">        <span class="keyword">return</span> keyPairGenerator.generateKeyPair();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//以base64编码保存密钥</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">saveKey</span><span class="params">(Key key, String path)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">Path</span> <span class="variable">keyPath</span> <span class="operator">=</span> Paths.get(path);</span><br><span class="line">        Files.write(keyPath, Base64.getEncoder().encode(key.getEncoded()));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//读取公钥</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> PublicKey <span class="title function_">readPublicKey</span><span class="params">(String path)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="type">Path</span> <span class="variable">keyPath</span> <span class="operator">=</span> Paths.get(path);</span><br><span class="line">        <span class="type">byte</span>[] keyBytes = Files.readAllBytes(keyPath);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">RSAPublicKeyImpl</span>(Base64.getDecoder().decode(keyBytes));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//读取密钥</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> PrivateKey <span class="title function_">readPrivateKey</span><span class="params">(String path)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="type">Path</span> <span class="variable">keyPath</span> <span class="operator">=</span> Paths.get(path);</span><br><span class="line">        <span class="type">byte</span>[] keyBytes = Files.readAllBytes(keyPath);</span><br><span class="line">        <span class="keyword">return</span> RSAPrivateCrtKeyImpl.newKey(Base64.getDecoder().decode(keyBytes));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//公钥加密</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">encrypt</span><span class="params">(String content, PublicKey publicKey)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="comment">//选择算法,创建实例</span></span><br><span class="line">        <span class="type">Cipher</span> <span class="variable">cipher</span> <span class="operator">=</span> Cipher.getInstance(ALGORITHM);</span><br><span class="line">        <span class="comment">//选择模式,结合公钥初始化</span></span><br><span class="line">        cipher.init(Cipher.ENCRYPT_MODE, publicKey);</span><br><span class="line">        <span class="comment">//加密</span></span><br><span class="line">        <span class="type">byte</span>[] result = cipher.doFinal(content.getBytes());</span><br><span class="line">        <span class="comment">//转码</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">base64Result</span> <span class="operator">=</span> Base64.getEncoder().encodeToString(result);</span><br><span class="line">        <span class="keyword">return</span> base64Result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//私钥解密</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">decrypt</span><span class="params">(String content, PrivateKey privateKey)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="comment">//创建实例</span></span><br><span class="line">        <span class="type">Cipher</span> <span class="variable">cipher</span> <span class="operator">=</span> Cipher.getInstance(ALGORITHM);</span><br><span class="line">        <span class="comment">//初始化</span></span><br><span class="line">        cipher.init(Cipher.DECRYPT_MODE, privateKey);</span><br><span class="line">        <span class="comment">//转码</span></span><br><span class="line">        <span class="type">byte</span>[] encodedBytes = Base64.getDecoder().decode(content.getBytes());</span><br><span class="line">        <span class="comment">//解密</span></span><br><span class="line">        <span class="type">byte</span>[] result = cipher.doFinal(encodedBytes);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">String</span>(result);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//确保目录存在</span></span><br><span class="line">            <span class="type">File</span> <span class="variable">f</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;/home/duoyi/encrypt/&quot;</span>);</span><br><span class="line">            f.mkdirs();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            <span class="type">KeyPair</span> <span class="variable">keyPair</span> <span class="operator">=</span> RSAUtil.genKeyPair(<span class="number">1024</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//获取公钥</span></span><br><span class="line">            <span class="type">PublicKey</span> <span class="variable">publicKey</span> <span class="operator">=</span> keyPair.getPublic();</span><br><span class="line">            System.out.println(<span class="string">&quot;公钥：&quot;</span> + <span class="keyword">new</span> <span class="title class_">String</span>(Base64.getEncoder().encode(publicKey.getEncoded())));</span><br><span class="line"></span><br><span class="line">            <span class="comment">//获取私钥</span></span><br><span class="line">            <span class="type">PrivateKey</span> <span class="variable">privateKey</span> <span class="operator">=</span> keyPair.getPrivate();</span><br><span class="line">            System.out.println(<span class="string">&quot;私钥：&quot;</span> + <span class="keyword">new</span> <span class="title class_">String</span>(Base64.getEncoder().encode(privateKey.getEncoded())));</span><br><span class="line"></span><br><span class="line">            <span class="comment">//保存密钥</span></span><br><span class="line">            RSAUtil.saveKey(publicKey, <span class="string">&quot;/home/duoyi/encrypt/rsa.pub&quot;</span>);</span><br><span class="line">            RSAUtil.saveKey(privateKey, <span class="string">&quot;/home/duoyi/encrypt/rsa.pri&quot;</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            <span class="type">String</span> <span class="variable">content</span> <span class="operator">=</span> <span class="string">&quot;this is content&quot;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            <span class="comment">//读取密钥</span></span><br><span class="line">            <span class="type">PublicKey</span> <span class="variable">pubKey</span> <span class="operator">=</span> RSAUtil.readPublicKey(<span class="string">&quot;/home/duoyi/encrypt/rsa.pub&quot;</span>);</span><br><span class="line">            <span class="type">PrivateKey</span> <span class="variable">priKey</span> <span class="operator">=</span> RSAUtil.readPrivateKey(<span class="string">&quot;/home/duoyi/encrypt/rsa.pri&quot;</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//加密</span></span><br><span class="line">            <span class="type">String</span> <span class="variable">encryptBase64</span> <span class="operator">=</span> RSAUtil.encrypt(content, pubKey);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//解密</span></span><br><span class="line">            <span class="type">String</span> <span class="variable">result</span> <span class="operator">=</span> decrypt(encryptBase64, priKey);</span><br><span class="line"></span><br><span class="line">            System.out.println(<span class="string">&quot;密文为:&quot;</span> + <span class="keyword">new</span> <span class="title class_">String</span>(Base64.getDecoder().decode(encryptBase64.getBytes())));</span><br><span class="line">            System.out.println(<span class="string">&quot;密文转码后为:&quot;</span> + encryptBase64);</span><br><span class="line">            System.out.println(<span class="string">&quot;转码后解码为:&quot;</span> + result);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="AES工具类"><a href="#AES工具类" class="headerlink" title="AES工具类"></a>AES工具类</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.Files;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.Path;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.Paths;</span><br><span class="line"><span class="keyword">import</span> java.security.Key;</span><br><span class="line"><span class="keyword">import</span> java.security.NoSuchAlgorithmException;</span><br><span class="line"><span class="keyword">import</span> java.security.SecureRandom;</span><br><span class="line"><span class="keyword">import</span> java.util.Base64;</span><br><span class="line"><span class="keyword">import</span> javax.crypto.Cipher;</span><br><span class="line"><span class="keyword">import</span> javax.crypto.KeyGenerator;</span><br><span class="line"><span class="keyword">import</span> javax.crypto.SecretKey;</span><br><span class="line"><span class="keyword">import</span> javax.crypto.spec.SecretKeySpec;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AESUtil</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">ALGORITHM</span> <span class="operator">=</span> <span class="string">&quot;AES&quot;</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">RANDOM_ALGORITHM</span> <span class="operator">=</span> <span class="string">&quot;SHA1PRNG&quot;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//选择算法,根据密码生成密钥</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> SecretKey <span class="title function_">genKey</span><span class="params">(String password)</span> <span class="keyword">throws</span> NoSuchAlgorithmException &#123;</span><br><span class="line">        <span class="type">KeyGenerator</span> <span class="variable">keyGenerator</span> <span class="operator">=</span> KeyGenerator.getInstance(ALGORITHM);</span><br><span class="line">        <span class="type">SecureRandom</span> <span class="variable">random</span> <span class="operator">=</span> SecureRandom.getInstance(RANDOM_ALGORITHM);</span><br><span class="line">        random.setSeed(password.getBytes());<span class="comment">//设置密钥</span></span><br><span class="line">        keyGenerator.init(random);</span><br><span class="line">        <span class="keyword">return</span> keyGenerator.generateKey();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//以base64编码保存密钥</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">saveKey</span><span class="params">(Key key, String path)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">Path</span> <span class="variable">keyPath</span> <span class="operator">=</span> Paths.get(path);</span><br><span class="line">        Files.write(keyPath, Base64.getEncoder().encode(key.getEncoded()));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//读取密钥</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> SecretKey <span class="title function_">readSecretKey</span><span class="params">(String path)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="type">Path</span> <span class="variable">keyPath</span> <span class="operator">=</span> Paths.get(path);</span><br><span class="line">        <span class="type">byte</span>[] keyBytes = Files.readAllBytes(keyPath);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">SecretKeySpec</span>(Base64.getDecoder().decode(keyBytes), ALGORITHM);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">encrypt</span><span class="params">(String content, SecretKey secretKey)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="comment">//指定算法创建Cipher实例</span></span><br><span class="line">        <span class="type">Cipher</span> <span class="variable">cipher</span> <span class="operator">=</span> Cipher.getInstance(ALGORITHM);<span class="comment">//算法是AES</span></span><br><span class="line">        <span class="comment">//选择模式，结合密钥初始化Cipher实例</span></span><br><span class="line">        cipher.init(Cipher.ENCRYPT_MODE, secretKey);</span><br><span class="line">        <span class="comment">//加密</span></span><br><span class="line">        <span class="type">byte</span>[] result = cipher.doFinal(content.getBytes());</span><br><span class="line">        <span class="comment">//使用Base64对密文进行转码</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">base64Result</span> <span class="operator">=</span> Base64.getEncoder().encodeToString(result);</span><br><span class="line">        <span class="keyword">return</span> base64Result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">decrpyt</span><span class="params">(String content, SecretKey secretKey)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="comment">//获取实例</span></span><br><span class="line">        <span class="type">Cipher</span> <span class="variable">cipher</span> <span class="operator">=</span> Cipher.getInstance(ALGORITHM);</span><br><span class="line">        <span class="comment">//初始化</span></span><br><span class="line">        cipher.init(Cipher.DECRYPT_MODE, secretKey);</span><br><span class="line">        <span class="comment">//转码</span></span><br><span class="line">        <span class="type">byte</span>[] encodedBytes = Base64.getDecoder().decode(content.getBytes());</span><br><span class="line">        <span class="comment">//解密</span></span><br><span class="line">        <span class="type">byte</span>[] result = cipher.doFinal(encodedBytes);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">String</span>(result);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//确保目录存在</span></span><br><span class="line">            <span class="type">File</span> <span class="variable">f</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;/home/duoyi/encrypt/&quot;</span>);</span><br><span class="line">            f.mkdirs();</span><br><span class="line"></span><br><span class="line">            <span class="type">String</span> <span class="variable">content</span> <span class="operator">=</span> <span class="string">&quot;this is content&quot;</span>;</span><br><span class="line">            <span class="type">String</span> <span class="variable">password</span> <span class="operator">=</span> <span class="string">&quot;passwd&quot;</span>;</span><br><span class="line"></span><br><span class="line">            <span class="type">SecretKey</span> <span class="variable">key</span> <span class="operator">=</span> AESUtil.genKey(password);</span><br><span class="line"></span><br><span class="line">            AESUtil.saveKey(key, <span class="string">&quot;/home/duoyi/encrypt/aes.key&quot;</span>);</span><br><span class="line"></span><br><span class="line">            <span class="type">String</span> <span class="variable">encryptBase64</span> <span class="operator">=</span> AESUtil.encrypt(content, key);</span><br><span class="line"></span><br><span class="line">            <span class="type">SecretKey</span> <span class="variable">readKey</span> <span class="operator">=</span> AESUtil.readSecretKey(<span class="string">&quot;/home/duoyi/encrypt/aes.key&quot;</span>);</span><br><span class="line">            <span class="type">String</span> <span class="variable">result</span> <span class="operator">=</span> AESUtil.decrpyt(encryptBase64, readKey);</span><br><span class="line"></span><br><span class="line">            System.out.println(<span class="string">&quot;密文为:&quot;</span> + <span class="keyword">new</span> <span class="title class_">String</span>(Base64.getDecoder().decode(encryptBase64.getBytes())));</span><br><span class="line">            System.out.println(<span class="string">&quot;密文转码后为:&quot;</span> + encryptBase64);</span><br><span class="line">            System.out.println(<span class="string">&quot;转码后解码为:&quot;</span> + result);</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>加密算法</category>
-      </categories>
-      <tags>
-        <tag>加密工具类</tag>
-        <tag>RSA</tag>
-        <tag>AES</tag>
       </tags>
   </entry>
   <entry>
@@ -892,32 +1129,6 @@
       </tags>
   </entry>
   <entry>
-    <title>环形链表</title>
-    <url>/2023/06/19/%E7%AE%97%E6%B3%95/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/</url>
-    <content><![CDATA[<h1 id="环形链表"><a href="#环形链表" class="headerlink" title="环形链表"></a>环形链表</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261740749.jpeg" alt="a large body of water surrounded by rocks"></p>
-<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给你一个链表的头节点 head ，判断链表中是否有环。</p>
-<p>如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环。 为了表示给定链表中的环，评测系统内部使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。注意：pos 不作为参数进行传递 。仅仅是为了标识链表的实际情况。</p>
-<p>如果链表中存在环 ，则返回 true 。 否则，返回 false 。</p>
-<p>示例 1：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191021477.png" alt="img"></p>
-<p>输入：head &#x3D; [3,2,0,-4], pos &#x3D; 1<br>输出：true<br>解释：链表中有一个环，其尾部连接到第二个节点。<br>示例 2：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191021584.png" alt="img"></p>
-<p>输入：head &#x3D; [1,2], pos &#x3D; 0<br>输出：true<br>解释：链表中有一个环，其尾部连接到第一个节点。</p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>跟[链表的中间结点]类似，使用快慢指针：</p>
-<p>slow前进一步，fast前进两步，如果fast最终遇到了空指针，则说明链表中没有环；</p>
-<p>如果fast和slow最终相遇了，证明fast超过了slow一圈，说明链表有环。</p>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>链表</tag>
-        <tag>leetcode</tag>
-        <tag>双指针</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>反转链表I</title>
     <url>/2023/07/07/%E7%AE%97%E6%B3%95/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8I/</url>
     <content><![CDATA[<hr>
@@ -945,6 +1156,32 @@
         <tag>链表</tag>
         <tag>leetcode</tag>
         <tag>递归</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>环形链表</title>
+    <url>/2023/06/19/%E7%AE%97%E6%B3%95/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/</url>
+    <content><![CDATA[<h1 id="环形链表"><a href="#环形链表" class="headerlink" title="环形链表"></a>环形链表</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261740749.jpeg" alt="a large body of water surrounded by rocks"></p>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给你一个链表的头节点 head ，判断链表中是否有环。</p>
+<p>如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环。 为了表示给定链表中的环，评测系统内部使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。注意：pos 不作为参数进行传递 。仅仅是为了标识链表的实际情况。</p>
+<p>如果链表中存在环 ，则返回 true 。 否则，返回 false 。</p>
+<p>示例 1：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191021477.png" alt="img"></p>
+<p>输入：head &#x3D; [3,2,0,-4], pos &#x3D; 1<br>输出：true<br>解释：链表中有一个环，其尾部连接到第二个节点。<br>示例 2：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191021584.png" alt="img"></p>
+<p>输入：head &#x3D; [1,2], pos &#x3D; 0<br>输出：true<br>解释：链表中有一个环，其尾部连接到第一个节点。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>跟[链表的中间结点]类似，使用快慢指针：</p>
+<p>slow前进一步，fast前进两步，如果fast最终遇到了空指针，则说明链表中没有环；</p>
+<p>如果fast和slow最终相遇了，证明fast超过了slow一圈，说明链表有环。</p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>链表</tag>
+        <tag>leetcode</tag>
+        <tag>双指针</tag>
       </tags>
   </entry>
   <entry>
@@ -1012,6 +1249,61 @@
       </tags>
   </entry>
   <entry>
+    <title>链表的中间结点</title>
+    <url>/2023/06/19/%E7%AE%97%E6%B3%95/%E9%93%BE%E8%A1%A8%E7%9A%84%E4%B8%AD%E9%97%B4%E7%BB%93%E7%82%B9/</url>
+    <content><![CDATA[<h1 id="链表的中间结点"><a href="#链表的中间结点" class="headerlink" title="链表的中间结点"></a>链表的中间结点</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306260929210.jpeg" alt="img"></p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>给你单链表的头结点 <code>head</code> ，请你找出并返回链表的中间结点。</p>
+<p>如果有两个中间结点，则返回第二个中间结点。</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191007092.jpeg" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：head = [1,2,3,4,5]</span><br><span class="line">输出：[3,4,5]</span><br><span class="line">解释：链表只有一个中间结点，值为 3 。</span><br></pre></td></tr></table></figure>
+
+<p>如果中间两个结点，返回第二个。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>用快慢指针，慢指针走一步，快指针走两步。当快指针走到终点的时候，慢指针正好指在了链表的中点。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ListNode <span class="title function_">middleNode</span><span class="params">(ListNode head)</span> &#123;</span><br><span class="line">    <span class="type">ListNode</span> <span class="variable">fast</span> <span class="operator">=</span> head;</span><br><span class="line">    <span class="type">ListNode</span> <span class="variable">slow</span> <span class="operator">=</span> head;</span><br><span class="line">    <span class="keyword">while</span> (fast != <span class="literal">null</span> &amp;&amp; fast.next != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="comment">// 慢指针走一步，快指针走两步</span></span><br><span class="line">        slow = slow.next;</span><br><span class="line">        fast = fast.next.next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> slow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>链表</tag>
+        <tag>leetcode</tag>
+        <tag>双指针</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>04. 理论一：当谈论面向对象的时候，我们到底在谈论什么？</title>
+    <url>/2023/06/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E%E3%80%9104.%20%E7%90%86%E8%AE%BA%E4%B8%80%EF%BC%9A%E5%BD%93%E8%B0%88%E8%AE%BA%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E6%88%91%E4%BB%AC%E5%88%B0%E5%BA%95%E5%9C%A8%E8%B0%88%E8%AE%BA%E4%BB%80%E4%B9%88%EF%BC%9F/</url>
+    <content><![CDATA[<h1 id="04-理论一：当谈论面向对象的时候，我们到底在谈论什么？"><a href="#04-理论一：当谈论面向对象的时候，我们到底在谈论什么？" class="headerlink" title="04. 理论一：当谈论面向对象的时候，我们到底在谈论什么？"></a>04. 理论一：当谈论面向对象的时候，我们到底在谈论什么？</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306281645110.jpeg" alt="a person on a snowboard in the snow"></p>
+<h2 id="什么是面向对象编程和面向对象编程语言"><a href="#什么是面向对象编程和面向对象编程语言" class="headerlink" title="什么是面向对象编程和面向对象编程语言"></a>什么是面向对象编程和面向对象编程语言</h2><p>面向对象编程是一种编程范式或编程风格。它以类或对象作为组织代码的基本单元，并将封装、抽象、继承、多态四个特性，作为代码设计和实现的基石 。</p>
+<p>面向对象编程语言是支持类或对象的语法机制，并有现成的语法机制，能方便地实现面向对象编程四大特性（封装、抽象、继承、多态）的编程语言。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">面向对象编程是一种编程范式或编程风格。它以类或对象作为组织代码的基本单元，并将封装、抽象、继承、多态四个特性，作为代码设计和实现的基石 。</span><br><span class="line">面向对象编程语言是支持类或对象的语法机制，并有现成的语法机制，能方便地实现面向对象编程四大特性（封装、抽象、继承、多态）的编程语言。</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="如何判断某编程语言是否是面向对象编程语言？"><a href="#如何判断某编程语言是否是面向对象编程语言？" class="headerlink" title="如何判断某编程语言是否是面向对象编程语言？"></a>如何判断某编程语言是否是面向对象编程语言？</h2><p>只要某种编程语言支持类或对象的语法概念，并且以此作为组织代码的基本单元，那就可以被粗略地认为它就是面向对象编程语言了。至于是否有现成的语法机制，完全地支持了面向对象编程的四大特性、是否对四大特性有所取舍和优化，可以不作为判定的标准。基于此，我们才有了前面的说法，按照严格的定义，很多语言都不能算得上面向对象编程语言，但按照不严格的定义来讲，现在流行的大部分编程语言都是面向对象编程语言。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">如果按照严格的的定义，需要有现成的语法支持类、对象、四大特性才能叫作面向对象编程语言。如果放宽要求的话，只要某种编程语言支持类、对象语法机制，那基本上就可以说这种编程语言是面向对象编程语言了，不一定非得要求具有所有的四大特性。</span><br></pre></td></tr></table></figure>
+
+<h2 id="什么是面向对象分析和面向对象设计？"><a href="#什么是面向对象分析和面向对象设计？" class="headerlink" title="什么是面向对象分析和面向对象设计？"></a>什么是面向对象分析和面向对象设计？</h2><p>OOA和OOD。</p>
+<p>OOA、OOD、OOP 三个连在一起就是面向对象分析、设计、编程（实现），正好是面向对象软件开发要经历的三个阶段。</p>
+<p>是因为我们是围绕着对象或类来做需求分析和设计的。分析和设计两个阶段最终的产出是类的设计，包括程序被拆解为哪些类，每个类有哪些属性方法，类与类之间如何交互等等。它们比其他的分析和设计更加具体、更加落地、更加贴近编码，更能够顺利地过渡到面向对象编程环节。这也是面向对象分析和设计，与其他分析和设计最大的不同点。</p>
+<p>面向对象分析就是要搞清楚做什么，面向对象设计就是要搞清楚怎么做，面向对象编程就是将分析和设计的的结果翻译成代码的过程。</p>
+<h2 id="什么是UML？我们是否需要UML？"><a href="#什么是UML？我们是否需要UML？" class="headerlink" title="什么是UML？我们是否需要UML？"></a>什么是UML？我们是否需要UML？</h2><p>UML（Unified Model Language），统一建模语言。</p>
+<p>实际上，UML 是一种非常复杂的东西。它不仅仅包含我们常提到类图，还有用例图、顺序图、活动图、状态图、组件图等。</p>
+<p>类图，学习成本也是很高的。就单说类之间的关系，UML 就定义了很多种，比如泛化、实现、关联、聚合、组合、依赖等。</p>
+<p>UML 作为一种沟通工具，即便你能完全按照 UML 规范来画类图，可对于不熟悉的人来说，看懂的成本也还是很高的。</p>
+<p>UML 在互联网公司的项目开发中，用处可能并不大。为了文档化软件设计或者方便讨论软件设计，大部分情况下，我们随手画个不那么规范的草图，能够达意，方便沟通就够了，而完全按照 UML 规范来将草图标准化，所付出的代价是不值得的。</p>
+]]></content>
+      <categories>
+        <category>设计模式</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>面向对象</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>链表相交</title>
     <url>/2023/06/25/%E7%AE%97%E6%B3%95/%E9%93%BE%E8%A1%A8%E7%9B%B8%E4%BA%A4/</url>
     <content><![CDATA[<h1 id="链表相交"><a href="#链表相交" class="headerlink" title="链表相交"></a>链表相交</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你两个单链表的头节点 <code>headA</code> 和 <code>headB</code> ，请你找出并返回两个单链表相交的起始节点。如果两个链表不存在相交节点，返回 <code>null</code> 。</p>
@@ -1055,180 +1347,37 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo文章转换器</title>
-    <url>/2023/06/19/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/Hexo%E6%96%87%E7%AB%A0%E8%BD%AC%E6%8D%A2%E5%99%A8/</url>
-    <content><![CDATA[<h1 id="Hexo文章转换器"><a href="#Hexo文章转换器" class="headerlink" title="Hexo文章转换器"></a>Hexo文章转换器</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261747053.jpeg" alt="a close up of a cell phone with a blurry background"></p>
-<blockquote>
-<p>Hexo系列文章：</p>
+    <title>理论三：面向对象相比面向过程有哪些优势？面向过程真的过时了吗？</title>
+    <url>/2023/06/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E%E3%80%9106.%E7%90%86%E8%AE%BA%E4%B8%89%EF%BC%9A%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9B%B8%E6%AF%94%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E6%9C%89%E5%93%AA%E4%BA%9B%E4%BC%98%E5%8A%BF%EF%BC%9F%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E7%9C%9F%E7%9A%84%E8%BF%87%E6%97%B6%E4%BA%86%E5%90%97%EF%BC%9F/</url>
+    <content><![CDATA[<h1 id="06-理论三：面向对象相比面向过程有哪些优势？面向过程真的过时了吗？"><a href="#06-理论三：面向对象相比面向过程有哪些优势？面向过程真的过时了吗？" class="headerlink" title="06 理论三：面向对象相比面向过程有哪些优势？面向过程真的过时了吗？"></a>06 理论三：面向对象相比面向过程有哪些优势？面向过程真的过时了吗？</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306281722422.jpeg" alt="a close up of a palm tree with clouds in the background"></p>
+<p>编程范式：面向过程编程和函数式编程；</p>
+<p>面向对象和面向过程的区别，<strong>总以为使用面向对象编程语言来做开发，就是在进行面向对象编程了</strong>。而实际上，他们只是在用面向对象编程语言，编写面向过程风格的代码而已，并没有发挥面向对象编程的优势。（说的就是我！！！！）</p>
+<p>这节针对的几个问题：</p>
 <ol>
-<li><a href="https://yamonc.github.io/2023/06/13/%E4%BB%8E0%E5%88%B01%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E5%88%B0Github-Page/">从0到1部署博客系统到GitHub Page（0成本）</a></li>
-<li><a href="https://yamonc.github.io/2023/06/13/hexo%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98/">hexo如何修改主题？</a></li>
-<li><a href="https://yamonc.github.io/2023/06/13/hexo-Acrylic%E4%B8%BB%E9%A2%98%E9%9B%86%E6%88%90twikoo%E8%AF%84%E8%AE%BA/">hexo-Acrylic主题集成twikoo评论</a></li>
-<li><a href="https://yamonc.github.io/2023/06/16/%E5%A6%82%E4%BD%95%E5%B0%86java%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E6%88%90exe%E6%A0%BC%E5%BC%8F/">如何将JavaFX的java项目打包成exe格式</a></li>
+<li>什么是面向过程编程与面向过程编程语言？</li>
+<li></li>
+<li>为什么说面向对象编程语言比面向过程编程语言更高级？</li>
+<li>有哪些看似是面向对象实际是面向过程风格的代码？</li>
+<li>在面向对象编程中，为什么容易写出面向过程风格的代码？</li>
+<li>面向过程编程和面向过程编程语言就真的无用武之地了吗？</li>
 </ol>
-</blockquote>
-<hr>
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近将博客平台使用Hexo搭建在Github上，但是如果每次发布文章的话，都需要设置一下front-matter的内容：</p>
-<p><a href="https://hexo.io/zh-cn/docs/front-matter">Front-matter</a></p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191043672.png" alt="image-20230619104358612"></p>
-<p>感觉不太方便，所以想通过界面化的方式，将过程进行简化（要不，每次都手动在文章的开头写上—xxx—,太麻烦）。</p>
-<p>基于此，本文通过界面化的方式，将文章进行格式化，通过代码的方式自动在文章开头插入markdown可识别的字符串。</p>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191046466.png" alt="image-20230619104639429"></p>
-<p>使用该工具可以避免手动输入这些信息，而是通过界面化的方式进行配置：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191047100.png" alt="image-20230619104743062"></p>
-<h2 id="技术说明"><a href="#技术说明" class="headerlink" title="技术说明"></a>技术说明</h2><p>Java17（开发语言）、Java FX（Java界面工具，类似于java8的swing，现已不支持java8）、SceneBuilder（拖拽式界面工具）、exe4j（jar转exe工具）。</p>
-<p>踩坑无数，尤其是将java转为exe的过程中，踩了一晚上吧。</p>
-<h2 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h2><p>下载地址：</p>
-<p><a href="https://gh.api.99988866.xyz/https://github.com/yamonc/hexoHelper/releases/download/V0.0.1/hexoHelper.exe">HexoHelper下载地址</a></p>
-<p>下载好之后，无需安装过程，直接点击exe文件即可运行。</p>
-<p>运行好之后，会出现[示例]中的界面。</p>
-<h3 id="功能说明"><a href="#功能说明" class="headerlink" title="功能说明"></a>功能说明</h3><p>现在界面主要分为四个区域，从上到下以此为使用说明、选中文件区域、front-matter信息区域、功能区域。</p>
-<p>这里主要讲解功能区域：</p>
-<p>【上传文件】：点击上传文件按钮之后，选中待转换的markdown文件（没有front-matter信息的markdown文件）</p>
-<p>【转换格式】：对已上传的文件进行格式转换，在文章头添加已经输入的front-matter信息。</p>
-<p>【部署】：执行hexo clean、hexo g、hexo d一系列指令。</p>
-<p>【一键部署】：对已上传的文件进行格式转换并执行hexo clean、hexo g、hexo d指令部署到对应平台上。</p>
-<h3 id="使用流程说明"><a href="#使用流程说明" class="headerlink" title="使用流程说明"></a>使用流程说明</h3><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191058659.png" alt="image-20230619105823619"></p>
-<h2 id="遗留问题"><a href="#遗留问题" class="headerlink" title="遗留问题"></a>遗留问题</h2><p>转换文章之后，题目乱码。</p>
-<p>不够灵活，鲁棒性不好。对输入增加限制。</p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>hexo</tag>
-        <tag>开源项目</tag>
-        <tag>工具</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>链表的中间结点</title>
-    <url>/2023/06/19/%E7%AE%97%E6%B3%95/%E9%93%BE%E8%A1%A8%E7%9A%84%E4%B8%AD%E9%97%B4%E7%BB%93%E7%82%B9/</url>
-    <content><![CDATA[<h1 id="链表的中间结点"><a href="#链表的中间结点" class="headerlink" title="链表的中间结点"></a>链表的中间结点</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306260929210.jpeg" alt="img"></p>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>给你单链表的头结点 <code>head</code> ，请你找出并返回链表的中间结点。</p>
-<p>如果有两个中间结点，则返回第二个中间结点。</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306191007092.jpeg" alt="img"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：head = [1,2,3,4,5]</span><br><span class="line">输出：[3,4,5]</span><br><span class="line">解释：链表只有一个中间结点，值为 3 。</span><br></pre></td></tr></table></figure>
-
-<p>如果中间两个结点，返回第二个。</p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>用快慢指针，慢指针走一步，快指针走两步。当快指针走到终点的时候，慢指针正好指在了链表的中点。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ListNode <span class="title function_">middleNode</span><span class="params">(ListNode head)</span> &#123;</span><br><span class="line">    <span class="type">ListNode</span> <span class="variable">fast</span> <span class="operator">=</span> head;</span><br><span class="line">    <span class="type">ListNode</span> <span class="variable">slow</span> <span class="operator">=</span> head;</span><br><span class="line">    <span class="keyword">while</span> (fast != <span class="literal">null</span> &amp;&amp; fast.next != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="comment">// 慢指针走一步，快指针走两步</span></span><br><span class="line">        slow = slow.next;</span><br><span class="line">        fast = fast.next.next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> slow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>链表</tag>
-        <tag>leetcode</tag>
-        <tag>双指针</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo文章转换器II</title>
-    <url>/2023/06/28/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/Hexo%E6%96%87%E7%AB%A0%E8%BD%AC%E6%8D%A2%E5%99%A8II/</url>
-    <content><![CDATA[<h1 id="Hexo文章转换器II"><a href="#Hexo文章转换器II" class="headerlink" title="Hexo文章转换器II"></a>Hexo文章转换器II</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306281711167.jpeg" alt="a view of a beach and a body of water"></p>
-<blockquote>
-<p>Hexo系列文章：</p>
-<ol>
-<li><a href="https://yamonc.github.io/2023/06/13/%E4%BB%8E0%E5%88%B01%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E5%88%B0Github-Page/">从0到1部署博客系统到GitHub Page（0成本）</a></li>
-<li><a href="https://yamonc.github.io/2023/06/13/hexo%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98/">hexo如何修改主题？</a></li>
-<li><a href="https://yamonc.github.io/2023/06/13/hexo-Acrylic%E4%B8%BB%E9%A2%98%E9%9B%86%E6%88%90twikoo%E8%AF%84%E8%AE%BA/">hexo-Acrylic主题集成twikoo评论</a></li>
-<li><a href="https://yamonc.github.io/2023/06/16/%E5%A6%82%E4%BD%95%E5%B0%86java%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E6%88%90exe%E6%A0%BC%E5%BC%8F/">如何将JavaFX的java项目打包成exe格式</a></li>
-</ol>
-</blockquote>
-<hr>
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>该工具可以帮助你在使用Hexo写博客的时候，将文章直接转换成为Hexo可识别并可展示在页面；</p>
-<p>每次在写博客的时候，都需要手动在文章的开头添加Front-Matter的信息：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306281633297.png" alt="image-20230619104358612"></p>
-<p>感觉不太方便，所以想通过界面化的方式，将过程进行简化（要不，每次都手动在文章的开头写上—xxx—,太麻烦）。</p>
-<p>基于此，本文通过界面化的方式，将文章进行格式化，通过代码的方式自动在文章开头插入markdown可识别的字符串。</p>
-<hr>
-<p>⭐⭐⭐⭐V1.0.0更新日志</p>
-<p>第一版的Hexo文章转换器使用起来不太方便，所以在第一版的基础上进行了更新，主要是将标签和分类的信息保存到sqlite数据库中，不再用户每次都手动输入了。（初版的思路是，标题、 创建时间、位置等一些信息可以从后台直接获取，比如标题可以通过读取文章的第一行获取，然后将标题生成到原文中就行，不知道为什么打包成exe格式之前，标题都能从文章中提取出来，但是在exe中如果获取出来的标题永远都是乱码，各种尝试都无用，无奈，手动输入标题吧）</p>
-<p>⭐⭐⭐⭐⭐V1.1.0更新日志</p>
-<p>V1.1.0版本在界面上进行了一系列的改动，优化了用户体验，主要体现在：</p>
-<ol>
-<li>显示内容正常无遮挡。上一版本由于页面布局的问题，cover一般都会很长，导致遮挡后面部分label。</li>
-<li>新增一键重置功能，考虑到有可能一次性转换多个文章，如果不重置的话，无法重新上传文件并转换，只能关掉应用程序重新打开，才能进行转换新的文章。</li>
-<li>新增标签管理和分栏管理Tab页。在最顶端新增两个Tab页，分别用来对标签和分栏的新增和删除功能。</li>
-<li>优化了大部分的代码，包括但不限于接口实现jdbc操作数据库功能，提高易用性和扩展性、新增表结构、合适的地方处理异常等等。</li>
-</ol>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306281648185.png" alt="image-20230628164814150"></p>
-<p>使用该工具可以避免手动输入这些信息，而是通过界面化的方式进行配置：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306281648109.png" alt="image-20230628164828060"></p>
-<p>但是，<strong>建议在使用之前进行两项的配置</strong>：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306281649108.png" alt="image-20230628164907063"></p>
-<p>工作目录：主要是基于这个目录，执行一系列指令：hexo clean、hexo g和hexo d等指令。</p>
-<p>上传文件目录：在Hexo转换器Tab中，需要上传文件之后才能点转换，这里的位置就是点击后重定向的位置，换句话说，就是你平常文章经常放的位置，通常是_posts。</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306281651512.png" alt="image-20230628165125467"></p>
-<p>关于Hexo转换器界面，主要就是讲解这个页面是干什么用的，解决了什么问题。</p>
-<h2 id="技术说明"><a href="#技术说明" class="headerlink" title="技术说明"></a>技术说明</h2><p>Java17（开发语言）、Java FX（Java界面工具，类似于java8的swing，现已不支持java8）、SceneBuilder（拖拽式界面工具）、exe4j（jar转exe工具）。</p>
-<p>踩坑无数，尤其是将java转为exe的过程中，踩了一晚上吧。</p>
-<h2 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h2><p>下载地址：</p>
-<p><a href="https://github.com/yamonc/hexoHelper/releases/download/V1.0.0/hexoHelperV1.0.0.zip">HexoHelper下载地址</a></p>
-<p>下载好之后，解压缩，解压缩之后，需要注意的是，db文件夹要和hexoHelper.exe是同级目录，db文件夹中是sqlite的数据库，运行的时候需要找到db的数据库才行。最终文件的位置关系：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306281656872.png" alt="image-20230628165640833"></p>
-<p>开始运行，会出现[示例]中的界面。</p>
-<h3 id="功能说明"><a href="#功能说明" class="headerlink" title="功能说明"></a>功能说明</h3><p>现在的界面主要分三个主Tab：</p>
-<h4 id="Hexo转换器"><a href="#Hexo转换器" class="headerlink" title="Hexo转换器"></a>Hexo转换器</h4><p>该界面主要分三个部分：</p>
-<p>从上到下依次是Front-Matter清单，在这里可以看到你填写的一些文章信息，这也是最终会填写到你文章里面的内容；</p>
-<p>输入区：在这里你需要输入一些文章信息，这个和Front-Matter清单联动，修改了什么会体现在清单上。</p>
-<p>最下面是功能区域：</p>
-<p>【上传文件】：点击上传文件按钮之后，选中待转换的markdown文件（没有front-matter信息的markdown文件）</p>
-<p>【转换格式】：对已上传的文件进行格式转换，在文章头添加已经输入的front-matter信息。</p>
-<p>【部署】：执行hexo clean、hexo g、hexo d一系列指令。</p>
-<p>【一键部署】：对已上传的文件进行格式转换并执行hexo clean、hexo g、hexo d指令部署到对应平台上。</p>
-<h4 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h4><p>主要设置一些提升用户体验的必要信息。</p>
-<p>工作目录：主要是基于这个目录，执行一系列指令：hexo clean、hexo g和hexo d等指令。</p>
-<p>上传文件目录：在Hexo转换器Tab中，需要上传文件之后才能点转换，这里的位置就是点击后重定向的位置，换句话说，就是你平常文章经常放的位置，通常是_posts。</p>
-<h4 id="关于Hexo转换器"><a href="#关于Hexo转换器" class="headerlink" title="关于Hexo转换器"></a>关于Hexo转换器</h4><p>主要介绍了该工具解决了什么问题，如何使用及关于作者等信息。</p>
-<h2 id="使用流程说明"><a href="#使用流程说明" class="headerlink" title="使用流程说明"></a>使用流程说明</h2><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306281633232.png" alt="image-20230619105823619"></p>
-<h2 id="待优化问题"><a href="#待优化问题" class="headerlink" title="待优化问题"></a>待优化问题</h2><ol>
-<li>用户使用优化。</li>
-<li>标签和分类的操作业务流程有问题。无法删除标签和分类。考虑在设置中体现。</li>
-<li>显示优化，如果cover或者其他字段太长的话，会影响到字体显示。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>项目</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>开源项目</tag>
-        <tag>JavaFX</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>04. 理论一：当谈论面向对象的时候，我们到底在谈论什么？</title>
-    <url>/2023/06/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E%E3%80%9104.%20%E7%90%86%E8%AE%BA%E4%B8%80%EF%BC%9A%E5%BD%93%E8%B0%88%E8%AE%BA%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E6%88%91%E4%BB%AC%E5%88%B0%E5%BA%95%E5%9C%A8%E8%B0%88%E8%AE%BA%E4%BB%80%E4%B9%88%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="04-理论一：当谈论面向对象的时候，我们到底在谈论什么？"><a href="#04-理论一：当谈论面向对象的时候，我们到底在谈论什么？" class="headerlink" title="04. 理论一：当谈论面向对象的时候，我们到底在谈论什么？"></a>04. 理论一：当谈论面向对象的时候，我们到底在谈论什么？</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306281645110.jpeg" alt="a person on a snowboard in the snow"></p>
-<h2 id="什么是面向对象编程和面向对象编程语言"><a href="#什么是面向对象编程和面向对象编程语言" class="headerlink" title="什么是面向对象编程和面向对象编程语言"></a>什么是面向对象编程和面向对象编程语言</h2><p>面向对象编程是一种编程范式或编程风格。它以类或对象作为组织代码的基本单元，并将封装、抽象、继承、多态四个特性，作为代码设计和实现的基石 。</p>
+<h2 id="什么是面向过程编程和面向过程编程语言？"><a href="#什么是面向过程编程和面向过程编程语言？" class="headerlink" title="什么是面向过程编程和面向过程编程语言？"></a>什么是面向过程编程和面向过程编程语言？</h2><blockquote>
+<p>回顾面向对象编程和面向对象编程语言：</p>
+<p>面向对象编程是一种编程范式或编程风格。它以类或对象作为组织代码的基本单元，并将封装、抽象、继承、多态四个特性，作为代码设计和实现的基石 。</p>
 <p>面向对象编程语言是支持类或对象的语法机制，并有现成的语法机制，能方便地实现面向对象编程四大特性（封装、抽象、继承、多态）的编程语言。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">面向对象编程是一种编程范式或编程风格。它以类或对象作为组织代码的基本单元，并将封装、抽象、继承、多态四个特性，作为代码设计和实现的基石 。</span><br><span class="line">面向对象编程语言是支持类或对象的语法机制，并有现成的语法机制，能方便地实现面向对象编程四大特性（封装、抽象、继承、多态）的编程语言。</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="如何判断某编程语言是否是面向对象编程语言？"><a href="#如何判断某编程语言是否是面向对象编程语言？" class="headerlink" title="如何判断某编程语言是否是面向对象编程语言？"></a>如何判断某编程语言是否是面向对象编程语言？</h2><p>只要某种编程语言支持类或对象的语法概念，并且以此作为组织代码的基本单元，那就可以被粗略地认为它就是面向对象编程语言了。至于是否有现成的语法机制，完全地支持了面向对象编程的四大特性、是否对四大特性有所取舍和优化，可以不作为判定的标准。基于此，我们才有了前面的说法，按照严格的定义，很多语言都不能算得上面向对象编程语言，但按照不严格的定义来讲，现在流行的大部分编程语言都是面向对象编程语言。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">如果按照严格的的定义，需要有现成的语法支持类、对象、四大特性才能叫作面向对象编程语言。如果放宽要求的话，只要某种编程语言支持类、对象语法机制，那基本上就可以说这种编程语言是面向对象编程语言了，不一定非得要求具有所有的四大特性。</span><br></pre></td></tr></table></figure>
-
-<h2 id="什么是面向对象分析和面向对象设计？"><a href="#什么是面向对象分析和面向对象设计？" class="headerlink" title="什么是面向对象分析和面向对象设计？"></a>什么是面向对象分析和面向对象设计？</h2><p>OOA和OOD。</p>
-<p>OOA、OOD、OOP 三个连在一起就是面向对象分析、设计、编程（实现），正好是面向对象软件开发要经历的三个阶段。</p>
-<p>是因为我们是围绕着对象或类来做需求分析和设计的。分析和设计两个阶段最终的产出是类的设计，包括程序被拆解为哪些类，每个类有哪些属性方法，类与类之间如何交互等等。它们比其他的分析和设计更加具体、更加落地、更加贴近编码，更能够顺利地过渡到面向对象编程环节。这也是面向对象分析和设计，与其他分析和设计最大的不同点。</p>
-<p>面向对象分析就是要搞清楚做什么，面向对象设计就是要搞清楚怎么做，面向对象编程就是将分析和设计的的结果翻译成代码的过程。</p>
-<h2 id="什么是UML？我们是否需要UML？"><a href="#什么是UML？我们是否需要UML？" class="headerlink" title="什么是UML？我们是否需要UML？"></a>什么是UML？我们是否需要UML？</h2><p>UML（Unified Model Language），统一建模语言。</p>
-<p>实际上，UML 是一种非常复杂的东西。它不仅仅包含我们常提到类图，还有用例图、顺序图、活动图、状态图、组件图等。</p>
-<p>类图，学习成本也是很高的。就单说类之间的关系，UML 就定义了很多种，比如泛化、实现、关联、聚合、组合、依赖等。</p>
-<p>UML 作为一种沟通工具，即便你能完全按照 UML 规范来画类图，可对于不熟悉的人来说，看懂的成本也还是很高的。</p>
-<p>UML 在互联网公司的项目开发中，用处可能并不大。为了文档化软件设计或者方便讨论软件设计，大部分情况下，我们随手画个不那么规范的草图，能够达意，方便沟通就够了，而完全按照 UML 规范来将草图标准化，所付出的代价是不值得的。</p>
+</blockquote>
+<p>面向过程编程也是一种编程范式或编程风格。它以过程（可以理解为方法、函数、操作）作为组织代码的基本单元，以数据（可以理解为成员变量、属性）与方法相分离为最主要的特点。面向过程风格是一种流程化的编程风格，通过拼接一组顺序执行的方法来操作数据完成一项功能。</p>
+<p>面向过程编程语言首先是一种编程语言。它最大的特点是不支持类和对象两个语法概念，不支持丰富的面向对象编程特性（比如继承、多态、封装），仅支持面向过程编程。</p>
+<h2 id="面向对象编程相比面向过程编程有哪些优势？"><a href="#面向对象编程相比面向过程编程有哪些优势？" class="headerlink" title="面向对象编程相比面向过程编程有哪些优势？"></a>面向对象编程相比面向过程编程有哪些优势？</h2><ul>
+<li>OOP 更加能够应对大规模复杂程序的开发、</li>
+<li>OOP 风格的代码更易复用、易扩展、易维护。（原因：封装、抽象、继承、多态）</li>
+<li>OOP 语言更加人性化、更加高级、更加智能</li>
+</ul>
 ]]></content>
       <categories>
         <category>设计模式</category>
       </categories>
       <tags>
-        <tag>Java</tag>
         <tag>面向对象</tag>
       </tags>
   </entry>
@@ -1288,41 +1437,6 @@
       </tags>
   </entry>
   <entry>
-    <title>理论三：面向对象相比面向过程有哪些优势？面向过程真的过时了吗？</title>
-    <url>/2023/06/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E%E3%80%9106.%E7%90%86%E8%AE%BA%E4%B8%89%EF%BC%9A%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9B%B8%E6%AF%94%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E6%9C%89%E5%93%AA%E4%BA%9B%E4%BC%98%E5%8A%BF%EF%BC%9F%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E7%9C%9F%E7%9A%84%E8%BF%87%E6%97%B6%E4%BA%86%E5%90%97%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="06-理论三：面向对象相比面向过程有哪些优势？面向过程真的过时了吗？"><a href="#06-理论三：面向对象相比面向过程有哪些优势？面向过程真的过时了吗？" class="headerlink" title="06 理论三：面向对象相比面向过程有哪些优势？面向过程真的过时了吗？"></a>06 理论三：面向对象相比面向过程有哪些优势？面向过程真的过时了吗？</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306281722422.jpeg" alt="a close up of a palm tree with clouds in the background"></p>
-<p>编程范式：面向过程编程和函数式编程；</p>
-<p>面向对象和面向过程的区别，<strong>总以为使用面向对象编程语言来做开发，就是在进行面向对象编程了</strong>。而实际上，他们只是在用面向对象编程语言，编写面向过程风格的代码而已，并没有发挥面向对象编程的优势。（说的就是我！！！！）</p>
-<p>这节针对的几个问题：</p>
-<ol>
-<li>什么是面向过程编程与面向过程编程语言？</li>
-<li></li>
-<li>为什么说面向对象编程语言比面向过程编程语言更高级？</li>
-<li>有哪些看似是面向对象实际是面向过程风格的代码？</li>
-<li>在面向对象编程中，为什么容易写出面向过程风格的代码？</li>
-<li>面向过程编程和面向过程编程语言就真的无用武之地了吗？</li>
-</ol>
-<h2 id="什么是面向过程编程和面向过程编程语言？"><a href="#什么是面向过程编程和面向过程编程语言？" class="headerlink" title="什么是面向过程编程和面向过程编程语言？"></a>什么是面向过程编程和面向过程编程语言？</h2><blockquote>
-<p>回顾面向对象编程和面向对象编程语言：</p>
-<p>面向对象编程是一种编程范式或编程风格。它以类或对象作为组织代码的基本单元，并将封装、抽象、继承、多态四个特性，作为代码设计和实现的基石 。</p>
-<p>面向对象编程语言是支持类或对象的语法机制，并有现成的语法机制，能方便地实现面向对象编程四大特性（封装、抽象、继承、多态）的编程语言。</p>
-</blockquote>
-<p>面向过程编程也是一种编程范式或编程风格。它以过程（可以理解为方法、函数、操作）作为组织代码的基本单元，以数据（可以理解为成员变量、属性）与方法相分离为最主要的特点。面向过程风格是一种流程化的编程风格，通过拼接一组顺序执行的方法来操作数据完成一项功能。</p>
-<p>面向过程编程语言首先是一种编程语言。它最大的特点是不支持类和对象两个语法概念，不支持丰富的面向对象编程特性（比如继承、多态、封装），仅支持面向过程编程。</p>
-<h2 id="面向对象编程相比面向过程编程有哪些优势？"><a href="#面向对象编程相比面向过程编程有哪些优势？" class="headerlink" title="面向对象编程相比面向过程编程有哪些优势？"></a>面向对象编程相比面向过程编程有哪些优势？</h2><ul>
-<li>OOP 更加能够应对大规模复杂程序的开发、</li>
-<li>OOP 风格的代码更易复用、易扩展、易维护。（原因：封装、抽象、继承、多态）</li>
-<li>OOP 语言更加人性化、更加高级、更加智能</li>
-</ul>
-]]></content>
-      <categories>
-        <category>设计模式</category>
-      </categories>
-      <tags>
-        <tag>面向对象</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>理论五：接口vs抽象类的区别？如何用普通的类模拟抽象类和接口？</title>
     <url>/2023/07/07/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E%E3%80%9108.%E7%90%86%E8%AE%BA%E4%BA%94%EF%BC%9A%E6%8E%A5%E5%8F%A3vs%E6%8A%BD%E8%B1%A1%E7%B1%BB%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F%E5%A6%82%E4%BD%95%E7%94%A8%E6%99%AE%E9%80%9A%E7%9A%84%E7%B1%BB%E6%A8%A1%E6%8B%9F%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3%EF%BC%9F)/</url>
     <content><![CDATA[<h1 id="08-理论五：接口vs抽象类的区别？如何用普通的类模拟抽象类和接口？"><a href="#08-理论五：接口vs抽象类的区别？如何用普通的类模拟抽象类和接口？" class="headerlink" title="08. 理论五：接口vs抽象类的区别？如何用普通的类模拟抽象类和接口？"></a>08. 理论五：接口vs抽象类的区别？如何用普通的类模拟抽象类和接口？</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307071059946.jpeg" alt="an aerial view of a beach with a body of water"></p>
@@ -1369,51 +1483,6 @@
         <tag>接口</tag>
         <tag>抽象类</tag>
         <tag>设计模式</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>综合工具箱</title>
-    <url>/2023/06/17/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/%E7%BB%BC%E5%90%88%E5%B7%A5%E5%85%B7%E7%AE%B1/</url>
-    <content><![CDATA[<h1 id="综合工具箱"><a href="#综合工具箱" class="headerlink" title="综合工具箱"></a>综合工具箱</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306261746878.jpeg" alt="a view of a mountain range at sunset"></p>
-<p><a href="https://github.com/yamonc/tool_platfom/">tool_platform</a></p>
-<blockquote>
-<p>综合工具箱（名字实在是不会起，意会吧，言传就不必了）：这个项目主要是为了解决日常生活中的一点点痛点：比如密码箱，何为密码箱呢？如今大多数网站都有注册和登录功能，要么呢，有各种需要备份或者记录的信息（QQ邮箱的凭证，开发者需要记录下，或者github的AK和SK等），这种记录在网上的一些工具有可能会遭到泄露，所以将本地密码存到密码箱里就很有必要了。</p>
-</blockquote>
-<h2 id="🍎技术架构"><a href="#🍎技术架构" class="headerlink" title="🍎技术架构"></a>🍎技术架构</h2><p><a href="https://www.electronjs.org/zh/docs/latest/tutorial/quick-start">electron</a>+vue2</p>
-<p>框架用的是<a href="https://gitee.com/Zh-Sky/electron-vue-template">electron-vue-template</a>，感谢大佬的开源。</p>
-<p>纯前端项目，没有用到后端，<strong>更不会保留任何数据到服务器上</strong>。</p>
-<h2 id="🍉-解决的问题"><a href="#🍉-解决的问题" class="headerlink" title="🍉 解决的问题"></a>🍉 解决的问题</h2><p>目前综合工具箱里的功能只有《密码箱》的功能。</p>
-<h3 id="🍓密码箱"><a href="#🍓密码箱" class="headerlink" title="🍓密码箱"></a>🍓密码箱</h3><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306171118918.png" alt="image-20230617111859730"></p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306171119106.png" alt="image-20230617111918042"></p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306171122534.png" alt="image-20230617112248464"></p>
-<h4 id="痛点"><a href="#痛点" class="headerlink" title="痛点"></a>痛点</h4><p><strong>网络上的密码无法管理。</strong></p>
-<h4 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h4><p>点击新增密码，按照提示输入后，可在当前的用户目录下找到password.json的文件，所有的密码都存在这个paasword.json中。</p>
-<p>密码备份功能比价鸡肋，后期去掉。</p>
-<h2 id="🍠如何启动"><a href="#🍠如何启动" class="headerlink" title="🍠如何启动"></a>🍠如何启动</h2><h3 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h3><p>前提需要安装git、node.js、yarn&#x2F;npm（npm好像在这里不好使）</p>
-<h3 id="二次开发"><a href="#二次开发" class="headerlink" title="二次开发"></a>二次开发</h3><p>如果是二次开发的话：</p>
-<p><strong>pull代码</strong></p>
-<p><code>git pull https://github.com/yamonc/tool_platfom.git </code></p>
-<p><strong>安装安装包</strong></p>
-<p><code>yarn </code></p>
-<p><strong>启动项目</strong></p>
-<p><code>yarn dev</code></p>
-<h3 id="直接使用"><a href="#直接使用" class="headerlink" title="直接使用"></a>直接使用</h3><p>两种方式，第一种<a href="https://gh.api.99988866.xyz/https://github.com/yamonc/tool_platfom/releases/download/V0.0.1/electron-vue-admin.Setup.0.0.1.exe">下载发版</a>；</p>
-<p>第二种，在二次开发的基础上，自己打包：</p>
-<p><code>yarn build:win64</code></p>
-<p>打完包之后，会发现build包下有exe可执行文件：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306171139786.png" alt="image-20230617113946744"></p>
-<h2 id="🍐后期目标"><a href="#🍐后期目标" class="headerlink" title="🍐后期目标"></a>🍐后期目标</h2><p>性能优化（不得不说，electron太太太太慢了）</p>
-<p>密码修改。</p>
-<p>导入密码。</p>
-<p>支持sqllite，方便修改密码、删除密码。</p>
-<h2 id="🍌CHANGELOG"><a href="#🍌CHANGELOG" class="headerlink" title="🍌CHANGELOG"></a>🍌CHANGELOG</h2><p>V0.0.1 新增密码箱功能；</p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>vue</tag>
-        <tag>electron</tag>
       </tags>
   </entry>
   <entry>
@@ -1469,49 +1538,6 @@
       </tags>
   </entry>
   <entry>
-    <title>理论七：为何说要多用组合少用继承？如何决定该用组合还是继承？</title>
-    <url>/2023/07/07/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E%E3%80%9110.%20%E7%90%86%E8%AE%BA%E4%B8%83%EF%BC%9A%E4%B8%BA%E4%BD%95%E8%AF%B4%E8%A6%81%E5%A4%9A%E7%94%A8%E7%BB%84%E5%90%88%E5%B0%91%E7%94%A8%E7%BB%A7%E6%89%BF%EF%BC%9F%E5%A6%82%E4%BD%95%E5%86%B3%E5%AE%9A%E8%AF%A5%E7%94%A8%E7%BB%84%E5%90%88%E8%BF%98%E6%98%AF%E7%BB%A7%E6%89%BF%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="理论七：为何说要多用组合少用继承？如何决定该用组合还是继承？"><a href="#理论七：为何说要多用组合少用继承？如何决定该用组合还是继承？" class="headerlink" title="理论七：为何说要多用组合少用继承？如何决定该用组合还是继承？"></a>理论七：为何说要多用组合少用继承？如何决定该用组合还是继承？</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307071103724.jpeg" alt="a large body of water surrounded by land"></p>
-<p>经典的设计原则，那就是：组合优于继承，多用组合少用继承。</p>
-<h2 id="为什么不推荐使用继承？"><a href="#为什么不推荐使用继承？" class="headerlink" title="为什么不推荐使用继承？"></a>为什么不推荐使用继承？</h2><p>继承是面向对象的四大特性之一，用来表示类之间的 is-a 关系，可以解决代码复用的问题。虽然继承有诸多作用，但继承层次过深、过复杂，也会影响到代码的可维护性。所以，对于是否应该在项目中使用继承，网上有很多争议。很多人觉得继承是一种反模式，应该尽量少用，甚至不用。为什么会有这样的争议？我们通过一个例子来解释一下。</p>
-<p>假设我们要设计一个关于鸟的类。我们将“鸟类”这样一个抽象的事物概念，定义为一个抽象类 AbstractBird。所有更细分的鸟，比如麻雀、鸽子、乌鸦等，都继承这个抽象类。大部分鸟都会飞，那我们可不可以在 AbstractBird 抽象类中，定义一个 fly() 方法呢？</p>
-<p>答案是否定的，虽然大部分鸟都会飞，但也有特例，比如鸵鸟就不会飞。当然，你可能会说，我在鸵鸟这个子类中重写（override）fly() 方法，让它抛出 UnSupportedMethodException 异常不就可以了吗？</p>
-<p>这种设计思路虽然可以解决问题，但不够优美。因为除了鸵鸟之外，不会飞的鸟还有很多，比如企鹅。对于这些不会飞的鸟来说，我们都需要重写 fly() 方法，抛出异常。<strong>这样的设计，</strong></p>
-<p><strong>一方面，徒增了编码的工作量；</strong></p>
-<p><strong>另一方面，也违背了我们之后要讲的最小知识原则（Least Knowledge Principle，也叫最少知识原则或者迪米特法则），暴露不该暴露的接口给外部，增加了类使用过程中被误用的概率。</strong></p>
-<p>那可以将AbstractBird类派生出两个更细分的抽象类：会飞的鸟类AbstractFlyableBird和不会飞的鸟类AbstractUnFlyableBird，然后让让麻雀、乌鸦这些会飞的鸟都继承 AbstractFlyableBird，让鸵鸟、企鹅这些不会飞的鸟，都继承 AbstractUnFlyableBird 类，不就可以了吗？具体的继承关系如下图所示：</p>
-<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306301528188.jpeg" alt="img"></p>
-<p>在刚刚这个场景中，我们只关注“鸟会不会飞”，但如果我们还关注“鸟会不会叫”，那这个时候，我们又该如何设计类之间的继承关系呢？</p>
-<p>是否会飞？是否会叫？两个行为搭配起来会产生四种情况：会飞会叫、不会飞会叫、会飞不会叫、不会飞不会叫。如果我们继续沿用刚才的设计思路，那就需要再定义四个抽象类（AbstractFlyableTweetableBird、AbstractFlyableUnTweetableBird、AbstractUnFlyableTweetableBird、AbstractUnFlyableUnTweetableBird）。</p>
-<p>如果我们还需要考虑“是否会下蛋”这样一个行为，那估计就要组合爆炸了。</p>
-<p><strong>类的继承层次会越来越深、继承关系会越来越复杂。</strong></p>
-<p>而这种层次很深、很复杂的继承关系，<strong>一方面</strong>，会导致代码的可读性变差。因为我们要搞清楚某个类具有哪些方法、属性，必须阅读父类的代码、父类的父类的代码……一直追溯到最顶层父类的代码。<strong>另一方面</strong>，这也破坏了类的封装特性，将父类的实现细节暴露给了子类。子类的实现依赖父类的实现，两者高度耦合，一旦父类代码修改，就会影响所有子类的逻辑。</p>
-<p>那，怎么解决呢？</p>
-<h2 id="组合相比继承有哪些优势？"><a href="#组合相比继承有哪些优势？" class="headerlink" title="组合相比继承有哪些优势？"></a>组合相比继承有哪些优势？</h2><p>实际上，我们可以利用组合（composition）、接口、委托（delegation）三个技术手段，一块儿来解决刚刚继承存在的问题。</p>
-<p>我们前面讲到接口的时候说过，接口表示具有某种行为特性。针对“会飞”这样一个行为特性，我们可以定义一个 Flyable 接口，只让会飞的鸟去实现这个接口。对于会叫、会下蛋这些行为特性，我们可以类似地定义 Tweetable 接口、EggLayable 接口。我们将这个设计思路翻译成 Java 代码的话，就是下面这个样子：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Flyable</span> &#123;</span><br><span class="line">  <span class="keyword">void</span> <span class="title function_">fly</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Tweetable</span> &#123;</span><br><span class="line">  <span class="keyword">void</span> <span class="title function_">tweet</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">EggLayable</span> &#123;</span><br><span class="line">  <span class="keyword">void</span> <span class="title function_">layEgg</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Ostrich</span> <span class="keyword">implements</span> <span class="title class_">Tweetable</span>, EggLayable &#123;<span class="comment">//鸵鸟</span></span><br><span class="line">  <span class="comment">//... 省略其他属性和方法...</span></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">tweet</span><span class="params">()</span> &#123; <span class="comment">//... &#125;</span></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">layEgg</span><span class="params">()</span> &#123; <span class="comment">//... &#125;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Sparrow</span> impelents Flyable, Tweetable, EggLayable &#123;<span class="comment">//麻雀</span></span><br><span class="line">  <span class="comment">//... 省略其他属性和方法...</span></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">fly</span><span class="params">()</span> &#123; <span class="comment">//... &#125;</span></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">tweet</span><span class="params">()</span> &#123; <span class="comment">//... &#125;</span></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">layEgg</span><span class="params">()</span> &#123; <span class="comment">//... &#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>但是，接口只声明方法，不定义实现，每个会下蛋的鸟都要实现一下layEgg()方法，并且实现逻辑是一样的，这就会导致代码重复问题，可以使用组合和委托的技术来解决代码重复问题：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Flyable</span> &#123;</span><br><span class="line">  <span class="keyword">void</span> <span class="title function_">fly</span><span class="params">()</span>；</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FlyAbility</span> <span class="keyword">implements</span> <span class="title class_">Flyable</span> &#123;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">fly</span><span class="params">()</span> &#123; <span class="comment">//... &#125;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//省略Tweetable/TweetAbility/EggLayable/EggLayAbility</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Ostrich</span> <span class="keyword">implements</span> <span class="title class_">Tweetable</span>, EggLayable &#123;<span class="comment">//鸵鸟</span></span><br><span class="line">  <span class="keyword">private</span> <span class="type">TweetAbility</span> <span class="variable">tweetAbility</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">TweetAbility</span>(); <span class="comment">//组合</span></span><br><span class="line">  <span class="keyword">private</span> <span class="type">EggLayAbility</span> <span class="variable">eggLayAbility</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">EggLayAbility</span>(); <span class="comment">//组合</span></span><br><span class="line">  <span class="comment">//... 省略其他属性和方法...</span></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">tweet</span><span class="params">()</span> &#123;</span><br><span class="line">    tweetAbility.tweet(); <span class="comment">// 委托</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">layEgg</span><span class="params">()</span> &#123;</span><br><span class="line">    eggLayAbility.layEgg(); <span class="comment">// 委托</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="如何判断使用组合还是继承？"><a href="#如何判断使用组合还是继承？" class="headerlink" title="如何判断使用组合还是继承？"></a>如何判断使用组合还是继承？</h2><p>如果类之间的继承结构稳定（不会轻易改变），继承层次比较浅（比如，最多有两层继承关系），继承关系不复杂，我们就可以大胆地使用继承。反之，系统越不稳定，继承层次很深，继承关系复杂，我们就尽量使用组合来替代继承。</p>
-<p>除此之外，还有一些设计模式会固定使用继承或者组合。比如，装饰者模式（decorator pattern）、策略模式（strategy pattern）、组合模式（composite pattern）等都使用了组合关系，而模板模式（template pattern）使用了继承关系。</p>
-<p>还有一些特殊的场景要求我们必须使用继承。如果你不能改变一个函数的入参类型，而入参又非接口，为了支持多态，只能采用继承来实现。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
-<li>为什么不推荐使用继承？继承是面向对象的四大特性之一，用来表示类之间的 is-a 关系，可以解决代码复用的问题。虽然继承有诸多作用，但继承层次过深、过复杂，也会影响到代码的可维护性。在这种情况下，我们应该尽量少用，甚至不用继承。</li>
-<li>组合相比继承有哪些优势？继承主要有三个作用：表示 is-a 关系，支持多态特性，代码复用。而这三个作用都可以通过组合、接口、委托三个技术手段来达成。除此之外，利用组合还能解决层次过深、过复杂的继承关系影响代码可维护性的问题。</li>
-<li>如何判断该用组合还是继承？尽管我们鼓励多用组合少用继承，但组合也并不是完美的，继承也并非一无是处。在实际的项目开发中，我们还是要根据具体的情况，来选择该用继承还是组合。如果类之间的继承结构稳定，层次比较浅，关系不复杂，我们就可以大胆地使用继承。反之，我们就尽量使用组合来替代继承。除此之外，还有一些设计模式、特殊的应用场景，会固定使用继承或者组合</li>
-</ol>
-]]></content>
-      <categories>
-        <category>设计模式</category>
-      </categories>
-      <tags>
-        <tag>面向对象</tag>
-        <tag>设计模式</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>理论六：为什么基于接口而非实现编程？有必要为每个类都定义接口吗？</title>
     <url>/2023/07/07/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E%E3%80%9109.%E7%90%86%E8%AE%BA%E5%85%AD%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9F%BA%E4%BA%8E%E6%8E%A5%E5%8F%A3%E8%80%8C%E9%9D%9E%E5%AE%9E%E7%8E%B0%E7%BC%96%E7%A8%8B%EF%BC%9F%E6%9C%89%E5%BF%85%E8%A6%81%E4%B8%BA%E6%AF%8F%E4%B8%AA%E7%B1%BB%E9%83%BD%E5%AE%9A%E4%B9%89%E6%8E%A5%E5%8F%A3%E5%90%97%EF%BC%9F/</url>
     <content><![CDATA[<h1 id="09-理论六：为什么基于接口而非实现编程？有必要为每个类都定义接口吗？"><a href="#09-理论六：为什么基于接口而非实现编程？有必要为每个类都定义接口吗？" class="headerlink" title="09. 理论六：为什么基于接口而非实现编程？有必要为每个类都定义接口吗？"></a>09. 理论六：为什么基于接口而非实现编程？有必要为每个类都定义接口吗？</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307071102570.jpeg" alt="a drawing of a red, green, and blue string"></p>
@@ -1555,6 +1581,49 @@
       </tags>
   </entry>
   <entry>
+    <title>理论七：为何说要多用组合少用继承？如何决定该用组合还是继承？</title>
+    <url>/2023/07/07/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E%E3%80%9110.%20%E7%90%86%E8%AE%BA%E4%B8%83%EF%BC%9A%E4%B8%BA%E4%BD%95%E8%AF%B4%E8%A6%81%E5%A4%9A%E7%94%A8%E7%BB%84%E5%90%88%E5%B0%91%E7%94%A8%E7%BB%A7%E6%89%BF%EF%BC%9F%E5%A6%82%E4%BD%95%E5%86%B3%E5%AE%9A%E8%AF%A5%E7%94%A8%E7%BB%84%E5%90%88%E8%BF%98%E6%98%AF%E7%BB%A7%E6%89%BF%EF%BC%9F/</url>
+    <content><![CDATA[<h1 id="理论七：为何说要多用组合少用继承？如何决定该用组合还是继承？"><a href="#理论七：为何说要多用组合少用继承？如何决定该用组合还是继承？" class="headerlink" title="理论七：为何说要多用组合少用继承？如何决定该用组合还是继承？"></a>理论七：为何说要多用组合少用继承？如何决定该用组合还是继承？</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307071103724.jpeg" alt="a large body of water surrounded by land"></p>
+<p>经典的设计原则，那就是：组合优于继承，多用组合少用继承。</p>
+<h2 id="为什么不推荐使用继承？"><a href="#为什么不推荐使用继承？" class="headerlink" title="为什么不推荐使用继承？"></a>为什么不推荐使用继承？</h2><p>继承是面向对象的四大特性之一，用来表示类之间的 is-a 关系，可以解决代码复用的问题。虽然继承有诸多作用，但继承层次过深、过复杂，也会影响到代码的可维护性。所以，对于是否应该在项目中使用继承，网上有很多争议。很多人觉得继承是一种反模式，应该尽量少用，甚至不用。为什么会有这样的争议？我们通过一个例子来解释一下。</p>
+<p>假设我们要设计一个关于鸟的类。我们将“鸟类”这样一个抽象的事物概念，定义为一个抽象类 AbstractBird。所有更细分的鸟，比如麻雀、鸽子、乌鸦等，都继承这个抽象类。大部分鸟都会飞，那我们可不可以在 AbstractBird 抽象类中，定义一个 fly() 方法呢？</p>
+<p>答案是否定的，虽然大部分鸟都会飞，但也有特例，比如鸵鸟就不会飞。当然，你可能会说，我在鸵鸟这个子类中重写（override）fly() 方法，让它抛出 UnSupportedMethodException 异常不就可以了吗？</p>
+<p>这种设计思路虽然可以解决问题，但不够优美。因为除了鸵鸟之外，不会飞的鸟还有很多，比如企鹅。对于这些不会飞的鸟来说，我们都需要重写 fly() 方法，抛出异常。<strong>这样的设计，</strong></p>
+<p><strong>一方面，徒增了编码的工作量；</strong></p>
+<p><strong>另一方面，也违背了我们之后要讲的最小知识原则（Least Knowledge Principle，也叫最少知识原则或者迪米特法则），暴露不该暴露的接口给外部，增加了类使用过程中被误用的概率。</strong></p>
+<p>那可以将AbstractBird类派生出两个更细分的抽象类：会飞的鸟类AbstractFlyableBird和不会飞的鸟类AbstractUnFlyableBird，然后让让麻雀、乌鸦这些会飞的鸟都继承 AbstractFlyableBird，让鸵鸟、企鹅这些不会飞的鸟，都继承 AbstractUnFlyableBird 类，不就可以了吗？具体的继承关系如下图所示：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202306301528188.jpeg" alt="img"></p>
+<p>在刚刚这个场景中，我们只关注“鸟会不会飞”，但如果我们还关注“鸟会不会叫”，那这个时候，我们又该如何设计类之间的继承关系呢？</p>
+<p>是否会飞？是否会叫？两个行为搭配起来会产生四种情况：会飞会叫、不会飞会叫、会飞不会叫、不会飞不会叫。如果我们继续沿用刚才的设计思路，那就需要再定义四个抽象类（AbstractFlyableTweetableBird、AbstractFlyableUnTweetableBird、AbstractUnFlyableTweetableBird、AbstractUnFlyableUnTweetableBird）。</p>
+<p>如果我们还需要考虑“是否会下蛋”这样一个行为，那估计就要组合爆炸了。</p>
+<p><strong>类的继承层次会越来越深、继承关系会越来越复杂。</strong></p>
+<p>而这种层次很深、很复杂的继承关系，<strong>一方面</strong>，会导致代码的可读性变差。因为我们要搞清楚某个类具有哪些方法、属性，必须阅读父类的代码、父类的父类的代码……一直追溯到最顶层父类的代码。<strong>另一方面</strong>，这也破坏了类的封装特性，将父类的实现细节暴露给了子类。子类的实现依赖父类的实现，两者高度耦合，一旦父类代码修改，就会影响所有子类的逻辑。</p>
+<p>那，怎么解决呢？</p>
+<h2 id="组合相比继承有哪些优势？"><a href="#组合相比继承有哪些优势？" class="headerlink" title="组合相比继承有哪些优势？"></a>组合相比继承有哪些优势？</h2><p>实际上，我们可以利用组合（composition）、接口、委托（delegation）三个技术手段，一块儿来解决刚刚继承存在的问题。</p>
+<p>我们前面讲到接口的时候说过，接口表示具有某种行为特性。针对“会飞”这样一个行为特性，我们可以定义一个 Flyable 接口，只让会飞的鸟去实现这个接口。对于会叫、会下蛋这些行为特性，我们可以类似地定义 Tweetable 接口、EggLayable 接口。我们将这个设计思路翻译成 Java 代码的话，就是下面这个样子：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Flyable</span> &#123;</span><br><span class="line">  <span class="keyword">void</span> <span class="title function_">fly</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Tweetable</span> &#123;</span><br><span class="line">  <span class="keyword">void</span> <span class="title function_">tweet</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">EggLayable</span> &#123;</span><br><span class="line">  <span class="keyword">void</span> <span class="title function_">layEgg</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Ostrich</span> <span class="keyword">implements</span> <span class="title class_">Tweetable</span>, EggLayable &#123;<span class="comment">//鸵鸟</span></span><br><span class="line">  <span class="comment">//... 省略其他属性和方法...</span></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">tweet</span><span class="params">()</span> &#123; <span class="comment">//... &#125;</span></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">layEgg</span><span class="params">()</span> &#123; <span class="comment">//... &#125;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Sparrow</span> impelents Flyable, Tweetable, EggLayable &#123;<span class="comment">//麻雀</span></span><br><span class="line">  <span class="comment">//... 省略其他属性和方法...</span></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">fly</span><span class="params">()</span> &#123; <span class="comment">//... &#125;</span></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">tweet</span><span class="params">()</span> &#123; <span class="comment">//... &#125;</span></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">layEgg</span><span class="params">()</span> &#123; <span class="comment">//... &#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是，接口只声明方法，不定义实现，每个会下蛋的鸟都要实现一下layEgg()方法，并且实现逻辑是一样的，这就会导致代码重复问题，可以使用组合和委托的技术来解决代码重复问题：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Flyable</span> &#123;</span><br><span class="line">  <span class="keyword">void</span> <span class="title function_">fly</span><span class="params">()</span>；</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FlyAbility</span> <span class="keyword">implements</span> <span class="title class_">Flyable</span> &#123;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">fly</span><span class="params">()</span> &#123; <span class="comment">//... &#125;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//省略Tweetable/TweetAbility/EggLayable/EggLayAbility</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Ostrich</span> <span class="keyword">implements</span> <span class="title class_">Tweetable</span>, EggLayable &#123;<span class="comment">//鸵鸟</span></span><br><span class="line">  <span class="keyword">private</span> <span class="type">TweetAbility</span> <span class="variable">tweetAbility</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">TweetAbility</span>(); <span class="comment">//组合</span></span><br><span class="line">  <span class="keyword">private</span> <span class="type">EggLayAbility</span> <span class="variable">eggLayAbility</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">EggLayAbility</span>(); <span class="comment">//组合</span></span><br><span class="line">  <span class="comment">//... 省略其他属性和方法...</span></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">tweet</span><span class="params">()</span> &#123;</span><br><span class="line">    tweetAbility.tweet(); <span class="comment">// 委托</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">layEgg</span><span class="params">()</span> &#123;</span><br><span class="line">    eggLayAbility.layEgg(); <span class="comment">// 委托</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="如何判断使用组合还是继承？"><a href="#如何判断使用组合还是继承？" class="headerlink" title="如何判断使用组合还是继承？"></a>如何判断使用组合还是继承？</h2><p>如果类之间的继承结构稳定（不会轻易改变），继承层次比较浅（比如，最多有两层继承关系），继承关系不复杂，我们就可以大胆地使用继承。反之，系统越不稳定，继承层次很深，继承关系复杂，我们就尽量使用组合来替代继承。</p>
+<p>除此之外，还有一些设计模式会固定使用继承或者组合。比如，装饰者模式（decorator pattern）、策略模式（strategy pattern）、组合模式（composite pattern）等都使用了组合关系，而模板模式（template pattern）使用了继承关系。</p>
+<p>还有一些特殊的场景要求我们必须使用继承。如果你不能改变一个函数的入参类型，而入参又非接口，为了支持多态，只能采用继承来实现。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
+<li>为什么不推荐使用继承？继承是面向对象的四大特性之一，用来表示类之间的 is-a 关系，可以解决代码复用的问题。虽然继承有诸多作用，但继承层次过深、过复杂，也会影响到代码的可维护性。在这种情况下，我们应该尽量少用，甚至不用继承。</li>
+<li>组合相比继承有哪些优势？继承主要有三个作用：表示 is-a 关系，支持多态特性，代码复用。而这三个作用都可以通过组合、接口、委托三个技术手段来达成。除此之外，利用组合还能解决层次过深、过复杂的继承关系影响代码可维护性的问题。</li>
+<li>如何判断该用组合还是继承？尽管我们鼓励多用组合少用继承，但组合也并不是完美的，继承也并非一无是处。在实际的项目开发中，我们还是要根据具体的情况，来选择该用继承还是组合。如果类之间的继承结构稳定，层次比较浅，关系不复杂，我们就可以大胆地使用继承。反之，我们就尽量使用组合来替代继承。除此之外，还有一些设计模式、特殊的应用场景，会固定使用继承或者组合</li>
+</ol>
+]]></content>
+      <categories>
+        <category>设计模式</category>
+      </categories>
+      <tags>
+        <tag>面向对象</tag>
+        <tag>设计模式</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>实战一（上）：业务开发常用的基于贫血模型的MVC架构违背OOP吗？</title>
     <url>/2023/07/12/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E%E3%80%9111.%20%E5%AE%9E%E6%88%98%E4%B8%80%EF%BC%88%E4%B8%8A%EF%BC%89%EF%BC%9A%E4%B8%9A%E5%8A%A1%E5%BC%80%E5%8F%91%E5%B8%B8%E7%94%A8%E7%9A%84%E5%9F%BA%E4%BA%8E%E8%B4%AB%E8%A1%80%E6%A8%A1%E5%9E%8B%E7%9A%84MVC%E6%9E%B6%E6%9E%84%E8%BF%9D%E8%83%8COOP%E5%90%97%EF%BC%9F/</url>
     <content><![CDATA[<h1 id="实战一（上）：业务开发常用的基于贫血模型的MVC架构违背OOP吗？"><a href="#实战一（上）：业务开发常用的基于贫血模型的MVC架构违背OOP吗？" class="headerlink" title="实战一（上）：业务开发常用的基于贫血模型的MVC架构违背OOP吗？"></a>实战一（上）：业务开发常用的基于贫血模型的MVC架构违背OOP吗？</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307122022089.jpeg" alt="the night sky with stars above a mountain"></p>
@@ -1594,6 +1663,103 @@
       <tags>
         <tag>设计模式</tag>
         <tag>DDD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>实战一（下）：如何利用基于充血模型的DDD开发一个虚拟钱包系统？</title>
+    <url>/2023/07/13/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E%E3%80%9112.%E5%AE%9E%E6%88%98%E4%B8%80%EF%BC%88%E4%B8%8B%EF%BC%89%EF%BC%9A%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E5%9F%BA%E4%BA%8E%E5%85%85%E8%A1%80%E6%A8%A1%E5%9E%8B%E7%9A%84DDD%E5%BC%80%E5%8F%91%E4%B8%80%E4%B8%AA%E8%99%9A%E6%8B%9F%E9%92%B1%E5%8C%85%E7%B3%BB%E7%BB%9F%EF%BC%9F%20/</url>
+    <content><![CDATA[<h1 id="实战一（下）：如何利用基于充血模型的DDD开发一个虚拟钱包系统？"><a href="#实战一（下）：如何利用基于充血模型的DDD开发一个虚拟钱包系统？" class="headerlink" title="实战一（下）：如何利用基于充血模型的DDD开发一个虚拟钱包系统？"></a>实战一（下）：如何利用基于充血模型的DDD开发一个虚拟钱包系统？</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307131127849.jpeg" alt="a snow covered mountain with a sky background"></p>
+<h2 id="钱包业务背景介绍"><a href="#钱包业务背景介绍" class="headerlink" title="钱包业务背景介绍"></a>钱包业务背景介绍</h2><p>一般应用内都支持钱包功能，钱包功能一般为每一个用户开设一个系统内的虚拟钱包账户，支持用户充值、提现、支付、冻结、透支、转赠、查询账户余额、查询交易流水等操作。</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307131044921.jpeg" alt="img"></p>
+<p>我们限定钱包暂时只支持充值、提现、支付、查询余额、查询交易流水这五个核心的功能，其他比如冻结、透支、转赠等不常用的功能，我们暂不考虑。</p>
+<h3 id="1-充值"><a href="#1-充值" class="headerlink" title="1. 充值"></a>1. 充值</h3><p>用户通过三方支付渠道，把自己银行卡账户内的钱，充值到虚拟钱包账号中。这整个过程，我们可以分解为三个主要的操作流程：第一个操作是从用户的银行卡账户转账到应用的公共银行卡账户；第二个操作是将用户的充值金额加到虚拟钱包余额上；第三个操作是记录刚刚这笔交易流水。</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307131044215.jpeg" alt="img"></p>
+<h2 id="2-支付"><a href="#2-支付" class="headerlink" title="2. 支付"></a>2. 支付</h2><p>用户用钱包内的余额，支付购买应用内的商品。实际上，支付的过程就是一个转账的过程，从用户的虚拟钱包账户划钱到商家的虚拟钱包账户上。除此之外，我们也需要记录这笔支付的交易流水信息。</p>
+<h2 id="3-提现"><a href="#3-提现" class="headerlink" title="3. 提现"></a>3. 提现</h2><p>除了充值、支付之外，用户还可以将虚拟钱包中的余额，提现到自己的银行卡中。这个过程实际上就是扣减用户虚拟钱包中的余额，并且触发真正的银行转账操作，从应用的公共银行账户转钱到用户的银行账户。同样，我们也需要记录这笔提现的交易流水信息。</p>
+<h2 id="4-查询交易流水"><a href="#4-查询交易流水" class="headerlink" title="4. 查询交易流水"></a>4. 查询交易流水</h2><p>查询交易流水也比较简单。我们只支持三种类型的交易流水：充值、支付、提现。在用户充值、支付、提现的时候，我们会记录相应的交易信息。在需要查询的时候，我们只需要将之前记录的交易流水，按照时间、类型等条件过滤之后，显示出来即可。</p>
+<h2 id="钱包系统的设计思路"><a href="#钱包系统的设计思路" class="headerlink" title="钱包系统的设计思路"></a>钱包系统的设计思路</h2><p>以把整个钱包系统的业务划分为<strong>两部分</strong>，其中一部分单纯跟<strong>应用内的虚拟钱包账户</strong>打交道，另一部分单纯跟<strong>银行账户</strong>打交道。我们基于这样一个业务划分，给系统解耦，将整个钱包系统拆分为两个子系统：<strong>虚拟钱包系统</strong>和<strong>三方支付系统</strong>。</p>
+<p>只聚焦于虚拟钱包系统的设计与实现。</p>
+<p>如果要支持钱包的这五个核心功能，虚拟钱包系统需要对应实现哪些操作：</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307131046577.jpeg" alt="img"></p>
+<p>交易流水该如何记录和查询？</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307131047163.jpeg" alt="img"></p>
+<p>如何分别用基于贫血模型的传统开发模式和基于充血模型的 DDD 开发模式，来实现这样一个虚拟钱包系统？</p>
+<h2 id="基于贫血模型的传统开发模式"><a href="#基于贫血模型的传统开发模式" class="headerlink" title="基于贫血模型的传统开发模式"></a>基于贫血模型的传统开发模式</h2><p>典型的 Web 后端项目的三层结构。其中，Controller 和 VO 负责暴露接口，具体的代码实现如下所示。注意，Controller 中，接口实现比较简单，主要就是调用 Service 的方法</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">VirtualWalletController</span> &#123;</span><br><span class="line">  <span class="comment">// 通过构造函数或者IOC框架注入</span></span><br><span class="line">  <span class="keyword">private</span> VirtualWalletService virtualWalletService;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> BigDecimal <span class="title function_">getBalance</span><span class="params">(Long walletId)</span> &#123; ... &#125; <span class="comment">//查询余额</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">debit</span><span class="params">(Long walletId, BigDecimal amount)</span> &#123; ... &#125; <span class="comment">//出账</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">credit</span><span class="params">(Long walletId, BigDecimal amount)</span> &#123; ... &#125; <span class="comment">//入账</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">transfer</span><span class="params">(Long fromWalletId, Long toWalletId, BigDecimal amount)</span> &#123; ...&#125; <span class="comment">//转账</span></span><br><span class="line">  <span class="comment">//省略查询transaction的接口</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Service 和 BO 负责核心业务逻辑，Repository 和 Entity 负责数据存取。Repository 这一层的代码实现比较简单，不是我们讲解的重点，所以我也省略掉了。Service 层的代码如下所示。注意，这里我省略了一些不重要的校验代码，比如，对 amount 是否小于 0、钱包是否存在的校验等等。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">VirtualWalletBo</span> &#123;<span class="comment">//省略getter/setter/constructor方法</span></span><br><span class="line">  <span class="keyword">private</span> Long id;</span><br><span class="line">  <span class="keyword">private</span> Long createTime;</span><br><span class="line">  <span class="keyword">private</span> BigDecimal balance;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> Enum TransactionType &#123;</span><br><span class="line">  DEBIT,</span><br><span class="line">  CREDIT,</span><br><span class="line">  TRANSFER;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">VirtualWalletService</span> &#123;</span><br><span class="line">  <span class="comment">// 通过构造函数或者IOC框架注入</span></span><br><span class="line">  <span class="keyword">private</span> VirtualWalletRepository walletRepo;</span><br><span class="line">  <span class="keyword">private</span> VirtualWalletTransactionRepository transactionRepo;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> VirtualWalletBo <span class="title function_">getVirtualWallet</span><span class="params">(Long walletId)</span> &#123;</span><br><span class="line">    <span class="type">VirtualWalletEntity</span> <span class="variable">walletEntity</span> <span class="operator">=</span> walletRepo.getWalletEntity(walletId);</span><br><span class="line">    <span class="type">VirtualWalletBo</span> <span class="variable">walletBo</span> <span class="operator">=</span> convert(walletEntity);</span><br><span class="line">    <span class="keyword">return</span> walletBo;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> BigDecimal <span class="title function_">getBalance</span><span class="params">(Long walletId)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> walletRepo.getBalance(walletId);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Transactional</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">debit</span><span class="params">(Long walletId, BigDecimal amount)</span> &#123;</span><br><span class="line">    <span class="type">VirtualWalletEntity</span> <span class="variable">walletEntity</span> <span class="operator">=</span> walletRepo.getWalletEntity(walletId);</span><br><span class="line">    <span class="type">BigDecimal</span> <span class="variable">balance</span> <span class="operator">=</span> walletEntity.getBalance();</span><br><span class="line">    <span class="keyword">if</span> (balance.compareTo(amount) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">NoSufficientBalanceException</span>(...);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">VirtualWalletTransactionEntity</span> <span class="variable">transactionEntity</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">VirtualWalletTransactionEntity</span>();</span><br><span class="line">    transactionEntity.setAmount(amount);</span><br><span class="line">    transactionEntity.setCreateTime(System.currentTimeMillis());</span><br><span class="line">    transactionEntity.setType(TransactionType.DEBIT);</span><br><span class="line">    transactionEntity.setFromWalletId(walletId);</span><br><span class="line">    transactionRepo.saveTransaction(transactionEntity);</span><br><span class="line">    walletRepo.updateBalance(walletId, balance.subtract(amount));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Transactional</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">credit</span><span class="params">(Long walletId, BigDecimal amount)</span> &#123;</span><br><span class="line">    <span class="type">VirtualWalletTransactionEntity</span> <span class="variable">transactionEntity</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">VirtualWalletTransactionEntity</span>();</span><br><span class="line">    transactionEntity.setAmount(amount);</span><br><span class="line">    transactionEntity.setCreateTime(System.currentTimeMillis());</span><br><span class="line">    transactionEntity.setType(TransactionType.CREDIT);</span><br><span class="line">    transactionEntity.setFromWalletId(walletId);</span><br><span class="line">    transactionRepo.saveTransaction(transactionEntity);</span><br><span class="line">    <span class="type">VirtualWalletEntity</span> <span class="variable">walletEntity</span> <span class="operator">=</span> walletRepo.getWalletEntity(walletId);</span><br><span class="line">    <span class="type">BigDecimal</span> <span class="variable">balance</span> <span class="operator">=</span> walletEntity.getBalance();</span><br><span class="line">    walletRepo.updateBalance(walletId, balance.add(amount));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Transactional</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">transfer</span><span class="params">(Long fromWalletId, Long toWalletId, BigDecimal amount)</span> &#123;</span><br><span class="line">    <span class="type">VirtualWalletTransactionEntity</span> <span class="variable">transactionEntity</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">VirtualWalletTransactionEntity</span>();</span><br><span class="line">    transactionEntity.setAmount(amount);</span><br><span class="line">    transactionEntity.setCreateTime(System.currentTimeMillis());</span><br><span class="line">    transactionEntity.setType(TransactionType.TRANSFER);</span><br><span class="line">    transactionEntity.setFromWalletId(fromWalletId);</span><br><span class="line">    transactionEntity.setToWalletId(toWalletId);</span><br><span class="line">    transactionRepo.saveTransaction(transactionEntity);</span><br><span class="line">    debit(fromWalletId, amount);</span><br><span class="line">    credit(toWalletId, amount);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="基于充血模型的DDD开发模式"><a href="#基于充血模型的DDD开发模式" class="headerlink" title="基于充血模型的DDD开发模式"></a>基于充血模型的DDD开发模式</h2><p>，基于充血模型的 DDD 开发模式，跟基于贫血模型的传统开发模式的主要区别就在 Service 层，Controller 层和 Repository 层的代码基本上相同。所以，我们重点看一下，Service 层按照基于充血模型的 DDD 开发模式该如何来实现。</p>
+<p>在这种开发模式下，我们把虚拟钱包 VirtualWallet 类设计成一个充血的 Domain 领域模型，并且将原来在 Service 类中的部分业务逻辑移动到 VirtualWallet 类中，让 Service 类的实现依赖 VirtualWallet 类。具体的代码实现如下所示：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">VirtualWallet</span> &#123; <span class="comment">// Domain领域模型(充血模型)</span></span><br><span class="line">  <span class="keyword">private</span> Long id;</span><br><span class="line">  <span class="keyword">private</span> <span class="type">Long</span> <span class="variable">createTime</span> <span class="operator">=</span> System.currentTimeMillis();;</span><br><span class="line">  <span class="keyword">private</span> <span class="type">BigDecimal</span> <span class="variable">balance</span> <span class="operator">=</span> BigDecimal.ZERO;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> <span class="title function_">VirtualWallet</span><span class="params">(Long preAllocatedId)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.id = preAllocatedId;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> BigDecimal <span class="title function_">balance</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.balance;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">debit</span><span class="params">(BigDecimal amount)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.balance.compareTo(amount) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">InsufficientBalanceException</span>(...);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">this</span>.balance = <span class="built_in">this</span>.balance.subtract(amount);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">credit</span><span class="params">(BigDecimal amount)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (amount.compareTo(BigDecimal.ZERO) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">InvalidAmountException</span>(...);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">this</span>.balance = <span class="built_in">this</span>.balance.add(amount);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">VirtualWalletService</span> &#123;</span><br><span class="line">  <span class="comment">// 通过构造函数或者IOC框架注入</span></span><br><span class="line">  <span class="keyword">private</span> VirtualWalletRepository walletRepo;</span><br><span class="line">  <span class="keyword">private</span> VirtualWalletTransactionRepository transactionRepo;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> VirtualWallet <span class="title function_">getVirtualWallet</span><span class="params">(Long walletId)</span> &#123;</span><br><span class="line">    <span class="type">VirtualWalletEntity</span> <span class="variable">walletEntity</span> <span class="operator">=</span> walletRepo.getWalletEntity(walletId);</span><br><span class="line">    <span class="type">VirtualWallet</span> <span class="variable">wallet</span> <span class="operator">=</span> convert(walletEntity);</span><br><span class="line">    <span class="keyword">return</span> wallet;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> BigDecimal <span class="title function_">getBalance</span><span class="params">(Long walletId)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> walletRepo.getBalance(walletId);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="meta">@Transactional</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">debit</span><span class="params">(Long walletId, BigDecimal amount)</span> &#123;</span><br><span class="line">    <span class="type">VirtualWalletEntity</span> <span class="variable">walletEntity</span> <span class="operator">=</span> walletRepo.getWalletEntity(walletId);</span><br><span class="line">    <span class="type">VirtualWallet</span> <span class="variable">wallet</span> <span class="operator">=</span> convert(walletEntity);</span><br><span class="line">    wallet.debit(amount);</span><br><span class="line">    <span class="type">VirtualWalletTransactionEntity</span> <span class="variable">transactionEntity</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">VirtualWalletTransactionEntity</span>();</span><br><span class="line">    transactionEntity.setAmount(amount);</span><br><span class="line">    transactionEntity.setCreateTime(System.currentTimeMillis());</span><br><span class="line">    transactionEntity.setType(TransactionType.DEBIT);</span><br><span class="line">    transactionEntity.setFromWalletId(walletId);</span><br><span class="line">    transactionRepo.saveTransaction(transactionEntity);</span><br><span class="line">    walletRepo.updateBalance(walletId, wallet.balance());</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="meta">@Transactional</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">credit</span><span class="params">(Long walletId, BigDecimal amount)</span> &#123;</span><br><span class="line">    <span class="type">VirtualWalletEntity</span> <span class="variable">walletEntity</span> <span class="operator">=</span> walletRepo.getWalletEntity(walletId);</span><br><span class="line">    <span class="type">VirtualWallet</span> <span class="variable">wallet</span> <span class="operator">=</span> convert(walletEntity);</span><br><span class="line">    wallet.credit(amount);</span><br><span class="line">    <span class="type">VirtualWalletTransactionEntity</span> <span class="variable">transactionEntity</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">VirtualWalletTransactionEntity</span>();</span><br><span class="line">    transactionEntity.setAmount(amount);</span><br><span class="line">    transactionEntity.setCreateTime(System.currentTimeMillis());</span><br><span class="line">    transactionEntity.setType(TransactionType.CREDIT);</span><br><span class="line">    transactionEntity.setFromWalletId(walletId);</span><br><span class="line">    transactionRepo.saveTransaction(transactionEntity);</span><br><span class="line">    walletRepo.updateBalance(walletId, wallet.balance());</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Transactional</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">transfer</span><span class="params">(Long fromWalletId, Long toWalletId, BigDecimal amount)</span> &#123;</span><br><span class="line">    <span class="comment">//...跟基于贫血模型的传统开发模式的代码一样...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>相对于原来的贫血模型的设计思路，这种充血模型的设计思路，貌似并没有太大优势。你说得没错！这也是大部分业务系统都使用基于贫血模型开发的原因。不过，如果虚拟钱包系统需要支持更复杂的业务逻辑，那充血模型的优势就显现出来了。比如，我们要支持透支一定额度和冻结部分余额的功能。这个时候，我们重新来看一下 VirtualWallet 类的实现代码。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">VirtualWallet</span> &#123;</span><br><span class="line">  <span class="keyword">private</span> Long id;</span><br><span class="line">  <span class="keyword">private</span> <span class="type">Long</span> <span class="variable">createTime</span> <span class="operator">=</span> System.currentTimeMillis();;</span><br><span class="line">  <span class="keyword">private</span> <span class="type">BigDecimal</span> <span class="variable">balance</span> <span class="operator">=</span> BigDecimal.ZERO;</span><br><span class="line">  <span class="keyword">private</span> <span class="type">boolean</span> <span class="variable">isAllowedOverdraft</span> <span class="operator">=</span> <span class="literal">true</span>;</span><br><span class="line">  <span class="keyword">private</span> <span class="type">BigDecimal</span> <span class="variable">overdraftAmount</span> <span class="operator">=</span> BigDecimal.ZERO;</span><br><span class="line">  <span class="keyword">private</span> <span class="type">BigDecimal</span> <span class="variable">frozenAmount</span> <span class="operator">=</span> BigDecimal.ZERO;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> <span class="title function_">VirtualWallet</span><span class="params">(Long preAllocatedId)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.id = preAllocatedId;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">freeze</span><span class="params">(BigDecimal amount)</span> &#123; ... &#125;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">unfreeze</span><span class="params">(BigDecimal amount)</span> &#123; ...&#125;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">increaseOverdraftAmount</span><span class="params">(BigDecimal amount)</span> &#123; ... &#125;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">decreaseOverdraftAmount</span><span class="params">(BigDecimal amount)</span> &#123; ... &#125;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">closeOverdraft</span><span class="params">()</span> &#123; ... &#125;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">openOverdraft</span><span class="params">()</span> &#123; ... &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> BigDecimal <span class="title function_">balance</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.balance;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> BigDecimal <span class="title function_">getAvaliableBalance</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">BigDecimal</span> <span class="variable">totalAvaliableBalance</span> <span class="operator">=</span> <span class="built_in">this</span>.balance.subtract(<span class="built_in">this</span>.frozenAmount);</span><br><span class="line">    <span class="keyword">if</span> (isAllowedOverdraft) &#123;</span><br><span class="line">      totalAvaliableBalance += <span class="built_in">this</span>.overdraftAmount;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> totalAvaliableBalance;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">debit</span><span class="params">(BigDecimal amount)</span> &#123;</span><br><span class="line">    <span class="type">BigDecimal</span> <span class="variable">totalAvaliableBalance</span> <span class="operator">=</span> getAvaliableBalance();</span><br><span class="line">    <span class="keyword">if</span> (totoalAvaliableBalance.compareTo(amount) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">InsufficientBalanceException</span>(...);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">this</span>.balance = <span class="built_in">this</span>.balance.subtract(amount);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">credit</span><span class="params">(BigDecimal amount)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (amount.compareTo(BigDecimal.ZERO) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">InvalidAmountException</span>(...);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">this</span>.balance = <span class="built_in">this</span>.balance.add(amount);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>领域模型 VirtualWallet 类添加了简单的冻结和透支逻辑之后，功能看起来就丰富了很多，代码也没那么单薄了。如果功能继续演进，我们可以增加更加细化的冻结策略、透支策略、支持钱包账号（VirtualWallet id 字段）自动生成的逻辑（不是通过构造函数经外部传入 ID，而是通过分布式 ID 生成算法来自动生成 ID）等等。VirtualWallet 类的业务逻辑会变得越来越复杂，也就很值得设计成充血模型了。</p>
+<h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><p>第一个要讨论的问题是：在基于充血模型的 DDD 开发模式中，将业务逻辑移动到 Domain 中，Service 类变得很薄，但在我们的代码设计与实现中，并没有完全将 Service 类去掉，这是为什么？或者说，Service 类在这种情况下担当的职责是什么？哪些功能逻辑会放到 Service 类中？</p>
+<p>区别于 Domain 的职责，Service 类主要有下面这样几个职责：</p>
+<p>1.Service 类负责与 Repository 交流。在我的设计与代码实现中，VirtualWalletService 类负责与 Repository 层打交道，调用 Respository 类的方法，获取数据库中的数据，转化成领域模型 VirtualWallet，然后由领域模型 VirtualWallet 来完成业务逻辑，最后调用 Repository 类的方法，将数据存回数据库。</p>
+<p>这里我再稍微解释一下，之所以让 VirtualWalletService 类与 Repository 打交道，而不是让领域模型 VirtualWallet 与 Repository 打交道，那是因为我们想保持领域模型的独立性，不与任何其他层的代码（Repository 层的代码）或开发框架（比如 Spring、MyBatis）耦合在一起，将流程性的代码逻辑（比如从 DB 中取数据、映射数据）与领域模型的业务逻辑解耦，让领域模型更加可复用。</p>
+<p>2.Service 类负责跨领域模型的业务聚合功能。VirtualWalletService 类中的 transfer() 转账函数会涉及两个钱包的操作，因此这部分业务逻辑无法放到 VirtualWallet 类中，所以，我们暂且把转账业务放到 VirtualWalletService 类中了。当然，虽然功能演进，使得转账业务变得复杂起来之后，我们也可以将转账业务抽取出来，设计成一个独立的领域模型。3.Service 类负责一些非功能性及与三方系统交互的工作。比如幂等、事务、发邮件、发消息、记录日志、调用其他系统的 RPC 接口等，都可以放到 Service 类中。</p>
+<p>第二个要讨论问题是：在基于充血模型的 DDD 开发模式中，尽管 Service 层被改造成了充血模型，但是 Controller 层和 Repository 层还是贫血模型，是否有必要也进行充血领域建模呢？</p>
+<p>Controller 层主要负责接口的暴露，Repository 层主要负责与数据库打交道，这两层包含的业务逻辑并不多，前面我们也提到了，如果业务逻辑比较简单，就没必要做充血建模，即便设计成充血模型，类也非常单薄，看起来也很奇怪。</p>
+<p>就拿 Repository 的 Entity 来说，即便它被设计成贫血模型，违反面向对象编程的封装特性，有被任意代码修改数据的风险，但 Entity 的生命周期是有限的。一般来讲，我们把它传递到 Service 层之后，就会转化成 BO 或者 Domain 来继续后面的业务逻辑。Entity 的生命周期到此就结束了，所以也并不会被到处任意修改。</p>
+<p>Controller 层的 VO。实际上 VO 是一种 DTO（Data Transfer Object，数据传输对象）。它主要是作为接口的数据传输承载体，将数据发送给其他系统。从功能上来讲，它理应不包含业务逻辑、只包含数据。所以，我们将它设计成贫血模型也是比较合理的。</p>
+]]></content>
+      <categories>
+        <category>设计模式</category>
+      </categories>
+      <tags>
+        <tag>设计模式</tag>
+        <tag>DDD</tag>
+        <tag>贫血模型</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>实战二（上）：如何对接口鉴权这样一个功能开发做面向对象分析？</title>
+    <url>/2023/07/13/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E%E3%80%9113.%20%E5%AE%9E%E6%88%98%E4%BA%8C%EF%BC%88%E4%B8%8A%EF%BC%89%EF%BC%9A%E5%A6%82%E4%BD%95%E5%AF%B9%E6%8E%A5%E5%8F%A3%E9%89%B4%E6%9D%83%E8%BF%99%E6%A0%B7%E4%B8%80%E4%B8%AA%E5%8A%9F%E8%83%BD%E5%BC%80%E5%8F%91%E5%81%9A%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%88%86%E6%9E%90%EF%BC%9F/</url>
+    <content><![CDATA[<h1 id="实战二（上）：如何对接口鉴权这样一个功能开发做面向对象分析？"><a href="#实战二（上）：如何对接口鉴权这样一个功能开发做面向对象分析？" class="headerlink" title="实战二（上）：如何对接口鉴权这样一个功能开发做面向对象分析？"></a>实战二（上）：如何对接口鉴权这样一个功能开发做面向对象分析？</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307131128223.jpeg" alt="a purple and blue background with wavy lines"></p>
+<p>面向对象分析（OOA）、面向对象设计（OOD）、面向对象编程（OOP），是面向对象开发的三个主要环节。</p>
+<p>如何进行面向对象分析、设计与编程。</p>
+<p>在过往的工作中，我发现，很多工程师，特别是初级工程师，本身没有太多的项目经验，或者参与的项目都是基于开发框架填写 CRUD 模板似的代码，导致分析、设计能力比较欠缺。当他们拿到一个比较笼统的开发需求的时候，往往不知道从何入手。</p>
+<p>对于“如何做需求分析，如何做职责划分？需要定义哪些类？每个类应该具有哪些属性、方法？类与类之间该如何交互？如何组装类成一个可执行的程序？”等等诸多问题，都没有清晰的思路，更别提利用成熟的设计原则、思想或者设计模式，开发出具有高内聚低耦合、易扩展、易读等优秀特性的代码了。</p>
+<p>从基础的需求分析、职责划分、类的定义、交互、组装运行讲起，将最基础的面向对象分析、设计、编程的套路给你讲清楚，为后面学习设计原则、设计模式打好基础。</p>
+<h2 id="案例介绍和难点剖析"><a href="#案例介绍和难点剖析" class="headerlink" title="案例介绍和难点剖析"></a>案例介绍和难点剖析</h2><p>假设，你正在参与开发一个微服务。微服务通过 HTTP 协议暴露接口给其他系统调用，说直白点就是，其他系统通过 URL 来调用微服务的接口。有一天，你的 leader 找到你说，“为了保证接口调用的安全性，我们希望设计实现一个接口调用鉴权功能，只有经过认证之后的系统才能调用我们的接口，没有认证过的系统调用我们的接口会被拒绝。我希望由你来负责这个任务的开发，争取尽快上线。”</p>
+<p>无从下手的原因：</p>
+<ol>
+<li><p>需求不明确</p>
+<p>如何应对需求不明确：面向对象分析主要的分析对象是“需求”，因此，面向对象分析可以粗略地看成“需求分析”。实际上，不管是需求分析还是面向对象分析，我们首先要做的都是将笼统的需求细化到足够清晰、可执行。我们需要通过沟通、挖掘、分析、假设、梳理，搞清楚具体的需求有哪些，哪些是现在要做的，哪些是未来可能要做的，哪些是不用考虑做的。</p>
+</li>
+<li><p>缺少锻炼</p>
+<p>鉴权作为一个跟具体业务无关的功能，我们完全可以把它开发成一个独立的框架，集成到很多业务系统中。开发这样通用的框架，对工程师的需求分析能力、设计能力、编码能力，甚至逻辑思维能力的要求，都是比较高的。如果你平时做的都是简单的 CRUD 业务开发，那这方面的锻炼肯定不会很多，所以，一旦遇到这种开发需求，很容易因为缺少锻炼，脑子放空，不知道从何入手，完全没有思路</p>
+</li>
+</ol>
+<h2 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h2><p>尽管针对框架、组件、类库等非业务系统的开发，我们一定要有组件化意识、框架意识、抽象意识，开发出来的东西要足够通用，不能局限于单一的某个业务需求，但这并不代表我们就可以脱离具体的应用场景，闷头拍脑袋做需求分析。多跟业务团队聊聊天，甚至自己去参与几个业务系统的开发，只有这样，我们才能真正知道业务系统的痛点，才能分析出最有价值的需求。不过，针对鉴权这一功能的开发，最大的需求方还是我们自己，所以，我们也可以先从满足我们自己系统的需求开始，然后再迭代优化。</p>
+<h3 id="第一轮基础分析"><a href="#第一轮基础分析" class="headerlink" title="第一轮基础分析"></a>第一轮基础分析</h3><p>，通过用户名加密码来做认证。我们给每个允许访问我们服务的调用方，派发一个应用名（或者叫应用 ID、AppID）和一个对应的密码（或者叫秘钥）。调用方每次进行接口请求的时候，都携带自己的 AppID 和密码。微服务在接收到接口调用请求之后，会解析出 AppID 和密码，跟存储在微服务端的 AppID 和密码进行比对。如果一致，说明认证成功，则允许接口调用请求；否则，就拒绝接口调用请求。</p>
+<h3 id="第二轮基础分析"><a href="#第二轮基础分析" class="headerlink" title="第二轮基础分析"></a>第二轮基础分析</h3><p>不过，这样的验证方式，每次都要明文传输密码。密码很容易被截获，是不安全的。那如果我们借助加密算法（比如 SHA），对密码进行加密之后，再传递到微服务端验证，是不是就可以了呢？实际上，这样也是不安全的，因为加密之后的密码及 AppID，照样可以被未认证系统（或者说黑客）截获，未认证系统可以携带这个加密之后的密码以及对应的 AppID，伪装成已认证系统来访问我们的接口。这就是典型的“重放攻击”。</p>
+<p>对于刚刚这个问题，我们可以借助 OAuth 的验证思路来解决。调用方将请求接口的 URL 跟 AppID、密码拼接在一起，然后进行加密，生成一个 token。调用方在进行接口请求的的时候，将这个 token 及 AppID，随 URL 一块传递给微服务端。微服务端接收到这些数据之后，根据 AppID 从数据库中取出对应的密码，并通过同样的 token 生成算法，生成另外一个 token。用这个新生成的 token 跟调用方传递过来的 token 对比。如果一致，则允许接口调用请求；否则，就拒绝接口调用请求。</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307131116374.jpeg" alt="img"></p>
+<h3 id="第三轮分析优化"><a href="#第三轮分析优化" class="headerlink" title="第三轮分析优化"></a>第三轮分析优化</h3><p>不过，这样的设计仍然存在重放攻击的风险，还是不够安全。每个 URL 拼接上 AppID、密码生成的 token 都是固定的。未认证系统截获 URL、token 和 AppID 之后，还是可以通过重放攻击的方式，伪装成认证系统，调用这个 URL 对应的接口。</p>
+<p>为了解决这个问题，我们可以进一步优化 token 生成算法，引入一个随机变量，让每次接口请求生成的 token 都不一样。我们可以选择时间戳作为随机变量。原来的 token 是对 URL、AppID、密码三者进行加密生成的，现在我们将 URL、AppID、密码、时间戳四者进行加密来生成 token。调用方在进行接口请求的时候，将 token、AppID、时间戳，随 URL 一并传递给微服务端。</p>
+<p>微服务端在收到这些数据之后，会验证当前时间戳跟传递过来的时间戳，是否在一定的时间窗口内（比如一分钟）。如果超过一分钟，则判定 token 过期，拒绝接口请求。如果没有超过一分钟，则说明 token 没有过期，就再通过同样的 token 生成算法，在服务端生成新的 token，与调用方传递过来的 token 比对，看是否一致。如果一致，则允许接口调用请求；否则，就拒绝接口调用请求。</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307131117233.jpeg" alt="img"></p>
+<h3 id="第四轮分析优化"><a href="#第四轮分析优化" class="headerlink" title="第四轮分析优化"></a>第四轮分析优化</h3><p>实际上，还有一个细节我们没有考虑到，那就是，如何在微服务端存储每个授权调用方的 AppID 和密码。当然，这个问题并不难。最容易想到的方案就是存储到数据库里，比如 MySQL。不过，开发像鉴权这样的非业务功能，最好不要与具体的第三方系统有过度的耦合。</p>
+<p>针对 AppID 和密码的存储，我们最好能灵活地支持各种不同的存储方式，比如 ZooKeeper、本地配置文件、自研配置中心、MySQL、Redis 等。我们不一定针对每种存储方式都去做代码实现，但起码要留有扩展点，保证系统有足够的灵活性和扩展性，能够在我们切换存储方式的时候，尽可能地减少代码的改动。</p>
+<h3 id="最终确定需求"><a href="#最终确定需求" class="headerlink" title="最终确定需求"></a>最终确定需求</h3><ul>
+<li>调用方进行接口请求的时候，将 URL、AppID、密码、时间戳拼接在一起，通过加密算法生成 token，并且将 token、AppID、时间戳拼接在 URL 中，一并发送到微服务端。</li>
+<li>微服务端在接收到调用方的接口请求之后，从请求中拆解出 token、AppID、时间戳。</li>
+<li>微服务端首先检查传递过来的时间戳跟当前时间，是否在 token 失效时间窗口内。如果已经超过失效时间，那就算接口调用鉴权失败，拒绝接口调用请求。</li>
+<li>如果 token 验证没有过期失效，微服务端再从自己的存储中，取出 AppID 对应的密码，通过同样的 token 生成算法，生成另外一个 token，与调用方传递过来的 token 进行匹配；如果一致，则鉴权成功，允许接口调用，否则就拒绝接口调用。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>设计模式</category>
+      </categories>
+      <tags>
+        <tag>面向对象</tag>
+        <tag>设计模式</tag>
       </tags>
   </entry>
 </search>
