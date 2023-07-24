@@ -32,15 +32,24 @@
       </tags>
   </entry>
   <entry>
-    <title>1</title>
-    <url>/2023/07/08/test1/</url>
-    <content><![CDATA[<h1 id="222"><a href="#222" class="headerlink" title="222"></a>222</h1><p>111测试测试11122</p>
-<p>321321</p>
-<blockquote>
-<p>zz</p>
-</blockquote>
-<p>123132</p>
-]]></content>
+    <title>22</title>
+    <url>/2023/07/24/test1/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="2bf2be5b118fc6a5d9f96ede77763f7ae0fc25a6ae463823f4d0f6840ad2edfd">07c945f327659f00e865ee0c82156c746f1fa597a49c67c051cb1146a88cb7f76f5a146bfd2446d8d94d5331016bdd0b0cf36623dcd5622f461ee48bc1a797d81741b15119745ac7715e9d1b7d993fc3a9adc9ebfa06c4cb95c3094508a3a086aa3509456b484aee3dfe5cdb6319c00f81541485bbb85bc50e5f1675dc2308c970e1734ba986763bcb470c2e726bfcc19f18a3662e57b99810b99529f8d71a2e0c7f1403c4088e9cfd93d13a801d569cc60ef81075adca1e2a28bd80939c4664</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-xray">
+      <input class="hbe hbe-input-field hbe-input-field-xray" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-xray" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-xray">您好, 这里需要密码.</span>
+      </label>
+      <svg class="hbe hbe-graphic hbe-graphic-xray" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+        <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>
+        <path d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0"></path>
+      </svg>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
       <categories>
         <category>1</category>
       </categories>
@@ -2510,5 +2519,260 @@
         <tag>Java</tag>
         <tag>反射</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>无标题</title>
+    <url>/2023/07/18/01.%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E%E3%80%9116.%20%E7%90%86%E8%AE%BA%E4%BA%8C%EF%BC%9A%E5%A6%82%E4%BD%95%E5%81%9A%E5%88%B0%E2%80%9C%E5%AF%B9%E6%89%A9%E5%B1%95%E5%BC%80%E6%94%BE%E3%80%81%E4%BF%AE%E6%94%B9%E5%85%B3%E9%97%AD%E2%80%9D%EF%BC%9F%E6%89%A9%E5%B1%95%E5%92%8C%E4%BF%AE%E6%94%B9%E5%90%84%E6%8C%87%E4%BB%80%E4%B9%88%EF%BC%9F/</url>
+    <content><![CDATA[<h1 id="理论二：如何做到“对扩展开放、修改关闭”？扩展和修改各指什么？"><a href="#理论二：如何做到“对扩展开放、修改关闭”？扩展和修改各指什么？" class="headerlink" title="理论二：如何做到“对扩展开放、修改关闭”？扩展和修改各指什么？"></a>理论二：如何做到“对扩展开放、修改关闭”？扩展和修改各指什么？</h1><p>SOLID中的第二个原则：开闭原则。这是一条最难理解，最难掌握，同时最有用的一条原则。</p>
+<h2 id="如何理解“对扩展开放、修改关闭”？"><a href="#如何理解“对扩展开放、修改关闭”？" class="headerlink" title="如何理解“对扩展开放、修改关闭”？"></a>如何理解“对扩展开放、修改关闭”？</h2><p>开闭原则的英文全称是 Open Closed Principle，简写为 OCP。它的英文描述是：software entities (modules, classes, functions, etc.) should be open for extension , but closed for modification。我们把它翻译成中文就是：软件实体（模块、类、方法等）应该“对扩展开放、对修改关闭”。</p>
+<p>理解起来就是：添加一个新的功能应该是，在已有代码基础上扩展代码（新增模块、类、方法等），而非修改已有代码（修改模块、类、方法等）。</p>
+<p>举个例子：</p>
+<p>这是一段 API 接口监控告警的代码。其中，AlertRule 存储告警规则，可以自由设置。Notification 是告警通知类，支持邮件、短信、微信、手机等多种通知渠道。NotificationEmergencyLevel 表示通知的紧急程度，包括 SEVERE（严重）、URGENCY（紧急）、NORMAL（普通）、TRIVIAL（无关紧要），不同的紧急程度对应不同的发送渠道。关于 API 接口监控告警这部分，更加详细的业务需求分析和设计，我们会在后面的设计模式模块再拿出来进一步讲解，这里你只要简单知道这些，就够我们今天用了。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Alert</span> &#123;</span><br><span class="line">  <span class="keyword">private</span> AlertRule rule;</span><br><span class="line">  <span class="keyword">private</span> Notification notification;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="title function_">Alert</span><span class="params">(AlertRule rule, Notification notification)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.rule = rule;</span><br><span class="line">    <span class="built_in">this</span>.notification = notification;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">check</span><span class="params">(String api, <span class="type">long</span> requestCount, <span class="type">long</span> errorCount, <span class="type">long</span> durationOfSeconds)</span> &#123;</span><br><span class="line">    <span class="type">long</span> <span class="variable">tps</span> <span class="operator">=</span> requestCount / durationOfSeconds;</span><br><span class="line">    <span class="keyword">if</span> (tps &gt; rule.getMatchedRule(api).getMaxTps()) &#123;</span><br><span class="line">      notification.notify(NotificationEmergencyLevel.URGENCY, <span class="string">&quot;...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (errorCount &gt; rule.getMatchedRule(api).getMaxErrorCount()) &#123;</span><br><span class="line">      notification.notify(NotificationEmergencyLevel.SEVERE, <span class="string">&quot;...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面这段代码非常简单，业务逻辑主要集中在 check() 函数中。当接口的 TPS 超过某个预先设置的最大值时，以及当接口请求出错数大于某个最大允许值时，就会触发告警，通知接口的相关负责人或者团队。</p>
+<p>现在，如果我们需要添加一个功能，当每秒钟接口超时请求个数，超过某个预先设置的最大阈值时，我们也要触发告警发送通知。这个时候，我们该如何改动代码呢？主要的改动有两处：第一处是修改 check() 函数的入参，添加一个新的统计数据 timeoutCount，表示超时接口请求数；第二处是在 check() 函数中添加新的告警逻辑。具体的代码改动如下所示：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Alert</span> &#123;</span><br><span class="line">  <span class="comment">// ...省略AlertRule/Notification属性和构造函数...</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 改动一：添加参数timeoutCount</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">check</span><span class="params">(String api, <span class="type">long</span> requestCount, <span class="type">long</span> errorCount, <span class="type">long</span> timeoutCount, <span class="type">long</span> durationOfSeconds)</span> &#123;</span><br><span class="line">    <span class="type">long</span> <span class="variable">tps</span> <span class="operator">=</span> requestCount / durationOfSeconds;</span><br><span class="line">    <span class="keyword">if</span> (tps &gt; rule.getMatchedRule(api).getMaxTps()) &#123;</span><br><span class="line">      notification.notify(NotificationEmergencyLevel.URGENCY, <span class="string">&quot;...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (errorCount &gt; rule.getMatchedRule(api).getMaxErrorCount()) &#123;</span><br><span class="line">      notification.notify(NotificationEmergencyLevel.SEVERE, <span class="string">&quot;...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 改动二：添加接口超时处理逻辑</span></span><br><span class="line">    <span class="type">long</span> <span class="variable">timeoutTps</span> <span class="operator">=</span> timeoutCount / durationOfSeconds;</span><br><span class="line">    <span class="keyword">if</span> (timeoutTps &gt; rule.getMatchedRule(api).getMaxTimeoutTps()) &#123;</span><br><span class="line">      notification.notify(NotificationEmergencyLevel.URGENCY, <span class="string">&quot;...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样的代码修改实际上存在挺多问题的。一方面，我们对接口进行了修改，这就意味着调用这个接口的代码都要做相应的修改。另一方面，修改了 check() 函数，相应的单元测试都需要修改（关于单元测试的内容我们在重构那部分会详细介绍）。</p>
+<p>如何使用开闭原则重构这段代码？</p>
+<p>我们先重构一下之前的 Alert 代码，让它的扩展性更好一些。重构的内容主要包含两部分：</p>
+<ul>
+<li>第一部分是将 check() 函数的多个入参封装成 ApiStatInfo 类；</li>
+<li>第二部分是引入 handler 的概念，将 if 判断逻辑分散在各个 handler 中。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Alert</span> &#123;</span><br><span class="line">  <span class="keyword">private</span> List&lt;AlertHandler&gt; alertHandlers = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addAlertHandler</span><span class="params">(AlertHandler alertHandler)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.alertHandlers.add(alertHandler);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">check</span><span class="params">(ApiStatInfo apiStatInfo)</span> &#123;</span><br><span class="line">    <span class="keyword">for</span> (AlertHandler handler : alertHandlers) &#123;</span><br><span class="line">      handler.check(apiStatInfo);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ApiStatInfo</span> &#123;<span class="comment">//省略constructor/getter/setter方法</span></span><br><span class="line">  <span class="keyword">private</span> String api;</span><br><span class="line">  <span class="keyword">private</span> <span class="type">long</span> requestCount;</span><br><span class="line">  <span class="keyword">private</span> <span class="type">long</span> errorCount;</span><br><span class="line">  <span class="keyword">private</span> <span class="type">long</span> durationOfSeconds;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">AlertHandler</span> &#123;</span><br><span class="line">  <span class="keyword">protected</span> AlertRule rule;</span><br><span class="line">  <span class="keyword">protected</span> Notification notification;</span><br><span class="line">  <span class="keyword">public</span> <span class="title function_">AlertHandler</span><span class="params">(AlertRule rule, Notification notification)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.rule = rule;</span><br><span class="line">    <span class="built_in">this</span>.notification = notification;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title function_">check</span><span class="params">(ApiStatInfo apiStatInfo)</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TpsAlertHandler</span> <span class="keyword">extends</span> <span class="title class_">AlertHandler</span> &#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="title function_">TpsAlertHandler</span><span class="params">(AlertRule rule, Notification notification)</span> &#123;</span><br><span class="line">    <span class="built_in">super</span>(rule, notification);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">check</span><span class="params">(ApiStatInfo apiStatInfo)</span> &#123;</span><br><span class="line">    <span class="type">long</span> <span class="variable">tps</span> <span class="operator">=</span> apiStatInfo.getRequestCount()/ apiStatInfo.getDurationOfSeconds();</span><br><span class="line">    <span class="keyword">if</span> (tps &gt; rule.getMatchedRule(apiStatInfo.getApi()).getMaxTps()) &#123;</span><br><span class="line">      notification.notify(NotificationEmergencyLevel.URGENCY, <span class="string">&quot;...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ErrorAlertHandler</span> <span class="keyword">extends</span> <span class="title class_">AlertHandler</span> &#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="title function_">ErrorAlertHandler</span><span class="params">(AlertRule rule, Notification notification)</span>&#123;</span><br><span class="line">    <span class="built_in">super</span>(rule, notification);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">check</span><span class="params">(ApiStatInfo apiStatInfo)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (apiStatInfo.getErrorCount() &gt; rule.getMatchedRule(apiStatInfo.getApi()).getMaxErrorCount()) &#123;</span><br><span class="line">      notification.notify(NotificationEmergencyLevel.SEVERE, <span class="string">&quot;...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>重构之后的 Alert 该如何使用呢？具体的使用代码我也写在这里了。其中，ApplicationContext 是一个单例类，负责 Alert 的创建、组装（alertRule 和 notification 的依赖注入）、初始化（添加 handlers）工作。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ApplicationContext</span> &#123;</span><br><span class="line">  <span class="keyword">private</span> AlertRule alertRule;</span><br><span class="line">  <span class="keyword">private</span> Notification notification;</span><br><span class="line">  <span class="keyword">private</span> Alert alert;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">initializeBeans</span><span class="params">()</span> &#123;</span><br><span class="line">    alertRule = <span class="keyword">new</span> <span class="title class_">AlertRule</span>(<span class="comment">/*.省略参数.*/</span>); <span class="comment">//省略一些初始化代码</span></span><br><span class="line">    notification = <span class="keyword">new</span> <span class="title class_">Notification</span>(<span class="comment">/*.省略参数.*/</span>); <span class="comment">//省略一些初始化代码</span></span><br><span class="line">    alert = <span class="keyword">new</span> <span class="title class_">Alert</span>();</span><br><span class="line">    alert.addAlertHandler(<span class="keyword">new</span> <span class="title class_">TpsAlertHandler</span>(alertRule, notification));</span><br><span class="line">    alert.addAlertHandler(<span class="keyword">new</span> <span class="title class_">ErrorAlertHandler</span>(alertRule, notification));</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">public</span> Alert <span class="title function_">getAlert</span><span class="params">()</span> &#123; <span class="keyword">return</span> alert; &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 饿汉式单例</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">ApplicationContext</span> <span class="variable">instance</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ApplicationContext</span>();</span><br><span class="line">  <span class="keyword">private</span> <span class="title function_">ApplicationContext</span><span class="params">()</span> &#123;</span><br><span class="line">    initializeBeans();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> ApplicationContext <span class="title function_">getInstance</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> instance;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo</span> &#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">ApiStatInfo</span> <span class="variable">apiStatInfo</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ApiStatInfo</span>();</span><br><span class="line">    <span class="comment">// ...省略设置apiStatInfo数据值的代码</span></span><br><span class="line">    ApplicationContext.getInstance().getAlert().check(apiStatInfo);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>现在，我们再来看下，基于重构之后的代码，如果再添加上面讲到的那个新功能，每秒钟接口超时请求个数超过某个最大阈值就告警，我们又该如何改动代码呢？主要的改动有下面四处。</p>
+<ul>
+<li>第一处改动是：在 ApiStatInfo 类中添加新的属性 timeoutCount。</li>
+<li>第二处改动是：添加新的 TimeoutAlertHander 类。</li>
+<li>第三处改动是：在 ApplicationContext 类的 initializeBeans() 方法中，往 alert 对象中注册新的 timeoutAlertHandler。</li>
+<li>第四处改动是：在使用 Alert 类的时候，需要给 check() 函数的入参 apiStatInfo 对象设置 timeoutCount 的值。</li>
+</ul>
+<p>改动之后的代码如下所示：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Alert</span> &#123; <span class="comment">// 代码未改动... &#125;</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ApiStatInfo</span> &#123;<span class="comment">//省略constructor/getter/setter方法</span></span><br><span class="line">  <span class="keyword">private</span> String api;</span><br><span class="line">  <span class="keyword">private</span> <span class="type">long</span> requestCount;</span><br><span class="line">  <span class="keyword">private</span> <span class="type">long</span> errorCount;</span><br><span class="line">  <span class="keyword">private</span> <span class="type">long</span> durationOfSeconds;</span><br><span class="line">  <span class="keyword">private</span> <span class="type">long</span> timeoutCount; <span class="comment">// 改动一：添加新字段</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">AlertHandler</span> &#123; <span class="comment">//代码未改动... &#125;</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TpsAlertHandler</span> <span class="keyword">extends</span> <span class="title class_">AlertHandler</span> &#123;<span class="comment">//代码未改动...&#125;</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ErrorAlertHandler</span> <span class="keyword">extends</span> <span class="title class_">AlertHandler</span> &#123;<span class="comment">//代码未改动...&#125;</span></span><br><span class="line"><span class="comment">// 改动二：添加新的handler</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TimeoutAlertHandler</span> <span class="keyword">extends</span> <span class="title class_">AlertHandler</span> &#123;<span class="comment">//省略代码...&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ApplicationContext</span> &#123;</span><br><span class="line">  <span class="keyword">private</span> AlertRule alertRule;</span><br><span class="line">  <span class="keyword">private</span> Notification notification;</span><br><span class="line">  <span class="keyword">private</span> Alert alert;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">initializeBeans</span><span class="params">()</span> &#123;</span><br><span class="line">    alertRule = <span class="keyword">new</span> <span class="title class_">AlertRule</span>(<span class="comment">/*.省略参数.*/</span>); <span class="comment">//省略一些初始化代码</span></span><br><span class="line">    notification = <span class="keyword">new</span> <span class="title class_">Notification</span>(<span class="comment">/*.省略参数.*/</span>); <span class="comment">//省略一些初始化代码</span></span><br><span class="line">    alert = <span class="keyword">new</span> <span class="title class_">Alert</span>();</span><br><span class="line">    alert.addAlertHandler(<span class="keyword">new</span> <span class="title class_">TpsAlertHandler</span>(alertRule, notification));</span><br><span class="line">    alert.addAlertHandler(<span class="keyword">new</span> <span class="title class_">ErrorAlertHandler</span>(alertRule, notification));</span><br><span class="line">    <span class="comment">// 改动三：注册handler</span></span><br><span class="line">    alert.addAlertHandler(<span class="keyword">new</span> <span class="title class_">TimeoutAlertHandler</span>(alertRule, notification));</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//...省略其他未改动代码...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo</span> &#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">ApiStatInfo</span> <span class="variable">apiStatInfo</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ApiStatInfo</span>();</span><br><span class="line">    <span class="comment">// ...省略apiStatInfo的set字段代码</span></span><br><span class="line">    apiStatInfo.setTimeoutCount(<span class="number">289</span>); <span class="comment">// 改动四：设置tiemoutCount值</span></span><br><span class="line">    ApplicationContext.getInstance().getAlert().check(apiStatInfo);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>重构之后的代码更加灵活和易扩展。如果我们要想添加新的告警逻辑，只需要基于扩展的方式创建新的 handler 类即可，不需要改动原来的 check() 函数的逻辑。而且，我们只需要为新的 handler 类添加单元测试，老的单元测试都不会失败，也不用修改。</p>
+<h2 id="修改代码就意味着违背开闭原则吗？"><a href="#修改代码就意味着违背开闭原则吗？" class="headerlink" title="修改代码就意味着违背开闭原则吗？"></a>修改代码就意味着违背开闭原则吗？</h2><p>看了上面重构之后的代码，你可能还会有疑问：在添加新的告警逻辑的时候，尽管改动二（添加新的 handler 类）是基于扩展而非修改的方式来完成的，但改动一、三、四貌似不是基于扩展而是基于修改的方式来完成的，那改动一、三、四不就违背了开闭原则吗？</p>
+<p><strong>我们先来分析一下改动一：往 ApiStatInfo 类中添加新的属性 timeoutCount。</strong></p>
+<p>开闭原则可以应用在不同粒度的代码中，可以是模块，也可以类，还可以是方法（及其属性）。同样一个代码改动，在粗代码粒度下，被认定为“修改”，在细代码粒度下，又可以被认定为“扩展”。比如，改动一，添加属性和方法相当于修改类，在类这个层面，这个代码改动可以被认定为“修改”；但这个代码改动并没有修改已有的属性和方法，在方法（及其属性）这一层面，它又可以被认定为“扩展”。</p>
+<p>只要它没有破坏原有的代码的正常运行，没有破坏原有的单元测试，我们就可以说，这是一个合格的代码改动。</p>
+<p><strong>我们再来分析一下改动三和改动四：在 ApplicationContext 类的 initializeBeans() 方法中，往 alert 对象中注册新的 timeoutAlertHandler；在使用 Alert 类的时候，需要给 check() 函数的入参 apiStatInfo 对象设置 timeoutCount 的值。</strong></p>
+<p>在重构之后的 Alert 代码中，我们的核心逻辑集中在 Alert 类及其各个 handler 中，当我们在添加新的告警逻辑的时候，Alert 类完全不需要修改，而只需要扩展一个新 handler 类。如果我们把 Alert 类及各个 handler 类合起来看作一个“模块”，那模块本身在添加新的功能的时候，完全满足开闭原则。</p>
+<p>我们要做的是尽量让修改操作更集中、更少、更上层，尽量让最核心、最复杂的那部分逻辑代码满足开闭原则。</p>
+<h2 id="如何做到“对扩展开放、修改关闭”？"><a href="#如何做到“对扩展开放、修改关闭”？" class="headerlink" title="如何做到“对扩展开放、修改关闭”？"></a>如何做到“对扩展开放、修改关闭”？</h2><p>靠的就是理论知识和实战经验</p>
+<p>开闭原则讲的就是代码的扩展性问题，是判断一段代码是否易扩展的“金标准.</p>
+<p><strong>为了尽量写出扩展性好的代码，我们要时刻具备扩展意识、抽象意识、封装意识。这些“潜意识”可能比任何开发技巧都重要。</strong></p>
+<p>在写代码的时候后，我们要多花点时间往前多思考一下，这段代码未来可能有哪些需求变更、如何设计代码结构，事先留好扩展点，以便在未来需求变更的时候，不需要改动代码整体结构、做到最小代码改动的情况下，新的代码能够很灵活地插入到扩展点上，做到“对扩展开放、对修改关闭”。</p>
+<p>还有，在识别出代码可变部分和不可变部分之后，我们要将可变部分封装起来，隔离变化，提供抽象化的不可变接口，给上层系统使用。当具体的实现发生变化的时候，我们只需要基于相同的抽象接口，扩展一个新的实现，替换掉老的实现即可，上游系统的代码几乎不需要修改。</p>
+<h3 id="支持开闭原则的一些更加具体的方法论。"><a href="#支持开闭原则的一些更加具体的方法论。" class="headerlink" title="支持开闭原则的一些更加具体的方法论。"></a>支持开闭原则的一些更加具体的方法论。</h3><p>特别是 23 种经典设计模式，大部分都是为了解决代码的扩展性问题而总结出来的，都是以开闭原则为指导原则的。</p>
+<p>在众多的设计原则、思想、模式中，最常用来提高代码扩展性的方法有：多态、依赖注入、基于接口而非实现编程，以及大部分的设计模式（比如，装饰、策略、模板、职责链、状态等）</p>
+<p>如何利用多态、依赖注入、基于接口而非实现编程，来实现“对扩展开放、对修改关闭”。</p>
+<p>实际上，多态、依赖注入、基于接口而非实现编程，以及前面提到的抽象意识，说的都是同一种设计思路，只是从不同的角度、不同的层面来阐述而已。这也体现了“很多设计原则、思想、模式都是相通的”这一思想。接下来，我就通过一个例子来解释一下，如何利用这几个设计思想或原则来实现“对扩展开放、对修改关闭”。注意，依赖注入后面会讲到，如果你对这块不了解，可以暂时先忽略这个概念，只关注多态、基于接口而非实现编程以及抽象意识。</p>
+<p>我们代码中通过 Kafka 来发送异步消息。对于这样一个功能的开发，我们要学会将其抽象成一组跟具体消息队列（Kafka）无关的异步消息接口。所有上层系统都依赖这组抽象的接口编程，并且通过依赖注入的方式来调用。当我们要替换新的消息队列的时候，比如将 Kafka 替换成 RocketMQ，可以很方便地拔掉老的消息队列实现，插入新的消息队列实现。具体代码如下所示：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 这一部分体现了抽象意识</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">MessageQueue</span> &#123; <span class="comment">//... &#125;</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">KafkaMessageQueue</span> <span class="keyword">implements</span> <span class="title class_">MessageQueue</span> &#123; <span class="comment">//... &#125;</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">RocketMQMessageQueue</span> <span class="keyword">implements</span> <span class="title class_">MessageQueue</span> &#123;<span class="comment">//...&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">MessageFromatter</span> &#123; <span class="comment">//... &#125;</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">JsonMessageFromatter</span> <span class="keyword">implements</span> <span class="title class_">MessageFromatter</span> &#123;<span class="comment">//...&#125;</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ProtoBufMessageFromatter</span> <span class="keyword">implements</span> <span class="title class_">MessageFromatter</span> &#123;<span class="comment">//...&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo</span> &#123;</span><br><span class="line">  <span class="keyword">private</span> MessageQueue msgQueue; <span class="comment">// 基于接口而非实现编程</span></span><br><span class="line">  <span class="keyword">public</span> <span class="title function_">Demo</span><span class="params">(MessageQueue msgQueue)</span> &#123; <span class="comment">// 依赖注入</span></span><br><span class="line">    <span class="built_in">this</span>.msgQueue = msgQueue;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// msgFormatter：多态、依赖注入</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">sendNotification</span><span class="params">(Notification notification, MessageFormatter msgFormatter)</span> &#123;</span><br><span class="line">    <span class="comment">//...    </span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="如何在项目中灵活应用开闭原则？"><a href="#如何在项目中灵活应用开闭原则？" class="headerlink" title="如何在项目中灵活应用开闭原则？"></a>如何在项目中灵活应用开闭原则？</h2><p>如何才能识别出所有可能的扩展点呢？</p>
+<p>如果你开发的是一个业务导向的系统，比如金融系统、电商系统、物流系统等，要想识别出尽可能多的扩展点，就要对业务有足够的了解，能够知道当下以及未来可能要支持的业务需求。如果你开发的是跟业务无关的、通用的、偏底层的系统，比如，框架、组件、类库，你需要了解“它们会被如何使用？今后你打算添加哪些功能？使用者未来会有哪些更多的功能需求？”等问题。</p>
+<p>不过，有一句话说得好，“唯一不变的只有变化本身”。即便我们对业务、对系统有足够的了解，那也不可能识别出所有的扩展点，即便你能识别出所有的扩展点，为这些地方都预留扩展点，这样做的成本也是不可接受的。我们没必要为一些遥远的、不一定发生的需求去提前买单，做过度设计。</p>
+<p>最合理的做法是，对于一些比较确定的、短期内可能就会扩展，或者需求改动对代码结构影响比较大的情况，或者实现成本不高的扩展点，在编写代码的时候之后，我们就可以事先做些扩展性设计。但对于一些不确定未来是否要支持的需求，或者实现起来比较复杂的扩展点，我们可以等到有需求驱动的时候，再通过重构代码的方式来支持扩展的需求。</p>
+<p>而且，开闭原则也并不是免费的。有些情况下，代码的扩展性会跟可读性相冲突。比如，我们之前举的 Alert 告警的例子。为了更好地支持扩展性，我们对代码进行了重构，重构之后的代码要比之前的代码复杂很多，理解起来也更加有难度。很多时候，我们都需要在扩展性和可读性之间做权衡。在某些场景下，代码的扩展性很重要，我们就可以适当地牺牲一些代码的可读性；在另一些场景下，代码的可读性更加重要，那我们就适当地牺牲一些代码的可扩展性。</p>
+<p>在我们之前举的 Alert 告警的例子中，如果告警规则并不是很多、也不复杂，那 check() 函数中的 if 语句就不会很多，代码逻辑也不复杂，代码行数也不多，那最初的第一种代码实现思路简单易读，就是比较合理的选择。相反，如果告警规则很多、很复杂，check() 函数的 if 语句、代码逻辑就会很多、很复杂，相应的代码行数也会很多，可读性、可维护性就会变差，那重构之后的第二种代码实现思路就是更加合理的选择了。总之，这里没有一个放之四海而皆准的参考标准，全凭实际的应用场景来决定。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>无标题</title>
+    <url>/2023/07/18/01.%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E%E3%80%9117.%E7%90%86%E8%AE%BA%E4%B8%89%EF%BC%9A%E9%87%8C%E5%BC%8F%E6%9B%BF%E6%8D%A2%EF%BC%88LSP%EF%BC%89%E8%B7%9F%E5%A4%9A%E6%80%81%E6%9C%89%E4%BD%95%E5%8C%BA%E5%88%AB%EF%BC%9F%E5%93%AA%E4%BA%9B%E4%BB%A3%E7%A0%81%E8%BF%9D%E8%83%8C%E4%BA%86LSP%EF%BC%9F%20/</url>
+    <content><![CDATA[<h1 id="理论三：里式替换（LSP）跟多态有何区别？哪些代码违背了LSP？"><a href="#理论三：里式替换（LSP）跟多态有何区别？哪些代码违背了LSP？" class="headerlink" title="理论三：里式替换（LSP）跟多态有何区别？哪些代码违背了LSP？"></a>理论三：里式替换（LSP）跟多态有何区别？哪些代码违背了LSP？</h1><p>前两小节学过的设计原则：</p>
+<p>单一职责原则：</p>
+<p>开闭原则：对扩展开发，修改封闭；</p>
+<p>这小节，里式替换：按照协议来设计（Design By Contract）</p>
+<h2 id="如何理解里式替换原则？"><a href="#如何理解里式替换原则？" class="headerlink" title="如何理解里式替换原则？"></a>如何理解里式替换原则？</h2><p>里式替换原则的英文翻译是：Liskov Substitution Principle，缩写为 LSP</p>
+<p>子类对象（object of subtype&#x2F;derived class）能够替换程序（program）中父类对象（object of base&#x2F;parent class）出现的任何地方，并且保证原来程序的逻辑行为（behavior）不变及正确性不被破坏。</p>
+<p>虽然从定义描述和代码实现上来看，多态和里式替换有点类似，但它们关注的角度是不一样的。多态是面向对象编程的一大特性，也是面向对象编程语言的一种语法。它是一种代码实现的思路。而里式替换是一种设计原则，是用来指导继承关系中子类该如何设计的，子类的设计要保证在替换父类的时候，不改变原有程序的逻辑以及不破坏原有程序的正确性。</p>
+<h2 id="哪些代码明显违背了LSP？"><a href="#哪些代码明显违背了LSP？" class="headerlink" title="哪些代码明显违背了LSP？"></a>哪些代码明显违背了LSP？</h2><p>实际上，里式替换原则还有另外一个更加能落地、更有指导意义的描述，那就是“Design By Contract”，中文翻译就是“按照协议来设计”。</p>
+<p>子类在设计的时候，要遵守父类的行为约定（或者叫协议）。父类定义了函数的行为约定，那子类可以改变函数的内部实现逻辑，但不能改变函数原有的行为约定。这里的行为约定包括：</p>
+<ol>
+<li><p><strong>函数声明要实现的功能</strong>；</p>
+</li>
+<li><p>对输入、输出、异常的约定；</p>
+</li>
+<li><p>甚至包括注释中所罗列的任何特殊说明。</p>
+</li>
+</ol>
+<p>实际上，定义中父类和子类之间的关系，也可以替换成接口和实现类之间的关系。</p>
+<p>以下为违背LSP的例子：</p>
+<p><strong>1. 子类违背父类声明要实现的功能</strong></p>
+<p>父类中提供的 sortOrdersByAmount() 订单排序函数，是按照金额从小到大来给订单排序的，而子类重写这个 sortOrdersByAmount() 订单排序函数之后，是按照创建日期来给订单排序的。那子类的设计就违背里式替换原则。</p>
+<p><strong>2. 子类违背父类对输入、输出、异常的规定</strong></p>
+<p>在父类中，某个函数约定：运行出错的时候返回 null；获取数据为空的时候返回空集合（empty collection）。而子类重载函数之后，实现变了，运行出错返回异常（exception），获取不到数据返回 null。那子类的设计就违背里式替换原则。</p>
+<p>在父类中，某个函数约定，输入数据可以是任意整数，但子类实现的时候，只允许输入数据是正整数，负数就抛出，也就是说，子类对输入的数据的校验比父类更加严格，那子类的设计就违背了里式替换原则。</p>
+<p>在父类中，某个函数约定，只会抛出 ArgumentNullException 异常，那子类的设计实现中只允许抛出 ArgumentNullException 异常，任何其他异常的抛出，都会导致子类违背里式替换原则。</p>
+<p><strong>3. 子类违背父类注释中所罗列的任何特殊说明</strong></p>
+<p>父类中定义的 withdraw() 提现函数的注释是这么写的：“用户的提现金额不得超过账户余额……”，而子类重写 withdraw() 函数之后，针对 VIP 账号实现了透支提现的功能，也就是提现金额可以大于账户余额，那这个子类的设计也是不符合里式替换原则的。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>无标题</title>
+    <url>/2023/07/17/06.%E5%8A%A0%E8%A7%A3%E5%AF%86%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/keytool%E7%94%9F%E6%88%90%E5%85%AC%E7%A7%81%E9%92%A5%E4%BB%A3%E7%A0%81/</url>
+    <content><![CDATA[<h1 id="keytool生成公私钥指令"><a href="#keytool生成公私钥指令" class="headerlink" title="keytool生成公私钥指令"></a>keytool生成公私钥指令</h1><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">keytool -genkeypair -keysize 1024 -validity 3650 -<span class="built_in">alias</span> <span class="string">&quot;privateKey&quot;</span> -keystore <span class="string">&quot;privateKeys.keystore&quot;</span> -storepass <span class="string">&quot;pubwd123456&quot;</span> -keypass <span class="string">&quot;priwd123456&quot;</span> -dname <span class="string">&quot;CN=localhost, OU=localhost, O=localhost, L=SH, ST=SH, C=CN&quot;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">keytool -exportcert -<span class="built_in">alias</span> <span class="string">&quot;privateKey&quot;</span> -keystore <span class="string">&quot;privateKeys.keystore&quot;</span> -storepass <span class="string">&quot;pubwd123456&quot;</span> -file <span class="string">&quot;certfile.cer&quot;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">keytool -import -<span class="built_in">alias</span> <span class="string">&quot;publicCert&quot;</span> -file <span class="string">&quot;certfile.cer&quot;</span> -keystore <span class="string">&quot;publicCerts.keystore&quot;</span> -storepass <span class="string">&quot;pubwd123456&quot;</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+  </entry>
+  <entry>
+    <title>无标题</title>
+    <url>/2023/07/19/09.ZStack/%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3%E7%9A%84%E7%96%91%E9%97%AE/</url>
+    <content><![CDATA[<h1 id="网络相关疑问"><a href="#网络相关疑问" class="headerlink" title="网络相关疑问"></a>网络相关疑问</h1><p>如何创建VPC路由器？</p>
+<p>VPC网络、VPC路由器、二层网络、管理网络之间的关系。</p>
+<p>二层网络是如何创建的？</p>
+<p>一般选什么类型的网络？</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>无标题</title>
+    <url>/2023/07/18/10.%20Linux/%E6%8C%82%E8%BD%BD%E7%A1%AC%E7%9B%98/</url>
+    <content><![CDATA[<h1 id="Linux上挂载硬盘"><a href="#Linux上挂载硬盘" class="headerlink" title="Linux上挂载硬盘"></a>Linux上挂载硬盘</h1><p>一般云服务器上都会分系统盘和数据盘，默认数据盘不会挂载在服务器上的，所以需要手动挂载一下。</p>
+<p>先创建一个&#x2F;data的目录，用来映射挂载的数据盘.</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> /data</span><br></pre></td></tr></table></figure>
+
+<p>然后找出你需要挂载的盘：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">lsblk	</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307181516913.png" alt="image-20230718151643739"></p>
+<p>可以发现vdb 100G的硬盘并没有挂载。</p>
+<p>其次，初始化硬盘：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">mkfs.ext4 /dev/vdb</span><br></pre></td></tr></table></figure>
+
+<p>最后，挂载硬盘：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">mount /dev/vdb /data</span><br></pre></td></tr></table></figure>
+
+<p>验证：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">df -hT</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307181518071.png" alt="image-20230718151834028"></p>
+<p>一键挂载（shell脚本）：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">cd</span> /</span><br><span class="line"><span class="built_in">mkdir</span> /data</span><br><span class="line">mkfs.ext4 /dev/vdb</span><br><span class="line">mount /dev/vdb /data</span><br></pre></td></tr></table></figure>
+
+]]></content>
+  </entry>
+  <entry>
+    <title>无标题</title>
+    <url>/2023/07/17/09.ZStack/VPC%E7%BD%91%E7%BB%9C%E3%80%81%E5%85%AC%E6%9C%89%E7%BD%91%E7%BB%9C%E3%80%81%E6%89%81%E5%B9%B3%E7%BD%91%E7%BB%9C/</url>
+    <content><![CDATA[<h1 id="ZStack上的网络资源概念汇总"><a href="#ZStack上的网络资源概念汇总" class="headerlink" title="ZStack上的网络资源概念汇总"></a>ZStack上的网络资源概念汇总</h1><h2 id="二层网络资源"><a href="#二层网络资源" class="headerlink" title="二层网络资源"></a>二层网络资源</h2><p>ZStack上的二层网络资源有：二层网络和VXLAN Pool（Vxlan网络池）</p>
+<h3 id="二层网络"><a href="#二层网络" class="headerlink" title="二层网络"></a>二层网络</h3><p>二层网络：对于一个二层广播域，进行二层相关的隔离。一般用于物理网络的设备名称标识。</p>
+<ul>
+<li>VLAN、VXLAN、SDN等能提供二层隔离技术都可作为二层网络。</li>
+<li>二层网络负责为三层网络提供二层隔离。</li>
+</ul>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202307181524591.png" alt="img"></p>
+<p>二层网络支持四种类型：</p>
+<p>L2NoVlanNetwork、L2VlanNetwork、VxlanNetwork、HardwareVxlanNetwork。</p>
+<ol>
+<li><strong>L2NoVlanNetwork</strong><ul>
+<li>必须指定物理机的接口名称。</li>
+<li>挂载的集群内物理机必须都存在相同的接口。</li>
+<li>云主机的流量经过物理机接口到达物理交换机时，不携带VLAN标签；物理交换机必须配置VLAN Access模式。</li>
+<li>创建L2NoVlanNetwork，会根据指定的物理机接口创建网桥。</li>
+</ul>
+</li>
+<li><strong>L2VlanNetwork</strong><ul>
+<li>必须指定物理机的接口名称和VLAN ID。</li>
+<li>挂载的集群内物理机必须都存在相同的接口。</li>
+<li>云主机的流量经过物理机接口到达物理交换机时，携带用户指定的VLAN ID。</li>
+<li>创建L2VlanNetwork，会根据指定的VLAN ID创建VLAN设备，并基于此VLAN设备创建网桥。</li>
+<li>如果集群同时挂载L2NoVlanNetwork与L2VlanNetwork，或者同时挂载多个L2VlanNetwork，物理交换机接口必须为Trunk模式，且Trunk VLAN需包含当前使用的VLAN ID。</li>
+</ul>
+</li>
+<li>VxlanNetwork<ul>
+<li>VXLAN是一种Overlay技术，方便用户创建一个大二层网络，它最大支持的逻辑网络数量16M。</li>
+<li>VxlanNetwork是一种基于软件VXLAN的解决方案。</li>
+<li>必须指定一个软件SDN类型的VXLAN Pool，一个VxlanNetwork对应VXLAN Pool里的一个VNI。</li>
+<li>挂载的集群内物理机的VTEP IP必须都属于当前指定的VXLAN Pool。</li>
+<li>云主机的流量经过物理机时，物理机给该云主机流量加上VXLAN信息，然后发送到物理交换机。</li>
+</ul>
+</li>
+<li>HardwareVxlanNetwork<ul>
+<li>HardwareVxlanNetwork是一种对接第三方硬件SDN的解决方案。</li>
+<li>必须指定一个硬件SDN类型的VXLAN Pool，一个HardwareVxlanNetwork对应VXLAN Pool里的一个VNI。</li>
+<li>云主机的流量经过物理机接口到达虚拟分布式交换机时，携带用户指定的VLAN ID；VLAN ID与VXLAN ID直接的映射关系由SDN控制器决定。</li>
+</ul>
+</li>
+</ol>
+<p>二层网络与集群、三层网络、云主机之间的关系：</p>
+<ul>
+<li>如果集群已加载二层网络，但物理机不存在此二层设备，则物理机不能添加进入对应集群。</li>
+<li>如果集群未加载二层网络，但物理机不存在此二层设备，则集群不能加载此二层网络。</li>
+<li>如果某物理机存在此二层设备，但设备接线与集群内其他物理机接线不一致，则创建出的云主机IP不能正常工作。</li>
+<li>删除二层网络，其对应的子资源三层网络将被删除，使用此三层网络的云主机的网卡也将被删除，请慎重操作。</li>
+<li>删除二层网络，会删除使用此二层网络的VPC路由器和路由器规格。</li>
+<li>删除公有网络对应的二层网络，其对应的路由器的一切服务均会被删除，包括VPC路由器、路由器规格、虚拟IP、弹性IP、端口转发、负载均衡、IPsec隧道、NetFlow等。</li>
+<li>一个软件SDN类型的VXLAN Pool可以创建多个VxlanNetwork，这些VxlanNetwork可以分别应用于扁平网络或VPC网络。</li>
+<li>VxlanNetwork下的云主机无法被外部的网络直接访问，需要通过弹性IP或者端口转发等服务进行间接访问。</li>
+<li>一个硬件SDN类型的VXLAN Pool可以创建多个HardwareVxlanNetwork，这些HardwareVxlanNetwork仅支目前仅支持应用于扁平网络。</li>
+<li>一个二层网络可用于创建多个三层网络，但若非特殊业务需求，不推荐多个三层网络共用一个二层网络。</li>
+<li>若二层网络为HardwareVxlanNetwork类型，创建的三层网络目前仅支持扁平网络及相应网络服务。</li>
+<li>若二层网络使用OVS-DPDK类型虚拟交换机，创建的三层网络目前仅支持IPv4类型的VPC网络及相应网络服务。</li>
+</ul>
+<h2 id="三层网络资源"><a href="#三层网络资源" class="headerlink" title="三层网络资源"></a>三层网络资源</h2><p>三层网络资源有公有网络、扁平网络和VPC网络；</p>
+<p>三层网络：云主机使用的网络配置，包含了IP地址范围、网关、DNS、网络服务等。</p>
+<ul>
+<li>IP地址范围包含起始和结束IP地址、子网掩码、网关等，例如可指定<em>172.20.12.2</em>到<em>172.20.12.255</em>，子网掩码指定<em>255.255.0.0</em>，网关指定<em>172.20.0.1</em>；也可使用CIDR无域间路由来表示，例如<em>192.168.1.0&#x2F;24</em>；</li>
+<li>DNS用于设置云主机网络的DNS解析服务。</li>
+</ul>
+<h3 id="三层网络相关定义"><a href="#三层网络相关定义" class="headerlink" title="三层网络相关定义"></a>三层网络相关定义</h3><h4 id="公有网络："><a href="#公有网络：" class="headerlink" title="公有网络："></a>公有网络：</h4><p>公有网络是指云服务提供商提供的公共网络，用户可以通过该网络访问云上的资源，例如云存储、云数据库、云服务器等。公有网络是开放的，任何人都可以访问，因此安全性相对较低。但是，公有网络具有广泛的覆盖范围和高度的可用性，用户可以通过公有网络轻松地实现资源的共享和协作。</p>
+<p>一般表示可直接访问互联网的网络，由于公有网络是一个逻辑概念，<strong>在无法连接互联网的环境中，用户也可以自定义该网络。</strong></p>
+<ul>
+<li>可用于扁平网络创建使用公网的云主机。</li>
+<li>可用于VPC网络环境，单独创建使用公网的云主机。</li>
+</ul>
+<h4 id="扁平网络："><a href="#扁平网络：" class="headerlink" title="扁平网络："></a>扁平网络：</h4><p>扁平网络是一种简单的网络架构，所有设备都处于同一层级，没有分层结构。扁平网络不需要路由器和交换机等网络设备，所有设备都可以直接通信。扁平网络通常用于小型网络环境，例如家庭网络、小型办公室网络等。由于缺乏分层结构，扁平网络的可扩展性和安全性相对较差。</p>
+<p>可与物理机网络直通，也可直接访问互联网的网络。<strong>云主机</strong>可使用扁平网络提供的<strong>分布式EIP访问公有网络。</strong></p>
+<ul>
+<li>扁平网络支持以下网络服务：DHCP、弹性IP、安全组、UserData等。</li>
+<li>扁平网络的网络服务采用分布式的DHCP、分布式的EIP结构。</li>
+<li>扁平网络的DHCP服务也包含了DNS的功能。</li>
+</ul>
+<h4 id="VPC网络："><a href="#VPC网络：" class="headerlink" title="VPC网络："></a>VPC网络：</h4><p>VPC（Virtual Private Cloud）网络是一种虚拟化的私有云网络，它提供了一个隔离的、安全的网络环境，可以在其中创建和管理虚拟机、存储和网络资源等。VPC网络是完全私有的，只有在VPC网络内的实例之间才能通信，外部无法访问。与传统的私有网络相比，VPC网络更加灵活和可扩展，用户可以自定义VPC网络的IP地址范围、子网、路由表等。</p>
+<p>云主机使用的私有网络，<strong>可通过VPC路由器访问互联网</strong>。</p>
+<ul>
+<li>VPC网络作为VPC的私有网络，使用VPC路由器提供以下网络服务：<strong>DHCP、DNS、SNAT、路由表、安全组、弹性IP、端口转发、负载均衡、IPsec隧道、动态路由、组播路由、VPC防火墙、Netflow等。</strong></li>
+<li>可在<strong>创建VPC网络时指定待挂载的路由器</strong>，也可<strong>创建VPC网络后再挂载路由器</strong>。</li>
+<li>如有云主机使用VPC网络，不支持从VPC路由器卸载。</li>
+<li>新建的网络段不可与VPC路由器内任一网络的网络段重叠。</li>
+</ul>
+<h4 id="专用网络："><a href="#专用网络：" class="headerlink" title="专用网络："></a>专用网络：</h4><ul>
+<li><p>管理网络：</p>
+<p><strong>管理控制云平台相关物理资源的网络</strong>，例如：配置访问物理机、主存储、镜像服务器、VPC路由器时使用的网络。</p>
+<p>说明:创建VPC路由器时需要VPC路由器存在管理节点互通的IP，以便部署agent及agent代理消息返回。</p>
+</li>
+<li><p>流量网络：端口镜像的专用网络，用于将网卡的网络流量镜像到远端。不能作为其他网络使用，不能用于创建云主机。</p>
+</li>
+</ul>
+<h2 id="路由器"><a href="#路由器" class="headerlink" title="路由器"></a>路由器</h2><p>路由器有VPC路由器，VPC路由器高可用组、路由器镜像、路由器规格。</p>
+<h3 id="VPC路由器"><a href="#VPC路由器" class="headerlink" title="VPC路由器"></a>VPC路由器</h3><p>一个定制的云主机，用于提供多种网络服务。包括<strong>虚拟IP，弹性IP，IPsec隧道，端口转发，负载均衡，DHCP等服务，同时支持设置组播路由</strong>。VPC路由器支持内外部全方面实时监控，并提供配套报警服务，同时支持设置跨集群高可用策略，充分保障网络核心资源高可用性。</p>
+<h4 id="VPC路由器特性"><a href="#VPC路由器特性" class="headerlink" title="VPC路由器特性"></a>VPC路由器特性</h4><p>基于路由器规格直接创建的VPC路由器，拥有公有网络和管理网络。</p>
+<ul>
+<li>VPC路由器是VPC的核心，可主动创建基于指定路由器规格的VPC路由器。</li>
+<li>须<strong>提前创建</strong>路由器规格所需的<strong>公有网络和管理网络、路由器</strong>镜像资源。</li>
+<li>VPC路由器可灵活挂载或卸载VPC网络或其他公有网络。</li>
+<li>路由器规格定义的公有网络和管理网络，不可卸载。</li>
+<li>同一个路由器规格可以创建多个VPC路由器，这些VPC路由器共享使用同一个路由器规格里定义的公有网络段和管理网络段。</li>
+<li>公有网络作为默认网络，用于提供网络服务。</li>
+<li>VPC路由器拥有高于云主机的资源优先级，当物理机负载率过高，出现资源竞争时，资源优先级顺序为（从低到高）：优先级为<strong>正常</strong>的云主机 &lt; 优先级为<strong>高</strong>的云主机 &lt; VPC路由器。例如：当物理机出现CPU资源竞争时， 较于普通云主机，VPC路由器具备更高的CPU资源抢夺能力。</li>
+</ul>
+<h2 id="外部SDN设备"><a href="#外部SDN设备" class="headerlink" title="外部SDN设备"></a>外部SDN设备</h2><h3 id="SDN控制器"><a href="#SDN控制器" class="headerlink" title="SDN控制器"></a>SDN控制器</h3><p>SDN控制器：云平台支持添加外部SDN控制器来控制外部交换机等网络设备。通过添加SDN控制器，可在云平台接管硬件交换机的SDN网络，从而降低网络延迟，提升VXLAN网络性能。</p>
+<ul>
+<li>需提前规划管理网络，并完成SDN控制器的基础配置，才能添加SDN控制器到云平台。</li>
+<li>目前仅支持添加H3C SDN控制器：VCFC。</li>
+</ul>
+]]></content>
   </entry>
 </search>
