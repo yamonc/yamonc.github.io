@@ -1,0 +1,133 @@
+authorinfo:
+  leftTags:
+    - "🤖️ 开发技术忠实粉"
+    - "🔍 数字&音乐发烧友"
+    - "🏠 智能家居小能手"
+    - "🔨 设计开发一条龙"
+  rightTags:
+    - "Javaer&Goer语言流 🤝"
+    - "前后端来回乱窜流 🏃"
+    - "Fortnite 失踪流 🧱"
+    - "实在拼不出来一条流 💢"
+  image: "/img/avatar.png"
+contentinfo:
+  name: yamon
+  title: Java开发工程师、独立开发者、博主
+  product: 优秀的产品
+  design: 出色的设计
+  program: 高效的编程
+  user_experience: 人性化的用户体验
+
+skills:
+  title: 技能
+  subtitle: 开启创造力
+  tags:
+    - title: Java
+      icon:  /img/about/java.png
+      color: "#989bf8"
+    - title: Sketch
+      icon: https://p.zhheo.com/2023e0ded7b724a39f12d59c3dc8fbdc7cbe074202.png!cover
+      color: "#ffffff"
+    - title: Docker
+      icon: https://p.zhheo.com/20231108a540b2862d26f8850172e4ea58ed075102.png!cover
+      color: "#57b6e6"
+    - title: Python
+      icon: https://p.zhheo.com/20235c0731cd4c0c95fc136a8db961fdf963071502.png!cover
+      color: "#ffffff"
+    - title: "CSS3"
+      color: "#2c51db"
+      icon: "https://p.zhheo.com/20237c548846044a20dad68a13c0f0e1502f074602.png!cover"
+    - title: "JS"
+      color: "#f7cb4f"
+      icon: "https://p.zhheo.com/2023786e7fc488f453d5fb2be760c96185c0075502.png!cover"
+    - title: "HTML"
+      color: "#e9572b"
+      icon: "https://p.zhheo.com/202372b4d760fd8a497d442140c295655426070302.png!cover"
+    - title: "Git"
+      color: "#df5b40"
+      icon: "https://p.zhheo.com/2023ffa5707c4e25b6beb3e6a3d286ede4c6071102.png!cover"
+careers:
+  title: "生涯"
+  subtitle: "无限进步"
+  items:
+    - school: "河北工业大学"
+      major: "计算机科学与技术"
+      color: "#357ef5"
+    - school: "Sugon"
+      major: "Java开发工程师"
+      color: "#eb372a"
+  image: "https://p.zhheo.com/20236d5152f4058d0b8b29185c7b71bbd74a071902.png!cover"
+
+personalities:
+  tips: "性格"
+  title: "守卫者"
+  color: "#56a178"
+  type: "ISFJ-A"
+  image: "/img/avatar.webp"
+  link: "https://www.16personalities.com/"
+  linkText: "16personalities"
+  typeLink: "https://www.16personalities.com/ch/isfj-%E4%BA%BA%E6%A0%BC"
+  typeName: "守卫者"
+  myphoto: ""
+
+motto:
+  title: 座右铭
+  prefix: ---
+  content: ---
+expertise:
+  title: 特长
+  prefix: ---
+  specialist: 专家
+  content: 软件学习能力
+  level: MAX
+
+game1:
+  title: "堡垒之夜-Fortnite"
+  icon: "fas fa-gamepad"
+  tips: "堡垒之夜"
+  img: /img/game/Fortnite.jpg
+game2:
+  title: "英雄联盟"
+  icon: "fas fa-gamepad"
+  tips: "弗雷尔卓德"
+  img: https://p.zhheo.com/2023788ba3b8739936f844e64f483faacaf1085602.png!cover
+likes:
+  - type: like-technology
+    tips: 关注偏好
+    title: 数码科技
+    subtips: 手机、电脑软硬件
+    img: https://p.zhheo.com/2023e6940f5f56f0004af2705c3586d1fdf5190802.png!cover
+  - type: like-music
+    tips: 音乐偏好
+    title: 欧美流行、90后、经典老歌、华语流行
+    subtips: Charlie Puth、Maroon 5、Ed Sheeran、James Blunt
+    img: https://bu.dusays.com/2023/03/12/640dc6bed6d2d.jpg
+
+
+oneself:
+  location: '中国，天津市'
+  birthYear: '1996'
+  university: '河北工业大学'
+  major: '计算机科学与技术'
+  occupation: '后端工程师'
+  map:
+    light: /images/about/map-light.png
+    dark: /images/about/map-dark.png
+
+tj: 
+  url: https://v6-widget.51.la/v6/K0yfsHaZHpjPWap0/quote.js
+  img: https://bu.dusays.com/2023/03/12/640dc8c72f623.webp
+
+cause: <br>创建这个站的时候，想要就是能够有一个自己能够<b>积累知识、积累兴趣</b>的地方。和他人分享，会让这些成为积累和沉淀。如果能够帮助到更多的人，帮助更多人解决问题，那一定是非常棒的事情。
+      <br>
+      分享这件事我从很早就开始了，起初做的微信公众号，现在做的网站。因为我比较喜欢研究数码和软件，想要探究在互联网上的事物是如何被创造和发展。网络给我带来了非常多的知识和眼界，我也想力所能及的分享一些我生活的琐碎知识。
+      <br>
+      与大多数垂直类的技术博客不同，这里的种类会非常的繁杂，有<b>技能的教程干货</b>、有<b>生活上的吐槽和妙招</b>、有<b>话题上的思考和想法</b>。一般我研究什么、发现了什么都会分享在这里。
+      <br>
+      这些就是创造这个小站的本意，<b>也是我分享生活的方式</b>。有幸能和你相遇在这里，相信我们能共同留下一段美好记忆。</p>
+
+rewardList:
+  - name: 思宁
+    money: 1
+    time: 2021-05-06
+    vip: false
