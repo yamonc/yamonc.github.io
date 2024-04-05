@@ -1,0 +1,1651 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>标签 222 | yamon，分享并热爱生活</title>
+<noscript>开启Javascript是必要的</noscript>
+<link rel="icon" type="image/x-icon" href="/img/avatar.webp">
+<link rel="apple-touch-icon" href="/img/avatar.webp">
+<meta name="apple-mobile-web-app-title" content="yamon，分享并热爱生活">
+<link rel="bookmark" href="/img/avatar.webp">
+<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/img/avatar.webp">
+<meta name="description" content="a blog 一个分享技术与生活的博客">
+<meta name="theme-color" content="#1C1C1F">
+<link rel="stylesheet" href="/css/var.css">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    
+
+<link rel="stylesheet" href="/lib/snackbar.min.css">
+
+
+<script src="/lib/qrcode.min.js"></script>
+
+
+    
+<script src="https://cdn.staticfile.org/twikoo/1.6.10/twikoo.all.min.js"></script>
+
+
+
+
+
+<script>var GLOBALCONFIG = {"root":"/","runtime":"2023-06-12 00:00:00","lazyload":{"enable":false,"error":"/img/acrylic.png"},"hightlight":{"enable":true,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":true,"comment":{"enable":true,"twikooUrl":"https://twikoo.chenym.top/"},"localsearch":{"preload":false,"path":"/search.xml"}};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":false,"is_page":false,"page":false};</script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body id="body">
+        
+            <div id="loading-box" onclick="preloader.endLoading();" class style="zoom: 1;">
+    <div class="loading-bg">
+        <img class="loading-img nolazyload" alt="loading image"
+            src="/img/avatar.webp">
+        </div>
+</div>
+<script>
+    const preloader = {
+        endLoading: () => {
+            document.getElementById('loading-box').classList.add("loaded")
+        },
+        initLoading: () => {
+            document.getElementById('loading-box').classList.remove("loaded")
+        },
+        removePaceDone: () => {
+            document.getElementById('body').classList = 'pace-done'
+        }
+    }
+    window.addEventListener('load',()=> { preloader.endLoading() })
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+</script>
+<style>
+    #loading-box {
+        -webkit-user-select: none;
+    }
+
+    #loading-box .loading-bg {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background: var(--heo-background);
+        z-index: 1999;
+        opacity: 1;
+        transition: 0.2s;
+        pointer-events: all;
+        animation: showLoading 0.3s 0s backwards;
+    }
+
+    #loading-box.loaded .loading-bg {
+        pointer-events: none;
+        transition: 0.2s;
+        animation: hideLoading 0.3s 0s forwards;
+    }
+
+    #loading-box .loading-img {
+        width: 100px;
+        margin: auto;
+        animation-duration: 0.2s;
+        animation-name: loadingAction;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    }
+
+    @keyframes loadingAction {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0.6;
+        }
+    }
+
+    @keyframes hideLoading {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0;
+        }
+    }
+
+    @keyframes showLoading {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+</style>
+        
+        <div id="console" style="zoom: 1;" class="">
+    <div class="close-btn" onclick="acrylic.hideConsole()" href="javascript:void(0);">
+        <i class="fas fa-circle-xmark"></i>
+    </div>
+    
+        <div class="console-card-group">
+            <div class="console-card-group-left">
+                <div class="console-card" id="card-newest-comments" onclick="acrylic.hideConsole()">
+                    <div class="card-content">
+                        <div class="author-content-item-tips">互动</div>
+                        <div class="author-content-item-title">最新评论</div>
+                    </div>
+                    <div class="aside-list"></div>
+                </div>
+    
+            </div>
+            <div class="console-card-group-right">
+                <div class="console-card tags" onclick="acrylic.hideConsole()">
+                    <div class="card-content">
+                        <div class="author-content-item-tips">标签</div>
+                        <div class="author-content-item-title">寻找感兴趣的领域</div>
+                    </div>
+                    <div class="card-tag-cloud">
+                        
+                            <a href="/tags/222/" style="font-size: 0.8rem; color: #d3d3d3">222<sup>2</sup></a>
+                        
+                            <a href="/tags/Java/" style="font-size: 0.8rem; color: #d3d3d3">Java<sup>20</sup></a>
+                        
+                            <a href="/tags/SpringBoot/" style="font-size: 0.8rem; color: #d3d3d3">SpringBoot<sup>1</sup></a>
+                        
+                            <a href="/tags/1/" style="font-size: 0.8rem; color: #d3d3d3">1<sup>1</sup></a>
+                        
+                            <a href="/tags/java/" style="font-size: 0.8rem; color: #d3d3d3">java<sup>7</sup></a>
+                        
+                            <a href="/tags/exe/" style="font-size: 0.8rem; color: #d3d3d3">exe<sup>1</sup></a>
+                        
+                            <a href="/tags/%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F/" style="font-size: 0.8rem; color: #d3d3d3">备忘录模式<sup>1</sup></a>
+                        
+                            <a href="/tags/%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/" style="font-size: 0.8rem; color: #d3d3d3">责任链模式<sup>1</sup></a>
+                        
+                            <a href="/tags/%E9%93%BE%E8%A1%A8/" style="font-size: 0.8rem; color: #d3d3d3">链表<sup>6</sup></a>
+                        
+                            <a href="/tags/leetcode/" style="font-size: 0.8rem; color: #d3d3d3">leetcode<sup>9</sup></a>
+                        
+                            <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" style="font-size: 0.8rem; color: #d3d3d3">双指针<sup>5</sup></a>
+                        
+                            <a href="/tags/%E9%80%92%E5%BD%92/" style="font-size: 0.8rem; color: #d3d3d3">递归<sup>2</sup></a>
+                        
+                            <a href="/tags/twikoo/" style="font-size: 0.8rem; color: #d3d3d3">twikoo<sup>1</sup></a>
+                        
+                            <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 0.8rem; color: #d3d3d3">博客<sup>3</sup></a>
+                        
+                            <a href="/tags/hexo/" style="font-size: 0.8rem; color: #d3d3d3">hexo<sup>4</sup></a>
+                        
+                            <a href="/tags/github/" style="font-size: 0.8rem; color: #d3d3d3">github<sup>1</sup></a>
+                        
+                            <a href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" style="font-size: 0.8rem; color: #d3d3d3">开源项目<sup>2</sup></a>
+                        
+                            <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 0.8rem; color: #d3d3d3">工具<sup>4</sup></a>
+                        
+                            <a href="/tags/JavaFX/" style="font-size: 0.8rem; color: #d3d3d3">JavaFX<sup>1</sup></a>
+                        
+                            <a href="/tags/Spring/" style="font-size: 0.8rem; color: #d3d3d3">Spring<sup>1</sup></a>
+                        
+                            <a href="/tags/vue/" style="font-size: 0.8rem; color: #d3d3d3">vue<sup>1</sup></a>
+                        
+                            <a href="/tags/electron/" style="font-size: 0.8rem; color: #d3d3d3">electron<sup>1</sup></a>
+                        
+                            <a href="/tags/%E6%9D%82%E8%AE%B0/" style="font-size: 0.8rem; color: #d3d3d3">杂记<sup>1</sup></a>
+                        
+                            <a href="/tags/keytool/" style="font-size: 0.8rem; color: #d3d3d3">keytool<sup>1</sup></a>
+                        
+                            <a href="/tags/%E5%8A%A0%E5%AF%86%E5%B7%A5%E5%85%B7%E7%B1%BB/" style="font-size: 0.8rem; color: #d3d3d3">加密工具类<sup>2</sup></a>
+                        
+                            <a href="/tags/RSA/" style="font-size: 0.8rem; color: #d3d3d3">RSA<sup>2</sup></a>
+                        
+                            <a href="/tags/AES/" style="font-size: 0.8rem; color: #d3d3d3">AES<sup>1</sup></a>
+                        
+                            <a href="/tags/%E7%B1%BB%E5%85%B3%E7%B3%BB/" style="font-size: 0.8rem; color: #d3d3d3">类关系<sup>1</sup></a>
+                        
+                            <a href="/tags/DSA/" style="font-size: 0.8rem; color: #d3d3d3">DSA<sup>1</sup></a>
+                        
+                            <a href="/tags/%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86/" style="font-size: 0.8rem; color: #d3d3d3">非对称加密<sup>1</sup></a>
+                        
+                            <a href="/tags/ZStack/" style="font-size: 0.8rem; color: #d3d3d3">ZStack<sup>1</sup></a>
+                        
+                            <a href="/tags/RabbitMQ/" style="font-size: 0.8rem; color: #d3d3d3">RabbitMQ<sup>6</sup></a>
+                        
+                            <a href="/tags/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B/" style="font-size: 0.8rem; color: #d3d3d3">类加载过程<sup>1</sup></a>
+                        
+                            <a href="/tags/%E5%8F%8D%E5%B0%84/" style="font-size: 0.8rem; color: #d3d3d3">反射<sup>7</sup></a>
+                        
+                            <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" style="font-size: 0.8rem; color: #d3d3d3">面向对象<sup>16</sup></a>
+                        
+                            <a href="/tags/%E5%8D%95%E4%B8%80%E8%81%8C%E8%B4%A3/" style="font-size: 0.8rem; color: #d3d3d3">单一职责<sup>1</sup></a>
+                        
+                            <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 0.8rem; color: #d3d3d3">设计模式<sup>13</sup></a>
+                        
+                            <a href="/tags/%E6%8E%A5%E5%8F%A3/" style="font-size: 0.8rem; color: #d3d3d3">接口<sup>2</sup></a>
+                        
+                            <a href="/tags/%E6%8A%BD%E8%B1%A1%E7%B1%BB/" style="font-size: 0.8rem; color: #d3d3d3">抽象类<sup>1</sup></a>
+                        
+                            <a href="/tags/DDD/" style="font-size: 0.8rem; color: #d3d3d3">DDD<sup>2</sup></a>
+                        
+                            <a href="/tags/%E8%B4%AB%E8%A1%80%E6%A8%A1%E5%9E%8B/" style="font-size: 0.8rem; color: #d3d3d3">贫血模型<sup>1</sup></a>
+                        
+                    </div>
+                </div>
+                <div class="console-card history" onclick="acrylic.hideConsole()">
+                    <ul class="card-archive-list">
+    
+     
+        <li class="card-archive-list-item"><a class="card-archive-list-link" onclick="pjax.loadUrl('/archives/2024-04/')" data-pjax-state=""><span
+            class="card-archive-list-date">2024-04</span>
+            <div class="card-archive-list-count-group"><span class="card-archive-list-count">4</span><span
+                    class="card-archive-list-count-unit">篇</span></div>
+            </a>
+        </li>
+     
+        <li class="card-archive-list-item"><a class="card-archive-list-link" onclick="pjax.loadUrl('/archives/2024-03/')" data-pjax-state=""><span
+            class="card-archive-list-date">2024-03</span>
+            <div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span
+                    class="card-archive-list-count-unit">篇</span></div>
+            </a>
+        </li>
+     
+        <li class="card-archive-list-item"><a class="card-archive-list-link" onclick="pjax.loadUrl('/archives/2023-08/')" data-pjax-state=""><span
+            class="card-archive-list-date">2023-08</span>
+            <div class="card-archive-list-count-group"><span class="card-archive-list-count">19</span><span
+                    class="card-archive-list-count-unit">篇</span></div>
+            </a>
+        </li>
+     
+        <li class="card-archive-list-item"><a class="card-archive-list-link" onclick="pjax.loadUrl('/archives/2023-07/')" data-pjax-state=""><span
+            class="card-archive-list-date">2023-07</span>
+            <div class="card-archive-list-count-group"><span class="card-archive-list-count">25</span><span
+                    class="card-archive-list-count-unit">篇</span></div>
+            </a>
+        </li>
+     
+        <li class="card-archive-list-item"><a class="card-archive-list-link" onclick="pjax.loadUrl('/archives/2023-06/')" data-pjax-state=""><span
+            class="card-archive-list-date">2023-06</span>
+            <div class="card-archive-list-count-group"><span class="card-archive-list-count">19</span><span
+                    class="card-archive-list-count-unit">篇</span></div>
+            </a>
+        </li>
+        
+</ul>
+
+                </div>
+            </div>
+        </div>
+    
+    
+    <div class="button-group">
+        <div class="console-btn-item"> <a class="darkmode_switchbutton" onclick="acrylic.switchDarkMode()" title="显示模式切换"
+                href="javascript:void(0);" rel="external nofollow" data-pjax-state=""><i class="fas fa-moon"
+                    style="font-size: 1rem;"></i></a></div>
+        
+    </div>
+    <div class="console-mask" onclick="acrylic.hideConsole()" href="javascript:void(0);" rel="external nofollow"></div>
+</div>
+        <div id="sidebar" style="zoom: 1;">
+    <div id="menu-mask" style="display: none;"></div>
+    <div id="sidebar-menus" class>
+        <span class="sidebar-menu-item-title">功能</span>
+        <div class="sidebar-menu-item">
+            <a class="darkmode_switchbutton menu-child" onclick="acrylic.switchDarkMode()" title="显示模式切换"
+                href="javascript:void(0);" rel="external nofollow">
+                <i class="fas fa-moon" style="font-size: 1rem;"></i>
+                <span>显示模式</span>
+            </a>
+        </div>
+        
+            <div class="back-menu-list-groups">
+    
+      
+      <div class="back-menu-list-group">
+        <div class="back-menu-list-title">
+          我的
+        </div>
+        <div class="back-menu-list">
+          
+            
+            <a class="back-menu-item" href="/archives/" rel="external nofollow" title="博客">
+              <img class="back-menu-item-icon" src="/img/avatar.webp" loading="lazy">
+              <span class="back-menu-item-text">
+                博客
+              </span>
+            </a>
+          
+        </div>
+      </div>
+    
+  </div>
+  
+        
+        <div class="menus_items">
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 文库</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/archives/">
+                                <i class="fas fa-box-archive"></i>
+                                <span> 文章列表</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/">
+                                <i class="fas fa-cube"></i>
+                                <span> 全部分类</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/tags/">
+                                <i class="fas fa-tags"></i>
+                                <span> 全部标签</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 推荐专栏</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/%E6%95%99%E7%A8%8B/">
+                                <i class="fas fa-book"></i>
+                                <span> 教程</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+                                <i class="fas fa-key"></i>
+                                <span> 设计模式</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/Java%E5%9F%BA%E7%A1%80/">
+                                <i class="fas fa-trophy"></i>
+                                <span> Java</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/">
+                                <i class="fas fa-trophy"></i>
+                                <span> RabbitMQ教程</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 友链</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/fcircle/">
+                                <i class="fas fa-fish-fins"></i>
+                                <span> 友链鱼塘</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/links/">
+                                <i class="fas fa-user-group"></i>
+                                <span> 友情链接</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="javascript:travelling()">
+                                <i class="fas fa-bus"></i>
+                                <span> 宝藏博主</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 我的</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/about">
+                                <i class="fas fa-user-group"></i>
+                                <span> 关于我</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+</div>
+        <span class="sidebar-menu-item-title">标签</span>
+        <div class="card-widget card-tags card-archives card-webinfo card-allinfo">
+            <div class="item-headline">
+                <i class="fas fa-tags"></i>
+                <span>标签</span>
+            </div>
+            <div class="card-tag-cloud">
+                
+                    <a href="/tags/222/" style="font-size: 1em; color: #d3d3d3">222
+                        <sup>2</sup>
+                    </a>
+                
+                    <a href="/tags/Java/" style="font-size: 1em; color: #d3d3d3">Java
+                        <sup>20</sup>
+                    </a>
+                
+                    <a href="/tags/SpringBoot/" style="font-size: 1em; color: #d3d3d3">SpringBoot
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/1/" style="font-size: 1em; color: #d3d3d3">1
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/java/" style="font-size: 1em; color: #d3d3d3">java
+                        <sup>7</sup>
+                    </a>
+                
+                    <a href="/tags/exe/" style="font-size: 1em; color: #d3d3d3">exe
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F/" style="font-size: 1em; color: #d3d3d3">备忘录模式
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/" style="font-size: 1em; color: #d3d3d3">责任链模式
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E9%93%BE%E8%A1%A8/" style="font-size: 1em; color: #d3d3d3">链表
+                        <sup>6</sup>
+                    </a>
+                
+                    <a href="/tags/leetcode/" style="font-size: 1em; color: #d3d3d3">leetcode
+                        <sup>9</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" style="font-size: 1em; color: #d3d3d3">双指针
+                        <sup>5</sup>
+                    </a>
+                
+                    <a href="/tags/%E9%80%92%E5%BD%92/" style="font-size: 1em; color: #d3d3d3">递归
+                        <sup>2</sup>
+                    </a>
+                
+                    <a href="/tags/twikoo/" style="font-size: 1em; color: #d3d3d3">twikoo
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 1em; color: #d3d3d3">博客
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/hexo/" style="font-size: 1em; color: #d3d3d3">hexo
+                        <sup>4</sup>
+                    </a>
+                
+                    <a href="/tags/github/" style="font-size: 1em; color: #d3d3d3">github
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" style="font-size: 1em; color: #d3d3d3">开源项目
+                        <sup>2</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 1em; color: #d3d3d3">工具
+                        <sup>4</sup>
+                    </a>
+                
+                    <a href="/tags/JavaFX/" style="font-size: 1em; color: #d3d3d3">JavaFX
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/Spring/" style="font-size: 1em; color: #d3d3d3">Spring
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/vue/" style="font-size: 1em; color: #d3d3d3">vue
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/electron/" style="font-size: 1em; color: #d3d3d3">electron
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%9D%82%E8%AE%B0/" style="font-size: 1em; color: #d3d3d3">杂记
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/keytool/" style="font-size: 1em; color: #d3d3d3">keytool
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%8A%A0%E5%AF%86%E5%B7%A5%E5%85%B7%E7%B1%BB/" style="font-size: 1em; color: #d3d3d3">加密工具类
+                        <sup>2</sup>
+                    </a>
+                
+                    <a href="/tags/RSA/" style="font-size: 1em; color: #d3d3d3">RSA
+                        <sup>2</sup>
+                    </a>
+                
+                    <a href="/tags/AES/" style="font-size: 1em; color: #d3d3d3">AES
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E7%B1%BB%E5%85%B3%E7%B3%BB/" style="font-size: 1em; color: #d3d3d3">类关系
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/DSA/" style="font-size: 1em; color: #d3d3d3">DSA
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86/" style="font-size: 1em; color: #d3d3d3">非对称加密
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/ZStack/" style="font-size: 1em; color: #d3d3d3">ZStack
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/RabbitMQ/" style="font-size: 1em; color: #d3d3d3">RabbitMQ
+                        <sup>6</sup>
+                    </a>
+                
+                    <a href="/tags/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B/" style="font-size: 1em; color: #d3d3d3">类加载过程
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%8F%8D%E5%B0%84/" style="font-size: 1em; color: #d3d3d3">反射
+                        <sup>7</sup>
+                    </a>
+                
+                    <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" style="font-size: 1em; color: #d3d3d3">面向对象
+                        <sup>16</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%8D%95%E4%B8%80%E8%81%8C%E8%B4%A3/" style="font-size: 1em; color: #d3d3d3">单一职责
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 1em; color: #d3d3d3">设计模式
+                        <sup>13</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%8E%A5%E5%8F%A3/" style="font-size: 1em; color: #d3d3d3">接口
+                        <sup>2</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%8A%BD%E8%B1%A1%E7%B1%BB/" style="font-size: 1em; color: #d3d3d3">抽象类
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/DDD/" style="font-size: 1em; color: #d3d3d3">DDD
+                        <sup>2</sup>
+                    </a>
+                
+                    <a href="/tags/%E8%B4%AB%E8%A1%80%E6%A8%A1%E5%9E%8B/" style="font-size: 1em; color: #d3d3d3">贫血模型
+                        <sup>1</sup>
+                    </a>
+                
+            </div>
+        </div>
+    </div>
+</div>    
+        
+            <div class="page" id="body-wrap">
+                <header class="not-top-img" id="page-header">
+    <nav id="nav" class="show">
+    <div id="nav-group">
+        <div id="blog_name">
+            
+                <div class="back-home-button" tabindex="-1">
+                    <i class="back-home-button-icon fas fa-grip-vertical"></i>
+                    <div class="back-menu-list-groups">
+    
+      
+      <div class="back-menu-list-group">
+        <div class="back-menu-list-title">
+          我的
+        </div>
+        <div class="back-menu-list">
+          
+            
+            <a class="back-menu-item" href="/archives/" rel="external nofollow" title="博客">
+              <img class="back-menu-item-icon" src="/img/avatar.webp" loading="lazy">
+              <span class="back-menu-item-text">
+                博客
+              </span>
+            </a>
+          
+        </div>
+      </div>
+    
+  </div>
+  
+                </div>
+            
+            <a id="site-name" href="/" title="返回博客主页">
+                    
+                        <span class="heoicon">yamon</span>
+                    
+            </a>
+        </div>
+        <div id="page-name-mask">
+            <div id="page-name">
+                <a id="page-name-text" onclick="acrylic.toTop()">yamon，分享并热爱生活</a>
+            </div>
+        </div>
+        <div id="menus">
+            <div class="menus_items">
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 文库</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/archives/">
+                                <i class="fas fa-box-archive"></i>
+                                <span> 文章列表</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/">
+                                <i class="fas fa-cube"></i>
+                                <span> 全部分类</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/tags/">
+                                <i class="fas fa-tags"></i>
+                                <span> 全部标签</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 推荐专栏</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/%E6%95%99%E7%A8%8B/">
+                                <i class="fas fa-book"></i>
+                                <span> 教程</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+                                <i class="fas fa-key"></i>
+                                <span> 设计模式</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/Java%E5%9F%BA%E7%A1%80/">
+                                <i class="fas fa-trophy"></i>
+                                <span> Java</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/">
+                                <i class="fas fa-trophy"></i>
+                                <span> RabbitMQ教程</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 友链</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/fcircle/">
+                                <i class="fas fa-fish-fins"></i>
+                                <span> 友链鱼塘</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/links/">
+                                <i class="fas fa-user-group"></i>
+                                <span> 友情链接</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="javascript:travelling()">
+                                <i class="fas fa-bus"></i>
+                                <span> 宝藏博主</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 我的</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/about">
+                                <i class="fas fa-user-group"></i>
+                                <span> 关于我</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+</div>
+        </div>
+        <!-- <div id="nav-left">
+            <div id="fps-group">
+                <div id="fps">145</div><span class="fpsText">FPS</span>
+            </div>
+        </div> -->
+        <div id="nav-right">
+            
+    <div class="nav-button only-home" id="travellings_button">
+        <a class="site-page"  target="_blank" rel="noopener external nofollow" href="https://www.travellings.cn/go.html" title="开往-友链接力"  width="120">
+            <i class="fa-solid fa-train-subway" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+    <div class="nav-button" id="randomPost_button">
+        <a class="site-page" onclick="toRandomPost()"
+            title="随机前往一个文章">
+            <i class="fas fa-shuffle" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+    <div class="nav-button" id="search-button">
+        <a class="site-page social-icon search" title="站内搜索"
+            href="javascript:void(0);" rel="external nofollow">
+            <i class="fas fa-magnifying-glass" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+    <div class="nav-button" id="nav-console">
+        <a class="console_switchbutton" onclick="acrylic.showConsole()"
+        title="显示中控台" href="javascript:void(0);" rel="external nofollow">
+        <i class="fas fa-bars-progress" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+<div class="nav-button" id="nav-totop" onclick="acrylic.toTop()">
+    <a class="totopbtn">
+        <i class="fas fa-arrow-up"></i>
+        <span id="percent">0</span>
+    </a>
+</div>
+<div id="toggle-menu">
+    <a class="site-page">
+        <i class="fas fa-bars fa-fw" style="font-size: 1rem;"></i>
+    </a>
+</div>
+        </div>
+    </div>
+</nav>
+        
+</header>
+                <main class="layout" id="content-inner">
+    <div id="tag">
+        <div id="tag-page-tags">
+            
+                <a href="/tags/222/" class="select">
+                    <span class="tags-punctuation">#</span> 
+                    222
+                    <span class="tagsPageCount">2</span>
+                </a>
+            
+                <a href="/tags/Java/" class="">
+                    <span class="tags-punctuation">#</span> 
+                    Java
+                    <span class="tagsPageCount">20</span>
+                </a>
+            
+                <a href="/tags/SpringBoot/" class="">
+                    <span class="tags-punctuation">#</span> 
+                    SpringBoot
+                    <span class="tagsPageCount">1</span>
+                </a>
+            
+                <a href="/tags/1/" class="">
+                    <span class="tags-punctuation">#</span> 
+                    1
+                    <span class="tagsPageCount">1</span>
+                </a>
+            
+                <a href="/tags/java/" class="">
+                    <span class="tags-punctuation">#</span> 
+                    java
+                    <span class="tagsPageCount">7</span>
+                </a>
+            
+                <a href="/tags/exe/" class="">
+                    <span class="tags-punctuation">#</span> 
+                    exe
+                    <span class="tagsPageCount">1</span>
+                </a>
+            
+                <a href="/tags/%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F/" class="">
+                    <span class="tags-punctuation">#</span> 
+                    备忘录模式
+                    <span class="tagsPageCount">1</span>
+                </a>
+            
+                <a href="/tags/%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/" class="">
+                    <span class="tags-punctuation">#</span> 
+                    责任链模式
+                    <span class="tagsPageCount">1</span>
+                </a>
+            
+                <a href="/tags/%E9%93%BE%E8%A1%A8/" class="">
+                    <span class="tags-punctuation">#</span> 
+                    链表
+                    <span class="tagsPageCount">6</span>
+                </a>
+            
+                <a href="/tags/leetcode/" class="">
+                    <span class="tags-punctuation">#</span> 
+                    leetcode
+                    <span class="tagsPageCount">9</span>
+                </a>
+            
+                <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" class="">
+                    <span class="tags-punctuation">#</span> 
+                    双指针
+                    <span class="tagsPageCount">5</span>
+                </a>
+            
+                <a href="/tags/%E9%80%92%E5%BD%92/" class="">
+                    <span class="tags-punctuation">#</span> 
+                    递归
+                    <span class="tagsPageCount">2</span>
+                </a>
+            
+                <a href="/tags/twikoo/" class="">
+                    <span class="tags-punctuation">#</span> 
+                    twikoo
+                    <span class="tagsPageCount">1</span>
+                </a>
+            
+                <a href="/tags/%E5%8D%9A%E5%AE%A2/" class="">
+                    <span class="tags-punctuation">#</span> 
+                    博客
+                    <span class="tagsPageCount">3</span>
+                </a>
+            
+                <a href="/tags/hexo/" class="">
+                    <span class="tags-punctuation">#</span> 
+                    hexo
+                    <span class="tagsPageCount">4</span>
+                </a>
+            
+                <a href="/tags/github/" class="">
+                    <span class="tags-punctuation">#</span> 
+                    github
+                    <span class="tagsPageCount">1</span>
+                </a>
+            
+                <a href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" class="">
+                    <span class="tags-punctuation">#</span> 
+                    开源项目
+                    <span class="tagsPageCount">2</span>
+                </a>
+            
+                <a href="/tags/%E5%B7%A5%E5%85%B7/" class="">
+                    <span class="tags-punctuation">#</span> 
+                    工具
+                    <span class="tagsPageCount">4</span>
+                </a>
+            
+                <a href="/tags/JavaFX/" class="">
+                    <span class="tags-punctuation">#</span> 
+                    JavaFX
+                    <span class="tagsPageCount">1</span>
+                </a>
+            
+                <a href="/tags/Spring/" class="">
+                    <span class="tags-punctuation">#</span> 
+                    Spring
+                    <span class="tagsPageCount">1</span>
+                </a>
+            
+                <a href="/tags/vue/" class="">
+                    <span class="tags-punctuation">#</span> 
+                    vue
+                    <span class="tagsPageCount">1</span>
+                </a>
+            
+                <a href="/tags/electron/" class="">
+                    <span class="tags-punctuation">#</span> 
+                    electron
+                    <span class="tagsPageCount">1</span>
+                </a>
+            
+                <a href="/tags/%E6%9D%82%E8%AE%B0/" class="">
+                    <span class="tags-punctuation">#</span> 
+                    杂记
+                    <span class="tagsPageCount">1</span>
+                </a>
+            
+                <a href="/tags/keytool/" class="">
+                    <span class="tags-punctuation">#</span> 
+                    keytool
+                    <span class="tagsPageCount">1</span>
+                </a>
+            
+                <a href="/tags/%E5%8A%A0%E5%AF%86%E5%B7%A5%E5%85%B7%E7%B1%BB/" class="">
+                    <span class="tags-punctuation">#</span> 
+                    加密工具类
+                    <span class="tagsPageCount">2</span>
+                </a>
+            
+                <a href="/tags/RSA/" class="">
+                    <span class="tags-punctuation">#</span> 
+                    RSA
+                    <span class="tagsPageCount">2</span>
+                </a>
+            
+                <a href="/tags/AES/" class="">
+                    <span class="tags-punctuation">#</span> 
+                    AES
+                    <span class="tagsPageCount">1</span>
+                </a>
+            
+                <a href="/tags/%E7%B1%BB%E5%85%B3%E7%B3%BB/" class="">
+                    <span class="tags-punctuation">#</span> 
+                    类关系
+                    <span class="tagsPageCount">1</span>
+                </a>
+            
+                <a href="/tags/DSA/" class="">
+                    <span class="tags-punctuation">#</span> 
+                    DSA
+                    <span class="tagsPageCount">1</span>
+                </a>
+            
+                <a href="/tags/%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86/" class="">
+                    <span class="tags-punctuation">#</span> 
+                    非对称加密
+                    <span class="tagsPageCount">1</span>
+                </a>
+            
+                <a href="/tags/ZStack/" class="">
+                    <span class="tags-punctuation">#</span> 
+                    ZStack
+                    <span class="tagsPageCount">1</span>
+                </a>
+            
+                <a href="/tags/RabbitMQ/" class="">
+                    <span class="tags-punctuation">#</span> 
+                    RabbitMQ
+                    <span class="tagsPageCount">6</span>
+                </a>
+            
+                <a href="/tags/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B/" class="">
+                    <span class="tags-punctuation">#</span> 
+                    类加载过程
+                    <span class="tagsPageCount">1</span>
+                </a>
+            
+                <a href="/tags/%E5%8F%8D%E5%B0%84/" class="">
+                    <span class="tags-punctuation">#</span> 
+                    反射
+                    <span class="tagsPageCount">7</span>
+                </a>
+            
+                <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="">
+                    <span class="tags-punctuation">#</span> 
+                    面向对象
+                    <span class="tagsPageCount">16</span>
+                </a>
+            
+                <a href="/tags/%E5%8D%95%E4%B8%80%E8%81%8C%E8%B4%A3/" class="">
+                    <span class="tags-punctuation">#</span> 
+                    单一职责
+                    <span class="tagsPageCount">1</span>
+                </a>
+            
+                <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="">
+                    <span class="tags-punctuation">#</span> 
+                    设计模式
+                    <span class="tagsPageCount">13</span>
+                </a>
+            
+                <a href="/tags/%E6%8E%A5%E5%8F%A3/" class="">
+                    <span class="tags-punctuation">#</span> 
+                    接口
+                    <span class="tagsPageCount">2</span>
+                </a>
+            
+                <a href="/tags/%E6%8A%BD%E8%B1%A1%E7%B1%BB/" class="">
+                    <span class="tags-punctuation">#</span> 
+                    抽象类
+                    <span class="tagsPageCount">1</span>
+                </a>
+            
+                <a href="/tags/DDD/" class="">
+                    <span class="tags-punctuation">#</span> 
+                    DDD
+                    <span class="tagsPageCount">2</span>
+                </a>
+            
+                <a href="/tags/%E8%B4%AB%E8%A1%80%E6%A8%A1%E5%9E%8B/" class="">
+                    <span class="tags-punctuation">#</span> 
+                    贫血模型
+                    <span class="tagsPageCount">1</span>
+                </a>
+            
+        </div>
+        <div class="article-sort-title">222</div>
+        <div class="article-sort">
+            
+
+    
+        <div class="article-sort-item year">2024</div>
+    
+    <div class="article-sort-item">
+        <a class="article-sort-item-img" href="/2024/03/21/jdk17%E6%B2%A1%E6%9C%89jre%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" title="---">
+            <img src="21321"
+                alt="---">
+        </a>
+        <div class="article-sort-item-info">
+            <a class="article-sort-item-title" href="/2024/03/21/jdk17%E6%B2%A1%E6%9C%89jre%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" title="---"
+                onclick="window.event.cancelBubble=true;">
+                ---
+            </a>
+            <div class="article-sort-item-tags">
+                
+                    <a class="article-meta__tags" href="/tags/222/" onclick="window.event.cancelBubble=true;">
+                        <span class="tags-punctuation">#</span>
+                        222
+                    </a>
+                
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="article-sort-item">
+        <a class="article-sort-item-img" href="/2024/03/21/test/" title="213">
+            <img src="21321"
+                alt="213">
+        </a>
+        <div class="article-sort-item-info">
+            <a class="article-sort-item-title" href="/2024/03/21/test/" title="213"
+                onclick="window.event.cancelBubble=true;">
+                213
+            </a>
+            <div class="article-sort-item-tags">
+                
+                    <a class="article-meta__tags" href="/tags/222/" onclick="window.event.cancelBubble=true;">
+                        <span class="tags-punctuation">#</span>
+                        222
+                    </a>
+                
+            </div>
+        </div>
+    </div>
+
+        </div>
+        <nav id="pagination">
+    <div class="pagination">
+        
+        <span class="page-number current">1</span>
+    </div>
+</nav>       
+    </div>
+    <div class="aside-content" id="aside-content">
+    
+    
+        
+        <div class="card-widget card-info">
+    <div class="card-content">
+        <div class="card-info-avatar is-center">
+            <div class="author-info__sayhi" id="author-info__sayhi">
+            </div>
+            <div class="author-info__name">
+                yamon
+            </div>
+            <div class="author-info__description">这有关于<b>开发</b>、<b>技术</b>相关的问题和看法，还有对于生活的一些<b>随想</b>。<br>相信你可以在这里找到对你有用的知识和教程。</div>
+        </div>
+    </div>
+    <div class="banner-button-group">
+        <a class="banner-button" target="_blank" rel="noopener" href="https://chenym.top">
+            <i class="fas fa-circle-chevron-right"></i>
+            <span class="banner-button-text">个人主页</span>
+        </a>
+    </div>
+    <div class="card-info-social-icons is-center">
+        
+            <a class="social-icon" target="_blank" rel="noopener" href="https://github.com/yamonc" title="Github">
+                <i class="fa-brands fa-github"></i>
+            </a>
+        
+            <a class="social-icon" href="mailto:lovechen1996428@qq.com" title="Mail">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        
+    </div>
+</div>
+     
+    
+    <div class="sticky_layout">
+            
+        
+            
+        <div class="card-widget card-recent-post">
+    <div class="item-headline">
+        <i class="fas fa-list-ol"></i>
+        <span>最近发布</span>
+    </div>
+    <div class="aside-list">
+        
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2024/04/05/13.%20%E8%BD%AF%E8%80%83/%E8%AE%A1%E7%BB%84/" title="无标题">
+                    <img
+                        alt="无标题"
+                        src="/img/hello.jpg">
+                </a>
+                <div class="content">
+                    
+                    <a class="title" href="/2024/04/05/13.%20%E8%BD%AF%E8%80%83/%E8%AE%A1%E7%BB%84/" title="无标题">
+                        无标题
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2024/04/05/11.%E7%94%9F%E6%B4%BB/%E5%AE%B6%E5%85%B7%E5%AE%B6%E7%94%B5%E6%B8%85%E5%8D%95/" title="无标题">
+                    <img
+                        alt="无标题"
+                        src="/img/hello.jpg">
+                </a>
+                <div class="content">
+                    
+                    <a class="title" href="/2024/04/05/11.%E7%94%9F%E6%B4%BB/%E5%AE%B6%E5%85%B7%E5%AE%B6%E7%94%B5%E6%B8%85%E5%8D%95/" title="无标题">
+                        无标题
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2024/04/05/07.%E6%97%A5%E5%B8%B8%E6%8E%92%E9%94%99%E8%AE%B0%E5%BD%95/IO%20error%20on%20POST%20request%20for%20xxx%20Connection%20reset;%20Connection%20reset/" title="无标题">
+                    <img
+                        alt="无标题"
+                        src="/img/hello.jpg">
+                </a>
+                <div class="content">
+                    
+                    <a class="title" href="/2024/04/05/07.%E6%97%A5%E5%B8%B8%E6%8E%92%E9%94%99%E8%AE%B0%E5%BD%95/IO%20error%20on%20POST%20request%20for%20xxx%20Connection%20reset;%20Connection%20reset/" title="无标题">
+                        无标题
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2024/04/05/06.%E5%8A%A0%E8%A7%A3%E5%AF%86%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/keytool%E7%94%9F%E6%88%90%E5%85%AC%E7%A7%81%E9%92%A5%E4%BB%A3%E7%A0%81/" title="无标题">
+                    <img
+                        alt="无标题"
+                        src="/img/hello.jpg">
+                </a>
+                <div class="content">
+                    
+                    <a class="title" href="/2024/04/05/06.%E5%8A%A0%E8%A7%A3%E5%AF%86%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/keytool%E7%94%9F%E6%88%90%E5%85%AC%E7%A7%81%E9%92%A5%E4%BB%A3%E7%A0%81/" title="无标题">
+                        无标题
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2024/03/21/jdk17%E6%B2%A1%E6%9C%89jre%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" title="---">
+                    <img
+                        alt="---"
+                        src="21321">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2024/03/21/jdk17%E6%B2%A1%E6%9C%89jre%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
+                            231321
+                        </a>
+                    
+                    <a class="title" href="/2024/03/21/jdk17%E6%B2%A1%E6%9C%89jre%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" title="---">
+                        ---
+                    </a>
+                </div>
+            </div>
+            
+    </div>
+</div>
+     
+        
+            
+        <div class="card-widget card-tags card-archives card-webinfo card-allinfo">
+    <div class="card-tag-cloud">
+    
+        <a href="/tags/222/" style="font-size: 0.8rem; color: #d3d3d3">222<sup>2</sup></a>
+    
+        <a href="/tags/Java/" style="font-size: 0.8rem; color: #d3d3d3">Java<sup>20</sup></a>
+    
+        <a href="/tags/SpringBoot/" style="font-size: 0.8rem; color: #d3d3d3">SpringBoot<sup>1</sup></a>
+    
+        <a href="/tags/1/" style="font-size: 0.8rem; color: #d3d3d3">1<sup>1</sup></a>
+    
+        <a href="/tags/java/" style="font-size: 0.8rem; color: #d3d3d3">java<sup>7</sup></a>
+    
+        <a href="/tags/exe/" style="font-size: 0.8rem; color: #d3d3d3">exe<sup>1</sup></a>
+    
+        <a href="/tags/%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F/" style="font-size: 0.8rem; color: #d3d3d3">备忘录模式<sup>1</sup></a>
+    
+        <a href="/tags/%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/" style="font-size: 0.8rem; color: #d3d3d3">责任链模式<sup>1</sup></a>
+    
+        <a href="/tags/%E9%93%BE%E8%A1%A8/" style="font-size: 0.8rem; color: #d3d3d3">链表<sup>6</sup></a>
+    
+        <a href="/tags/leetcode/" style="font-size: 0.8rem; color: #d3d3d3">leetcode<sup>9</sup></a>
+    
+        <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" style="font-size: 0.8rem; color: #d3d3d3">双指针<sup>5</sup></a>
+    
+        <a href="/tags/%E9%80%92%E5%BD%92/" style="font-size: 0.8rem; color: #d3d3d3">递归<sup>2</sup></a>
+    
+        <a href="/tags/twikoo/" style="font-size: 0.8rem; color: #d3d3d3">twikoo<sup>1</sup></a>
+    
+        <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 0.8rem; color: #d3d3d3">博客<sup>3</sup></a>
+    
+        <a href="/tags/hexo/" style="font-size: 0.8rem; color: #d3d3d3">hexo<sup>4</sup></a>
+    
+        <a href="/tags/github/" style="font-size: 0.8rem; color: #d3d3d3">github<sup>1</sup></a>
+    
+        <a href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" style="font-size: 0.8rem; color: #d3d3d3">开源项目<sup>2</sup></a>
+    
+        <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 0.8rem; color: #d3d3d3">工具<sup>4</sup></a>
+    
+        <a href="/tags/JavaFX/" style="font-size: 0.8rem; color: #d3d3d3">JavaFX<sup>1</sup></a>
+    
+        <a href="/tags/Spring/" style="font-size: 0.8rem; color: #d3d3d3">Spring<sup>1</sup></a>
+    
+        <a href="/tags/vue/" style="font-size: 0.8rem; color: #d3d3d3">vue<sup>1</sup></a>
+    
+        <a href="/tags/electron/" style="font-size: 0.8rem; color: #d3d3d3">electron<sup>1</sup></a>
+    
+        <a href="/tags/%E6%9D%82%E8%AE%B0/" style="font-size: 0.8rem; color: #d3d3d3">杂记<sup>1</sup></a>
+    
+        <a href="/tags/keytool/" style="font-size: 0.8rem; color: #d3d3d3">keytool<sup>1</sup></a>
+    
+        <a href="/tags/%E5%8A%A0%E5%AF%86%E5%B7%A5%E5%85%B7%E7%B1%BB/" style="font-size: 0.8rem; color: #d3d3d3">加密工具类<sup>2</sup></a>
+    
+        <a href="/tags/RSA/" style="font-size: 0.8rem; color: #d3d3d3">RSA<sup>2</sup></a>
+    
+        <a href="/tags/AES/" style="font-size: 0.8rem; color: #d3d3d3">AES<sup>1</sup></a>
+    
+        <a href="/tags/%E7%B1%BB%E5%85%B3%E7%B3%BB/" style="font-size: 0.8rem; color: #d3d3d3">类关系<sup>1</sup></a>
+    
+        <a href="/tags/DSA/" style="font-size: 0.8rem; color: #d3d3d3">DSA<sup>1</sup></a>
+    
+        <a href="/tags/%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86/" style="font-size: 0.8rem; color: #d3d3d3">非对称加密<sup>1</sup></a>
+    
+        <a href="/tags/ZStack/" style="font-size: 0.8rem; color: #d3d3d3">ZStack<sup>1</sup></a>
+    
+        <a href="/tags/RabbitMQ/" style="font-size: 0.8rem; color: #d3d3d3">RabbitMQ<sup>6</sup></a>
+    
+        <a href="/tags/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B/" style="font-size: 0.8rem; color: #d3d3d3">类加载过程<sup>1</sup></a>
+    
+        <a href="/tags/%E5%8F%8D%E5%B0%84/" style="font-size: 0.8rem; color: #d3d3d3">反射<sup>7</sup></a>
+    
+        <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" style="font-size: 0.8rem; color: #d3d3d3">面向对象<sup>16</sup></a>
+    
+        <a href="/tags/%E5%8D%95%E4%B8%80%E8%81%8C%E8%B4%A3/" style="font-size: 0.8rem; color: #d3d3d3">单一职责<sup>1</sup></a>
+    
+        <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 0.8rem; color: #d3d3d3">设计模式<sup>13</sup></a>
+    
+        <a href="/tags/%E6%8E%A5%E5%8F%A3/" style="font-size: 0.8rem; color: #d3d3d3">接口<sup>2</sup></a>
+    
+        <a href="/tags/%E6%8A%BD%E8%B1%A1%E7%B1%BB/" style="font-size: 0.8rem; color: #d3d3d3">抽象类<sup>1</sup></a>
+    
+        <a href="/tags/DDD/" style="font-size: 0.8rem; color: #d3d3d3">DDD<sup>2</sup></a>
+    
+        <a href="/tags/%E8%B4%AB%E8%A1%80%E6%A8%A1%E5%9E%8B/" style="font-size: 0.8rem; color: #d3d3d3">贫血模型<sup>1</sup></a>
+    
+</div>
+    <ul class="card-archive-list">
+    
+     
+        <li class="card-archive-list-item"><a class="card-archive-list-link" onclick="pjax.loadUrl('/archives/2023/')" data-pjax-state=""><span
+            class="card-archive-list-date">2023</span>
+            <div class="card-archive-list-count-group"><span class="card-archive-list-count">63</span><span
+                    class="card-archive-list-count-unit">篇</span></div>
+            </a>
+        </li>
+     
+        <li class="card-archive-list-item"><a class="card-archive-list-link" onclick="pjax.loadUrl('/archives/2024/')" data-pjax-state=""><span
+            class="card-archive-list-date">2024</span>
+            <div class="card-archive-list-count-group"><span class="card-archive-list-count">6</span><span
+                    class="card-archive-list-count-unit">篇</span></div>
+            </a>
+        </li>
+        
+</ul>
+
+    <hr>
+    <div class="webinfo">
+    
+        <div class="webinfo-item">
+            <div class="webinfo-item-title">
+                <i class="item-icon fas fa-file-alt"></i>
+                <div class="item-name">文章总数 :</div>
+            </div>
+            <div class="item-count">69</div>
+        </div>
+    
+    
+        
+            <div class="webinfo-item">
+                <div class="webinfo-item-title">
+                    <i class="fa-solid fa-fire"></i>
+                    <div class="item-name">总访问数 :</div>
+                </div>
+                <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-pulse"></i></span>
+            </div>
+        
+        
+    
+    
+        <div class="webinfo-item">
+            <div class="webinfo-item-title">
+                <i class="item-icon fas fa-stopwatch"></i>
+                <div class="item-name">建站天数 :</div>
+            </div>
+            <div class="item-count" id="runtimeshow">
+            </div>
+        </div>
+    
+    
+        <div class="webinfo-item">
+            <div class="webinfo-item-title">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                <div class="item-name">最后更新 :</div>
+            </div>
+            <time class="item-count" datetime="Fri Apr 05 2024 20:37:35 GMT+0800 (中国标准时间)">
+            </time>
+        </div>
+    
+    
+</div>
+</div>
+     
+        
+    </div>
+</div> 
+</main>
+                <footer id="footer">
+                    <div id="footer_deal">
+    
+        <a class="deal_link" href="/" rel="external nofollow" title="Github">
+            <i class="fa-brands fa-github"></i>
+        </a>
+    
+        <a class="deal_link" href="/" rel="external nofollow" title="Mail">
+            <i class="fa-solid fa-envelope"></i>
+        </a>
+    
+    <img class="footer_mini_logo" src="/img/avatar.webp"
+        title="返回顶部" onclick="acrylic.toTop()">
+    
+        <a class="deal_link" href="/" rel="external nofollow" title="网易云">
+            <i class="fa-solid fa-music"></i>
+        </a>
+    
+        <a class="deal_link" href="/" rel="external nofollow" title="bilibili">
+            <i class="fa-brands fa-bilibili"></i>
+        </a>
+    
+</div>    
+<div id="heo-footer">
+    
+        <div class="footer-group">
+            <h3 class="footer-title">导航</h3>
+            <div class="footer-links">
+                
+                    <a class="footer-item" href="/archives/" title="文章归档" rel="noopener external nofollow noreferrer">文章归档</a>
+                
+                    <a class="footer-item" href="/categories/" title="文章分类" rel="noopener external nofollow noreferrer">文章分类</a>
+                
+                    <a class="footer-item" href="/tags/" title="文章标签" rel="noopener external nofollow noreferrer">文章标签</a>
+                
+                    <a class="footer-item" href="/link/" title="友链" rel="noopener external nofollow noreferrer">友链</a>
+                    
+            </div>
+        </div>
+    
+        <div class="footer-group">
+            <h3 class="footer-title">服务</h3>
+            <div class="footer-links">
+                
+                    <a class="footer-item" target="_blank" href="https://51.la/" title="51la统计" rel="noopener external nofollow noreferrer noopener">51la统计</a>
+                
+                    <a class="footer-item" target="_blank" href="https://tongji.baidu.com/" title="百度统计" rel="noopener external nofollow noreferrer noopener">百度统计</a>
+                
+                    <a class="footer-item" target="_blank" href="https://ql.tianli0.top/" title="TianliCDN" rel="noopener external nofollow noreferrer noopener">TianliCDN</a>
+                    
+            </div>
+        </div>
+    
+        <div class="footer-group">
+            <h3 class="footer-title">Acrylic</h3>
+            <div class="footer-links">
+                
+                    <a class="footer-item" target="_blank" href="https://acrylic.zhheo.com/" title="主题官网" rel="noopener external nofollow noreferrer noopener">主题官网</a>
+                
+                    <a class="footer-item" target="_blank" href="https://github.com/hexo-theme-Acrylic/Hexo-Theme-Acrylic" title="Github" rel="noopener external nofollow noreferrer noopener">Github</a>
+                
+                    <a class="footer-item" target="_blank" href="https://blog.zhheo.com/" title="Heo" rel="noopener external nofollow noreferrer noopener">Heo</a>
+                    
+            </div>
+        </div>
+    
+        <div class="footer-group">
+            <h3 class="footer-title">推荐友链</h3>
+            <div class="footer-links">
+                
+                    <a class="footer-item" target="_blank" href="https://blog.zhheo.com/" title="Heo" rel="noopener external nofollow noreferrer noopener">Heo</a>
+                
+                    <a class="footer-item" target="_blank" href="https://akilar.top" title="Akilar" rel="noopener external nofollow noreferrer noopener">Akilar</a>
+                    
+            </div>
+        </div>
+    
+    
+</div>
+<div id="footer-section">
+    <div class="footer-section-links">
+        <div class="footer-section-left">
+            <div id="footer-section-tips">
+                <div class="copyright">©2023 - 2024 By 
+                    <a class="footer-section-link" href="/" rel="external nofollow">yamon</a>
+                    <a class="footer-section-link" href="https://github.com/hexo-theme-Acrylic/Hexo-Theme-Acrylic-Next" rel="external nofollow" target="_blank"> Theme By Acrylic-Next</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-section-right">
+            <a class="footer-section-link" href="/rss/">订阅</a>
+            
+            <a class="footer-section-link cc" target="_blank" href="https://creativecommons.org/licenses/by/4.0/" title="cc协议">
+                <i class="fa-solid fa-closed-captioning"></i>
+            </a>
+        </div>
+    </div>
+</div>
+                </footer>
+            </div>
+         
+        <div>
+    <script type="text/javascript" src="/js/utils.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+    
+
+<script src="/lib/pjax.min.js"></script>
+
+
+
+<script src="/lib/snackbar.min.js"></script>
+
+
+    
+<script src="/lib/view-image.min.js"></script>
+
+
+
+<div id="js-pjax">
+    
+    
+        <script async src="https://npm.elemecdn.com/penndu@1.0.0/bsz.js"></script>
+     
+</div>
+
+
+    
+<script src="/js/extend/covercolor/local.js"></script>
+
+        
+
+
+    
+<script src="/js/extend/console/comment.js"></script>
+
+
+    <script>
+  let pjaxSelectors = [
+    'title',
+    '#body-wrap',
+    '#site-config',
+    'meta[name="description"]',
+    '#js-pjax'
+  ]
+  
+  const pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+  })
+
+  document.addEventListener('pjax:error', (e) => {
+    if (e.request.status === 404) {
+      pjax.loadUrl('/404.html')
+    }
+  })
+</script>
+    
+</div>
+        
+    <div id="local-search">
+    <div class="search-dialog">
+        <nav class="search-nav">
+            <span class="search-dialog-title">搜索</span>
+            <button class="search-close-button">
+                <i class="fas fa-times"></i>
+            </button>
+        </nav>
+        <div id="loading-database">
+            <i class="fas fa-spinner fa-pulse"></i>
+            <span>加载中</span>
+        </div>
+        <div class="search-wrap">
+            <div class="search-box">
+                <input class="search-box-input" placeholder="输入关键词快速查找" type="text" id="search-input" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off">
+            </div>
+            <div id="loading-status"></div>
+            <div id="search-results"></div>
+        </div>
+    </div>
+    <div id="search-mask"></div>
+</div>
+    
+<link rel="stylesheet" href="/css/search/local-search.css">
+
+    
+<script src="/js/extend/search/local-search.js"></script>
+
+
+     
+        <div class="needEndHide" id="nav-music" onclick="acrylic.musicToggle()">
+    <div id="nav-music-hoverTips">音乐已暂停</div>
+    <meting-js id="1708664797" server="tencent" type="playlist" mutex="true"
+        preload="none" data-lrctype="0" order="random" theme="var(--heo-main)"></meting-js>
+</div>
+    
+    </body>
+</html>
+<script>const posts=["2024/04/05/13. 软考/计组/","2024/04/05/11.生活/家具家电清单/","2024/04/05/07.日常排错记录/IO error on POST request for xxx Connection reset; Connection reset/","2024/04/05/06.加解密知识点汇总/keytool生成公私钥代码/","2024/03/21/jdk17没有jre的解决方法/","2024/03/21/test/","2023/08/31/12. RabbitMQ/05-RabbitMQ官方教程-RPC/","2023/08/31/12. RabbitMQ/04-RabbitMQ官方教程-Topic/","2023/08/30/10. Linux/设置DNS/","2023/08/30/10. Linux/挂载硬盘/","2023/08/30/12. RabbitMQ/03-RabbitMQ官方教程-Routing/","2023/08/30/12. RabbitMQ/02-RabbitMQ官方教程-发布订阅模式/","2023/08/30/12. RabbitMQ/01-RabbitMQ官方教程-Work queues/","2023/08/30/12. RabbitMQ/00-RabbitMQ官方教程-hello world/","2023/08/04/01.设计模式/备忘录模式/","2023/08/04/01.设计模式/责任链模式/","2023/08/03/02.开源项目/Hexo文章转换器III/","2023/08/03/01.设计模式/极客时间/设计原则与思想：设计原则/【设计模式之美】22.理论八：如何用迪米特法则（LOD）实现“高内聚、松耦合”？/","2023/08/03/01.设计模式/极客时间/设计原则与思想：设计原则/【设计模式之美】21. 理论七：重复的代码就一定违背DRY吗？如何提高代码的复用性？/","2023/08/03/01.设计模式/极客时间/设计原则与思想：设计原则/【设计模式之美】20.理论六：我为何说KISS、YAGNI原则看似简单，却经常被用错？ /","2023/08/03/01.设计模式/极客时间/设计原则与思想：设计原则/【设计模式之美】19. 理论五：控制反转、依赖反转、依赖注入，这三者有何区别和联系？/","2023/08/03/01.设计模式/极客时间/设计原则与思想：设计原则/【设计模式之美】18. 理论四：接口隔离原则有哪三种应用？原则中的“接口”该如何理解？/","2023/08/03/01.设计模式/极客时间/设计原则与思想：设计原则/【设计模式之美】17.理论三：里式替换（LSP）跟多态有何区别？哪些代码违背了LSP？ /","2023/08/03/01.设计模式/极客时间/设计原则与思想：设计原则/【设计模式之美】16. 理论二：如何做到“对扩展开放、修改关闭”？扩展和修改各指什么？/","2023/08/03/09.ZStack/VPC网络、公有网络、扁平网络/","2023/07/24/test1/","2023/07/15/04.Java/Java基础/06. 反射的具体使用场景/","2023/07/15/08. 软件工程/类与类之间的交互关系/","2023/07/15/01.设计模式/极客时间/设计原则与思想：设计原则/【设计模式之美】15.理论一：对于单一职责原则，如何判定某个类的职责是否够“单一”？ /","2023/07/15/01.设计模式/极客时间/设计原则与思想：面向对象/【设计模式之美】14. 实战二（下）：如何利用面向对象设计和编程开发接口鉴权功能？/","2023/07/14/04.Java/JVM/Java类加载过程/","2023/07/14/04.Java/Java基础/05. 动态代理/","2023/07/14/04.Java/Java基础/04. Java如何通过反射获取成员方法/","2023/07/14/04.Java/Java基础/03. Java如何通过反射获取成员变量/","2023/07/14/04.Java/Java基础/02. Java如何通过反射访问构造方法？/","2023/07/14/04.Java/Java基础/01. Java反射API/","2023/07/14/04.Java/Java基础/00.反射-基本入门/","2023/07/13/01.设计模式/极客时间/设计原则与思想：面向对象/【设计模式之美】13. 实战二（上）：如何对接口鉴权这样一个功能开发做面向对象分析？/","2023/07/13/01.设计模式/极客时间/设计原则与思想：面向对象/【设计模式之美】12.实战一（下）：如何利用基于充血模型的DDD开发一个虚拟钱包系统？ /","2023/07/13/05.Spring/IOC高级-BeanDefinition/","2023/07/12/06.加解密知识点汇总/JDK的keytool总结/","2023/07/12/01.设计模式/极客时间/设计原则与思想：面向对象/【设计模式之美】11. 实战一（上）：业务开发常用的基于贫血模型的MVC架构违背OOP吗？/","2023/07/11/06.加解密知识点汇总/RSA和AES加密工具类算法/","2023/07/11/06.加解密知识点汇总/非对称加密算法/","2023/07/07/00.算法/删除链表的倒数第N个节点/","2023/07/07/05.Spring/IOC高级-配置源&配置元信息/","2023/07/07/01.设计模式/极客时间/设计原则与思想：面向对象/【设计模式之美】10. 理论七：为何说要多用组合少用继承？如何决定该用组合还是继承？/","2023/07/07/01.设计模式/极客时间/设计原则与思想：面向对象/【设计模式之美】09.理论六：为什么基于接口而非实现编程？有必要为每个类都定义接口吗？/","2023/07/07/01.设计模式/极客时间/设计原则与思想：面向对象/【设计模式之美】08.理论五：接口vs抽象类的区别？如何用普通的类模拟抽象类和接口？)/","2023/07/07/00.算法/反转链表I/","2023/06/28/springboot如何将控制台的代码保存到文件中/","2023/06/28/01.设计模式/极客时间/设计原则与思想：面向对象/【设计模式之美】07.理论四：哪些代码设计看似是面向对象，实际是面向过程的？/","2023/06/28/01.设计模式/极客时间/设计原则与思想：面向对象/【设计模式之美】06.理论三：面向对象相比面向过程有哪些优势？面向过程真的过时了吗？/","2023/06/28/01.设计模式/极客时间/设计原则与思想：面向对象/【设计模式之美】05.理论二：封装、抽象、继承、多态分别可以解决哪些编程问题？/","2023/06/28/02.开源项目/Hexo文章转换器II/","2023/06/28/01.设计模式/极客时间/设计原则与思想：面向对象/【设计模式之美】04. 理论一：当谈论面向对象的时候，我们到底在谈论什么？/","2023/06/28/00.算法/装满杯子需要的最短总时长/","2023/06/26/00.算法/双指针之链表总结/","2023/06/25/00.算法/链表相交/","2023/06/19/02.开源项目/Hexo文章转换器/","2023/06/19/00.算法/环形链表/","2023/06/19/00.算法/环形链表的起点/","2023/06/19/00.算法/链表的中间结点/","2023/06/17/02.开源项目/综合工具箱/","2023/06/16/如何将java项目打包成exe格式/","2023/06/16/00.算法/单链表的倒数第k个节点/","2023/06/13/03.Hexo/hexo-Acrylic主题集成twikoo评论/","2023/06/13/03.Hexo/hexo如何修改主题/","2023/06/13/03.Hexo/从0到1部署博客系统到Github-Page/"];function toRandomPost(){ window.pjax ? pjax.loadUrl('/'+posts[Math.floor(Math.random()*posts.length)]) : window.open('/'+posts[Math.floor(Math.random()*posts.length)], "_self"); };</script>

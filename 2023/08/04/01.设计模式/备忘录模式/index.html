@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>备忘录模式 | yamon，分享并热爱生活</title>
+<noscript>开启Javascript是必要的</noscript>
+<link rel="icon" type="image/x-icon" href="/img/avatar.webp">
+<link rel="apple-touch-icon" href="/img/avatar.webp">
+<meta name="apple-mobile-web-app-title" content="yamon，分享并热爱生活">
+<link rel="bookmark" href="/img/avatar.webp">
+<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/img/avatar.webp">
+<meta name="description" content="a blog 一个分享技术与生活的博客">
+<meta name="theme-color" content="#1C1C1F">
+<link rel="stylesheet" href="/css/var.css">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    
+
+<link rel="stylesheet" href="/lib/snackbar.min.css">
+
+
+<script src="/lib/qrcode.min.js"></script>
+
+
+    
+<script src="https://cdn.staticfile.org/twikoo/1.6.10/twikoo.all.min.js"></script>
+
+
+
+
+
+<script>var GLOBALCONFIG = {"root":"/","runtime":"2023-06-12 00:00:00","lazyload":{"enable":false,"error":"/img/acrylic.png"},"hightlight":{"enable":true,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":true,"comment":{"enable":true,"twikooUrl":"https://twikoo.chenym.top/"},"localsearch":{"preload":false,"path":"/search.xml"}};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":true,"is_page":false,"page":false,"toc":true,"comment":true};</script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body id="body">
+        
+            <div id="loading-box" onclick="preloader.endLoading();" class style="zoom: 1;">
+    <div class="loading-bg">
+        <img class="loading-img nolazyload" alt="loading image"
+            src="/img/avatar.webp">
+        </div>
+</div>
+<script>
+    const preloader = {
+        endLoading: () => {
+            document.getElementById('loading-box').classList.add("loaded")
+        },
+        initLoading: () => {
+            document.getElementById('loading-box').classList.remove("loaded")
+        },
+        removePaceDone: () => {
+            document.getElementById('body').classList = 'pace-done'
+        }
+    }
+    window.addEventListener('load',()=> { preloader.endLoading() })
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+</script>
+<style>
+    #loading-box {
+        -webkit-user-select: none;
+    }
+
+    #loading-box .loading-bg {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background: var(--heo-background);
+        z-index: 1999;
+        opacity: 1;
+        transition: 0.2s;
+        pointer-events: all;
+        animation: showLoading 0.3s 0s backwards;
+    }
+
+    #loading-box.loaded .loading-bg {
+        pointer-events: none;
+        transition: 0.2s;
+        animation: hideLoading 0.3s 0s forwards;
+    }
+
+    #loading-box .loading-img {
+        width: 100px;
+        margin: auto;
+        animation-duration: 0.2s;
+        animation-name: loadingAction;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    }
+
+    @keyframes loadingAction {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0.6;
+        }
+    }
+
+    @keyframes hideLoading {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0;
+        }
+    }
+
+    @keyframes showLoading {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+</style>
+        
+        <div id="console" style="zoom: 1;" class="">
+    <div class="close-btn" onclick="acrylic.hideConsole()" href="javascript:void(0);">
+        <i class="fas fa-circle-xmark"></i>
+    </div>
+    
+        <div class="console-card-group">
+            <div class="console-card-group-left">
+                <div class="console-card" id="card-newest-comments" onclick="acrylic.hideConsole()">
+                    <div class="card-content">
+                        <div class="author-content-item-tips">互动</div>
+                        <div class="author-content-item-title">最新评论</div>
+                    </div>
+                    <div class="aside-list"></div>
+                </div>
+    
+            </div>
+            <div class="console-card-group-right">
+                <div class="console-card tags" onclick="acrylic.hideConsole()">
+                    <div class="card-content">
+                        <div class="author-content-item-tips">标签</div>
+                        <div class="author-content-item-title">寻找感兴趣的领域</div>
+                    </div>
+                    <div class="card-tag-cloud">
+                        
+                            <a href="/tags/222/" style="font-size: 0.8rem; color: #d3d3d3">222<sup>2</sup></a>
+                        
+                            <a href="/tags/Java/" style="font-size: 0.8rem; color: #d3d3d3">Java<sup>20</sup></a>
+                        
+                            <a href="/tags/SpringBoot/" style="font-size: 0.8rem; color: #d3d3d3">SpringBoot<sup>1</sup></a>
+                        
+                            <a href="/tags/1/" style="font-size: 0.8rem; color: #d3d3d3">1<sup>1</sup></a>
+                        
+                            <a href="/tags/java/" style="font-size: 0.8rem; color: #d3d3d3">java<sup>7</sup></a>
+                        
+                            <a href="/tags/exe/" style="font-size: 0.8rem; color: #d3d3d3">exe<sup>1</sup></a>
+                        
+                            <a href="/tags/%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F/" style="font-size: 0.8rem; color: #d3d3d3">备忘录模式<sup>1</sup></a>
+                        
+                            <a href="/tags/%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/" style="font-size: 0.8rem; color: #d3d3d3">责任链模式<sup>1</sup></a>
+                        
+                            <a href="/tags/%E9%93%BE%E8%A1%A8/" style="font-size: 0.8rem; color: #d3d3d3">链表<sup>6</sup></a>
+                        
+                            <a href="/tags/leetcode/" style="font-size: 0.8rem; color: #d3d3d3">leetcode<sup>9</sup></a>
+                        
+                            <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" style="font-size: 0.8rem; color: #d3d3d3">双指针<sup>5</sup></a>
+                        
+                            <a href="/tags/%E9%80%92%E5%BD%92/" style="font-size: 0.8rem; color: #d3d3d3">递归<sup>2</sup></a>
+                        
+                            <a href="/tags/twikoo/" style="font-size: 0.8rem; color: #d3d3d3">twikoo<sup>1</sup></a>
+                        
+                            <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 0.8rem; color: #d3d3d3">博客<sup>3</sup></a>
+                        
+                            <a href="/tags/hexo/" style="font-size: 0.8rem; color: #d3d3d3">hexo<sup>4</sup></a>
+                        
+                            <a href="/tags/github/" style="font-size: 0.8rem; color: #d3d3d3">github<sup>1</sup></a>
+                        
+                            <a href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" style="font-size: 0.8rem; color: #d3d3d3">开源项目<sup>2</sup></a>
+                        
+                            <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 0.8rem; color: #d3d3d3">工具<sup>4</sup></a>
+                        
+                            <a href="/tags/JavaFX/" style="font-size: 0.8rem; color: #d3d3d3">JavaFX<sup>1</sup></a>
+                        
+                            <a href="/tags/Spring/" style="font-size: 0.8rem; color: #d3d3d3">Spring<sup>1</sup></a>
+                        
+                            <a href="/tags/vue/" style="font-size: 0.8rem; color: #d3d3d3">vue<sup>1</sup></a>
+                        
+                            <a href="/tags/electron/" style="font-size: 0.8rem; color: #d3d3d3">electron<sup>1</sup></a>
+                        
+                            <a href="/tags/%E6%9D%82%E8%AE%B0/" style="font-size: 0.8rem; color: #d3d3d3">杂记<sup>1</sup></a>
+                        
+                            <a href="/tags/keytool/" style="font-size: 0.8rem; color: #d3d3d3">keytool<sup>1</sup></a>
+                        
+                            <a href="/tags/%E5%8A%A0%E5%AF%86%E5%B7%A5%E5%85%B7%E7%B1%BB/" style="font-size: 0.8rem; color: #d3d3d3">加密工具类<sup>2</sup></a>
+                        
+                            <a href="/tags/RSA/" style="font-size: 0.8rem; color: #d3d3d3">RSA<sup>2</sup></a>
+                        
+                            <a href="/tags/AES/" style="font-size: 0.8rem; color: #d3d3d3">AES<sup>1</sup></a>
+                        
+                            <a href="/tags/%E7%B1%BB%E5%85%B3%E7%B3%BB/" style="font-size: 0.8rem; color: #d3d3d3">类关系<sup>1</sup></a>
+                        
+                            <a href="/tags/DSA/" style="font-size: 0.8rem; color: #d3d3d3">DSA<sup>1</sup></a>
+                        
+                            <a href="/tags/%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86/" style="font-size: 0.8rem; color: #d3d3d3">非对称加密<sup>1</sup></a>
+                        
+                            <a href="/tags/ZStack/" style="font-size: 0.8rem; color: #d3d3d3">ZStack<sup>1</sup></a>
+                        
+                            <a href="/tags/RabbitMQ/" style="font-size: 0.8rem; color: #d3d3d3">RabbitMQ<sup>6</sup></a>
+                        
+                            <a href="/tags/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B/" style="font-size: 0.8rem; color: #d3d3d3">类加载过程<sup>1</sup></a>
+                        
+                            <a href="/tags/%E5%8F%8D%E5%B0%84/" style="font-size: 0.8rem; color: #d3d3d3">反射<sup>7</sup></a>
+                        
+                            <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" style="font-size: 0.8rem; color: #d3d3d3">面向对象<sup>16</sup></a>
+                        
+                            <a href="/tags/%E5%8D%95%E4%B8%80%E8%81%8C%E8%B4%A3/" style="font-size: 0.8rem; color: #d3d3d3">单一职责<sup>1</sup></a>
+                        
+                            <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 0.8rem; color: #d3d3d3">设计模式<sup>13</sup></a>
+                        
+                            <a href="/tags/%E6%8E%A5%E5%8F%A3/" style="font-size: 0.8rem; color: #d3d3d3">接口<sup>2</sup></a>
+                        
+                            <a href="/tags/%E6%8A%BD%E8%B1%A1%E7%B1%BB/" style="font-size: 0.8rem; color: #d3d3d3">抽象类<sup>1</sup></a>
+                        
+                            <a href="/tags/DDD/" style="font-size: 0.8rem; color: #d3d3d3">DDD<sup>2</sup></a>
+                        
+                            <a href="/tags/%E8%B4%AB%E8%A1%80%E6%A8%A1%E5%9E%8B/" style="font-size: 0.8rem; color: #d3d3d3">贫血模型<sup>1</sup></a>
+                        
+                    </div>
+                </div>
+                <div class="console-card history" onclick="acrylic.hideConsole()">
+                    <ul class="card-archive-list">
+    
+     
+        <li class="card-archive-list-item"><a class="card-archive-list-link" onclick="pjax.loadUrl('/archives/2024-04/')" data-pjax-state=""><span
+            class="card-archive-list-date">2024-04</span>
+            <div class="card-archive-list-count-group"><span class="card-archive-list-count">4</span><span
+                    class="card-archive-list-count-unit">篇</span></div>
+            </a>
+        </li>
+     
+        <li class="card-archive-list-item"><a class="card-archive-list-link" onclick="pjax.loadUrl('/archives/2024-03/')" data-pjax-state=""><span
+            class="card-archive-list-date">2024-03</span>
+            <div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span
+                    class="card-archive-list-count-unit">篇</span></div>
+            </a>
+        </li>
+     
+        <li class="card-archive-list-item"><a class="card-archive-list-link" onclick="pjax.loadUrl('/archives/2023-08/')" data-pjax-state=""><span
+            class="card-archive-list-date">2023-08</span>
+            <div class="card-archive-list-count-group"><span class="card-archive-list-count">19</span><span
+                    class="card-archive-list-count-unit">篇</span></div>
+            </a>
+        </li>
+     
+        <li class="card-archive-list-item"><a class="card-archive-list-link" onclick="pjax.loadUrl('/archives/2023-07/')" data-pjax-state=""><span
+            class="card-archive-list-date">2023-07</span>
+            <div class="card-archive-list-count-group"><span class="card-archive-list-count">25</span><span
+                    class="card-archive-list-count-unit">篇</span></div>
+            </a>
+        </li>
+     
+        <li class="card-archive-list-item"><a class="card-archive-list-link" onclick="pjax.loadUrl('/archives/2023-06/')" data-pjax-state=""><span
+            class="card-archive-list-date">2023-06</span>
+            <div class="card-archive-list-count-group"><span class="card-archive-list-count">19</span><span
+                    class="card-archive-list-count-unit">篇</span></div>
+            </a>
+        </li>
+        
+</ul>
+
+                </div>
+            </div>
+        </div>
+    
+    
+    <div class="button-group">
+        <div class="console-btn-item"> <a class="darkmode_switchbutton" onclick="acrylic.switchDarkMode()" title="显示模式切换"
+                href="javascript:void(0);" rel="external nofollow" data-pjax-state=""><i class="fas fa-moon"
+                    style="font-size: 1rem;"></i></a></div>
+        
+    </div>
+    <div class="console-mask" onclick="acrylic.hideConsole()" href="javascript:void(0);" rel="external nofollow"></div>
+</div>
+        <div id="sidebar" style="zoom: 1;">
+    <div id="menu-mask" style="display: none;"></div>
+    <div id="sidebar-menus" class>
+        <span class="sidebar-menu-item-title">功能</span>
+        <div class="sidebar-menu-item">
+            <a class="darkmode_switchbutton menu-child" onclick="acrylic.switchDarkMode()" title="显示模式切换"
+                href="javascript:void(0);" rel="external nofollow">
+                <i class="fas fa-moon" style="font-size: 1rem;"></i>
+                <span>显示模式</span>
+            </a>
+        </div>
+        
+            <div class="back-menu-list-groups">
+    
+      
+      <div class="back-menu-list-group">
+        <div class="back-menu-list-title">
+          我的
+        </div>
+        <div class="back-menu-list">
+          
+            
+            <a class="back-menu-item" href="/archives/" rel="external nofollow" title="博客">
+              <img class="back-menu-item-icon" src="/img/avatar.webp" loading="lazy">
+              <span class="back-menu-item-text">
+                博客
+              </span>
+            </a>
+          
+        </div>
+      </div>
+    
+  </div>
+  
+        
+        <div class="menus_items">
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 文库</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/archives/">
+                                <i class="fas fa-box-archive"></i>
+                                <span> 文章列表</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/">
+                                <i class="fas fa-cube"></i>
+                                <span> 全部分类</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/tags/">
+                                <i class="fas fa-tags"></i>
+                                <span> 全部标签</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 推荐专栏</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/%E6%95%99%E7%A8%8B/">
+                                <i class="fas fa-book"></i>
+                                <span> 教程</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+                                <i class="fas fa-key"></i>
+                                <span> 设计模式</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/Java%E5%9F%BA%E7%A1%80/">
+                                <i class="fas fa-trophy"></i>
+                                <span> Java</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/">
+                                <i class="fas fa-trophy"></i>
+                                <span> RabbitMQ教程</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 友链</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/fcircle/">
+                                <i class="fas fa-fish-fins"></i>
+                                <span> 友链鱼塘</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/links/">
+                                <i class="fas fa-user-group"></i>
+                                <span> 友情链接</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="javascript:travelling()">
+                                <i class="fas fa-bus"></i>
+                                <span> 宝藏博主</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 我的</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/about">
+                                <i class="fas fa-user-group"></i>
+                                <span> 关于我</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+</div>
+        <span class="sidebar-menu-item-title">标签</span>
+        <div class="card-widget card-tags card-archives card-webinfo card-allinfo">
+            <div class="item-headline">
+                <i class="fas fa-tags"></i>
+                <span>标签</span>
+            </div>
+            <div class="card-tag-cloud">
+                
+                    <a href="/tags/222/" style="font-size: 1em; color: #d3d3d3">222
+                        <sup>2</sup>
+                    </a>
+                
+                    <a href="/tags/Java/" style="font-size: 1em; color: #d3d3d3">Java
+                        <sup>20</sup>
+                    </a>
+                
+                    <a href="/tags/SpringBoot/" style="font-size: 1em; color: #d3d3d3">SpringBoot
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/1/" style="font-size: 1em; color: #d3d3d3">1
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/java/" style="font-size: 1em; color: #d3d3d3">java
+                        <sup>7</sup>
+                    </a>
+                
+                    <a href="/tags/exe/" style="font-size: 1em; color: #d3d3d3">exe
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F/" style="font-size: 1em; color: #d3d3d3">备忘录模式
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/" style="font-size: 1em; color: #d3d3d3">责任链模式
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E9%93%BE%E8%A1%A8/" style="font-size: 1em; color: #d3d3d3">链表
+                        <sup>6</sup>
+                    </a>
+                
+                    <a href="/tags/leetcode/" style="font-size: 1em; color: #d3d3d3">leetcode
+                        <sup>9</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" style="font-size: 1em; color: #d3d3d3">双指针
+                        <sup>5</sup>
+                    </a>
+                
+                    <a href="/tags/%E9%80%92%E5%BD%92/" style="font-size: 1em; color: #d3d3d3">递归
+                        <sup>2</sup>
+                    </a>
+                
+                    <a href="/tags/twikoo/" style="font-size: 1em; color: #d3d3d3">twikoo
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 1em; color: #d3d3d3">博客
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/hexo/" style="font-size: 1em; color: #d3d3d3">hexo
+                        <sup>4</sup>
+                    </a>
+                
+                    <a href="/tags/github/" style="font-size: 1em; color: #d3d3d3">github
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" style="font-size: 1em; color: #d3d3d3">开源项目
+                        <sup>2</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 1em; color: #d3d3d3">工具
+                        <sup>4</sup>
+                    </a>
+                
+                    <a href="/tags/JavaFX/" style="font-size: 1em; color: #d3d3d3">JavaFX
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/Spring/" style="font-size: 1em; color: #d3d3d3">Spring
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/vue/" style="font-size: 1em; color: #d3d3d3">vue
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/electron/" style="font-size: 1em; color: #d3d3d3">electron
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%9D%82%E8%AE%B0/" style="font-size: 1em; color: #d3d3d3">杂记
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/keytool/" style="font-size: 1em; color: #d3d3d3">keytool
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%8A%A0%E5%AF%86%E5%B7%A5%E5%85%B7%E7%B1%BB/" style="font-size: 1em; color: #d3d3d3">加密工具类
+                        <sup>2</sup>
+                    </a>
+                
+                    <a href="/tags/RSA/" style="font-size: 1em; color: #d3d3d3">RSA
+                        <sup>2</sup>
+                    </a>
+                
+                    <a href="/tags/AES/" style="font-size: 1em; color: #d3d3d3">AES
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E7%B1%BB%E5%85%B3%E7%B3%BB/" style="font-size: 1em; color: #d3d3d3">类关系
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/DSA/" style="font-size: 1em; color: #d3d3d3">DSA
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86/" style="font-size: 1em; color: #d3d3d3">非对称加密
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/ZStack/" style="font-size: 1em; color: #d3d3d3">ZStack
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/RabbitMQ/" style="font-size: 1em; color: #d3d3d3">RabbitMQ
+                        <sup>6</sup>
+                    </a>
+                
+                    <a href="/tags/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B/" style="font-size: 1em; color: #d3d3d3">类加载过程
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%8F%8D%E5%B0%84/" style="font-size: 1em; color: #d3d3d3">反射
+                        <sup>7</sup>
+                    </a>
+                
+                    <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" style="font-size: 1em; color: #d3d3d3">面向对象
+                        <sup>16</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%8D%95%E4%B8%80%E8%81%8C%E8%B4%A3/" style="font-size: 1em; color: #d3d3d3">单一职责
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 1em; color: #d3d3d3">设计模式
+                        <sup>13</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%8E%A5%E5%8F%A3/" style="font-size: 1em; color: #d3d3d3">接口
+                        <sup>2</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%8A%BD%E8%B1%A1%E7%B1%BB/" style="font-size: 1em; color: #d3d3d3">抽象类
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/DDD/" style="font-size: 1em; color: #d3d3d3">DDD
+                        <sup>2</sup>
+                    </a>
+                
+                    <a href="/tags/%E8%B4%AB%E8%A1%80%E6%A8%A1%E5%9E%8B/" style="font-size: 1em; color: #d3d3d3">贫血模型
+                        <sup>1</sup>
+                    </a>
+                
+            </div>
+        </div>
+    </div>
+</div>    
+        
+            <div class="post" id="body-wrap">
+                <header class="post-bg" id="page-header">
+    <nav id="nav" class="show">
+    <div id="nav-group">
+        <div id="blog_name">
+            
+                <div class="back-home-button" tabindex="-1">
+                    <i class="back-home-button-icon fas fa-grip-vertical"></i>
+                    <div class="back-menu-list-groups">
+    
+      
+      <div class="back-menu-list-group">
+        <div class="back-menu-list-title">
+          我的
+        </div>
+        <div class="back-menu-list">
+          
+            
+            <a class="back-menu-item" href="/archives/" rel="external nofollow" title="博客">
+              <img class="back-menu-item-icon" src="/img/avatar.webp" loading="lazy">
+              <span class="back-menu-item-text">
+                博客
+              </span>
+            </a>
+          
+        </div>
+      </div>
+    
+  </div>
+  
+                </div>
+            
+            <a id="site-name" href="/" title="返回博客主页">
+                    
+                        <span class="heoicon">yamon</span>
+                    
+            </a>
+        </div>
+        <div id="page-name-mask">
+            <div id="page-name">
+                <a id="page-name-text" onclick="acrylic.toTop()">备忘录模式</a>
+            </div>
+        </div>
+        <div id="menus">
+            <div class="menus_items">
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 文库</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/archives/">
+                                <i class="fas fa-box-archive"></i>
+                                <span> 文章列表</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/">
+                                <i class="fas fa-cube"></i>
+                                <span> 全部分类</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/tags/">
+                                <i class="fas fa-tags"></i>
+                                <span> 全部标签</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 推荐专栏</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/%E6%95%99%E7%A8%8B/">
+                                <i class="fas fa-book"></i>
+                                <span> 教程</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+                                <i class="fas fa-key"></i>
+                                <span> 设计模式</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/Java%E5%9F%BA%E7%A1%80/">
+                                <i class="fas fa-trophy"></i>
+                                <span> Java</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/">
+                                <i class="fas fa-trophy"></i>
+                                <span> RabbitMQ教程</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 友链</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/fcircle/">
+                                <i class="fas fa-fish-fins"></i>
+                                <span> 友链鱼塘</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/links/">
+                                <i class="fas fa-user-group"></i>
+                                <span> 友情链接</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="javascript:travelling()">
+                                <i class="fas fa-bus"></i>
+                                <span> 宝藏博主</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 我的</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/about">
+                                <i class="fas fa-user-group"></i>
+                                <span> 关于我</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+</div>
+        </div>
+        <!-- <div id="nav-left">
+            <div id="fps-group">
+                <div id="fps">145</div><span class="fpsText">FPS</span>
+            </div>
+        </div> -->
+        <div id="nav-right">
+            
+    <div class="nav-button only-home" id="travellings_button">
+        <a class="site-page"  target="_blank" rel="noopener external nofollow" href="https://www.travellings.cn/go.html" title="开往-友链接力"  width="120">
+            <i class="fa-solid fa-train-subway" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+    <div class="nav-button" id="randomPost_button">
+        <a class="site-page" onclick="toRandomPost()"
+            title="随机前往一个文章">
+            <i class="fas fa-shuffle" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+    <div class="nav-button" id="search-button">
+        <a class="site-page social-icon search" title="站内搜索"
+            href="javascript:void(0);" rel="external nofollow">
+            <i class="fas fa-magnifying-glass" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+    <div class="nav-button" id="nav-console">
+        <a class="console_switchbutton" onclick="acrylic.showConsole()"
+        title="显示中控台" href="javascript:void(0);" rel="external nofollow">
+        <i class="fas fa-bars-progress" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+<div class="nav-button" id="nav-totop" onclick="acrylic.toTop()">
+    <a class="totopbtn">
+        <i class="fas fa-arrow-up"></i>
+        <span id="percent">0</span>
+    </a>
+</div>
+<div id="toggle-menu">
+    <a class="site-page">
+        <i class="fas fa-bars fa-fw" style="font-size: 1rem;"></i>
+    </a>
+</div>
+        </div>
+    </div>
+</nav>
+    
+        <div class="coverdiv" id="coverdiv">
+    <img id="post-cover" class="nolazyload" src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202308041726286.jpeg" alt="cover">
+</div>
+<div id="post-info">
+    <div id="post-firstinfo">
+        <div class="meta-firstline">
+            <a class="post-meta-original" title="该文章为原创文章，注意版权协议">
+                原创
+            </a>
+            
+            <span class="post-meta-categories">
+                
+                    <a class="post-meta-categories" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+                
+            </span>
+            
+            <div class="tag_share">
+                <div class="post-meta__tag-list">
+                    
+                        <a class="post-meta__tags" href="/tags/%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F/">
+                            <span class="tags-punctuation">#</span>
+                            <span class="tags-name">备忘录模式</span>
+                        </a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1 class="post-title">备忘录模式</h1>
+    <div id="post-meta">
+        <div class="meta-secondline">
+            <span class="post-meta-date" title="发布于">
+                <i class="post-meta-icon fa-fw fas fa-calendar"></i>
+                <time datetime="2023-08-04T17:26:59+08:00"></time>
+            </span>
+            
+                <span class="post-meta-date" title="更新于">
+                    <i class="post-meta-icon fa-solid fa-clock-rotate-left"></i>
+                    <time datetime="2024-04-05T20:33:09+08:00"></time>
+                </span>
+            
+            
+                <span class="post-meta-position" title="作者IP归属地为天津">
+                    <i class="fas fa-location-dot post-meta-icon"></i>
+                    <span>天津</span>
+                </span>
+            
+            
+                
+                    <span class="post-meta-wordcount">
+                        <i class="fas fa-file-word fa-fw post-meta-icon" title="文章字数"></i>
+                        <span class="word-count">3.5k</span>
+                    </span>
+                
+                
+                    <span class="post-meta-time">
+                        <i class="fas fa-clock post-meta-icon" title="阅读耗时"></i>
+                        <span>12 min</span>
+                    </span>
+                
+            
+            
+            
+                <span class="post-meta-commentcount" title="评论数">
+                    <i class="fa-solid fa-message"></i>
+                    <a href="#post-comment">
+                        <span id="twikoo-count"><i class="fas fa-spinner fa-pulse"></i></span>
+                    </a>
+                </span>
+                
+        </div>
+    </div>
+</div>
+<section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg"
+    xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+    <defs>
+        <path id="gentle-wave"
+            d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path>
+    </defs>
+    <g class="parallax">
+        <use href="#gentle-wave" x="48" y="0"></use>
+        <use href="#gentle-wave" x="48" y="3"></use>
+        <use href="#gentle-wave" x="48" y="5"></use>
+        <use href="#gentle-wave" x="48" y="7"></use>
+    </g>
+</svg>
+</section>
+
+        
+</header>
+                <main class="layout" id="content-inner">
+    <div id="post">
+        <article class="post-content" id="article-container">
+            <h1 id="备忘录模式"><a href="#备忘录模式" class="headerlink" title="备忘录模式"></a>备忘录模式</h1><p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202308041726286.jpeg" alt="a person standing on top of a cliff"></p>
+<h2 id="意图"><a href="#意图" class="headerlink" title="意图"></a>意图</h2><p><strong>备忘录模式</strong>是一种行为设计模式， 允许在不暴露对象实现细节的情况下保存和恢复对象之前的状态。</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202308041714084.png" alt="备忘录设计模式"></p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>假如你正在开发一款文字编辑器应用程序。 除了简单的文字编辑功能外， 编辑器中还要有设置文本格式和插入内嵌图片等功能。</p>
+<p>后来， 你决定让用户能撤销施加在文本上的任何操作。 这项功能在过去几年里变得十分普遍， 因此用户期待任何程序都有这项功能。 你选择采用直接的方式来实现该功能： 程序在执行任何操作前会记录所有的对象状态， 并将其保存下来。 当用户此后需要撤销某个操作时， 程序将从历史记录中获取最近的快照， 然后使用它来恢复所有对象的状态。</p>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202308041714637.png" alt="在编辑器中撤销操作"></p>
+<p>程序在执行操作前保存所有对象的状态快照， 稍后可通过快照将对象恢复到之前的状态。</p>
+<p>让我们来思考一下这些状态快照。 首先， 到底该如何生成一个快照呢？ 很可能你会需要遍历对象的所有成员变量并将其数值复制保存。 但只有当对象对其内容没有严格访问权限限制的情况下， 你才能使用该方式。 不过很遗憾， 绝大部分对象会使用私有成员变量来存储重要数据， 这样别人就无法轻易查看其中的内容。</p>
+<p>现在我们暂时忽略这个问题， 假设对象都像嬉皮士一样： 喜欢开放式的关系并会公开其所有状态。 尽管这种方式能够解决当前问题， 让你可随时生成对象的状态快照， 但这种方式仍存在一些严重问题。 未来你可能会添加或删除一些成员变量。 这听上去很简单， 但需要对负责复制受影响对象状态的类进行更改。</p>
+<p><img src="https://refactoringguru.cn/images/patterns/diagrams/memento/problem2-zh.png" alt="如何复制对象的私有状态？"></p>
+<p>还有更多问题。 让我们来考虑编辑器 （Editor） 状态的实际 “快照”， 它需要包含哪些数据？ 至少必须包含实际的文本、 光标坐标和当前滚动条位置等。 你需要收集这些数据并将其放入特定容器中， 才能生成快照。</p>
+<p>你很可能会将大量的容器对象存储在历史记录列表中。 这样一来， 容器最终大概率会成为同一个类的对象。 这个类中几乎没有任何方法， 但有许多与编辑器状态一一对应的成员变量。 为了让其他对象能保存或读取快照， 你很可能需要将快照的成员变量设为公有。 无论这些状态是否私有， 其都将暴露一切编辑器状态。 其他类会对快照类的每个小改动产生依赖， 除非这些改动仅存在于私有成员变量或方法中， 而不会影响外部类。</p>
+<p>我们似乎走进了一条死胡同： 要么会暴露类的所有内部细节而使其过于脆弱； 要么会限制对其状态的访问权限而无法生成快照。 那么， 我们还有其他方式来实现 “撤销” 功能吗？</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>我们刚才遇到的所有问题都是封装 “破损” 造成的。 一些对象试图超出其职责范围的工作。 由于在执行某些行为时需要获取数据， 所以它们侵入了其他对象的私有空间， 而不是让这些对象来完成实际的工作。</p>
+<p>备忘录模式将创建状态快照 （Snapshot） 的工作委派给实际状态的拥有者<em>原发器</em> （Originator） 对象。 这样其他对象就不再需要从 “外部” 复制编辑器状态了， 编辑器类拥有其状态的完全访问权， 因此可以自行生成快照。</p>
+<p>模式建议将对象状态的副本存储在一个名为<em>备忘录</em> （Memento） 的特殊对象中。 除了创建备忘录的对象外， 任何对象都不能访问备忘录的内容。 其他对象必须使用受限接口与备忘录进行交互， 它们可以获取快照的元数据 （创建时间和操作名称等）， 但不能获取快照中原始对象的状态。</p>
+<p><img src="https://refactoringguru.cn/images/patterns/diagrams/memento/solution-zh.png" alt="原发器拥有对备忘录的完全权限，负责人则只能访问元数据"></p>
+<p>原发器拥有对备忘录的完全访问权限， 负责人则只能访问元数据。</p>
+<p>这种限制策略允许你将备忘录保存在通常被称为<em>负责人</em> （Caretakers） 的对象中。 由于负责人仅通过受限接口与备忘录互动， 故其无法修改存储在备忘录内部的状态。 同时， 原发器拥有对备忘录所有成员的访问权限， 从而能随时恢复其以前的状态。</p>
+<p>在文字编辑器的示例中， 我们可以创建一个独立的历史 （History） 类作为负责人。 编辑器每次执行操作前， 存储在负责人中的备忘录栈都会生长。 你甚至可以在应用的 UI 中渲染该栈， 为用户显示之前的操作历史。</p>
+<p>当用户触发撤销操作时， 历史类将从栈中取回最近的备忘录， 并将其传递给编辑器以请求进行回滚。 由于编辑器拥有对备忘录的完全访问权限， 因此它可以使用从备忘录中获取的数值来替换自身的状态。</p>
+<h2 id="模式结构"><a href="#模式结构" class="headerlink" title="模式结构"></a>模式结构</h2><p><img src="https://refactoringguru.cn/images/patterns/diagrams/memento/structure1.png" alt="基于嵌套类的备忘录"></p>
+<ol>
+<li><strong>原发器</strong> （Originator） 类可以生成自身状态的快照， 也可以在需要时通过快照恢复自身状态。</li>
+<li><strong>备忘录</strong> （Memento） 是原发器状态快照的值对象 （value object）。 通常做法是将备忘录设为不可变的， 并通过构造函数一次性传递数据。</li>
+<li><strong>负责人</strong> （Caretaker） 仅知道 “何时” 和 “为何” 捕捉原发器的状态， 以及何时恢复状态。负责人通过保存备忘录栈来记录原发器的历史状态。 当原发器需要回溯历史状态时， 负责人将从栈中获取最顶部的备忘录， 并将其传递给原发器的恢复 （restoration） 方法。</li>
+<li>在该实现方法中， 备忘录类将被嵌套在原发器中。 这样原发器就可访问备忘录的成员变量和方法， 即使这些方法被声明为私有。 另一方面， 负责人对于备忘录的成员变量和方法的访问权限非常有限： 它们只能在栈中保存备忘录， 而不能修改其状态。</li>
+</ol>
+<h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><p>以合同状态为例：</p>
+<ul>
+<li>草稿</li>
+<li>执行</li>
+<li>到期</li>
+</ul>
+<p><img src="https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202308041717579.png"></p>
+<h3 id="备忘录-一个对象"><a href="#备忘录-一个对象" class="headerlink" title="备忘录-一个对象"></a>备忘录-一个对象</h3><p>1.备忘录对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Memento</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 状态（可以是一个对象，也可以是一个属性）</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> String state;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>记录者</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>:记录者</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Originator</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 状态</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> String state;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 保存状态到备忘录对象中</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> Memento <span class="title function_">createMemento</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Memento</span>(state);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 恢复备忘录中保存的状态</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> memento</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">restoreMemento</span><span class="params">(Memento memento)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.state = memento.getState();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p>备忘录管理者</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>:备忘录管理者(负责人)</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Caretaker</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Memento memento;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 保存备忘录对象</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> memento</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setMemento</span><span class="params">(Memento memento)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.memento = memento;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取备忘录对象</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> Memento <span class="title function_">getMemento</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.memento;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>4.测试类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Client</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Originator</span> <span class="variable">originator</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Originator</span>();</span><br><span class="line">        <span class="type">Caretaker</span> <span class="variable">caretaker</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Caretaker</span>();</span><br><span class="line">        <span class="comment">// 设置初始状态</span></span><br><span class="line">        originator.setState(<span class="string">&quot;草稿&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;初始状态: &quot;</span> + originator.getState());</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 保存状态</span></span><br><span class="line">        caretaker.setMemento(originator.createMemento());</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 修改状态</span></span><br><span class="line">        originator.setState(<span class="string">&quot;执行&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;修改后的状态: &quot;</span> + originator.getState());</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 恢复状态</span></span><br><span class="line">        originator.restoreMemento(caretaker.getMemento());</span><br><span class="line">        System.out.println(<span class="string">&quot;恢复后的状态: &quot;</span> + originator.getState());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>5.结果</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">初始状态: 草稿</span><br><span class="line">修改后的状态: 执行</span><br><span class="line">恢复后的状态: 草稿</span><br></pre></td></tr></table></figure>
+
+<h3 id="备忘录：多个对象"><a href="#备忘录：多个对象" class="headerlink" title="备忘录：多个对象"></a>备忘录：多个对象</h3><p>修改备忘录管理器代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>:备忘录管理者</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Caretaker</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 备忘录可以存多个状态</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> List&lt;Memento&gt; mementoList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 保存备忘录对象</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> memento</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setMemento</span><span class="params">(Memento memento)</span> &#123;</span><br><span class="line">        mementoList.add(memento);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 索取备忘录对象</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> Memento <span class="title function_">getMemento</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">Memento</span> <span class="variable">memento</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (mementoList.size() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            memento = mementoList.get(mementoList.size() - <span class="number">1</span>);</span><br><span class="line">            <span class="comment">//恢复后移除这个状态</span></span><br><span class="line">            mementoList.remove(mementoList.size() - <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> memento;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>.测试类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Client</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        com.cong.yanmo.behaviormodel.memo.manyState.<span class="type">Caretaker</span> <span class="variable">caretaker</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Caretaker</span>();</span><br><span class="line">        <span class="comment">//创建原发器，设置状态</span></span><br><span class="line">        <span class="type">Originator</span> <span class="variable">originator</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Originator</span>();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//管理者使用备忘录记录状态</span></span><br><span class="line">        originator.setState(<span class="string">&quot;草稿&quot;</span>);</span><br><span class="line">        caretaker.setMemento(originator.createMemento());</span><br><span class="line"></span><br><span class="line">        originator.setState(<span class="string">&quot;执行&quot;</span>);</span><br><span class="line">        caretaker.setMemento(originator.createMemento());</span><br><span class="line"></span><br><span class="line">        <span class="comment">//修改原发器的状态</span></span><br><span class="line">        originator.setState(<span class="string">&quot;到期&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;当前合同状态：&quot;</span> + originator.getState());</span><br><span class="line"></span><br><span class="line">        <span class="comment">//恢复备忘录中存的状态</span></span><br><span class="line">        originator.restoreMemento(caretaker.getMemento());</span><br><span class="line">        System.out.println(<span class="string">&quot;回退上一合同状态：&quot;</span> + originator.getState());</span><br><span class="line"></span><br><span class="line">        originator.restoreMemento(caretaker.getMemento());</span><br><span class="line">        System.out.println(<span class="string">&quot;回退上一合同状态：&quot;</span> + originator.getState());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">当前合同状态：到期</span><br><span class="line">回退上一合同状态：执行</span><br><span class="line">回退上一合同状态：草稿</span><br></pre></td></tr></table></figure>
+
+<h2 id="适合的应用场景"><a href="#适合的应用场景" class="headerlink" title="适合的应用场景"></a>适合的应用场景</h2><p> <strong>当你需要创建对象状态快照来恢复其之前的状态时****，</strong> <strong>可以使用备忘录模式****。</strong></p>
+<p>备忘录模式允许你复制对象中的全部状态 （包括私有成员变量）， 并将其独立于对象进行保存。 尽管大部分人因为 “撤销” 这个用例才记得该模式， 但其实它在处理事务 （比如需要在出现错误时回滚一个操作） 的过程中也必不可少。</p>
+<p><strong>当直接访问对象的成员变量****、</strong> <strong>获取器或设置器将导致封装被突破时****，</strong> <strong>可以使用该模式****。</strong></p>
+<p> 备忘录让对象自行负责创建其状态的快照。 任何其他对象都不能读取快照， 这有效地保障了数据的安全性。</p>
+<h2 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h2><ol>
+<li><p>确定担任原发器角色的类。 重要的是明确程序使用的一个原发器中心对象， 还是多个较小的对象。</p>
+</li>
+<li><p>创建备忘录类。 逐一声明对应每个原发器成员变量的备忘录成员变量。</p>
+</li>
+<li><p>将备忘录类设为不可变。 备忘录只能通过构造函数一次性接收数据。 该类中不能包含设置器。</p>
+</li>
+<li><p>如果你所使用的编程语言支持嵌套类， 则可将备忘录嵌套在原发器中； 如果不支持， 那么你可从备忘录类中抽取一个空接口， 然后让其他所有对象通过接口来引用备忘录。 你可在该接口中添加一些元数据操作， 但不能暴露原发器的状态。</p>
+</li>
+<li><p>在原发器中添加一个创建备忘录的方法。 原发器必须通过备忘录构造函数的一个或多个实际参数来将自身状态传递给备忘录。</p>
+<p>该方法返回结果的类型必须是你在上一步中抽取的接口 （如果你已经抽取了）。 实际上， 创建备忘录的方法必须直接与备忘录类进行交互。</p>
+</li>
+<li><p>在原发器类中添加一个用于恢复自身状态的方法。 该方法接受备忘录对象作为参数。 如果你在之前的步骤中抽取了接口， 那么可将接口作为参数的类型。 在这种情况下， 你需要将输入对象强制转换为备忘录， 因为原发器需要拥有对该对象的完全访问权限。</p>
+</li>
+<li><p>无论负责人是命令对象、 历史记录或其他完全不同的东西， 它都必须要知道何时向原发器请求新的备忘录、 如何存储备忘录以及何时使用特定备忘录来对原发器进行恢复。</p>
+</li>
+<li><p>负责人与原发器之间的连接可以移动到备忘录类中。 在本例中， 每个备忘录都必须与创建自己的原发器相连接。 恢复方法也可以移动到备忘录类中， 但只有当备忘录类嵌套在原发器中， 或者原发器类提供了足够多的设置器并可对其状态进行重写时， 这种方式才能实现。</p>
+</li>
+</ol>
+<h2 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h2><p>优点：</p>
+<ul>
+<li>你可以在不破坏对象封装情况的前提下创建对象状态快照。</li>
+<li>你可以通过让负责人维护原发器状态历史记录来简化原发器代码。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>如果客户端过于频繁地创建备忘录， 程序将消耗大量内存。</li>
+<li>负责人必须完整跟踪原发器的生命周期， 这样才能销毁弃用的备忘录。</li>
+<li>绝大部分动态编程语言 （例如 PHP、 Python 和 JavaScript） 不能确保备忘录中的状态不被修改。</li>
+</ul>
+<h2 id="与其他模式的关系"><a href="#与其他模式的关系" class="headerlink" title="与其他模式的关系"></a>与其他模式的关系</h2><ul>
+<li>你可以同时使用<a target="_blank" rel="noopener" href="https://refactoringguru.cn/design-patterns/command">命令模式</a>和<a target="_blank" rel="noopener" href="https://refactoringguru.cn/design-patterns/memento">备忘录模式</a>来实现 “撤销”。 在这种情况下， 命令用于对目标对象执行各种不同的操作， 备忘录用来保存一条命令执行前该对象的状态。</li>
+<li>你可以同时使用<a target="_blank" rel="noopener" href="https://refactoringguru.cn/design-patterns/memento">备忘录</a>和<a target="_blank" rel="noopener" href="https://refactoringguru.cn/design-patterns/iterator">迭代器模式</a>来获取当前迭代器的状态， 并且在需要的时候进行回滚。</li>
+<li>有时候<a target="_blank" rel="noopener" href="https://refactoringguru.cn/design-patterns/prototype">原型模式</a>可以作为<a target="_blank" rel="noopener" href="https://refactoringguru.cn/design-patterns/memento">备忘录</a>的一个简化版本， 其条件是你需要在历史记录中存储的对象的状态比较简单， 不需要链接其他外部资源， 或者链接可以方便地重建。</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://refactoringguru.cn/design-patterns/memento">备忘录模式</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42665745/article/details/128312654">备忘录模式</a></p>
+
+        </article>
+        <div class="post-tools" id="post-tools">
+            <div class="post-tools-left">
+                
+                <div class="share-link mobile">
+    <div class="share-qrcode">
+        <div class="share-button" title="使用手机访问这篇文章">
+            <i class="fas fa-qrcode"></i>
+        </div>
+        <div class="share-main">
+            <div class="share-main-all">
+                <div id="qrcode" title="http://yamonc.github.io/2023/08/04/01.%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F/">
+                </div>
+                <div class="reward-dec">使用手机访问这篇文章</div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            new QRCode(document.getElementById("qrcode"), "http://yamonc.github.io/2023/08/04/01.%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F/");
+        </script>
+    </div>
+</div>
+                <div class="share-link weibo"><a class="share-button" target="_blank"
+    href="https://service.weibo.com/share/share.php?title=备忘录模式&amp;url=http://yamonc.github.io/2023/08/04/01.%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F/&amp;pic=https://markdown-image-bed.oss-cn-beijing.aliyuncs.com/202308041726286.jpeg"
+    title="分享到微博" rel="noopener external nofollow noreferrer noopener">
+    <i class="fab fa-weibo" style="font-size:22px"></i>
+</a>
+</div>
+<div class="share-link copyurl">
+<div class="share-button" id="post-share-url" title="复制链接" onclick="acrylic.copyPageUrl()">
+    <i class="fas fa-link"></i>
+</div>
+</div>
+            </div>
+            <div class="post-tools-right">
+                <div class="tag_share">
+                    <div class="post-meta__tag-list">
+                        
+                            <a href="/tags/%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F/" class="post-meta__tags">
+                                <span class="tags-punctuation">#</span>
+                                备忘录模式
+                                <span class="tagsPageCount">1</span>
+                            </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="post-copyright">
+    <div class="post-copyright__author">
+        <a class="post-copyright__original" title="该文章为原创文章，注意版权协议">原创</a>
+        <a class="post-copyright-title" href="#">
+            <span>备忘录模式</span>
+        </a>
+    </div>
+    <div class="post-copyright__type">
+        <span class="post-copyright-info" id="post-copyright-url">
+            <a href="/2023/08/04/01.%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F/">http://yamonc.github.io/2023/08/04/01.%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F/</a>
+        </span>
+        <button class="post-copyright-copybtn" onclick="acrylic.copyPageUrl()">
+            <i class="fas fa-paste copy-btn"></i>
+        </button>
+    </div>
+    <div class="post-copyright__notice"><span class="post-copyright-info">本文是原创文章，采用 <a
+                href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a> 协议，完整转载请注明来自 <a
+                href="/">yamon，分享并热爱生活</a>
+            </span>
+        </div>
+</div>
+        <nav class="pagination-post" id="pagination">
+    
+        <div class="prev-post pull-left">
+            <a href="/2023/08/30/12.%20RabbitMQ/00-RabbitMQ%E5%AE%98%E6%96%B9%E6%95%99%E7%A8%8B-hello%20world/">
+                <div class="pagination-info">
+                    <div class="label">上一篇</div>
+                    <div class="prev_info">RabbitMQ官方教程-hello world</div>
+                </div>
+            </a>
+        </div>
+        <div class="next-post pull-right">
+            <a href="/2023/08/04/01.%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/">
+                <div class="pagination-info">
+                    <div class="label">下一篇</div>
+                    <div class="next_info">责任链模式</div>
+                </div>
+            </a>
+        </div>
+    
+</nav>
+        
+            <div id="post-comment">
+    <div class="comment-head">
+        <div class="comment-headline">
+            <i class="fas fa-message fa-fw"></i>
+            <span> 评论</span>
+        </div>
+    </div>
+    <div class="comment-wrap">
+        <div id="comment"></div>
+        <script>
+    async function initComment(){
+        var initOptions = Object.assign(
+            {"envId":"https://twikoo.chenym.top/","path":"window.location.pathname"},
+            {
+                el: '#comment',
+                onCommentLoaded: function() {
+                    GLOBALCONFIG.lightbox && acrylic.lightbox('#article-container img, #twikoo .tk-content img:not(.tk-owo-emotion)') 
+                }
+            }
+        )
+        await twikoo.init(initOptions)
+        
+            var countOptions = Object.assign(
+                {"envId":"https://twikoo.chenym.top/","path":"window.location.pathname"},
+                { 
+                    urls: [window.location.pathname],
+                    includeReply: false
+                }
+            )
+            const res = await twikoo.getCommentsCount(countOptions)
+            try{
+                document.getElementById('twikoo-count').innerText = res[0].count
+            }catch (e) {
+                document.getElementById('twikoo-count').innerText = '加载错误'
+            }
+             
+    }
+</script>
+    </div>
+</div>
+            
+    </div>
+    <div class="aside-content" id="aside-content">
+    
+    
+        
+        <div class="card-widget card-info">
+    <div class="card-content">
+        <div class="card-info-avatar is-center">
+            <div class="author-info__sayhi" id="author-info__sayhi">
+            </div>
+            <div class="author-info__name">
+                yamon
+            </div>
+            <div class="author-info__description">这有关于<b>开发</b>、<b>技术</b>相关的问题和看法，还有对于生活的一些<b>随想</b>。<br>相信你可以在这里找到对你有用的知识和教程。</div>
+        </div>
+    </div>
+    <div class="banner-button-group">
+        <a class="banner-button" target="_blank" rel="noopener" href="https://chenym.top">
+            <i class="fas fa-circle-chevron-right"></i>
+            <span class="banner-button-text">个人主页</span>
+        </a>
+    </div>
+    <div class="card-info-social-icons is-center">
+        
+            <a class="social-icon" target="_blank" rel="noopener" href="https://github.com/yamonc" title="Github">
+                <i class="fa-brands fa-github"></i>
+            </a>
+        
+            <a class="social-icon" href="mailto:lovechen1996428@qq.com" title="Mail">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        
+    </div>
+</div>
+     
+    
+    <div class="sticky_layout">
+        
+            <div class="card-widget" id="card-toc">
+    <div class="item-headline">
+        <i class="fas fa-bars"></i>
+        <span>文章目录</span>
+    </div>
+    <div class="toc-content" id="toc-content">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F"><span class="toc-text">备忘录模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%84%8F%E5%9B%BE"><span class="toc-text">意图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-text">问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-text">解决方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84"><span class="toc-text">模式结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%EF%BC%9A"><span class="toc-text">代码：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%87%E5%BF%98%E5%BD%95-%E4%B8%80%E4%B8%AA%E5%AF%B9%E8%B1%A1"><span class="toc-text">备忘录-一个对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%87%E5%BF%98%E5%BD%95%EF%BC%9A%E5%A4%9A%E4%B8%AA%E5%AF%B9%E8%B1%A1"><span class="toc-text">备忘录：多个对象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%82%E5%90%88%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">适合的应用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="toc-text">实现方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-text">优缺点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8E%E5%85%B6%E4%BB%96%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-text">与其他模式的关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-text">参考</span></a></li></ol></li></ol>
+    </div>
+</div>
+            
+        
+            
+        <div class="card-widget card-recent-post">
+    <div class="item-headline">
+        <i class="fas fa-list-ol"></i>
+        <span>最近发布</span>
+    </div>
+    <div class="aside-list">
+        
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2024/04/05/13.%20%E8%BD%AF%E8%80%83/%E8%AE%A1%E7%BB%84/" title="无标题">
+                    <img
+                        alt="无标题"
+                        src="/img/hello.jpg">
+                </a>
+                <div class="content">
+                    
+                    <a class="title" href="/2024/04/05/13.%20%E8%BD%AF%E8%80%83/%E8%AE%A1%E7%BB%84/" title="无标题">
+                        无标题
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2024/04/05/11.%E7%94%9F%E6%B4%BB/%E5%AE%B6%E5%85%B7%E5%AE%B6%E7%94%B5%E6%B8%85%E5%8D%95/" title="无标题">
+                    <img
+                        alt="无标题"
+                        src="/img/hello.jpg">
+                </a>
+                <div class="content">
+                    
+                    <a class="title" href="/2024/04/05/11.%E7%94%9F%E6%B4%BB/%E5%AE%B6%E5%85%B7%E5%AE%B6%E7%94%B5%E6%B8%85%E5%8D%95/" title="无标题">
+                        无标题
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2024/04/05/07.%E6%97%A5%E5%B8%B8%E6%8E%92%E9%94%99%E8%AE%B0%E5%BD%95/IO%20error%20on%20POST%20request%20for%20xxx%20Connection%20reset;%20Connection%20reset/" title="无标题">
+                    <img
+                        alt="无标题"
+                        src="/img/hello.jpg">
+                </a>
+                <div class="content">
+                    
+                    <a class="title" href="/2024/04/05/07.%E6%97%A5%E5%B8%B8%E6%8E%92%E9%94%99%E8%AE%B0%E5%BD%95/IO%20error%20on%20POST%20request%20for%20xxx%20Connection%20reset;%20Connection%20reset/" title="无标题">
+                        无标题
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2024/04/05/06.%E5%8A%A0%E8%A7%A3%E5%AF%86%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/keytool%E7%94%9F%E6%88%90%E5%85%AC%E7%A7%81%E9%92%A5%E4%BB%A3%E7%A0%81/" title="无标题">
+                    <img
+                        alt="无标题"
+                        src="/img/hello.jpg">
+                </a>
+                <div class="content">
+                    
+                    <a class="title" href="/2024/04/05/06.%E5%8A%A0%E8%A7%A3%E5%AF%86%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/keytool%E7%94%9F%E6%88%90%E5%85%AC%E7%A7%81%E9%92%A5%E4%BB%A3%E7%A0%81/" title="无标题">
+                        无标题
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2024/03/21/jdk17%E6%B2%A1%E6%9C%89jre%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" title="---">
+                    <img
+                        alt="---"
+                        src="21321">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2024/03/21/jdk17%E6%B2%A1%E6%9C%89jre%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
+                            231321
+                        </a>
+                    
+                    <a class="title" href="/2024/03/21/jdk17%E6%B2%A1%E6%9C%89jre%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" title="---">
+                        ---
+                    </a>
+                </div>
+            </div>
+            
+    </div>
+</div>
+     
+        
+    </div>
+</div> 
+</main>
+                <footer id="footer">
+                    <div id="footer_deal">
+    
+        <a class="deal_link" href="/" rel="external nofollow" title="Github">
+            <i class="fa-brands fa-github"></i>
+        </a>
+    
+        <a class="deal_link" href="/" rel="external nofollow" title="Mail">
+            <i class="fa-solid fa-envelope"></i>
+        </a>
+    
+    <img class="footer_mini_logo" src="/img/avatar.webp"
+        title="返回顶部" onclick="acrylic.toTop()">
+    
+        <a class="deal_link" href="/" rel="external nofollow" title="网易云">
+            <i class="fa-solid fa-music"></i>
+        </a>
+    
+        <a class="deal_link" href="/" rel="external nofollow" title="bilibili">
+            <i class="fa-brands fa-bilibili"></i>
+        </a>
+    
+</div>    
+<div id="heo-footer">
+    
+        <div class="footer-group">
+            <h3 class="footer-title">导航</h3>
+            <div class="footer-links">
+                
+                    <a class="footer-item" href="/archives/" title="文章归档" rel="noopener external nofollow noreferrer">文章归档</a>
+                
+                    <a class="footer-item" href="/categories/" title="文章分类" rel="noopener external nofollow noreferrer">文章分类</a>
+                
+                    <a class="footer-item" href="/tags/" title="文章标签" rel="noopener external nofollow noreferrer">文章标签</a>
+                
+                    <a class="footer-item" href="/link/" title="友链" rel="noopener external nofollow noreferrer">友链</a>
+                    
+            </div>
+        </div>
+    
+        <div class="footer-group">
+            <h3 class="footer-title">服务</h3>
+            <div class="footer-links">
+                
+                    <a class="footer-item" target="_blank" href="https://51.la/" title="51la统计" rel="noopener external nofollow noreferrer noopener">51la统计</a>
+                
+                    <a class="footer-item" target="_blank" href="https://tongji.baidu.com/" title="百度统计" rel="noopener external nofollow noreferrer noopener">百度统计</a>
+                
+                    <a class="footer-item" target="_blank" href="https://ql.tianli0.top/" title="TianliCDN" rel="noopener external nofollow noreferrer noopener">TianliCDN</a>
+                    
+            </div>
+        </div>
+    
+        <div class="footer-group">
+            <h3 class="footer-title">Acrylic</h3>
+            <div class="footer-links">
+                
+                    <a class="footer-item" target="_blank" href="https://acrylic.zhheo.com/" title="主题官网" rel="noopener external nofollow noreferrer noopener">主题官网</a>
+                
+                    <a class="footer-item" target="_blank" href="https://github.com/hexo-theme-Acrylic/Hexo-Theme-Acrylic" title="Github" rel="noopener external nofollow noreferrer noopener">Github</a>
+                
+                    <a class="footer-item" target="_blank" href="https://blog.zhheo.com/" title="Heo" rel="noopener external nofollow noreferrer noopener">Heo</a>
+                    
+            </div>
+        </div>
+    
+        <div class="footer-group">
+            <h3 class="footer-title">推荐友链</h3>
+            <div class="footer-links">
+                
+                    <a class="footer-item" target="_blank" href="https://blog.zhheo.com/" title="Heo" rel="noopener external nofollow noreferrer noopener">Heo</a>
+                
+                    <a class="footer-item" target="_blank" href="https://akilar.top" title="Akilar" rel="noopener external nofollow noreferrer noopener">Akilar</a>
+                    
+            </div>
+        </div>
+    
+    
+</div>
+<div id="footer-section">
+    <div class="footer-section-links">
+        <div class="footer-section-left">
+            <div id="footer-section-tips">
+                <div class="copyright">©2023 - 2024 By 
+                    <a class="footer-section-link" href="/" rel="external nofollow">yamon</a>
+                    <a class="footer-section-link" href="https://github.com/hexo-theme-Acrylic/Hexo-Theme-Acrylic-Next" rel="external nofollow" target="_blank"> Theme By Acrylic-Next</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-section-right">
+            <a class="footer-section-link" href="/rss/">订阅</a>
+            
+            <a class="footer-section-link cc" target="_blank" href="https://creativecommons.org/licenses/by/4.0/" title="cc协议">
+                <i class="fa-solid fa-closed-captioning"></i>
+            </a>
+        </div>
+    </div>
+</div>
+                </footer>
+            </div>
+         
+        <div>
+    <script type="text/javascript" src="/js/utils.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+    
+
+<script src="/lib/pjax.min.js"></script>
+
+
+
+<script src="/lib/snackbar.min.js"></script>
+
+
+    
+<script src="/lib/view-image.min.js"></script>
+
+
+
+<div id="js-pjax">
+    
+    
+        <script async src="https://npm.elemecdn.com/penndu@1.0.0/bsz.js"></script>
+     
+</div>
+
+
+    
+<script src="/js/extend/covercolor/local.js"></script>
+
+        
+
+
+    
+<script src="/js/extend/console/comment.js"></script>
+
+
+    <script>
+  let pjaxSelectors = [
+    'title',
+    '#body-wrap',
+    '#site-config',
+    'meta[name="description"]',
+    '#js-pjax'
+  ]
+  
+  const pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+  })
+
+  document.addEventListener('pjax:error', (e) => {
+    if (e.request.status === 404) {
+      pjax.loadUrl('/404.html')
+    }
+  })
+</script>
+    
+</div>
+        
+    <div id="local-search">
+    <div class="search-dialog">
+        <nav class="search-nav">
+            <span class="search-dialog-title">搜索</span>
+            <button class="search-close-button">
+                <i class="fas fa-times"></i>
+            </button>
+        </nav>
+        <div id="loading-database">
+            <i class="fas fa-spinner fa-pulse"></i>
+            <span>加载中</span>
+        </div>
+        <div class="search-wrap">
+            <div class="search-box">
+                <input class="search-box-input" placeholder="输入关键词快速查找" type="text" id="search-input" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off">
+            </div>
+            <div id="loading-status"></div>
+            <div id="search-results"></div>
+        </div>
+    </div>
+    <div id="search-mask"></div>
+</div>
+    
+<link rel="stylesheet" href="/css/search/local-search.css">
+
+    
+<script src="/js/extend/search/local-search.js"></script>
+
+
+     
+        <div class="needEndHide" id="nav-music" onclick="acrylic.musicToggle()">
+    <div id="nav-music-hoverTips">音乐已暂停</div>
+    <meting-js id="1708664797" server="tencent" type="playlist" mutex="true"
+        preload="none" data-lrctype="0" order="random" theme="var(--heo-main)"></meting-js>
+</div>
+    
+    </body>
+</html>
+<script>const posts=["2024/04/05/13. 软考/计组/","2024/04/05/11.生活/家具家电清单/","2024/04/05/07.日常排错记录/IO error on POST request for xxx Connection reset; Connection reset/","2024/04/05/06.加解密知识点汇总/keytool生成公私钥代码/","2024/03/21/jdk17没有jre的解决方法/","2024/03/21/test/","2023/08/31/12. RabbitMQ/05-RabbitMQ官方教程-RPC/","2023/08/31/12. RabbitMQ/04-RabbitMQ官方教程-Topic/","2023/08/30/10. Linux/设置DNS/","2023/08/30/10. Linux/挂载硬盘/","2023/08/30/12. RabbitMQ/03-RabbitMQ官方教程-Routing/","2023/08/30/12. RabbitMQ/02-RabbitMQ官方教程-发布订阅模式/","2023/08/30/12. RabbitMQ/01-RabbitMQ官方教程-Work queues/","2023/08/30/12. RabbitMQ/00-RabbitMQ官方教程-hello world/","2023/08/04/01.设计模式/备忘录模式/","2023/08/04/01.设计模式/责任链模式/","2023/08/03/02.开源项目/Hexo文章转换器III/","2023/08/03/01.设计模式/极客时间/设计原则与思想：设计原则/【设计模式之美】22.理论八：如何用迪米特法则（LOD）实现“高内聚、松耦合”？/","2023/08/03/01.设计模式/极客时间/设计原则与思想：设计原则/【设计模式之美】21. 理论七：重复的代码就一定违背DRY吗？如何提高代码的复用性？/","2023/08/03/01.设计模式/极客时间/设计原则与思想：设计原则/【设计模式之美】20.理论六：我为何说KISS、YAGNI原则看似简单，却经常被用错？ /","2023/08/03/01.设计模式/极客时间/设计原则与思想：设计原则/【设计模式之美】19. 理论五：控制反转、依赖反转、依赖注入，这三者有何区别和联系？/","2023/08/03/01.设计模式/极客时间/设计原则与思想：设计原则/【设计模式之美】18. 理论四：接口隔离原则有哪三种应用？原则中的“接口”该如何理解？/","2023/08/03/01.设计模式/极客时间/设计原则与思想：设计原则/【设计模式之美】17.理论三：里式替换（LSP）跟多态有何区别？哪些代码违背了LSP？ /","2023/08/03/01.设计模式/极客时间/设计原则与思想：设计原则/【设计模式之美】16. 理论二：如何做到“对扩展开放、修改关闭”？扩展和修改各指什么？/","2023/08/03/09.ZStack/VPC网络、公有网络、扁平网络/","2023/07/24/test1/","2023/07/15/04.Java/Java基础/06. 反射的具体使用场景/","2023/07/15/08. 软件工程/类与类之间的交互关系/","2023/07/15/01.设计模式/极客时间/设计原则与思想：设计原则/【设计模式之美】15.理论一：对于单一职责原则，如何判定某个类的职责是否够“单一”？ /","2023/07/15/01.设计模式/极客时间/设计原则与思想：面向对象/【设计模式之美】14. 实战二（下）：如何利用面向对象设计和编程开发接口鉴权功能？/","2023/07/14/04.Java/JVM/Java类加载过程/","2023/07/14/04.Java/Java基础/05. 动态代理/","2023/07/14/04.Java/Java基础/04. Java如何通过反射获取成员方法/","2023/07/14/04.Java/Java基础/03. Java如何通过反射获取成员变量/","2023/07/14/04.Java/Java基础/02. Java如何通过反射访问构造方法？/","2023/07/14/04.Java/Java基础/01. Java反射API/","2023/07/14/04.Java/Java基础/00.反射-基本入门/","2023/07/13/01.设计模式/极客时间/设计原则与思想：面向对象/【设计模式之美】13. 实战二（上）：如何对接口鉴权这样一个功能开发做面向对象分析？/","2023/07/13/01.设计模式/极客时间/设计原则与思想：面向对象/【设计模式之美】12.实战一（下）：如何利用基于充血模型的DDD开发一个虚拟钱包系统？ /","2023/07/13/05.Spring/IOC高级-BeanDefinition/","2023/07/12/06.加解密知识点汇总/JDK的keytool总结/","2023/07/12/01.设计模式/极客时间/设计原则与思想：面向对象/【设计模式之美】11. 实战一（上）：业务开发常用的基于贫血模型的MVC架构违背OOP吗？/","2023/07/11/06.加解密知识点汇总/RSA和AES加密工具类算法/","2023/07/11/06.加解密知识点汇总/非对称加密算法/","2023/07/07/00.算法/删除链表的倒数第N个节点/","2023/07/07/05.Spring/IOC高级-配置源&配置元信息/","2023/07/07/01.设计模式/极客时间/设计原则与思想：面向对象/【设计模式之美】10. 理论七：为何说要多用组合少用继承？如何决定该用组合还是继承？/","2023/07/07/01.设计模式/极客时间/设计原则与思想：面向对象/【设计模式之美】09.理论六：为什么基于接口而非实现编程？有必要为每个类都定义接口吗？/","2023/07/07/01.设计模式/极客时间/设计原则与思想：面向对象/【设计模式之美】08.理论五：接口vs抽象类的区别？如何用普通的类模拟抽象类和接口？)/","2023/07/07/00.算法/反转链表I/","2023/06/28/springboot如何将控制台的代码保存到文件中/","2023/06/28/01.设计模式/极客时间/设计原则与思想：面向对象/【设计模式之美】07.理论四：哪些代码设计看似是面向对象，实际是面向过程的？/","2023/06/28/01.设计模式/极客时间/设计原则与思想：面向对象/【设计模式之美】06.理论三：面向对象相比面向过程有哪些优势？面向过程真的过时了吗？/","2023/06/28/01.设计模式/极客时间/设计原则与思想：面向对象/【设计模式之美】05.理论二：封装、抽象、继承、多态分别可以解决哪些编程问题？/","2023/06/28/02.开源项目/Hexo文章转换器II/","2023/06/28/01.设计模式/极客时间/设计原则与思想：面向对象/【设计模式之美】04. 理论一：当谈论面向对象的时候，我们到底在谈论什么？/","2023/06/28/00.算法/装满杯子需要的最短总时长/","2023/06/26/00.算法/双指针之链表总结/","2023/06/25/00.算法/链表相交/","2023/06/19/02.开源项目/Hexo文章转换器/","2023/06/19/00.算法/环形链表/","2023/06/19/00.算法/环形链表的起点/","2023/06/19/00.算法/链表的中间结点/","2023/06/17/02.开源项目/综合工具箱/","2023/06/16/如何将java项目打包成exe格式/","2023/06/16/00.算法/单链表的倒数第k个节点/","2023/06/13/03.Hexo/hexo-Acrylic主题集成twikoo评论/","2023/06/13/03.Hexo/hexo如何修改主题/","2023/06/13/03.Hexo/从0到1部署博客系统到Github-Page/"];function toRandomPost(){ window.pjax ? pjax.loadUrl('/'+posts[Math.floor(Math.random()*posts.length)]) : window.open('/'+posts[Math.floor(Math.random()*posts.length)], "_self"); };</script>
